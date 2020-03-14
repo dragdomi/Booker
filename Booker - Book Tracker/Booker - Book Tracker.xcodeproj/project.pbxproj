@@ -56,15 +56,39 @@
 		A53E2BDA241D063B0013152C /* Booker - Book Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				A53E2BF1241D071F0013152C /* Model */,
+				A53E2BF0241D071C0013152C /* View */,
+				A53E2BEF241D07190013152C /* Controller */,
 				A53E2BDB241D063B0013152C /* AppDelegate.swift */,
 				A53E2BDD241D063B0013152C /* SceneDelegate.swift */,
-				A53E2BDF241D063B0013152C /* ViewController.swift */,
-				A53E2BE1241D063B0013152C /* Main.storyboard */,
 				A53E2BE4241D063C0013152C /* Assets.xcassets */,
 				A53E2BE6241D063C0013152C /* LaunchScreen.storyboard */,
 				A53E2BE9241D063C0013152C /* Info.plist */,
 			);
 			path = "Booker - Book Tracker";
+			sourceTree = "<group>";
+		};
+		A53E2BEF241D07190013152C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A53E2BDF241D063B0013152C /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A53E2BF0241D071C0013152C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A53E2BE1241D063B0013152C /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A53E2BF1241D071F0013152C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
