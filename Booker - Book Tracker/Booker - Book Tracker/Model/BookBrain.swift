@@ -10,4 +10,10 @@ import Foundation
 
 struct BookBrain {
     var books: [BookModel] = []
+    
+    mutating func addBook() {
+        //Prototype
+        books.append(BookModel(title: "", author: "", totalPages: 0, pagesRead: 0, beginDate: Date(), finishDate: nil))
+        print(books)
+    }
 }
