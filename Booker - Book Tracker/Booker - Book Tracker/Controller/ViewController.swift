@@ -28,7 +28,7 @@ class ViewController: UITableViewController {
     
     @objc func addBook() {
         //TODO: Go to a view, which will gather book info
-        bookBrain.addBook()
+        self.performSegue(withIdentifier: "AddBook", sender: self)
     }
     
     
