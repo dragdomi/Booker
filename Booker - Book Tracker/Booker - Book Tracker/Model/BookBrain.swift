@@ -12,7 +12,6 @@ struct BookBrain {
     var books: [BookModel] = []
     
     mutating func addBook(title: String, author: String, totalPages: Int, pagesRead: Int, beginDate: Date, finishDate: Date?) {
-        //Prototype
         books.append(BookModel(title: title, author: author, totalPages: totalPages, pagesRead: pagesRead, beginDate: beginDate, finishDate: finishDate))
         print(books)
     }
