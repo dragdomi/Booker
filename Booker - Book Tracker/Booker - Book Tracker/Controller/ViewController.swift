@@ -12,6 +12,9 @@ class ViewController: UITableViewController {
     var bookBrain = BookBrain()
     
     override func viewDidLoad() {
+        title = "Your books:"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
         super.viewDidLoad()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBook))
     }
