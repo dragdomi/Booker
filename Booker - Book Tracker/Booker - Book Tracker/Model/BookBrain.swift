@@ -9,5 +9,5 @@
 import Foundation
 
 struct BookBrain {
-    var bookModel: BookModel?
+    var books: [BookModel] = []
 }
