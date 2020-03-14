@@ -12,7 +12,7 @@ struct BookModel {
     let Title: String
     let Author: String
     let totalPages: Int
-    let pagesRead: Int
+    var pagesRead: Int
     let beginDate: Date
-    let finishDate: Date
+    let finishDate: Date?
 }
