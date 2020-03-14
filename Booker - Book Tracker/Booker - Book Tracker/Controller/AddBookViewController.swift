@@ -14,5 +14,39 @@ class AddBookViewController: UIViewController {
     @IBOutlet weak var totalPagesTextField: UITextField!
     @IBOutlet weak var pagesReadTextField: UITextField!
     
+    var bookTitle: String?
+    var bookAuthor: String?
+    var bookTotalPages: Int?
+    var bookPagesRead: Int?
+    var beginDate: Date?
+    
+    override func viewDidLoad() {
+        
+    }
+    
+    @IBAction func textFieldChanged(_ sender: UITextField) {
+        if let senderText = sender.text {
+            switch sender.tag {
+            case 0:
+                bookTitle = senderText
+                print(bookTitle)
+            case 1:
+                bookAuthor = senderText
+                print(bookAuthor)
+            case 2:
+                if let senderInt = Int(senderText) {
+                    bookTotalPages = senderInt
+                    print(bookTotalPages)
+                }
+            case 3:
+                if let senderInt = Int(senderText) {
+                    bookPagesRead = senderInt
+                    print(bookPagesRead)
+                }
+            default:
+                print("Out of cases")
+            }
+        }
+    }
     
 }
