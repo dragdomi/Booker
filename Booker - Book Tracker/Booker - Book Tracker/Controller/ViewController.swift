@@ -8,13 +8,32 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UITableViewController {
+    var bookBrain = BookBrain()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBook))
     }
-
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return bookBrain.books.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Book", for: indexPath)
+        cell.textLabel?.text = bookBrain.books[indexPath.row].title
+        return cell
+    }
+    
+    @objc func addBook() {
+        //TODO: Go to a view, which will gather book info
+        bookBrain.addBook()
+    }
+    
+    
+    
+    
 
 }
 
