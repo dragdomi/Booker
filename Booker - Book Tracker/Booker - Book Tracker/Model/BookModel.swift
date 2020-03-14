@@ -9,8 +9,8 @@
 import Foundation
 
 struct BookModel {
-    let Title: String
-    let Author: String
+    let title: String
+    let author: String
     let totalPages: Int
     var pagesRead: Int
     let beginDate: Date
