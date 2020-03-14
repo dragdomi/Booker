@@ -47,6 +47,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WEH-sc-ma8">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="407.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter book data:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LeM-G1-1Kg" userLabel="TitleLabel">
+                                        <rect key="frame" x="0.0" y="187" width="414" height="33.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="LeM-G1-1Kg" firstAttribute="leading" secondItem="WEH-sc-ma8" secondAttribute="leading" id="04O-MU-ogt"/>
+                                    <constraint firstItem="LeM-G1-1Kg" firstAttribute="centerY" secondItem="WEH-sc-ma8" secondAttribute="centerY" id="4ZZ-7E-D1R"/>
+                                    <constraint firstAttribute="trailing" secondItem="LeM-G1-1Kg" secondAttribute="trailing" id="bxi-dw-HyS"/>
+                                </constraints>
+                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aZc-Q0-EAN">
                                 <rect key="frame" x="0.0" y="407.5" width="414" height="400.5"/>
                                 <subviews>
@@ -108,9 +125,13 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="oIN-ug-NQi" firstAttribute="trailing" secondItem="WEH-sc-ma8" secondAttribute="trailing" id="EDY-qw-2wt"/>
+                            <constraint firstItem="aZc-Q0-EAN" firstAttribute="top" secondItem="WEH-sc-ma8" secondAttribute="bottom" id="KwY-Oa-bHP"/>
+                            <constraint firstItem="WEH-sc-ma8" firstAttribute="top" secondItem="oIN-ug-NQi" secondAttribute="top" id="ZgO-2U-6FZ"/>
                             <constraint firstItem="oIN-ug-NQi" firstAttribute="trailing" secondItem="aZc-Q0-EAN" secondAttribute="trailing" id="agb-MP-raI"/>
                             <constraint firstItem="oIN-ug-NQi" firstAttribute="bottom" secondItem="aZc-Q0-EAN" secondAttribute="bottom" id="dC5-ur-umg"/>
                             <constraint firstItem="aZc-Q0-EAN" firstAttribute="leading" secondItem="oIN-ug-NQi" secondAttribute="leading" id="gqO-rc-m1d"/>
+                            <constraint firstItem="WEH-sc-ma8" firstAttribute="leading" secondItem="oIN-ug-NQi" secondAttribute="leading" id="rK4-zM-MUv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oIN-ug-NQi"/>
                     </view>
