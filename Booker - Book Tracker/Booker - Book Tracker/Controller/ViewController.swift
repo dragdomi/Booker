@@ -5,7 +5,7 @@
 //  Created by Dominik Drąg on 14/03/2020.
 //  Copyright © 2020 Dominik Drąg. All rights reserved.
 //
-
+// TODO: Figure out how to update table view after dismissing AddBookViewController
 import UIKit
 
 class ViewController: UITableViewController {
@@ -19,6 +19,11 @@ class ViewController: UITableViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBook))
     }
     
+    @objc func addBook() {
+        self.performSegue(withIdentifier: "AddBook", sender: self)
+        bookBrain.addBook(title: "Essa", author: "Wariacie", totalPages: 3, pagesRead: 1, beginDate: Date(), finishDate: nil)
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return bookBrain.books.count
     }
@@ -28,15 +33,5 @@ class ViewController: UITableViewController {
         cell.textLabel?.text = bookBrain.books[indexPath.row].title
         return cell
     }
-    
-    @objc func addBook() {
-        //TODO: Go to a view, which will gather book info
-        self.performSegue(withIdentifier: "AddBook", sender: self)
-    }
-    
-    
-    
-    
-
 }
 
