@@ -48,10 +48,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WEH-sc-ma8">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="407.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="371"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter book data:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LeM-G1-1Kg" userLabel="TitleLabel">
-                                        <rect key="frame" x="0.0" y="187" width="414" height="33.5"/>
+                                        <rect key="frame" x="0.0" y="168.5" width="414" height="33.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -65,54 +65,54 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aZc-Q0-EAN">
-                                <rect key="frame" x="0.0" y="407.5" width="414" height="400.5"/>
+                                <rect key="frame" x="0.0" y="371" width="414" height="437"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book title" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UNE-jy-VA9" userLabel="TitleTextField">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="32"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="31.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="j1G-NF-mUM"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                         <connections>
                                             <action selector="textFieldChanged:" destination="sKH-Mh-Ug8" eventType="editingDidEnd" id="wHy-Yr-cqs"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book author" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dLE-0C-vuA" userLabel="AuthorTextField">
-                                        <rect key="frame" x="0.0" y="42" width="414" height="32"/>
+                                        <rect key="frame" x="0.0" y="41.5" width="414" height="31.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="OML-TX-Ok6"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                         <connections>
                                             <action selector="textFieldChanged:" destination="sKH-Mh-Ug8" eventType="editingDidEnd" id="BY2-Un-wNo"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number of total pages" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YIZ-dD-sUR" userLabel="TotalPagesTextField">
-                                        <rect key="frame" x="0.0" y="84" width="414" height="32"/>
+                                        <rect key="frame" x="0.0" y="83" width="414" height="31.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="b8c-YQ-LcM"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
                                         <connections>
                                             <action selector="textFieldChanged:" destination="sKH-Mh-Ug8" eventType="editingDidEnd" id="5qx-9M-Aif"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number of read pages" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g6G-uS-cx4" userLabel="PagesReadTextField">
-                                        <rect key="frame" x="0.0" y="126" width="414" height="32"/>
+                                        <rect key="frame" x="0.0" y="124.5" width="414" height="31.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="gnR-8g-LAd"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
                                         <connections>
                                             <action selector="textFieldChanged:" destination="sKH-Mh-Ug8" eventType="editingDidEnd" id="cy8-uQ-7RA"/>
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Begin date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O2P-hP-x3U">
-                                        <rect key="frame" x="0.0" y="168" width="414" height="22.5"/>
+                                        <rect key="frame" x="0.0" y="166" width="414" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="wmv-BP-1Wp"/>
                                         </constraints>
@@ -121,7 +121,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="XTr-fq-5mQ" userLabel="BeginDatePicker">
-                                        <rect key="frame" x="0.0" y="200.5" width="414" height="200"/>
+                                        <rect key="frame" x="0.0" y="198" width="414" height="200"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="200" id="c5n-L0-JDY"/>
                                         </constraints>
@@ -131,7 +131,18 @@
                                         <date key="maximumDate" timeIntervalSinceReferenceDate="1167562800">
                                             <!--2037-12-31 11:00:00 +0000-->
                                         </date>
+                                        <connections>
+                                            <action selector="beginDateChanged:" destination="sKH-Mh-Ug8" eventType="valueChanged" id="zvi-Ki-qTc"/>
+                                        </connections>
                                     </datePicker>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3cR-AM-ciX">
+                                        <rect key="frame" x="0.0" y="408" width="414" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Add a book"/>
+                                        <connections>
+                                            <action selector="addBookButtonPressed:" destination="sKH-Mh-Ug8" eventType="touchUpInside" id="Toy-Fk-bbd"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -148,6 +159,8 @@
                         <viewLayoutGuide key="safeArea" id="oIN-ug-NQi"/>
                     </view>
                     <connections>
+                        <outlet property="addBookButton" destination="3cR-AM-ciX" id="Lju-oI-17s"/>
+                        <outlet property="beginDatePicker" destination="XTr-fq-5mQ" id="vVc-a6-A5s"/>
                         <outlet property="bookAuthorTextField" destination="dLE-0C-vuA" id="G4K-aw-xIp"/>
                         <outlet property="bookTitleTextField" destination="UNE-jy-VA9" id="1xS-8P-bpZ"/>
                         <outlet property="pagesReadTextField" destination="g6G-uS-cx4" id="oah-PK-PWo"/>
