@@ -15,9 +15,8 @@ class AddBookViewController: UIViewController {
     @IBOutlet weak var pagesReadTextField: UITextField!
     @IBOutlet weak var beginDatePicker: UIDatePicker!
     @IBOutlet weak var addBookButton: UIButton!
+    
     let viewController = ViewController()
-    
-    
     var bookTitle: String?
     var bookAuthor: String?
     var bookTotalPages: Int?
@@ -67,6 +66,7 @@ class AddBookViewController: UIViewController {
     
     @IBAction func addBookButtonPressed(_ sender: UIButton) {
         viewController.bookBrain.addBook(title: bookTitle!, author: bookAuthor!, totalPages: bookTotalPages!, pagesRead: bookPagesRead!, beginDate: beginDate!, finishDate: nil)
+        viewController.bookBrain.saveToFile()
         self.dismiss(animated: true, completion: nil)
     }
 }
