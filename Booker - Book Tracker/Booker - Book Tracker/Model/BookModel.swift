@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct BookModel {
+struct BookModel: Codable {
     let title: String
     let author: String
     let totalPages: Int
