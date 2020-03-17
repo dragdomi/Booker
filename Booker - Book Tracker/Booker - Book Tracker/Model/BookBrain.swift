@@ -14,4 +14,24 @@ struct BookBrain {
     mutating func addBook(title: String, author: String, totalPages: Int, pagesRead: Int, beginDate: Date, finishDate: Date?) {
         books.append(BookModel(title: title, author: author, totalPages: totalPages, pagesRead: pagesRead, beginDate: beginDate, finishDate: finishDate))
     }
+    
+    func saveToFile() {
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let archiveURL = documentsDirectory.appendingPathComponent("Booker_test").appendingPathExtension("plist")
+        let propertyListEncoder = PropertyListEncoder()
+        
+        let encodedBooks = try? propertyListEncoder.encode(books)
+        try? encodedBooks?.write(to: archiveURL, options: .noFileProtection)
+    }
+    
+    func loadFromFile() {
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let archiveURL = documentsDirectory.appendingPathComponent("Booker_test").appendingPathExtension("plist")
+        let propertyListDecoder = PropertyListDecoder()
+        
+        if let retrievedBooksData = try? Data(contentsOf: archiveURL), let decodedBooks = try? propertyListDecoder.decode(Array<BookModel>.self, from: retrievedBooksData) {
+        }
+        
+    }
+    
 }
