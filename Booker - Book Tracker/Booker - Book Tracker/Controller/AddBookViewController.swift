@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol AddBookViewControllerDelegate {
+    func addBook(title: String, author: String, totalPages: Int, pagesRead: Int, beginDate: Date, finishDate: Date?)
+}
+
 class AddBookViewController: UIViewController {
     @IBOutlet weak var bookTitleTextField: UITextField!
     @IBOutlet weak var bookAuthorTextField: UITextField!
@@ -15,8 +19,8 @@ class AddBookViewController: UIViewController {
     @IBOutlet weak var pagesReadTextField: UITextField!
     @IBOutlet weak var beginDatePicker: UIDatePicker!
     @IBOutlet weak var addBookButton: UIButton!
+    var delegate: AddBookViewControllerDelegate?
     
-    let viewController = ViewController()
     var bookTitle: String?
     var bookAuthor: String?
     var bookTotalPages: Int?
@@ -48,6 +52,7 @@ class AddBookViewController: UIViewController {
         }
         activateButton()
     }
+    
     @IBAction func beginDateChanged(_ sender: UIDatePicker) {
         beginDate = sender.date
         activateButton()
@@ -65,8 +70,7 @@ class AddBookViewController: UIViewController {
     }
     
     @IBAction func addBookButtonPressed(_ sender: UIButton) {
-        viewController.bookBrain.addBook(title: bookTitle!, author: bookAuthor!, totalPages: bookTotalPages!, pagesRead: bookPagesRead!, beginDate: beginDate!, finishDate: nil)
-        viewController.bookBrain.saveToFile()
-        self.dismiss(animated: true, completion: nil)
+        delegate?.addBook(title: bookTitle!, author: bookAuthor!, totalPages: bookTotalPages!, pagesRead: bookPagesRead!, beginDate: beginDate!, finishDate: nil)
+        navigationController?.popViewController(animated: true)
     }
 }
