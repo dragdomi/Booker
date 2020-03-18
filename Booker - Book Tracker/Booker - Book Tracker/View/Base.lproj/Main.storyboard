@@ -40,9 +40,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="SI2-Qa-7DB"/>
-                    <connections>
-                        <segue destination="sKH-Mh-Ug8" kind="presentation" identifier="AddBook" id="WAr-P6-Wc5"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rvX-Z0-XZb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -51,16 +48,16 @@
         <!--Add Book View Controller-->
         <scene sceneID="Fjr-id-9Ux">
             <objects>
-                <viewController id="sKH-Mh-Ug8" customClass="AddBookViewController" customModule="Booker___Book_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddBook" id="sKH-Mh-Ug8" customClass="AddBookViewController" customModule="Booker___Book_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yhp-lB-jzK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WEH-sc-ma8">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="371"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="381"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter book data:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LeM-G1-1Kg" userLabel="TitleLabel">
-                                        <rect key="frame" x="0.0" y="168.5" width="414" height="33.5"/>
+                                        <rect key="frame" x="0.0" y="173.5" width="414" height="33.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -74,7 +71,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aZc-Q0-EAN">
-                                <rect key="frame" x="0.0" y="371" width="414" height="437"/>
+                                <rect key="frame" x="0.0" y="425" width="414" height="437"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book title" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UNE-jy-VA9" userLabel="TitleTextField">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="31.5"/>
