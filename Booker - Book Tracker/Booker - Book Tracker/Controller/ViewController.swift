@@ -12,7 +12,7 @@ class ViewController: UITableViewController, AddBookViewControllerDelegate {
     var bookBrain = BookBrain()
     
     override func viewDidLoad() {
-        title = "Your books:"
+        title = "Your books"
         navigationController?.navigationBar.prefersLargeTitles = true
         
         super.viewDidLoad()
@@ -27,7 +27,15 @@ class ViewController: UITableViewController, AddBookViewControllerDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Book", for: indexPath)
         cell.textLabel?.text = bookBrain.books[indexPath.row].title
+        cell.detailTextLabel?.text = bookBrain.books[indexPath.row].author
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let bookDetailsViewController = storyboard?.instantiateViewController(identifier: "BookDetails") as? BookDetailsViewController {
+            bookDetailsViewController.book = bookBrain.books[indexPath.row]
+            navigationController?.pushViewController(bookDetailsViewController, animated: true)
+        }
     }
     
     @objc func addBookButton() {
