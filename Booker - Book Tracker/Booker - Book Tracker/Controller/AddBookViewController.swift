@@ -20,7 +20,6 @@ class AddBookViewController: UIViewController {
     @IBOutlet weak var beginDatePicker: UIDatePicker!
     @IBOutlet weak var addBookButton: UIButton!
     var delegate: AddBookViewControllerDelegate?
-    
     var bookTitle: String?
     var bookAuthor: String?
     var bookTotalPages: Int?
@@ -39,13 +38,9 @@ class AddBookViewController: UIViewController {
             case 1:
                 bookAuthor = senderText
             case 2:
-                if let senderInt = Int(senderText) {
-                    bookTotalPages = senderInt
-                }
+                if let senderInt = Int(senderText) { bookTotalPages = senderInt }
             case 3:
-                if let senderInt = Int(senderText) {
-                    bookPagesRead = senderInt
-                }
+                if let senderInt = Int(senderText) { bookPagesRead = senderInt }
             default:
                 print("Out of cases")
             }
