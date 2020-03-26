@@ -14,10 +14,11 @@ class ViewController: UITableViewController, AddBookViewControllerDelegate {
     override func viewDidLoad() {
         bookBrain.addBook(title: "Wiedźmin: Chrzest Ognia", author: "Andrzej Sapkowski", totalPages: 352, pagesRead: 253, beginDate: Date(), finishDate: nil)
         bookBrain.addBook(title: "Jak Zdobyć Przyjaciół i Zjednać Sobie Ludzi", author: "Dale Carnegie", totalPages: 225, pagesRead: 225, beginDate: Date(), finishDate: nil)
+        
         title = "Your books"
         navigationController?.navigationBar.prefersLargeTitles = true
-        
         super.viewDidLoad()
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBookButton))
     }
     
@@ -47,9 +48,9 @@ class ViewController: UITableViewController, AddBookViewControllerDelegate {
         }
     }
     
-    func addBook(title: String, author: String, totalPages: Int, pagesRead: Int, beginDate: Date, finishDate: Date?) {
+    func handleBookData(title: String, author: String, totalPages: Int, pagesRead: Int, beginDate: Date, finishDate: Date?) {
         bookBrain.addBook(title: title, author: author, totalPages: totalPages, pagesRead: pagesRead, beginDate: beginDate, finishDate: finishDate)
-    
+        
         let indexPath = IndexPath(row: 0, section: 0)
         tableView.insertRows(at: [indexPath], with: .automatic)
     }
