@@ -12,6 +12,8 @@ class ViewController: UITableViewController, AddBookViewControllerDelegate {
     var bookBrain = BookBrain()
     
     override func viewDidLoad() {
+        bookBrain.addBook(title: "Wiedźmin: Chrzest Ognia", author: "Andrzej Sapkowski", totalPages: 352, pagesRead: 253, beginDate: Date(), finishDate: nil)
+        bookBrain.addBook(title: "Jak Zdobyć Przyjaciół i Zjednać Sobie Ludzi", author: "Dale Carnegie", totalPages: 225, pagesRead: 225, beginDate: Date(), finishDate: nil)
         title = "Your books"
         navigationController?.navigationBar.prefersLargeTitles = true
         
