@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wxI-id-MMF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wxI-id-MMF">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -61,7 +61,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WEH-sc-ma8">
-                                <rect key="frame" x="0.0" y="44" width="414" height="381"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="380"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter book data" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LeM-G1-1Kg" userLabel="TitleLabel">
                                         <rect key="frame" x="0.0" y="173.5" width="414" height="33.5"/>
@@ -78,7 +78,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aZc-Q0-EAN">
-                                <rect key="frame" x="0.0" y="425" width="414" height="437"/>
+                                <rect key="frame" x="0.0" y="424" width="414" height="438"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book title" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UNE-jy-VA9" userLabel="TitleTextField">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="31.5"/>
@@ -103,7 +103,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number of total pages" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YIZ-dD-sUR" userLabel="TotalPagesTextField">
-                                        <rect key="frame" x="0.0" y="83" width="414" height="31.5"/>
+                                        <rect key="frame" x="0.0" y="83" width="414" height="32.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="b8c-YQ-LcM"/>
                                         </constraints>
@@ -114,7 +114,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number of read pages" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g6G-uS-cx4" userLabel="PagesReadTextField">
-                                        <rect key="frame" x="0.0" y="124.5" width="414" height="31.5"/>
+                                        <rect key="frame" x="0.0" y="125.5" width="414" height="31.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="gnR-8g-LAd"/>
                                         </constraints>
@@ -125,7 +125,7 @@
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Begin date:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O2P-hP-x3U">
-                                        <rect key="frame" x="0.0" y="166" width="414" height="22"/>
+                                        <rect key="frame" x="0.0" y="167" width="414" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="wmv-BP-1Wp"/>
                                         </constraints>
@@ -134,7 +134,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="XTr-fq-5mQ" userLabel="BeginDatePicker">
-                                        <rect key="frame" x="0.0" y="198" width="414" height="200"/>
+                                        <rect key="frame" x="0.0" y="199" width="414" height="200"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="200" id="c5n-L0-JDY"/>
                                         </constraints>
@@ -149,7 +149,7 @@
                                         </connections>
                                     </datePicker>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3cR-AM-ciX">
-                                        <rect key="frame" x="0.0" y="408" width="414" height="29"/>
+                                        <rect key="frame" x="0.0" y="409" width="414" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Add a book"/>
                                         <connections>
@@ -192,23 +192,74 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yxH-Jr-4v4">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="yxH-Jr-4v4">
+                                <rect key="frame" x="5" y="44" width="404" height="242"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBS-z1-mgH">
+                                        <rect key="frame" x="0.0" y="0.0" width="404" height="33.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yni-fp-Znh">
+                                        <rect key="frame" x="0.0" y="53.5" width="404" height="26.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of pages" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgk-d7-kb0">
+                                        <rect key="frame" x="0.0" y="100" width="404" height="20.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20.5" id="aHX-un-PzN"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of pages" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WKO-Za-kw6">
+                                        <rect key="frame" x="0.0" y="140.5" width="404" height="20.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20.5" id="r3F-5s-g01"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Begin date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haV-eh-y5U">
+                                        <rect key="frame" x="0.0" y="181" width="404" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Finish date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="35B-hg-5pc">
+                                        <rect key="frame" x="0.0" y="221.5" width="404" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="26x-DT-fgx" firstAttribute="trailing" secondItem="yxH-Jr-4v4" secondAttribute="trailing" id="Oow-MT-nwT"/>
-                            <constraint firstItem="26x-DT-fgx" firstAttribute="bottom" secondItem="yxH-Jr-4v4" secondAttribute="bottom" id="VRs-g8-E1V"/>
+                            <constraint firstItem="26x-DT-fgx" firstAttribute="trailing" secondItem="yxH-Jr-4v4" secondAttribute="trailing" constant="5" id="Oow-MT-nwT"/>
                             <constraint firstItem="yxH-Jr-4v4" firstAttribute="top" secondItem="26x-DT-fgx" secondAttribute="top" id="bPi-0q-WC2"/>
-                            <constraint firstItem="yxH-Jr-4v4" firstAttribute="leading" secondItem="26x-DT-fgx" secondAttribute="leading" id="dq9-NH-AzY"/>
+                            <constraint firstItem="yxH-Jr-4v4" firstAttribute="leading" secondItem="26x-DT-fgx" secondAttribute="leading" constant="5" id="dq9-NH-AzY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="26x-DT-fgx"/>
                     </view>
+                    <connections>
+                        <outlet property="authorLabel" destination="Yni-fp-Znh" id="DRZ-Ep-O90"/>
+                        <outlet property="beginDateLabel" destination="haV-eh-y5U" id="VMj-IK-lxg"/>
+                        <outlet property="finishDateLabel" destination="35B-hg-5pc" id="mdW-qv-01E"/>
+                        <outlet property="pagesReadLabel" destination="sgk-d7-kb0" id="Ill-8f-WTX"/>
+                        <outlet property="titleLabel" destination="gBS-z1-mgH" id="Zd1-45-0eM"/>
+                        <outlet property="totalPagesLabel" destination="WKO-Za-kw6" id="erZ-kb-UK1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="99D-pK-6VY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2401" y="84"/>
+            <point key="canvasLocation" x="2400" y="83.705357142857139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2SM-Z8-pzY">
