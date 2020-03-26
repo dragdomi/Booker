@@ -9,7 +9,7 @@
 import UIKit
 
 protocol AddBookViewControllerDelegate {
-    func addBook(title: String, author: String, totalPages: Int, pagesRead: Int, beginDate: Date, finishDate: Date?)
+    func handleBookData(title: String, author: String, totalPages: Int, pagesRead: Int, beginDate: Date, finishDate: Date?)
 }
 
 class AddBookViewController: UIViewController {
@@ -17,7 +17,9 @@ class AddBookViewController: UIViewController {
     @IBOutlet weak var bookAuthorTextField: UITextField!
     @IBOutlet weak var totalPagesTextField: UITextField!
     @IBOutlet weak var pagesReadTextField: UITextField!
-    @IBOutlet weak var beginDatePicker: UIDatePicker!
+    @IBOutlet weak var bookFinishedSwitch: UISwitch!
+    @IBOutlet weak var dateSwitcher: UISegmentedControl!
+    @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var addBookButton: UIButton!
     var delegate: AddBookViewControllerDelegate?
     var bookTitle: String?
@@ -25,9 +27,31 @@ class AddBookViewController: UIViewController {
     var bookTotalPages: Int?
     var bookPagesRead: Int?
     var beginDate: Date?
+    var finishDate: Date?
     
     override func viewDidLoad() {
+        if let safeBookTitle = bookTitle {
+            bookTitleTextField.text = safeBookTitle
+        }
+        
+        if let safeBookAuthor = bookAuthor {
+            bookAuthorTextField.text = safeBookAuthor
+        }
+        
+        if let safeBookTotalPages = bookTotalPages {
+            totalPagesTextField.text = String(safeBookTotalPages)
+        }
+        
+        if let safeBookPagesRead = bookPagesRead {
+            pagesReadTextField.text = String(safeBookPagesRead)
+        }
+        
+        if let safeBeginDate = beginDate {
+            datePicker.date = safeBeginDate
+        }
+        
         addBookButton.isEnabled = false
+        activateButton()
     }
     
     @IBAction func textFieldChanged(_ sender: UITextField) {
@@ -48,8 +72,30 @@ class AddBookViewController: UIViewController {
         activateButton()
     }
     
-    @IBAction func beginDateChanged(_ sender: UIDatePicker) {
-        beginDate = sender.date
+    @IBAction func segmentChanged(_ sender: UISegmentedControl) {
+        if dateSwitcher.selectedSegmentIndex == 0 {
+            if let safeBeginDate = beginDate {
+                datePicker.date = safeBeginDate
+            } else {
+                datePicker.date = Date()
+            }
+        } else if dateSwitcher.selectedSegmentIndex == 1 {
+            if let safeFinishDate = finishDate {
+                datePicker.date = safeFinishDate
+            } else {
+                datePicker.date = Date()
+            }
+        }
+    }
+    
+    @IBAction func dateChanged(_ sender: UIDatePicker) {
+        if dateSwitcher.selectedSegmentIndex == 0 {
+            beginDate = sender.date
+        } else if dateSwitcher.selectedSegmentIndex == 1 {
+            finishDate = sender.date
+        } else {
+            finishDate = nil
+        }
         activateButton()
     }
     
@@ -64,8 +110,24 @@ class AddBookViewController: UIViewController {
         }
     }
     
+    @IBAction func bookFinishedSwitch(_ sender: UISwitch) {
+        if sender.isOn {
+            dateSwitcher.insertSegment(withTitle: "Finish date", at: 2, animated: true)
+        } else {
+            dateSwitcher.removeSegment(at: 1, animated: true)
+        }
+    }
+    
     @IBAction func addBookButtonPressed(_ sender: UIButton) {
-        delegate?.addBook(title: bookTitle!, author: bookAuthor!, totalPages: bookTotalPages!, pagesRead: bookPagesRead!, beginDate: beginDate!, finishDate: nil)
+        if let safeFinishDate = finishDate {
+            if bookFinishedSwitch.isOn {
+                delegate?.handleBookData(title: bookTitle!, author: bookAuthor!, totalPages: bookTotalPages!, pagesRead: bookPagesRead!, beginDate: beginDate!, finishDate: safeFinishDate)
+            } else {
+                delegate?.handleBookData(title: bookTitle!, author: bookAuthor!, totalPages: bookTotalPages!, pagesRead: bookPagesRead!, beginDate: beginDate!, finishDate: nil)
+            }
+        } else {
+            delegate?.handleBookData(title: bookTitle!, author: bookAuthor!, totalPages: bookTotalPages!, pagesRead: bookPagesRead!, beginDate: beginDate!, finishDate: nil)
+        }
         navigationController?.popViewController(animated: true)
     }
 }
