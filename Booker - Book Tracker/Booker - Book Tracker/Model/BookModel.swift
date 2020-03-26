@@ -9,10 +9,10 @@
 import Foundation
 
 struct BookModel: Codable {
-    let title: String
-    let author: String
-    let totalPages: Int
+    var title: String
+    var author: String
+    var totalPages: Int
     var pagesRead: Int
-    let beginDate: Date
-    let finishDate: Date?
+    var beginDate: Date
+    var finishDate: Date?
 }
