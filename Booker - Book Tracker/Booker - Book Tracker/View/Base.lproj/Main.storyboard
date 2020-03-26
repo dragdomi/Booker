@@ -61,10 +61,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WEH-sc-ma8">
-                                <rect key="frame" x="0.0" y="44" width="414" height="380"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="364.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter book data" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LeM-G1-1Kg" userLabel="TitleLabel">
-                                        <rect key="frame" x="0.0" y="173.5" width="414" height="33.5"/>
+                                        <rect key="frame" x="0.0" y="165.5" width="414" height="33.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -78,7 +78,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aZc-Q0-EAN">
-                                <rect key="frame" x="0.0" y="424" width="414" height="438"/>
+                                <rect key="frame" x="0.0" y="408.5" width="414" height="453.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book title" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UNE-jy-VA9" userLabel="TitleTextField">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="31.5"/>
@@ -103,7 +103,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number of total pages" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YIZ-dD-sUR" userLabel="TotalPagesTextField">
-                                        <rect key="frame" x="0.0" y="83" width="414" height="32.5"/>
+                                        <rect key="frame" x="0.0" y="83" width="414" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="b8c-YQ-LcM"/>
                                         </constraints>
@@ -114,7 +114,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number of read pages" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g6G-uS-cx4" userLabel="PagesReadTextField">
-                                        <rect key="frame" x="0.0" y="125.5" width="414" height="31.5"/>
+                                        <rect key="frame" x="0.0" y="125" width="414" height="31.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="gnR-8g-LAd"/>
                                         </constraints>
@@ -124,17 +124,57 @@
                                             <action selector="textFieldChanged:" destination="sKH-Mh-Ug8" eventType="editingDidEnd" id="cy8-uQ-7RA"/>
                                         </connections>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Begin date:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O2P-hP-x3U">
-                                        <rect key="frame" x="0.0" y="167" width="414" height="22"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="wmv-BP-1Wp"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="6Xs-2c-5eJ">
+                                        <rect key="frame" x="0.0" y="166.5" width="414" height="0.0"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EF5-kx-ToN">
+                                                <rect key="frame" x="0.0" y="0.0" width="207" height="0.0"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book finished:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cJY-OE-CGM">
+                                                        <rect key="frame" x="88.5" y="0.0" width="108.5" height="0.0"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="cJY-OE-CGM" secondAttribute="trailing" constant="10" id="COE-MT-IBr"/>
+                                                    <constraint firstItem="cJY-OE-CGM" firstAttribute="top" secondItem="EF5-kx-ToN" secondAttribute="top" id="XFY-pf-jVZ"/>
+                                                    <constraint firstAttribute="bottom" secondItem="cJY-OE-CGM" secondAttribute="bottom" id="jqn-Ch-dP8"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XpQ-gl-VLc">
+                                                <rect key="frame" x="207" y="0.0" width="207" height="0.0"/>
+                                                <subviews>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vyj-L8-a8t">
+                                                        <rect key="frame" x="10" y="0.0" width="51" height="0.0"/>
+                                                        <connections>
+                                                            <action selector="bookFinishedSwitch:" destination="sKH-Mh-Ug8" eventType="valueChanged" id="Wik-mL-Tfj"/>
+                                                        </connections>
+                                                    </switch>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="Vyj-L8-a8t" firstAttribute="leading" secondItem="XpQ-gl-VLc" secondAttribute="leading" constant="10" id="CYz-gD-j5b"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Vyj-L8-a8t" secondAttribute="bottom" id="c2F-qG-Kdz"/>
+                                                    <constraint firstItem="Vyj-L8-a8t" firstAttribute="top" secondItem="XpQ-gl-VLc" secondAttribute="top" id="zpW-eX-c6u"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Vcn-yY-MAj">
+                                        <rect key="frame" x="0.0" y="176.5" width="414" height="30"/>
+                                        <segments>
+                                            <segment title="Begin date"/>
+                                            <segment title="Finish date"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="segmentChanged:" destination="sKH-Mh-Ug8" eventType="valueChanged" id="WMq-aE-okc"/>
+                                        </connections>
+                                    </segmentedControl>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="XTr-fq-5mQ" userLabel="BeginDatePicker">
-                                        <rect key="frame" x="0.0" y="199" width="414" height="200"/>
+                                        <rect key="frame" x="0.0" y="215.5" width="414" height="200"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="200" id="c5n-L0-JDY"/>
                                         </constraints>
@@ -145,13 +185,13 @@
                                             <!--2037-12-31 11:00:00 +0000-->
                                         </date>
                                         <connections>
-                                            <action selector="beginDateChanged:" destination="sKH-Mh-Ug8" eventType="valueChanged" id="zvi-Ki-qTc"/>
+                                            <action selector="dateChanged:" destination="sKH-Mh-Ug8" eventType="valueChanged" id="zvi-Ki-qTc"/>
                                         </connections>
                                     </datePicker>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3cR-AM-ciX">
-                                        <rect key="frame" x="0.0" y="409" width="414" height="29"/>
+                                        <rect key="frame" x="0.0" y="425.5" width="414" height="28"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="Add a book"/>
+                                        <state key="normal" title="Confirm"/>
                                         <connections>
                                             <action selector="addBookButtonPressed:" destination="sKH-Mh-Ug8" eventType="touchUpInside" id="Toy-Fk-bbd"/>
                                         </connections>
@@ -173,9 +213,11 @@
                     </view>
                     <connections>
                         <outlet property="addBookButton" destination="3cR-AM-ciX" id="Lju-oI-17s"/>
-                        <outlet property="beginDatePicker" destination="XTr-fq-5mQ" id="vVc-a6-A5s"/>
                         <outlet property="bookAuthorTextField" destination="dLE-0C-vuA" id="G4K-aw-xIp"/>
+                        <outlet property="bookFinishedSwitch" destination="Vyj-L8-a8t" id="VB8-Uj-KKf"/>
                         <outlet property="bookTitleTextField" destination="UNE-jy-VA9" id="1xS-8P-bpZ"/>
+                        <outlet property="datePicker" destination="XTr-fq-5mQ" id="vVc-a6-A5s"/>
+                        <outlet property="dateSwitcher" destination="Vcn-yY-MAj" id="HWe-1X-L9g"/>
                         <outlet property="pagesReadTextField" destination="g6G-uS-cx4" id="oah-PK-PWo"/>
                         <outlet property="totalPagesTextField" destination="YIZ-dD-sUR" id="hXX-UP-Dcm"/>
                     </connections>
@@ -193,22 +235,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="yxH-Jr-4v4">
-                                <rect key="frame" x="5" y="44" width="404" height="242"/>
+                                <rect key="frame" x="10" y="44" width="394" height="242"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBS-z1-mgH">
-                                        <rect key="frame" x="0.0" y="0.0" width="404" height="33.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="33.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yni-fp-Znh">
-                                        <rect key="frame" x="0.0" y="53.5" width="404" height="26.5"/>
+                                        <rect key="frame" x="0.0" y="53.5" width="394" height="26.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of pages" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgk-d7-kb0">
-                                        <rect key="frame" x="0.0" y="100" width="404" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="100" width="394" height="20.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20.5" id="aHX-un-PzN"/>
                                         </constraints>
@@ -217,7 +259,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of pages" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WKO-Za-kw6">
-                                        <rect key="frame" x="0.0" y="140.5" width="404" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="140.5" width="394" height="20.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20.5" id="r3F-5s-g01"/>
                                         </constraints>
@@ -226,25 +268,34 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Begin date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haV-eh-y5U">
-                                        <rect key="frame" x="0.0" y="181" width="404" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="181" width="394" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Finish date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="35B-hg-5pc">
-                                        <rect key="frame" x="0.0" y="221.5" width="404" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="221.5" width="394" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v0m-De-npf">
+                                <rect key="frame" x="157.5" y="832" width="99" height="30"/>
+                                <state key="normal" title="Edit book data"/>
+                                <connections>
+                                    <action selector="editBookDataButtonPressed:" destination="1MB-6y-3Rd" eventType="touchUpInside" id="7vC-hw-m4z"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="26x-DT-fgx" firstAttribute="trailing" secondItem="yxH-Jr-4v4" secondAttribute="trailing" constant="5" id="Oow-MT-nwT"/>
+                            <constraint firstItem="v0m-De-npf" firstAttribute="centerX" secondItem="CQ9-68-hWV" secondAttribute="centerX" id="BUq-eH-8Lr"/>
+                            <constraint firstItem="26x-DT-fgx" firstAttribute="trailing" secondItem="yxH-Jr-4v4" secondAttribute="trailing" constant="10" id="Oow-MT-nwT"/>
+                            <constraint firstItem="26x-DT-fgx" firstAttribute="bottom" secondItem="v0m-De-npf" secondAttribute="bottom" id="SZf-tK-NIx"/>
                             <constraint firstItem="yxH-Jr-4v4" firstAttribute="top" secondItem="26x-DT-fgx" secondAttribute="top" id="bPi-0q-WC2"/>
-                            <constraint firstItem="yxH-Jr-4v4" firstAttribute="leading" secondItem="26x-DT-fgx" secondAttribute="leading" constant="5" id="dq9-NH-AzY"/>
+                            <constraint firstItem="yxH-Jr-4v4" firstAttribute="leading" secondItem="26x-DT-fgx" secondAttribute="leading" constant="10" id="dq9-NH-AzY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="26x-DT-fgx"/>
                     </view>
