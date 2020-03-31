@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UITableViewController, AddBookViewControllerDelegate {
+class ViewController: UITableViewController, AddBookViewControllerDelegate, BookDetailsViewControllerDelegate {
     var bookBrain = BookBrain()
     
     override func viewDidLoad() {
@@ -37,6 +37,7 @@ class ViewController: UITableViewController, AddBookViewControllerDelegate {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let bookDetailsViewController = storyboard?.instantiateViewController(identifier: "BookDetails") as? BookDetailsViewController {
             bookDetailsViewController.book = bookBrain.books[indexPath.row]
+            bookDetailsViewController.delegate = self
             navigationController?.pushViewController(bookDetailsViewController, animated: true)
         }
     }
@@ -53,5 +54,10 @@ class ViewController: UITableViewController, AddBookViewControllerDelegate {
         
         let indexPath = IndexPath(row: 0, section: 0)
         tableView.insertRows(at: [indexPath], with: .automatic)
+    }
+    
+    func editBookData(oldBookData: BookModel, newBookData: BookModel) {
+        bookBrain.editBookData(oldBookData: oldBookData, newBookData: newBookData)
+        tableView.reloadData()
     }
 }
