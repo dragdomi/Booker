@@ -8,16 +8,26 @@
 
 import UIKit
 
+protocol BookDetailsViewControllerDelegate {
+    func editBookData(oldBookData: BookModel, newBookData: BookModel)
+}
+
 class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate {
     var book: BookModel!
+    var editedBook: BookModel?
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var pagesReadLabel: UILabel!
     @IBOutlet weak var totalPagesLabel: UILabel!
     @IBOutlet weak var beginDateLabel: UILabel!
     @IBOutlet weak var finishDateLabel: UILabel!
+    var delegate: BookDetailsViewControllerDelegate?
     
     override func viewDidLoad() {
+        updateView(book: book)
+    }
+    
+    func updateView(book: BookModel) {
         titleLabel.text = book.title
         authorLabel.text = book.author
         pagesReadLabel.text = "Pages read: " + String(book.pagesRead)
@@ -48,12 +58,10 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
     }
     
     func handleBookData(title: String, author: String, totalPages: Int, pagesRead: Int, beginDate: Date, finishDate: Date?) {
-        book.title = title
-        book.author = author
-        book.totalPages = totalPages
-        book.pagesRead = pagesRead
-        book.beginDate = beginDate
-        book.finishDate = finishDate
+        editedBook = BookModel(title: title, author: author, totalPages: totalPages, pagesRead: pagesRead, beginDate: beginDate, finishDate: finishDate)
+        if let safeEditedBook = editedBook {
+            updateView(book: safeEditedBook)
+            delegate?.editBookData(oldBookData: book, newBookData: safeEditedBook)
+        }
     }
-    
 }
