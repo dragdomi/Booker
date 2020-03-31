@@ -8,7 +8,15 @@
 
 import Foundation
 
-struct BookModel: Codable {
+struct BookModel: Codable, Comparable {
+    static func < (lhs: BookModel, rhs: BookModel) -> Bool {
+        if (lhs.title == rhs.title) && (lhs.author == rhs.author) && (lhs.totalPages == rhs.totalPages) && (lhs.pagesRead == rhs.pagesRead) && (lhs.beginDate == rhs.beginDate) && (lhs.finishDate == rhs.finishDate) {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     var title: String
     var author: String
     var totalPages: Int
