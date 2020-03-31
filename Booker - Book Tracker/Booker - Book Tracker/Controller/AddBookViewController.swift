@@ -17,7 +17,6 @@ class AddBookViewController: UIViewController {
     @IBOutlet weak var bookAuthorTextField: UITextField!
     @IBOutlet weak var totalPagesTextField: UITextField!
     @IBOutlet weak var pagesReadTextField: UITextField!
-    @IBOutlet weak var bookFinishedSwitch: UISwitch!
     @IBOutlet weak var dateSwitcher: UISegmentedControl!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var addBookButton: UIButton!
@@ -28,6 +27,7 @@ class AddBookViewController: UIViewController {
     var bookPagesRead: Int?
     var beginDate: Date?
     var finishDate: Date?
+    var isFinished: Bool = false
     
     override func viewDidLoad() {
         if let safeBookTitle = bookTitle {
@@ -52,6 +52,8 @@ class AddBookViewController: UIViewController {
         
         addBookButton.isEnabled = false
         activateButton()
+        dateSwitcher.removeSegment(at: 1, animated: false)
+        checkIfFinished()
     }
     
     @IBAction func textFieldChanged(_ sender: UITextField) {
@@ -70,6 +72,27 @@ class AddBookViewController: UIViewController {
             }
         }
         activateButton()
+        checkIfFinished()
+    }
+    
+    func checkIfFinished() {
+        if bookPagesRead == nil || bookTotalPages == nil {
+            isFinished = false
+        } else if bookPagesRead == bookTotalPages {
+            isFinished = true
+        } else {
+            isFinished = false
+        }
+        activateButton()
+        updateDateSegments(isFinished: isFinished)
+    }
+    
+    func updateDateSegments(isFinished: Bool) {
+        if isFinished == false && dateSwitcher.numberOfSegments > 1 {
+            dateSwitcher.removeSegment(at: 1, animated: true)
+        } else if isFinished == true && dateSwitcher.numberOfSegments < 2 {
+            dateSwitcher.insertSegment(withTitle: "Finish date:", at: 1, animated: true)
+        }
     }
     
     @IBAction func segmentChanged(_ sender: UISegmentedControl) {
@@ -110,17 +133,18 @@ class AddBookViewController: UIViewController {
         }
     }
     
-    @IBAction func bookFinishedSwitch(_ sender: UISwitch) {
-        if sender.isOn {
-            dateSwitcher.insertSegment(withTitle: "Finish date", at: 2, animated: true)
-        } else {
-            dateSwitcher.removeSegment(at: 1, animated: true)
-        }
-    }
-    
     @IBAction func addBookButtonPressed(_ sender: UIButton) {
+        if let safeBookTotalPages = bookTotalPages {
+            if let safeBookReadPages = bookPagesRead {
+                if safeBookReadPages > safeBookTotalPages {
+                    let ac = UIAlertController(title: "Oops!", message: "You can't read more pages than the book has 😬.", preferredStyle: .alert)
+                    ac.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                    present(ac, animated: true)
+                }
+            }
+        }
         if let safeFinishDate = finishDate {
-            if bookFinishedSwitch.isOn {
+            if isFinished {
                 delegate?.handleBookData(title: bookTitle!, author: bookAuthor!, totalPages: bookTotalPages!, pagesRead: bookPagesRead!, beginDate: beginDate!, finishDate: safeFinishDate)
             } else {
                 delegate?.handleBookData(title: bookTitle!, author: bookAuthor!, totalPages: bookTotalPages!, pagesRead: bookPagesRead!, beginDate: beginDate!, finishDate: nil)
