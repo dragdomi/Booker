@@ -15,6 +15,17 @@ struct BookBrain {
         books.insert(BookModel(title: title, author: author, totalPages: totalPages, pagesRead: pagesRead, beginDate: beginDate, finishDate: finishDate), at: 0)
     }
     
+    mutating func editBookData(oldBookData: BookModel, newBookData: BookModel) {
+        var index = 0
+        for book in books {
+            if book == oldBookData {
+                books[index] = newBookData
+                break
+            }
+            index += 1
+        }
+    }
+    
     func saveToFile() {
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let archiveURL = documentsDirectory.appendingPathComponent("Booker_test").appendingPathExtension("plist")
@@ -31,7 +42,6 @@ struct BookBrain {
         
         if let retrievedBooksData = try? Data(contentsOf: archiveURL), let decodedBooks = try? propertyListDecoder.decode(Array<BookModel>.self, from: retrievedBooksData) {
         }
-        
     }
     
 }
