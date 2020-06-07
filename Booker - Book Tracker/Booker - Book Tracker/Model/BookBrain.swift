@@ -10,6 +10,12 @@ import Foundation
 
 struct BookBrain {
     var books: [BookModel] = []
+    let filesManager = FilesManager()
+    
+    enum Error: Swift.Error {
+        case saveFailed
+        case readFailed
+    }
     
     mutating func addBook(title: String, author: String, totalPages: Int, pagesRead: Int, beginDate: Date, finishDate: Date?) {
         books.insert(BookModel(title: title, author: author, totalPages: totalPages, pagesRead: pagesRead, beginDate: beginDate, finishDate: finishDate), at: 0)
@@ -26,22 +32,27 @@ struct BookBrain {
         }
     }
     
-    func saveToFile() {
-        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let archiveURL = documentsDirectory.appendingPathComponent("Booker_test").appendingPathExtension("plist")
+    func saveToFile() throws {
         let propertyListEncoder = PropertyListEncoder()
-        
         let encodedBooks = try? propertyListEncoder.encode(books)
-        try? encodedBooks?.write(to: archiveURL, options: .noFileProtection)
-    }
-    
-    func loadFromFile() {
-        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let archiveURL = documentsDirectory.appendingPathComponent("Booker_test").appendingPathExtension("plist")
-        let propertyListDecoder = PropertyListDecoder()
         
-        if let retrievedBooksData = try? Data(contentsOf: archiveURL), let decodedBooks = try? propertyListDecoder.decode(Array<BookModel>.self, from: retrievedBooksData) {
+        if let safeEncodedBooks = encodedBooks {
+            do {
+                try filesManager.save(fileName: "Books", data: safeEncodedBooks)
+            } catch {
+                throw Error.saveFailed
+            }
         }
     }
     
+    mutating func loadFromFile() {
+        let propertyListDecoder = PropertyListDecoder()
+        
+        if let booksData = try? filesManager.read(fileName: "Books") {
+            if let decodedBooks = try? propertyListDecoder.decode([BookModel].self, from: booksData) {
+                self.books = decodedBooks
+            }
+        }
+    }
+
 }

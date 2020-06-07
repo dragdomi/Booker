@@ -11,9 +11,14 @@ import UIKit
 class ViewController: UITableViewController, AddBookViewControllerDelegate, BookDetailsViewControllerDelegate {
     var bookBrain = BookBrain()
     
+    enum Error: Swift.Error {
+        case saveFailed
+    }
+    
     override func viewDidLoad() {
         bookBrain.addBook(title: "Wiedźmin: Chrzest Ognia", author: "Andrzej Sapkowski", totalPages: 352, pagesRead: 253, beginDate: Date(), finishDate: nil)
         bookBrain.addBook(title: "Jak Zdobyć Przyjaciół i Zjednać Sobie Ludzi", author: "Dale Carnegie", totalPages: 225, pagesRead: 225, beginDate: Date(), finishDate: nil)
+        bookBrain.loadFromFile()
         
         title = "Your books"
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -54,10 +59,20 @@ class ViewController: UITableViewController, AddBookViewControllerDelegate, Book
         
         let indexPath = IndexPath(row: 0, section: 0)
         tableView.insertRows(at: [indexPath], with: .automatic)
+        do {
+            try bookBrain.saveToFile()
+        } catch {
+            Error.saveFailed
+        }
     }
     
     func editBookData(oldBookData: BookModel, newBookData: BookModel) {
         bookBrain.editBookData(oldBookData: oldBookData, newBookData: newBookData)
         tableView.reloadData()
+        do {
+            try bookBrain.saveToFile()
+        } catch {
+            Error.saveFailed
+        }
     }
 }
