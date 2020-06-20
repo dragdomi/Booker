@@ -3,13 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A51854372497ABC800983DB8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A51854362497ABC800983DB8 /* GoogleService-Info.plist */; };
+		A51854392497DC6E00983DB8 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51854382497DC6E00983DB8 /* WelcomeViewController.swift */; };
 		A53E2BDC241D063B0013152C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53E2BDB241D063B0013152C /* AppDelegate.swift */; };
 		A53E2BDE241D063B0013152C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53E2BDD241D063B0013152C /* SceneDelegate.swift */; };
-		A53E2BE0241D063B0013152C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53E2BDF241D063B0013152C /* ViewController.swift */; };
+		A53E2BE0241D063B0013152C /* BooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53E2BDF241D063B0013152C /* BooksViewController.swift */; };
 		A53E2BE3241D063B0013152C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A53E2BE1241D063B0013152C /* Main.storyboard */; };
 		A53E2BE5241D063C0013152C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A53E2BE4241D063C0013152C /* Assets.xcassets */; };
 		A53E2BE8241D063C0013152C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A53E2BE6241D063C0013152C /* LaunchScreen.storyboard */; };
@@ -18,14 +20,23 @@
 		A5918622241D211A00002A11 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A5918621241D211A00002A11 /* README.md */; };
 		A5918624241D430400002A11 /* AddBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5918623241D430400002A11 /* AddBookViewController.swift */; };
 		A5AD99CE2422995200E0A6D9 /* BookDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AD99CD2422995200E0A6D9 /* BookDetailsViewController.swift */; };
+		A5D917C82499568300452531 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D917C72499568300452531 /* RegisterViewController.swift */; };
+		A5D917CA249957B900452531 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D917C9249957B900452531 /* Constants.swift */; };
+		A5D917D02499594C00452531 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D917CF2499594C00452531 /* LoginViewController.swift */; };
 		A5EE4CD02438847200902BA0 /* FilesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EE4CCF2438847200902BA0 /* FilesManager.swift */; };
+		CFBBDEFFBDCE1FA575A59847 /* Pods_Booker___Book_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 226F733C91163B564FF2D06A /* Pods_Booker___Book_Tracker.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		226F733C91163B564FF2D06A /* Pods_Booker___Book_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Booker___Book_Tracker.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EDD9C6E2469E0E6D40C3F19 /* Pods-Booker - Book Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Booker - Book Tracker.debug.xcconfig"; path = "Target Support Files/Pods-Booker - Book Tracker/Pods-Booker - Book Tracker.debug.xcconfig"; sourceTree = "<group>"; };
+		7FD9B88971AF4A51305F1C2A /* Pods-Booker - Book Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Booker - Book Tracker.release.xcconfig"; path = "Target Support Files/Pods-Booker - Book Tracker/Pods-Booker - Book Tracker.release.xcconfig"; sourceTree = "<group>"; };
+		A51854362497ABC800983DB8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A51854382497DC6E00983DB8 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		A53E2BD8241D063B0013152C /* Booker - Book Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Booker - Book Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A53E2BDB241D063B0013152C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A53E2BDD241D063B0013152C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A53E2BDF241D063B0013152C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A53E2BDF241D063B0013152C /* BooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewController.swift; sourceTree = "<group>"; };
 		A53E2BE2241D063B0013152C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A53E2BE4241D063C0013152C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A53E2BE7241D063C0013152C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -35,6 +46,9 @@
 		A5918621241D211A00002A11 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		A5918623241D430400002A11 /* AddBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookViewController.swift; sourceTree = "<group>"; };
 		A5AD99CD2422995200E0A6D9 /* BookDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailsViewController.swift; sourceTree = "<group>"; };
+		A5D917C72499568300452531 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		A5D917C9249957B900452531 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A5D917CF2499594C00452531 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A5EE4CCF2438847200902BA0 /* FilesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -43,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFBBDEFFBDCE1FA575A59847 /* Pods_Booker___Book_Tracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +69,8 @@
 			children = (
 				A53E2BDA241D063B0013152C /* Booker - Book Tracker */,
 				A53E2BD9241D063B0013152C /* Products */,
+				C89D90A1F9B75410B9E3F6C1 /* Pods */,
+				F638FFA3AACE93A0A5781F3E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,6 +94,8 @@
 				A53E2BE6241D063C0013152C /* LaunchScreen.storyboard */,
 				A53E2BE9241D063C0013152C /* Info.plist */,
 				A5918621241D211A00002A11 /* README.md */,
+				A51854362497ABC800983DB8 /* GoogleService-Info.plist */,
+				A5D917C9249957B900452531 /* Constants.swift */,
 			);
 			path = "Booker - Book Tracker";
 			sourceTree = "<group>";
@@ -84,9 +103,12 @@
 		A53E2BEF241D07190013152C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				A53E2BDF241D063B0013152C /* ViewController.swift */,
 				A5918623241D430400002A11 /* AddBookViewController.swift */,
+				A53E2BDF241D063B0013152C /* BooksViewController.swift */,
 				A5AD99CD2422995200E0A6D9 /* BookDetailsViewController.swift */,
+				A5D917CF2499594C00452531 /* LoginViewController.swift */,
+				A5D917C72499568300452531 /* RegisterViewController.swift */,
+				A51854382497DC6E00983DB8 /* WelcomeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -109,6 +131,23 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		C89D90A1F9B75410B9E3F6C1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7EDD9C6E2469E0E6D40C3F19 /* Pods-Booker - Book Tracker.debug.xcconfig */,
+				7FD9B88971AF4A51305F1C2A /* Pods-Booker - Book Tracker.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F638FFA3AACE93A0A5781F3E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				226F733C91163B564FF2D06A /* Pods_Booker___Book_Tracker.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -116,9 +155,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A53E2BEC241D063C0013152C /* Build configuration list for PBXNativeTarget "Booker - Book Tracker" */;
 			buildPhases = (
+				A474EABE3973C75103F0A471 /* [CP] Check Pods Manifest.lock */,
 				A53E2BD4241D063B0013152C /* Sources */,
 				A53E2BD5241D063B0013152C /* Frameworks */,
 				A53E2BD6241D063B0013152C /* Resources */,
+				27437637F9FB6C909DEEC554 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -167,6 +208,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A51854372497ABC800983DB8 /* GoogleService-Info.plist in Resources */,
 				A53E2BE8241D063C0013152C /* LaunchScreen.storyboard in Resources */,
 				A53E2BE5241D063C0013152C /* Assets.xcassets in Resources */,
 				A5918622241D211A00002A11 /* README.md in Resources */,
@@ -176,12 +218,58 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		27437637F9FB6C909DEEC554 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Booker - Book Tracker/Pods-Booker - Book Tracker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Booker - Book Tracker/Pods-Booker - Book Tracker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Booker - Book Tracker/Pods-Booker - Book Tracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A474EABE3973C75103F0A471 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Booker - Book Tracker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A53E2BD4241D063B0013152C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A53E2BE0241D063B0013152C /* ViewController.swift in Sources */,
+				A5D917D02499594C00452531 /* LoginViewController.swift in Sources */,
+				A51854392497DC6E00983DB8 /* WelcomeViewController.swift in Sources */,
+				A5D917CA249957B900452531 /* Constants.swift in Sources */,
+				A5D917C82499568300452531 /* RegisterViewController.swift in Sources */,
+				A53E2BE0241D063B0013152C /* BooksViewController.swift in Sources */,
 				A5AD99CE2422995200E0A6D9 /* BookDetailsViewController.swift in Sources */,
 				A5918624241D430400002A11 /* AddBookViewController.swift in Sources */,
 				A53E2BF5241D08FF0013152C /* BookBrain.swift in Sources */,
@@ -330,6 +418,7 @@
 		};
 		A53E2BED241D063C0013152C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7EDD9C6E2469E0E6D40C3F19 /* Pods-Booker - Book Tracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -339,7 +428,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "dragdomi.Booker---Book-Tracker";
+				PRODUCT_BUNDLE_IDENTIFIER = "co.dragdomi.Booker---Book-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -348,6 +437,7 @@
 		};
 		A53E2BEE241D063C0013152C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7FD9B88971AF4A51305F1C2A /* Pods-Booker - Book Tracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -357,7 +447,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "dragdomi.Booker---Book-Tracker";
+				PRODUCT_BUNDLE_IDENTIFIER = "co.dragdomi.Booker---Book-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -1,61 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wxI-id-MMF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="t5p-DA-oMX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="E1L-oo-UpI">
-            <objects>
-                <tableViewController id="dwv-1x-RM9" customClass="ViewController" customModule="Booker___Book_Tracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="7Iy-b7-tT7">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Book" textLabel="JUE-Yc-jIP" detailTextLabel="FQU-da-29t" style="IBUITableViewCellStyleSubtitle" id="8z1-d5-maL">
-                                <rect key="frame" x="0.0" y="28" width="414" height="55.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8z1-d5-maL" id="2eD-no-ecB">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="55.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JUE-Yc-jIP">
-                                            <rect key="frame" x="20" y="10" width="33.5" height="20.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FQU-da-29t">
-                                            <rect key="frame" x="20" y="31.5" width="44" height="14.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="dwv-1x-RM9" id="glH-no-vGC"/>
-                            <outlet property="delegate" destination="dwv-1x-RM9" id="93s-R1-vnT"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="SI2-Qa-7DB"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rvX-Z0-XZb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="881" y="84"/>
-        </scene>
         <!--Add Book View Controller-->
         <scene sceneID="Fjr-id-9Ux">
             <objects>
-                <viewController storyboardIdentifier="AddBook" id="sKH-Mh-Ug8" customClass="AddBookViewController" customModule="Booker___Book_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddBookViewController" id="sKH-Mh-Ug8" customClass="AddBookViewController" customModule="Booker___Book_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yhp-lB-jzK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -184,12 +140,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uAJ-q4-QLh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1642" y="84"/>
+            <point key="canvasLocation" x="4784" y="84"/>
         </scene>
         <!--Book Details View Controller-->
         <scene sceneID="8kJ-Zf-re8">
             <objects>
-                <viewController storyboardIdentifier="BookDetails" id="1MB-6y-3Rd" customClass="BookDetailsViewController" customModule="Booker___Book_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BookDetailsViewController" id="1MB-6y-3Rd" customClass="BookDetailsViewController" customModule="Booker___Book_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CQ9-68-hWV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -270,25 +226,253 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="99D-pK-6VY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2400" y="83.705357142857139"/>
+            <point key="canvasLocation" x="5594" y="84"/>
+        </scene>
+        <!--Welcome View Controller-->
+        <scene sceneID="8WC-Xi-LoT">
+            <objects>
+                <viewController id="yKC-T8-sSD" customClass="WelcomeViewController" customModule="Booker___Book_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="P34-Og-QUh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k2o-av-ZQY">
+                                <rect key="frame" x="0.0" y="802" width="414" height="60"/>
+                                <color key="backgroundColor" name="Color4"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Ck1-oy-BO5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <state key="normal" title="Log In">
+                                    <color key="titleColor" name="Color2"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginPressed:" destination="yKC-T8-sSD" eventType="touchUpInside" id="13Z-bi-7uE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WoK-l8-Exz">
+                                <rect key="frame" x="0.0" y="734" width="414" height="60"/>
+                                <color key="backgroundColor" name="Color2"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="b5e-lg-vQZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <state key="normal" title="Register">
+                                    <color key="titleColor" name="Color4"/>
+                                </state>
+                                <connections>
+                                    <action selector="registerPressed:" destination="yKC-T8-sSD" eventType="touchUpInside" id="Tey-OX-aZq"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Booker 📚" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Llv-fo-vRe" customClass="CLTypingLabel" customModule="CLTypingLabel">
+                                <rect key="frame" x="0.0" y="88" width="414" height="646"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="70"/>
+                                <color key="textColor" name="Color4"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Llv-fo-vRe" firstAttribute="top" secondItem="fLu-da-tFK" secondAttribute="top" id="0Fz-q0-oYY"/>
+                            <constraint firstItem="k2o-av-ZQY" firstAttribute="bottom" secondItem="fLu-da-tFK" secondAttribute="bottom" id="0Ur-Za-09s"/>
+                            <constraint firstItem="WoK-l8-Exz" firstAttribute="leading" secondItem="fLu-da-tFK" secondAttribute="leading" id="3Tv-yd-xmD"/>
+                            <constraint firstItem="Llv-fo-vRe" firstAttribute="leading" secondItem="fLu-da-tFK" secondAttribute="leading" id="9K7-gS-THT"/>
+                            <constraint firstItem="k2o-av-ZQY" firstAttribute="trailing" secondItem="fLu-da-tFK" secondAttribute="trailing" id="ALR-qM-wet"/>
+                            <constraint firstItem="k2o-av-ZQY" firstAttribute="leading" secondItem="fLu-da-tFK" secondAttribute="leading" id="NyA-yi-hRd"/>
+                            <constraint firstItem="WoK-l8-Exz" firstAttribute="trailing" secondItem="fLu-da-tFK" secondAttribute="trailing" id="e6x-kx-FmF"/>
+                            <constraint firstItem="fLu-da-tFK" firstAttribute="trailing" secondItem="Llv-fo-vRe" secondAttribute="trailing" id="hz2-jq-kI5"/>
+                            <constraint firstItem="WoK-l8-Exz" firstAttribute="top" secondItem="Llv-fo-vRe" secondAttribute="bottom" id="ulG-r9-4BE"/>
+                            <constraint firstItem="k2o-av-ZQY" firstAttribute="top" secondItem="WoK-l8-Exz" secondAttribute="bottom" constant="8" id="vK9-S2-rCk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fLu-da-tFK"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="WKj-pN-H4W"/>
+                    <connections>
+                        <outlet property="titleLabel" destination="Llv-fo-vRe" id="LZd-gW-fmQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fc8-5e-bjY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2263.768115942029" y="83.705357142857139"/>
+        </scene>
+        <!--Register View Controller-->
+        <scene sceneID="Ql6-Th-nFQ">
+            <objects>
+                <viewController storyboardIdentifier="RegisterViewController" id="KVG-pz-Lc4" customClass="RegisterViewController" customModule="Booker___Book_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xyf-FQ-4sr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fe4-NA-a09">
+                                <rect key="frame" x="20" y="64" width="374" height="45.5"/>
+                                <color key="textColor" name="Color4"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZZ9-ZH-WxL">
+                                <rect key="frame" x="20" y="129.5" width="374" height="44"/>
+                                <color key="textColor" name="Color4"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bjA-kw-nOb">
+                                <rect key="frame" x="153.5" y="193.5" width="107" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Register">
+                                    <color key="titleColor" name="Color4"/>
+                                </state>
+                                <connections>
+                                    <action selector="registerPressed:" destination="KVG-pz-Lc4" eventType="touchUpInside" id="QHC-xL-zcV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" name="Color2"/>
+                        <constraints>
+                            <constraint firstItem="ZZ9-ZH-WxL" firstAttribute="top" secondItem="fe4-NA-a09" secondAttribute="bottom" constant="20" id="55c-K7-8OC"/>
+                            <constraint firstItem="fe4-NA-a09" firstAttribute="leading" secondItem="hgV-9k-3tK" secondAttribute="leading" constant="20" id="5j5-WY-4od"/>
+                            <constraint firstItem="fe4-NA-a09" firstAttribute="top" secondItem="hgV-9k-3tK" secondAttribute="top" constant="20" id="Mik-E8-pHg"/>
+                            <constraint firstItem="bjA-kw-nOb" firstAttribute="centerX" secondItem="xyf-FQ-4sr" secondAttribute="centerX" id="NSj-Er-jbo"/>
+                            <constraint firstItem="bjA-kw-nOb" firstAttribute="top" secondItem="ZZ9-ZH-WxL" secondAttribute="bottom" constant="20" id="XbT-mg-DRW"/>
+                            <constraint firstItem="hgV-9k-3tK" firstAttribute="trailing" secondItem="fe4-NA-a09" secondAttribute="trailing" constant="20" id="hDz-Hd-arf"/>
+                            <constraint firstItem="hgV-9k-3tK" firstAttribute="trailing" secondItem="ZZ9-ZH-WxL" secondAttribute="trailing" constant="20" id="rDT-uv-3eL"/>
+                            <constraint firstItem="ZZ9-ZH-WxL" firstAttribute="leading" secondItem="hgV-9k-3tK" secondAttribute="leading" constant="20" id="suY-qt-uvy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hgV-9k-3tK"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="FVb-CR-6sw"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="fe4-NA-a09" id="0QO-vm-Es4"/>
+                        <outlet property="passwordTextField" destination="ZZ9-ZH-WxL" id="wNd-SI-Xzo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4ez-kg-2JC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3074" y="-310"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="2SM-Z8-pzY">
+        <scene sceneID="m8p-1Q-7SC">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wxI-id-MMF" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="t5p-DA-oMX" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Gmi-KS-fMX">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jry-1g-ttg">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="Color4"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="dwv-1x-RM9" kind="relationship" relationship="rootViewController" id="icE-hc-jgr"/>
+                        <segue destination="yKC-T8-sSD" kind="relationship" relationship="rootViewController" id="Zs3-Rf-ad7"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2Fv-vk-xg8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ksh-bW-gn3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7.2463768115942031" y="83.705357142857139"/>
+            <point key="canvasLocation" x="1353.6231884057972" y="83.705357142857139"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="ItO-W6-edN">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" id="f8K-Y6-eiB" customClass="LoginViewController" customModule="Booker___Book_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yWl-Bd-1ua">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1@2.com" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2aX-WY-Yh4">
+                                <rect key="frame" x="20" y="64" width="374" height="45.5"/>
+                                <color key="textColor" name="Color4"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aOt-Dp-jN6">
+                                <rect key="frame" x="20" y="129.5" width="374" height="44"/>
+                                <color key="textColor" name="Color4"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xjq-PN-jIA">
+                                <rect key="frame" x="167.5" y="193.5" width="79" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Log In">
+                                    <color key="titleColor" name="Color2"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginPressed:" destination="f8K-Y6-eiB" eventType="touchUpInside" id="A8v-Zj-CoL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" name="Color4"/>
+                        <constraints>
+                            <constraint firstItem="tfr-vc-CFv" firstAttribute="trailing" secondItem="aOt-Dp-jN6" secondAttribute="trailing" constant="20" id="6Q2-qk-2it"/>
+                            <constraint firstItem="aOt-Dp-jN6" firstAttribute="top" secondItem="2aX-WY-Yh4" secondAttribute="bottom" constant="20" id="8MR-17-wvX"/>
+                            <constraint firstItem="2aX-WY-Yh4" firstAttribute="top" secondItem="tfr-vc-CFv" secondAttribute="top" constant="20" id="OG2-yh-UA4"/>
+                            <constraint firstItem="2aX-WY-Yh4" firstAttribute="leading" secondItem="tfr-vc-CFv" secondAttribute="leading" constant="20" id="XQd-Je-yOh"/>
+                            <constraint firstItem="tfr-vc-CFv" firstAttribute="trailing" secondItem="2aX-WY-Yh4" secondAttribute="trailing" constant="20" id="dnR-D0-flF"/>
+                            <constraint firstItem="xjq-PN-jIA" firstAttribute="top" secondItem="aOt-Dp-jN6" secondAttribute="bottom" constant="20" id="myr-tE-26E"/>
+                            <constraint firstItem="xjq-PN-jIA" firstAttribute="centerX" secondItem="yWl-Bd-1ua" secondAttribute="centerX" id="w78-5a-kpo"/>
+                            <constraint firstItem="aOt-Dp-jN6" firstAttribute="leading" secondItem="tfr-vc-CFv" secondAttribute="leading" constant="20" id="whJ-fw-dqr"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tfr-vc-CFv"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="6j6-EC-s0G"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="2aX-WY-Yh4" id="7Pc-43-Fnf"/>
+                        <outlet property="passwordTextField" destination="aOt-Dp-jN6" id="CKs-5c-Wzp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Oh-Dh-OoA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3074" y="400"/>
+        </scene>
+        <!--Books View Controller-->
+        <scene sceneID="eyU-nD-sIJ">
+            <objects>
+                <tableViewController storyboardIdentifier="BooksViewController" id="6ng-eP-iga" customClass="BooksViewController" customModule="Booker___Book_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="HxY-pK-eg9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Book" textLabel="JUE-Yc-jIP" detailTextLabel="FQU-da-29t" style="IBUITableViewCellStyleSubtitle" id="8z1-d5-maL">
+                                <rect key="frame" x="0.0" y="28" width="414" height="55.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8z1-d5-maL" id="2eD-no-ecB">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="55.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JUE-Yc-jIP">
+                                            <rect key="frame" x="20" y="10" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FQU-da-29t">
+                                            <rect key="frame" x="20" y="31.5" width="44" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="6ng-eP-iga" id="ISo-N8-Yu8"/>
+                            <outlet property="delegate" destination="6ng-eP-iga" id="m96-2k-lDl"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UOt-KU-dAc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3929" y="84"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="Color2">
+            <color red="0.86299997568130493" green="0.83899998664855957" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Color4">
+            <color red="0.25900000333786011" green="0.28200000524520874" blue="0.45500001311302185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
