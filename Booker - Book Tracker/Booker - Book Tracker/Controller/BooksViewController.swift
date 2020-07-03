@@ -103,17 +103,6 @@ class BooksViewController: UITableViewController, AddBookViewControllerDelegate,
 			Constants.FStore.beginDate: book.beginDate ,
 			Constants.FStore.finishDate: book.finishDate
 		])
-		
-//		dataBase.collection(Constants.FStore.collectionName).addDocument(data: [
-//			Constants.FStore.title: book.title,
-//			Constants.FStore.author: book.author,
-//			Constants.FStore.totalPages: book.totalPages,
-//			Constants.FStore.pagesRead: book.pagesRead,
-//			Constants.FStore.beginDate: book.beginDate ,
-//			Constants.FStore.finishDate: book.finishDate
-//		]) { (error) in
-//			self.checkIfSavingFailed(error)
-//		}
 	}
 	
 	func checkIfSavingFailed(_ error: Error?) {
@@ -143,6 +132,13 @@ class BooksViewController: UITableViewController, AddBookViewControllerDelegate,
 			bookDetailsViewController.book = bookBrain.books[indexPath.row]
 			bookDetailsViewController.delegate = self
 			self.navigationController?.pushViewController(bookDetailsViewController, animated: true)
+		}
+	}
+	
+	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+		if editingStyle == .delete {
+			bookBrain.books.remove(at: indexPath.row)
+			tableView.deleteRows(at: [indexPath], with: .fade)
 		}
 	}
 	
