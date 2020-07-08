@@ -19,6 +19,7 @@ struct Constants {
 	
 	struct FStore {
 		static let collectionName = "books"
+		static let id = "id"
 		static let title = "title"
 		static let author = "author"
 		static let totalPages = "totalPages"

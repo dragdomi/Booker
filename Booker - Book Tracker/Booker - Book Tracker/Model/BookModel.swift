@@ -17,6 +17,7 @@ struct BookModel: Codable, Comparable {
 		}
 	}
 	
+	var id: Int
 	var title: String
 	var author: String
 	var totalPages: Int
@@ -25,11 +26,12 @@ struct BookModel: Codable, Comparable {
 	var finishDate: String
 	
 	enum CodingKeys: String, CodingKey {
-        case title
-        case author
-        case totalPages
-        case pagesRead
-        case beginDate
+		case id
+		case title
+		case author
+		case totalPages
+		case pagesRead
+		case beginDate
 		case finishDate
-    }
+	}
 }

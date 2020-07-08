@@ -12,7 +12,11 @@ import UIKit
 import Firebase
 
 class BooksViewController: UITableViewController, AddBookViewControllerDelegate, BookDetailsViewControllerDelegate {
-	var bookBrain = BookBrain()
+	var bookBrain = BookBrain() {
+		didSet {
+			reloadTableViewDataAsync()
+		}
+	}
 	let db = Firestore.firestore()
 	
 	override func viewDidLoad() {
@@ -21,12 +25,15 @@ class BooksViewController: UITableViewController, AddBookViewControllerDelegate,
 		navigationController?.navigationBar.prefersLargeTitles = true
 		
 		navigationItem.hidesBackButton = true
+		
+		navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(loadBooks))
+		
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBookButton))
 		
-		//		tableView.dataSource = self
+		//tableView.dataSource = self
 		
 		title = "Your books"
-		
+		bookBrain.books.removeAll()
 		loadBooks()
 	}
 	
@@ -41,8 +48,8 @@ class BooksViewController: UITableViewController, AddBookViewControllerDelegate,
 	
 	//MARK: - Load books
 	
-	func loadBooks() {
-		bookBrain.books = []
+	@objc func loadBooks() {
+		bookBrain.books.removeAll()
 		db.collection(Constants.FStore.collectionName)
 			.order(by: Constants.FStore.title)
 			.addSnapshotListener { (querySnapshot, error) in
@@ -72,14 +79,21 @@ class BooksViewController: UITableViewController, AddBookViewControllerDelegate,
 	}
 	
 	func getBookInfoFromData(_ data: [String : Any]) {
-		if let title = data[Constants.FStore.title] as? String,
+		if let id = data[Constants.FStore.id] as? Int,
+			let title = data[Constants.FStore.title] as? String,
 			let author = data[Constants.FStore.author] as? String,
 			let totalPages = data[Constants.FStore.totalPages] as? Int,
 			let pagesRead = data[Constants.FStore.pagesRead] as? Int,
 			let beginDate = data[Constants.FStore.beginDate] as? String,
 			let finishDate = data[Constants.FStore.finishDate] as? String {
 			
-			let book = BookModel(title: title, author: author, totalPages: totalPages, pagesRead: pagesRead, beginDate: beginDate, finishDate: finishDate)
+			let book = BookModel(id: id,
+								 title: title,
+								 author: author,
+								 totalPages: totalPages,
+								 pagesRead: pagesRead,
+								 beginDate: beginDate,
+								 finishDate: finishDate)
 			
 			addBookToBooks(book)
 		}
@@ -87,15 +101,15 @@ class BooksViewController: UITableViewController, AddBookViewControllerDelegate,
 	
 	func addBookToBooks (_ book: BookModel) {
 		bookBrain.addBook(book)
-		reloadTableViewDataAsync()
 	}
 	
 	//MARK: - Save books
 	
 	func saveBookData(_ book: BookModel) {
 		
-		let bookDocument = db.collection(Constants.FStore.collectionName).document(book.title)
+		let bookDocument = db.collection(Constants.FStore.collectionName).document("book" + String(book.id))
 		bookDocument.setData([
+			Constants.FStore.id: book.id,
 			Constants.FStore.title: book.title,
 			Constants.FStore.author: book.author,
 			Constants.FStore.totalPages: book.totalPages,
@@ -145,18 +159,25 @@ class BooksViewController: UITableViewController, AddBookViewControllerDelegate,
 	//MARK: - Delegate methods
 	
 	func handleBookData(_ book: BookModel) {
-		//		bookBrain.addBook(book)
+		var book = book
+		var takenIds = [Int]()
+		for book in bookBrain.books {
+			takenIds.append(book.id)
+		}
+		
+		for number in 1...(takenIds.count + 1) {
+			if !takenIds.contains(number) {
+				book.id = number
+			}
+		}
+		
 		saveBookData(book)
-		//		let indexPath = IndexPath(row: 0, section: 0)
-		//		DispatchQueue.main.async {
-		//			self.tableView.insertRows(at: [indexPath], with: .automatic)
-		//		}
 	}
 	
 	func editBookData(oldBook: BookModel, newBook: BookModel) {
 		bookBrain.editBookData(oldBookData: oldBook, newBookData: newBook)
-		
-		let bookDocument = db.collection(Constants.FStore.collectionName).document(oldBook.title)
+//		saveBookData(newBook)
+		let bookDocument = db.collection(Constants.FStore.collectionName).document("book" + String(oldBook.id))
 		bookDocument.updateData([
 			Constants.FStore.title: newBook.title,
 			Constants.FStore.author: newBook.author,
@@ -166,7 +187,7 @@ class BooksViewController: UITableViewController, AddBookViewControllerDelegate,
 			Constants.FStore.finishDate: newBook.finishDate
 		])
 		loadBooks()
-		reloadTableViewDataAsync()
+//		reloadTableViewDataAsync()
 	}
 	
 	func reloadTableViewDataAsync() {

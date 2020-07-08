@@ -45,6 +45,7 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 	@IBAction func editBookDataButtonPressed(_ sender: UIButton) {
 		if let addBookViewController = storyboard?.instantiateViewController(identifier: Constants.ViewControllers.addBook) as? AddBookViewController {
 			addBookViewController.delegate = self
+			addBookViewController.bookId = book.id
 			addBookViewController.bookTitle = book.title
 			addBookViewController.bookAuthor = book.author
 			addBookViewController.bookTotalPages = book.totalPages
@@ -65,8 +66,6 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 		} else {
 			return nil
 		}
-		
-		
 	}
 	
 	func handleBookData(_ book: BookModel) {

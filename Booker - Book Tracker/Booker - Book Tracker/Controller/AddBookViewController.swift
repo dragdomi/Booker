@@ -21,6 +21,7 @@ class AddBookViewController: UIViewController {
 	@IBOutlet weak var datePicker: UIDatePicker!
 	@IBOutlet weak var addBookButton: UIButton!
 	var delegate: AddBookViewControllerDelegate?
+	var bookId: Int?
 	var bookTitle: String?
 	var bookAuthor: String?
 	var bookTotalPages: Int?
@@ -52,7 +53,7 @@ class AddBookViewController: UIViewController {
 		
 		addBookButton.isEnabled = false
 		activateButton()
-//		dateSwitcher.removeSegment(at: 1, animated: false)
+		//		dateSwitcher.removeSegment(at: 1, animated: false)
 		checkIfFinished()
 	}
 	
@@ -177,13 +178,13 @@ class AddBookViewController: UIViewController {
 			let pagesRead = bookPagesRead {
 			let beginDateString = formatDateToString(beginDate)
 			let finishDateString = formatDateToString(finishDate)
-			let book = BookModel(title: title,
+			let book = BookModel(id: bookId ?? 0,
+								 title: title,
 								 author: author,
 								 totalPages: totalPages,
 								 pagesRead: pagesRead,
 								 beginDate: beginDateString,
 								 finishDate: finishDateString)
-			
 			
 			delegate?.handleBookData(book)
 		}
