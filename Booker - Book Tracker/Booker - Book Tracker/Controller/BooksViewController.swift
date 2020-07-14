@@ -105,18 +105,19 @@ class BooksViewController: UITableViewController, AddBookViewControllerDelegate,
 	
 	//MARK: - Save books
 	
-	func saveBookData(_ book: BookModel) {
-		
-		let bookDocument = db.collection(Constants.FStore.collectionName).document("book" + String(book.id))
-		bookDocument.setData([
-			Constants.FStore.id: book.id,
-			Constants.FStore.title: book.title,
-			Constants.FStore.author: book.author,
-			Constants.FStore.totalPages: book.totalPages,
-			Constants.FStore.pagesRead: book.pagesRead,
-			Constants.FStore.beginDate: book.beginDate ,
-			Constants.FStore.finishDate: book.finishDate
-		])
+	func saveBooks() {
+		for book in bookBrain.books {
+			let bookDocument = db.collection(Constants.FStore.collectionName).document("book" + String(book.id))
+			bookDocument.setData([
+				Constants.FStore.id: book.id,
+				Constants.FStore.title: book.title,
+				Constants.FStore.author: book.author,
+				Constants.FStore.totalPages: book.totalPages,
+				Constants.FStore.pagesRead: book.pagesRead,
+				Constants.FStore.beginDate: book.beginDate ,
+				Constants.FStore.finishDate: book.finishDate
+			])
+		}
 	}
 	
 	func checkIfSavingFailed(_ error: Error?) {
@@ -171,23 +172,13 @@ class BooksViewController: UITableViewController, AddBookViewControllerDelegate,
 			}
 		}
 		
-		saveBookData(book)
+		bookBrain.addBook(book)
 	}
 	
 	func editBookData(oldBook: BookModel, newBook: BookModel) {
 		bookBrain.editBookData(oldBookData: oldBook, newBookData: newBook)
-//		saveBookData(newBook)
-		let bookDocument = db.collection(Constants.FStore.collectionName).document("book" + String(oldBook.id))
-		bookDocument.updateData([
-			Constants.FStore.title: newBook.title,
-			Constants.FStore.author: newBook.author,
-			Constants.FStore.totalPages: newBook.totalPages,
-			Constants.FStore.pagesRead: newBook.pagesRead,
-			Constants.FStore.beginDate: newBook.beginDate ,
-			Constants.FStore.finishDate: newBook.finishDate
-		])
-		loadBooks()
-//		reloadTableViewDataAsync()
+		reloadTableViewDataAsync()
+		
 	}
 	
 	func reloadTableViewDataAsync() {
