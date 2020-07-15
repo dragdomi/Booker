@@ -9,6 +9,8 @@
 struct Constants {
 	static let appName = "Booker 📚"
 	static let dateFormat = "dd-MM-yyyy"
+	static let cellIdentifier = "BookCell"
+	static let cellNibName = "BookCell"
 	struct ViewControllers {
 		static let books = "BooksViewController"
 		static let addBook = "AddBookViewController"
