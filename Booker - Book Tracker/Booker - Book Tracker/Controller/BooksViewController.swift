@@ -12,29 +12,21 @@ import UIKit
 import Firebase
 
 class BooksViewController: UITableViewController, AddBookViewControllerDelegate, BookDetailsViewControllerDelegate {
-	var bookBrain = BookBrain() {
-		didSet {
-			reloadTableViewDataAsync()
-		}
-	}
-	let db = Firestore.firestore()
+	let db = BookBrain.getDataBase()
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
 		navigationController?.navigationBar.prefersLargeTitles = true
-		
 		navigationItem.hidesBackButton = true
-		
-		navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(loadBooks))
 		
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBookButton))
 		
-		//tableView.dataSource = self
-		
 		title = "Your books"
-		bookBrain.books.removeAll()
-		loadBooks()
+		
+		tableView.rowHeight = UITableView.automaticDimension
+		tableView.estimatedRowHeight = 70
+		tableView.register(UINib(nibName: Constants.cellNibName, bundle: nil), forCellReuseIdentifier: Constants.cellIdentifier)
 	}
 	
 	//MARK: - Interactions
@@ -46,115 +38,34 @@ class BooksViewController: UITableViewController, AddBookViewControllerDelegate,
 		}
 	}
 	
-	//MARK: - Load books
-	
-	@objc func loadBooks() {
-		bookBrain.books.removeAll()
-		db.collection(Constants.FStore.collectionName)
-			.order(by: Constants.FStore.title)
-			.addSnapshotListener { (querySnapshot, error) in
-				self.retrieveData(querySnapshot, error)
-		}
-	}
-	
-	func retrieveData(_ querySnapshot: QuerySnapshot?, _ error: Error?) {
-		if let e = error {
-			print("There was an issue retrieving data from Firestore \(e)")
-		} else {
-			getSnapshotDocuments(querySnapshot)
-		}
-	}
-	
-	func getSnapshotDocuments(_ querySnapshot: QuerySnapshot?) {
-		if let snapshotDocuments = querySnapshot?.documents {
-			getDataFromSnapshotDocuments(snapshotDocuments)
-		}
-	}
-	
-	func getDataFromSnapshotDocuments(_ snapshotDocuments: [QueryDocumentSnapshot]){
-		for doc in snapshotDocuments {
-			let data = doc.data()
-			getBookInfoFromData(data)
-		}
-	}
-	
-	func getBookInfoFromData(_ data: [String : Any]) {
-		if let id = data[Constants.FStore.id] as? Int,
-			let title = data[Constants.FStore.title] as? String,
-			let author = data[Constants.FStore.author] as? String,
-			let totalPages = data[Constants.FStore.totalPages] as? Int,
-			let pagesRead = data[Constants.FStore.pagesRead] as? Int,
-			let beginDate = data[Constants.FStore.beginDate] as? String,
-			let finishDate = data[Constants.FStore.finishDate] as? String {
-			
-			let book = BookModel(id: id,
-								 title: title,
-								 author: author,
-								 totalPages: totalPages,
-								 pagesRead: pagesRead,
-								 beginDate: beginDate,
-								 finishDate: finishDate)
-			
-			addBookToBooks(book)
-		}
-	}
-	
-	func addBookToBooks (_ book: BookModel) {
-		bookBrain.addBook(book)
-	}
-	
-	//MARK: - Save books
-	
-	func saveBooks() {
-		for book in bookBrain.books {
-			let bookDocument = db.collection(Constants.FStore.collectionName).document("book" + String(book.id))
-			bookDocument.setData([
-				Constants.FStore.id: book.id,
-				Constants.FStore.title: book.title,
-				Constants.FStore.author: book.author,
-				Constants.FStore.totalPages: book.totalPages,
-				Constants.FStore.pagesRead: book.pagesRead,
-				Constants.FStore.beginDate: book.beginDate ,
-				Constants.FStore.finishDate: book.finishDate
-			])
-		}
-	}
-	
-	func checkIfSavingFailed(_ error: Error?) {
-		if let e = error {
-			print("There wan an issue saving data to firestore, \(e)")
-		} else {
-			print("Successfully saved data")
-		}
-	}
-	
 	//MARK: - Table View methods
 	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return bookBrain.books.count
+		return BookBrain.getBooks().count
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let book = bookBrain.books[indexPath.row]
-		let cell = tableView.dequeueReusableCell(withIdentifier: "Book", for: indexPath)
-		cell.textLabel?.text = book.title
-		cell.detailTextLabel?.text = book.author
+		let book = BookBrain.getBooks()[indexPath.row]
+		let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier, for: indexPath) as! BookCell
+		
+		cell.layer.cornerRadius = 15
+		cell.layer.masksToBounds = true
+		
+		cell.titleLabel.text = book.title
+		cell.authorLabel.text = book.author
 		return cell
 	}
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		if let bookDetailsViewController = storyboard?.instantiateViewController(identifier: Constants.ViewControllers.bookDetails) as? BookDetailsViewController {
-			bookDetailsViewController.book = bookBrain.books[indexPath.row]
+			bookDetailsViewController.book = BookBrain.getBooks()[indexPath.row]
 			bookDetailsViewController.delegate = self
 			self.navigationController?.pushViewController(bookDetailsViewController, animated: true)
 		}
 	}
 	
-	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-		if editingStyle == .delete {
-			bookBrain.books.remove(at: indexPath.row)
-			tableView.deleteRows(at: [indexPath], with: .fade)
-		}
+	override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+		return 5
 	}
 	
 	//MARK: - Delegate methods
@@ -162,7 +73,7 @@ class BooksViewController: UITableViewController, AddBookViewControllerDelegate,
 	func handleBookData(_ book: BookModel) {
 		var book = book
 		var takenIds = [Int]()
-		for book in bookBrain.books {
+		for book in BookBrain.getBooks() {
 			takenIds.append(book.id)
 		}
 		
@@ -171,12 +82,12 @@ class BooksViewController: UITableViewController, AddBookViewControllerDelegate,
 				book.id = number
 			}
 		}
-		
-		bookBrain.addBook(book)
+		BookBrain.addBook(book)
+		reloadTableViewDataAsync()
 	}
 	
 	func editBookData(oldBook: BookModel, newBook: BookModel) {
-		bookBrain.editBookData(oldBookData: oldBook, newBookData: newBook)
+		BookBrain.editBookData(oldBookData: oldBook, newBookData: newBook)
 		reloadTableViewDataAsync()
 		
 	}
