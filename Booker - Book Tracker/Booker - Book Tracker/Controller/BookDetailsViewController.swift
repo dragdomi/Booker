@@ -70,6 +70,7 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 	}
 	
 	func handleBookData(_ book: BookModel) {
+		delegate?.editBookData(oldBook: self.book, newBook: book)
 		self.book = book
 		updateView(book: book)
 		BookBrain.editBookData(oldBookData: self.book, newBookData: book)
