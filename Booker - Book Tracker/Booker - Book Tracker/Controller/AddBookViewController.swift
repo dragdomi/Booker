@@ -83,6 +83,7 @@ class AddBookViewController: UIViewController {
 			isFinished = true
 		} else {
 			isFinished = false
+			self.finishDate = nil
 		}
 		activateButton()
 		updateDateSegments(isFinished: isFinished)

@@ -9,13 +9,18 @@
 import Foundation
 import Firebase
 
-struct BookBrain {
+class BookBrain {
 	private static let db = Firestore.firestore()
 	private static var books: [BookModel] = []
+	private static var userId = Firebase.Auth.auth().currentUser?.uid
 	
 	enum Error: Swift.Error {
 		case saveFailed
 		case readFailed
+	}
+	
+	static func getDataBase() -> Firestore {
+		return db
 	}
 	
 	static func addBook(_ book: BookModel) {
@@ -25,8 +30,13 @@ struct BookBrain {
 	static func getBooks() -> [BookModel] {
 		return books
 	}
-	static func getDataBase() -> Firestore {
-		return db
+	
+	static func getUserId() -> String? {
+		return userId
+	}
+	
+	static func setUserId(_ userId: String?) {
+		self.userId = userId
 	}
 	
 	static func editBookData(oldBookData: BookModel, newBookData: BookModel) {
@@ -42,7 +52,7 @@ struct BookBrain {
 	
 	static func saveBooks() {
 		for book in BookBrain.books {
-			let bookDocument = BookBrain.db.collection(Constants.FStore.collectionName).document("book" + String(book.id))
+			let bookDocument = BookBrain.db.collection(Constants.FStore.usersCollectionName + "/" + userId! + "/" + Constants.FStore.collectionName).document("book" + String(book.id))
 			bookDocument.setData([
 				Constants.FStore.id: book.id,
 				Constants.FStore.title: book.title,
@@ -57,7 +67,7 @@ struct BookBrain {
 	
 	static func loadBooks() {
 		BookBrain.books.removeAll()
-		BookBrain.db.collection(Constants.FStore.collectionName)
+		BookBrain.db.collection(Constants.FStore.usersCollectionName + "/" + userId! + "/" + Constants.FStore.collectionName)
 			.order(by: Constants.FStore.title)
 			.addSnapshotListener { (querySnapshot, error) in
 				retrieveData(querySnapshot, error as? BookBrain.Error)
@@ -86,6 +96,7 @@ struct BookBrain {
 	}
 	
 	private static func getBookInfoFromData(_ data: [String : Any]) {
+		
 		if let id = data[Constants.FStore.id] as? Int,
 			let title = data[Constants.FStore.title] as? String,
 			let author = data[Constants.FStore.author] as? String,
@@ -103,7 +114,7 @@ struct BookBrain {
 								 finishDate: finishDate)
 			
 			addBook(book)
+			
 		}
 	}
-	
 }

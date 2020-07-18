@@ -14,6 +14,7 @@ protocol BookDetailsViewControllerDelegate {
 
 class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate {
 	var book: BookModel!
+	
 	var editedBook: BookModel?
 	@IBOutlet weak var titleLabel: UILabel!
 	@IBOutlet weak var authorLabel: UILabel!
@@ -38,7 +39,7 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 		}
 		
 		if book.finishDate != "" {
-			beginDateLabel.text = "Finish date: " + book.finishDate
+			finishDateLabel.text = "Finish date: " + book.finishDate
 		}
 	}
 	
@@ -69,7 +70,8 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 	}
 	
 	func handleBookData(_ book: BookModel) {
+		self.book = book
 		updateView(book: book)
-		delegate?.editBookData(oldBook: self.book, newBook: book)
+		BookBrain.editBookData(oldBookData: self.book, newBookData: book)
 	}
 }

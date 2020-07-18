@@ -25,6 +25,13 @@ struct BookModel: Codable, Comparable {
 	var beginDate: String
 	var finishDate: String
 	
+	var readPercentage: Double {
+		get {
+			let percentage =  (Double(pagesRead) / Double(totalPages)) * 100
+			return percentage
+		}
+	}
+	
 	enum CodingKeys: String, CodingKey {
 		case id
 		case title

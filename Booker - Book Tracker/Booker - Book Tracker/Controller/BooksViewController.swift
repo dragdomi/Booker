@@ -27,6 +27,7 @@ class BooksViewController: UITableViewController, AddBookViewControllerDelegate,
 		tableView.rowHeight = UITableView.automaticDimension
 		tableView.estimatedRowHeight = 70
 		tableView.register(UINib(nibName: Constants.cellNibName, bundle: nil), forCellReuseIdentifier: Constants.cellIdentifier)
+		BookBrain.setUserId(Firebase.Auth.auth().currentUser?.uid)
 	}
 	
 	//MARK: - Interactions
@@ -48,11 +49,10 @@ class BooksViewController: UITableViewController, AddBookViewControllerDelegate,
 		let book = BookBrain.getBooks()[indexPath.row]
 		let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier, for: indexPath) as! BookCell
 		
-		cell.layer.cornerRadius = 15
-		cell.layer.masksToBounds = true
-		
 		cell.titleLabel.text = book.title
 		cell.authorLabel.text = book.author
+		cell.percentageLabel.text = "\(book.readPercentage.rounded())%"
+		print("dziaa")
 		return cell
 	}
 	
@@ -89,7 +89,6 @@ class BooksViewController: UITableViewController, AddBookViewControllerDelegate,
 	func editBookData(oldBook: BookModel, newBook: BookModel) {
 		BookBrain.editBookData(oldBookData: oldBook, newBookData: newBook)
 		reloadTableViewDataAsync()
-		
 	}
 	
 	func reloadTableViewDataAsync() {
