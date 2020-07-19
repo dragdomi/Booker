@@ -17,12 +17,14 @@ class BooksViewController: UITableViewController, AddBookViewControllerDelegate,
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		reloadTableViewDataAsync()
 		navigationController?.navigationBar.prefersLargeTitles = true
 		navigationItem.hidesBackButton = true
 		
+		
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBookButton))
 		
-		title = "Your books"
+		title = "My books"
 		
 		tableView.rowHeight = UITableView.automaticDimension
 		tableView.estimatedRowHeight = 70
