@@ -28,6 +28,7 @@ class AddBookViewController: UIViewController {
 	var bookPagesRead: Int?
 	var beginDate: Date?
 	var finishDate: Date?
+	var lastReadDate: Date?
 	var isFinished: Bool = false
 	
 	override func viewDidLoad() {
@@ -155,7 +156,9 @@ class AddBookViewController: UIViewController {
 						totalPages: bookTotalPages,
 						pagesRead: bookPagesRead,
 						beginDate: beginDate,
-						finishDate: finishDate)
+						finishDate: finishDate,
+						lastReadDate: nil
+		)
 		
 		navigationController?.popViewController(animated: true)
 	}
@@ -172,20 +175,22 @@ class AddBookViewController: UIViewController {
 		present(ac, animated: true)
 	}
 	
-	func createBookModel(title: String?, author: String?, totalPages: Int?, pagesRead: Int?, beginDate: Date?, finishDate: Date?) {
+	func createBookModel(title: String?, author: String?, totalPages: Int?, pagesRead: Int?, beginDate: Date?, finishDate: Date?, lastReadDate: Date?) {
 		if let title = bookTitle,
 			let author = bookAuthor,
 			let totalPages = bookTotalPages,
 			let pagesRead = bookPagesRead {
 			let beginDateString = formatDateToString(beginDate)
 			let finishDateString = formatDateToString(finishDate)
+			let lastReadDate = formatDateToString(lastReadDate)
 			let book = BookModel(id: bookId ?? 0,
 								 title: title,
 								 author: author,
 								 totalPages: totalPages,
 								 pagesRead: pagesRead,
 								 beginDate: beginDateString,
-								 finishDate: finishDateString)
+								 finishDate: finishDateString,
+								 lastReadDate: lastReadDate)
 			
 			delegate?.handleBookData(book)
 		}
