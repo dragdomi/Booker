@@ -7,6 +7,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Black.ttf">
+            <string>Lato-Black</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Add Book View Controller-->
         <scene sceneID="Fjr-id-9Ux">
@@ -20,13 +25,12 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="373.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter book data" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LeM-G1-1Kg" userLabel="TitleLabel">
-                                        <rect key="frame" x="0.0" y="170" width="414" height="33.5"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <rect key="frame" x="0.0" y="169" width="414" height="36"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstItem="LeM-G1-1Kg" firstAttribute="leading" secondItem="WEH-sc-ma8" secondAttribute="leading" id="04O-MU-ogt"/>
                                     <constraint firstItem="LeM-G1-1Kg" firstAttribute="centerY" secondItem="WEH-sc-ma8" secondAttribute="centerY" id="4ZZ-7E-D1R"/>
@@ -37,18 +41,20 @@
                                 <rect key="frame" x="0.0" y="417.5" width="414" height="444.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book title" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UNE-jy-VA9" userLabel="TitleTextField">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="31.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="32.5"/>
+                                        <color key="backgroundColor" name="Color2"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="j1G-NF-mUM"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                         <connections>
                                             <action selector="textFieldChanged:" destination="sKH-Mh-Ug8" eventType="editingDidEnd" id="wHy-Yr-cqs"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book author" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dLE-0C-vuA" userLabel="AuthorTextField">
-                                        <rect key="frame" x="0.0" y="41.5" width="414" height="31.5"/>
+                                        <rect key="frame" x="0.0" y="42.5" width="414" height="31.5"/>
+                                        <color key="backgroundColor" name="Color2"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="OML-TX-Ok6"/>
                                         </constraints>
@@ -59,7 +65,8 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number of read pages" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g6G-uS-cx4" userLabel="PagesReadTextField">
-                                        <rect key="frame" x="0.0" y="83" width="414" height="31.5"/>
+                                        <rect key="frame" x="0.0" y="84" width="414" height="31.5"/>
+                                        <color key="backgroundColor" name="Color2"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="gnR-8g-LAd"/>
                                         </constraints>
@@ -70,11 +77,12 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number of total pages" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YIZ-dD-sUR" userLabel="TotalPagesTextField">
-                                        <rect key="frame" x="0.0" y="124.5" width="414" height="32.5"/>
+                                        <rect key="frame" x="0.0" y="125.5" width="414" height="31.5"/>
+                                        <color key="backgroundColor" name="Color2"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="b8c-YQ-LcM"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
                                         <connections>
                                             <action selector="textFieldChanged:" destination="sKH-Mh-Ug8" eventType="editingDidEnd" id="5qx-9M-Aif"/>
@@ -82,10 +90,13 @@
                                     </textField>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Vcn-yY-MAj">
                                         <rect key="frame" x="0.0" y="167" width="414" height="29.5"/>
+                                        <color key="backgroundColor" name="Color2"/>
                                         <segments>
                                             <segment title="Begin date:"/>
                                             <segment title="Finish date"/>
                                         </segments>
+                                        <color key="tintColor" name="Color2"/>
+                                        <color key="selectedSegmentTintColor" name="Color2"/>
                                         <connections>
                                             <action selector="segmentChanged:" destination="sKH-Mh-Ug8" eventType="valueChanged" id="WMq-aE-okc"/>
                                         </connections>
@@ -108,7 +119,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3cR-AM-ciX">
                                         <rect key="frame" x="0.0" y="415.5" width="414" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="Confirm"/>
+                                        <state key="normal" title="Confirm">
+                                            <color key="titleColor" name="Color4"/>
+                                        </state>
                                         <connections>
                                             <action selector="addBookButtonPressed:" destination="sKH-Mh-Ug8" eventType="touchUpInside" id="Toy-Fk-bbd"/>
                                         </connections>
@@ -116,7 +129,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="Color1"/>
                         <constraints>
                             <constraint firstItem="oIN-ug-NQi" firstAttribute="trailing" secondItem="WEH-sc-ma8" secondAttribute="trailing" id="EDY-qw-2wt"/>
                             <constraint firstItem="aZc-Q0-EAN" firstAttribute="top" secondItem="WEH-sc-ma8" secondAttribute="bottom" id="KwY-Oa-bHP"/>
@@ -150,68 +163,107 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="yxH-Jr-4v4">
-                                <rect key="frame" x="10" y="44" width="394" height="242"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="yxH-Jr-4v4">
+                                <rect key="frame" x="10" y="64" width="394" height="340"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBS-z1-mgH">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="33.5"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yni-fp-Znh">
-                                        <rect key="frame" x="0.0" y="53.5" width="394" height="26.5"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="srf-ij-JXs">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="120"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBS-z1-mgH">
+                                                <rect key="frame" x="0.0" y="0.0" width="162" height="42"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yni-fp-Znh">
+                                                <rect key="frame" x="0.0" y="62" width="73" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Fyk-Ob-d5q">
+                                                <rect key="frame" x="0.0" y="112" width="394" height="4"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="4" id="jsq-uv-1bw"/>
+                                                </constraints>
+                                                <color key="progressTintColor" name="Color4"/>
+                                                <color key="trackTintColor" name="Color2"/>
+                                            </progressView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Percent" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3tJ-LR-Yx6">
+                                                <rect key="frame" x="311.5" y="62" width="82.5" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="1xO-6u-0IN"/>
+                                            <constraint firstItem="gBS-z1-mgH" firstAttribute="leading" secondItem="srf-ij-JXs" secondAttribute="leading" id="8od-r4-gVW"/>
+                                            <constraint firstItem="gBS-z1-mgH" firstAttribute="top" secondItem="srf-ij-JXs" secondAttribute="top" id="CUO-8A-CAw"/>
+                                            <constraint firstAttribute="trailing" secondItem="Fyk-Ob-d5q" secondAttribute="trailing" id="PZT-bq-g82"/>
+                                            <constraint firstItem="Fyk-Ob-d5q" firstAttribute="top" secondItem="Yni-fp-Znh" secondAttribute="bottom" constant="20" id="cD5-Jl-acA"/>
+                                            <constraint firstItem="Fyk-Ob-d5q" firstAttribute="leading" secondItem="srf-ij-JXs" secondAttribute="leading" id="fze-6X-8XJ"/>
+                                            <constraint firstAttribute="trailing" secondItem="3tJ-LR-Yx6" secondAttribute="trailing" id="ive-bO-dd3"/>
+                                            <constraint firstItem="Yni-fp-Znh" firstAttribute="leading" secondItem="srf-ij-JXs" secondAttribute="leading" id="p3S-wN-DzS"/>
+                                            <constraint firstItem="Fyk-Ob-d5q" firstAttribute="top" secondItem="3tJ-LR-Yx6" secondAttribute="bottom" constant="20" id="pue-Mp-QFH"/>
+                                            <constraint firstItem="Yni-fp-Znh" firstAttribute="top" secondItem="gBS-z1-mgH" secondAttribute="bottom" constant="20" id="rkg-3v-iUE"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of pages" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgk-d7-kb0">
+                                        <rect key="frame" x="0.0" y="140" width="394" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of pages" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgk-d7-kb0">
-                                        <rect key="frame" x="0.0" y="100" width="394" height="20.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="20.5" id="aHX-un-PzN"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of pages" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WKO-Za-kw6">
-                                        <rect key="frame" x="0.0" y="140.5" width="394" height="20.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="20.5" id="r3F-5s-g01"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <rect key="frame" x="0.0" y="184" width="394" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Begin date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haV-eh-y5U">
-                                        <rect key="frame" x="0.0" y="181" width="394" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <rect key="frame" x="0.0" y="228" width="394" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last read date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gig-uI-f0q">
+                                        <rect key="frame" x="0.0" y="272" width="394" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Finish date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="35B-hg-5pc">
-                                        <rect key="frame" x="0.0" y="221.5" width="394" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <rect key="frame" x="0.0" y="316" width="394" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" name="Color1"/>
+                                <constraints>
+                                    <constraint firstItem="srf-ij-JXs" firstAttribute="leading" secondItem="yxH-Jr-4v4" secondAttribute="leading" id="Nrx-cJ-pCH"/>
+                                    <constraint firstAttribute="trailing" secondItem="srf-ij-JXs" secondAttribute="trailing" id="g0e-cI-gMN"/>
+                                </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v0m-De-npf">
-                                <rect key="frame" x="157.5" y="832" width="99" height="30"/>
-                                <state key="normal" title="Edit book data"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="shr-1S-WCR">
+                                <rect key="frame" x="134.5" y="806" width="145" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Update progress">
+                                    <color key="titleColor" name="Color4"/>
+                                    <color key="titleShadowColor" name="Color3"/>
+                                </state>
                                 <connections>
-                                    <action selector="editBookDataButtonPressed:" destination="1MB-6y-3Rd" eventType="touchUpInside" id="7vC-hw-m4z"/>
+                                    <action selector="updateProgress:" destination="1MB-6y-3Rd" eventType="touchUpInside" id="WQe-iq-cMD"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="Color1"/>
                         <constraints>
-                            <constraint firstItem="v0m-De-npf" firstAttribute="centerX" secondItem="CQ9-68-hWV" secondAttribute="centerX" id="BUq-eH-8Lr"/>
+                            <constraint firstItem="26x-DT-fgx" firstAttribute="bottom" secondItem="shr-1S-WCR" secondAttribute="bottom" constant="20" id="6lU-hy-fnd"/>
+                            <constraint firstItem="shr-1S-WCR" firstAttribute="centerX" secondItem="CQ9-68-hWV" secondAttribute="centerX" id="7AL-yd-7t1"/>
                             <constraint firstItem="26x-DT-fgx" firstAttribute="trailing" secondItem="yxH-Jr-4v4" secondAttribute="trailing" constant="10" id="Oow-MT-nwT"/>
-                            <constraint firstItem="26x-DT-fgx" firstAttribute="bottom" secondItem="v0m-De-npf" secondAttribute="bottom" id="SZf-tK-NIx"/>
-                            <constraint firstItem="yxH-Jr-4v4" firstAttribute="top" secondItem="26x-DT-fgx" secondAttribute="top" id="bPi-0q-WC2"/>
+                            <constraint firstItem="yxH-Jr-4v4" firstAttribute="top" secondItem="26x-DT-fgx" secondAttribute="top" constant="20" id="bPi-0q-WC2"/>
                             <constraint firstItem="yxH-Jr-4v4" firstAttribute="leading" secondItem="26x-DT-fgx" secondAttribute="leading" constant="10" id="dq9-NH-AzY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="26x-DT-fgx"/>
@@ -220,14 +272,17 @@
                         <outlet property="authorLabel" destination="Yni-fp-Znh" id="DRZ-Ep-O90"/>
                         <outlet property="beginDateLabel" destination="haV-eh-y5U" id="VMj-IK-lxg"/>
                         <outlet property="finishDateLabel" destination="35B-hg-5pc" id="mdW-qv-01E"/>
+                        <outlet property="lastReadDateLabel" destination="Gig-uI-f0q" id="Auu-se-lmo"/>
                         <outlet property="pagesReadLabel" destination="sgk-d7-kb0" id="Ill-8f-WTX"/>
+                        <outlet property="percentLabel" destination="3tJ-LR-Yx6" id="YGu-jI-e4e"/>
+                        <outlet property="progressBar" destination="Fyk-Ob-d5q" id="tRK-5z-ZuC"/>
                         <outlet property="titleLabel" destination="gBS-z1-mgH" id="Zd1-45-0eM"/>
                         <outlet property="totalPagesLabel" destination="WKO-Za-kw6" id="erZ-kb-UK1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="99D-pK-6VY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5594" y="84"/>
+            <point key="canvasLocation" x="5592.753623188406" y="83.705357142857139"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="8WC-Xi-LoT">
@@ -267,7 +322,7 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Booker 📚" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Llv-fo-vRe" customClass="CLTypingLabel" customModule="CLTypingLabel">
                                 <rect key="frame" x="0.0" y="88" width="414" height="646"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="70"/>
+                                <fontDescription key="fontDescription" name="Lato-Black" family="Lato" pointSize="70"/>
                                 <color key="textColor" name="Color4"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -358,7 +413,14 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jry-1g-ttg">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" name="Color4"/>
+                        <color key="tintColor" name="Color4"/>
+                        <color key="barTintColor" name="Color2"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="Color4"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -430,7 +492,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="HxY-pK-eg9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <color key="separatorColor" name="Color4"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <connections>
@@ -450,6 +512,9 @@
         </namedColor>
         <namedColor name="Color2">
             <color red="0.86299997568130493" green="0.83899998664855957" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Color3">
+            <color red="0.65100002288818359" green="0.6940000057220459" blue="0.88200002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Color4">
             <color red="0.25900000333786011" green="0.28200000524520874" blue="0.45500001311302185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
