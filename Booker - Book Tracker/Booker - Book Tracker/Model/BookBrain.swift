@@ -59,8 +59,9 @@ class BookBrain {
 				Constants.FStore.author: book.author,
 				Constants.FStore.totalPages: book.totalPages,
 				Constants.FStore.pagesRead: book.pagesRead,
-				Constants.FStore.beginDate: book.beginDate ,
-				Constants.FStore.finishDate: book.finishDate
+				Constants.FStore.beginDate: book.beginDate,
+				Constants.FStore.finishDate: book.finishDate,
+				Constants.FStore.lastReadDate: book.lastReadDate
 			])
 		}
 	}
@@ -103,7 +104,8 @@ class BookBrain {
 			let totalPages = data[Constants.FStore.totalPages] as? Int,
 			let pagesRead = data[Constants.FStore.pagesRead] as? Int,
 			let beginDate = data[Constants.FStore.beginDate] as? String,
-			let finishDate = data[Constants.FStore.finishDate] as? String {
+			let finishDate = data[Constants.FStore.finishDate] as? String,
+			let lastReadDate = data[Constants.FStore.lastReadDate] as? String {
 			
 			let book = BookModel(id: id,
 								 title: title,
@@ -111,7 +113,8 @@ class BookBrain {
 								 totalPages: totalPages,
 								 pagesRead: pagesRead,
 								 beginDate: beginDate,
-								 finishDate: finishDate)
+								 finishDate: finishDate,
+								 lastReadDate: lastReadDate)
 			
 			addBook(book)
 			
