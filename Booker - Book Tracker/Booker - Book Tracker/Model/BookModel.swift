@@ -10,7 +10,15 @@ import Foundation
 
 struct BookModel: Codable, Comparable {
 	static func < (lhs: BookModel, rhs: BookModel) -> Bool {
-		if (lhs.title == rhs.title) && (lhs.author == rhs.author) && (lhs.totalPages == rhs.totalPages) && (lhs.pagesRead == rhs.pagesRead) && (lhs.beginDate == rhs.beginDate) && (lhs.finishDate == rhs.finishDate) {
+		if (lhs.lastReadDate <= rhs.lastReadDate) {
+			return true
+		} else {
+			return false
+		}
+	}
+	
+	static func == (lhs: BookModel, rhs: BookModel) -> Bool {
+		if (lhs.id == rhs.id) {
 			return true
 		} else {
 			return false
@@ -24,10 +32,11 @@ struct BookModel: Codable, Comparable {
 	var pagesRead: Int
 	var beginDate: String
 	var finishDate: String
+	var lastReadDate: String
 	
 	var readPercentage: Double {
 		get {
-			let percentage =  (Double(pagesRead) / Double(totalPages)) * 100
+			let percentage = (Double(pagesRead) / Double(totalPages)) * 100
 			return percentage
 		}
 	}
@@ -40,5 +49,7 @@ struct BookModel: Codable, Comparable {
 		case pagesRead
 		case beginDate
 		case finishDate
+		case lastReadDate
+	
 	}
 }
