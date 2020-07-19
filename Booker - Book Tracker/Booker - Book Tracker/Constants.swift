@@ -30,5 +30,6 @@ struct Constants {
 		static let pagesRead = "pagesRead"
 		static let beginDate = "beginDate"
 		static let finishDate = "finishDate"
+		static let lastReadDate = "lastReadDate"
 	}
 }
