@@ -21,6 +21,7 @@ class BooksViewController: UITableViewController, AddBookViewControllerDelegate,
 		navigationController?.navigationBar.prefersLargeTitles = true
 		navigationItem.hidesBackButton = true
 		
+		navigationItem.leftBarButtonItem = UIBarButtonItem(title: "···", style: .done, target: self, action: #selector(showMenu))
 		
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBookButton))
 		
@@ -33,6 +34,20 @@ class BooksViewController: UITableViewController, AddBookViewControllerDelegate,
 	}
 	
 	//MARK: - Interactions
+	@objc func showMenu() {
+		let menuView = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+		
+		let showReadingHabits = UIAlertAction(title: "Reading Habits", style: .default) { _ in
+			if let readingHabitsViewController = self.storyboard?.instantiateViewController(identifier: Constants.ViewControllers.readingHabits) as? ReadingHabitsViewController {
+				self.navigationController?.pushViewController(readingHabitsViewController, animated: true)
+			}
+		}
+		
+		menuView.addAction(showReadingHabits)
+		menuView.view.tintColor = UIColor(named: "Color4")
+		
+		present(menuView, animated: true, completion: nil)
+	}
 	
 	@objc func addBookButton() {
 		if let addBookViewController = storyboard?.instantiateViewController(identifier: Constants.ViewControllers.addBook) as? AddBookViewController {
