@@ -6,7 +6,7 @@ Developed using UIKit and Firebase, where (for now) all the data is stored.
 Currently app is in early phase of development.
 
 Welcome screen:
-![Overview](Booker%20-%20Book%20Tracker/docs/screenshots/screenshot1.png)
+![Overview](Booker%20-%20Book%20Tracker/docs/screenshots/screenshot1.png) 
 
 Login screen:
 ![Overview](Booker%20-%20Book%20Tracker/docs/screenshots/screenshot2.png)

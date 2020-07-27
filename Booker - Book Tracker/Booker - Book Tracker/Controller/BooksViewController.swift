@@ -12,8 +12,6 @@ import UIKit
 import Firebase
 
 class BooksViewController: UITableViewController, AddBookViewControllerDelegate, BookDetailsViewControllerDelegate {
-	let db = BookBrain.getDataBase()
-	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -97,7 +95,9 @@ class BooksViewController: UITableViewController, AddBookViewControllerDelegate,
 		
 		for number in 1...(takenIds.count + 1) {
 			if !takenIds.contains(number) {
-				book.id = number
+				try! BookBrain.getRealm().write {
+					BookBrain.getRealm().create(BookModel.self, value: ["id": number], update: .modified)
+				}
 			}
 		}
 		BookBrain.addBook(book)

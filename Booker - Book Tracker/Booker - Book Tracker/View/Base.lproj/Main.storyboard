@@ -170,7 +170,49 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m3e-jO-LHl">
-                                <rect key="frame" x="0.0" y="104" width="414" height="758"/>
+                                <rect key="frame" x="0.0" y="86" width="414" height="776"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vAl-mu-kjT">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="333"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Books not started:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQD-d5-lyd">
+                                                <rect key="frame" x="10" y="0.0" width="394" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Books in progress:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lao-hn-nEw">
+                                                <rect key="frame" x="10" y="34" width="394" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Books read:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9J-b7-Z3N">
+                                                <rect key="frame" x="10" y="68" width="394" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="iQD-d5-lyd" secondAttribute="trailing" constant="10" id="7OQ-3m-7CQ"/>
+                                            <constraint firstItem="f9J-b7-Z3N" firstAttribute="top" secondItem="Lao-hn-nEw" secondAttribute="bottom" constant="10" id="Ird-8Y-Wot"/>
+                                            <constraint firstItem="Lao-hn-nEw" firstAttribute="leading" secondItem="vAl-mu-kjT" secondAttribute="leading" constant="10" id="K2M-se-e2n"/>
+                                            <constraint firstAttribute="trailing" secondItem="Lao-hn-nEw" secondAttribute="trailing" constant="10" id="KYn-rI-yzC"/>
+                                            <constraint firstItem="f9J-b7-Z3N" firstAttribute="leading" secondItem="vAl-mu-kjT" secondAttribute="leading" constant="10" id="RKp-Ng-a92"/>
+                                            <constraint firstAttribute="trailing" secondItem="f9J-b7-Z3N" secondAttribute="trailing" constant="10" id="YOu-7B-cph"/>
+                                            <constraint firstItem="iQD-d5-lyd" firstAttribute="top" secondItem="vAl-mu-kjT" secondAttribute="top" id="aCy-JP-shH"/>
+                                            <constraint firstItem="Lao-hn-nEw" firstAttribute="top" secondItem="iQD-d5-lyd" secondAttribute="bottom" constant="10" id="pjw-x6-VfS"/>
+                                            <constraint firstItem="iQD-d5-lyd" firstAttribute="leading" secondItem="vAl-mu-kjT" secondAttribute="leading" constant="10" id="zQW-I3-YQJ"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="vAl-mu-kjT" firstAttribute="top" secondItem="WfS-uP-ZM2" secondAttribute="top" id="XfD-0t-Mxh"/>
+                                    <constraint firstItem="WfS-uP-ZM2" firstAttribute="trailing" secondItem="vAl-mu-kjT" secondAttribute="trailing" id="efJ-op-nfY"/>
+                                    <constraint firstItem="vAl-mu-kjT" firstAttribute="leading" secondItem="WfS-uP-ZM2" secondAttribute="leading" id="s5M-RF-8XX"/>
+                                </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="Fdw-3O-QHU"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="WfS-uP-ZM2"/>
                             </scrollView>
@@ -178,16 +220,19 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="pZV-BT-Akq" firstAttribute="top" secondItem="yle-Xe-I8A" secondAttribute="top" id="0gc-Pq-QxE"/>
-                            <constraint firstItem="yle-Xe-I8A" firstAttribute="trailing" secondItem="m3e-jO-LHl" secondAttribute="trailing" id="1y4-O2-beM"/>
-                            <constraint firstItem="m3e-jO-LHl" firstAttribute="leading" secondItem="vyH-Jm-TZc" secondAttribute="leading" id="7zX-Na-ujt"/>
+                            <constraint firstItem="m3e-jO-LHl" firstAttribute="trailing" secondItem="yle-Xe-I8A" secondAttribute="trailing" id="NKe-Ty-dm7"/>
                             <constraint firstItem="yle-Xe-I8A" firstAttribute="trailing" secondItem="pZV-BT-Akq" secondAttribute="trailing" constant="10" id="PvY-Sa-i3h"/>
-                            <constraint firstItem="m3e-jO-LHl" firstAttribute="top" secondItem="pZV-BT-Akq" secondAttribute="bottom" id="Uel-Ol-mPR"/>
                             <constraint firstItem="pZV-BT-Akq" firstAttribute="leading" secondItem="yle-Xe-I8A" secondAttribute="leading" constant="10" id="VhV-uN-eak"/>
-                            <constraint firstItem="yle-Xe-I8A" firstAttribute="bottom" secondItem="m3e-jO-LHl" secondAttribute="bottom" id="auN-QZ-vvl"/>
+                            <constraint firstItem="m3e-jO-LHl" firstAttribute="leading" secondItem="yle-Xe-I8A" secondAttribute="leading" id="eU1-fn-LhQ"/>
+                            <constraint firstItem="m3e-jO-LHl" firstAttribute="bottom" secondItem="yle-Xe-I8A" secondAttribute="bottom" id="m32-Pp-eOJ"/>
+                            <constraint firstItem="m3e-jO-LHl" firstAttribute="top" secondItem="pZV-BT-Akq" secondAttribute="bottom" id="wR6-BS-rAA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yle-Xe-I8A"/>
                     </view>
                     <connections>
+                        <outlet property="booksInProgressLabel" destination="Lao-hn-nEw" id="v5m-eU-IFx"/>
+                        <outlet property="booksNotStartedLabel" destination="iQD-d5-lyd" id="gg1-0E-lw8"/>
+                        <outlet property="booksReadLabel" destination="f9J-b7-Z3N" id="urM-PV-5hR"/>
                         <outlet property="habitsScrollView" destination="m3e-jO-LHl" id="fLF-3T-I4Q"/>
                         <outlet property="titleLabel" destination="pZV-BT-Akq" id="LWd-fB-p4D"/>
                     </connections>

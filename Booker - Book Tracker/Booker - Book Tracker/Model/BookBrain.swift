@@ -8,8 +8,10 @@
 
 import Foundation
 import Firebase
+import RealmSwift
 
 class BookBrain {
+	private static let realm = try! Realm()
 	private static let db = Firestore.firestore()
 	private static var books: [BookModel] = []
 	private static var userId = Firebase.Auth.auth().currentUser?.uid
@@ -19,12 +21,18 @@ class BookBrain {
 		case readFailed
 	}
 	
+	static func getRealm() -> Realm {
+		return realm
+	}
+	
 	static func getDataBase() -> Firestore {
 		return db
 	}
 	
 	static func addBook(_ book: BookModel) {
-		BookBrain.books.insert(book, at: 0)
+		try! realm.write {
+			realm.add(book, update: .modified)
+		}
 	}
 	
 	static func getBooks() -> [BookModel] {
@@ -40,17 +48,42 @@ class BookBrain {
 	}
 	
 	static func editBookData(oldBookData: BookModel, newBookData: BookModel) {
-		var index = 0
-		for book in BookBrain.books {
-			if book == oldBookData {
-				BookBrain.books[index] = newBookData
-				break
-			}
-			index += 1
+//		var index = 0
+//		for book in BookBrain.books {
+//			if book == oldBookData {
+//				BookBrain.books[index] = newBookData
+//				break
+//			}
+//			index += 1
+//		}
+		try! realm.write {
+			realm.add(newBookData, update: .modified)
 		}
 	}
 	
-	static func saveBooks() {
+	//MARK: - Realm
+	
+	static func saveBooksToRealm() {
+		try! realm.write {
+			realm.deleteAll()
+			for book in books {
+				realm.add(book)
+			}
+		}
+	}
+	
+	static func loadBooksFromRealm() {
+		books.removeAll()
+		let loadedBooks = realm.objects(BookModel.self)
+		print(loadedBooks)
+		for book in loadedBooks {
+			books.append(book)
+		}
+	}
+	
+	//MARK: - Firestore
+	
+	static func saveBooksToFirestore() {
 		for book in BookBrain.books {
 			let bookDocument = BookBrain.db.collection(Constants.FStore.usersCollectionName + "/" + userId! + "/" + Constants.FStore.collectionName).document("book" + String(book.id))
 			bookDocument.setData([
@@ -66,7 +99,7 @@ class BookBrain {
 		}
 	}
 	
-	static func loadBooks() {
+	static func loadBooksFromFirestore() {
 		BookBrain.books.removeAll()
 		BookBrain.db.collection(Constants.FStore.usersCollectionName + "/" + userId! + "/" + Constants.FStore.collectionName)
 			.order(by: Constants.FStore.title)
@@ -97,7 +130,6 @@ class BookBrain {
 	}
 	
 	private static func getBookInfoFromData(_ data: [String : Any]) {
-		
 		if let id = data[Constants.FStore.id] as? Int,
 			let title = data[Constants.FStore.title] as? String,
 			let author = data[Constants.FStore.author] as? String,
@@ -116,8 +148,7 @@ class BookBrain {
 								 finishDate: finishDate,
 								 lastReadDate: lastReadDate)
 			
-			addBook(book)
-			
+			BookBrain.books.insert(book, at: 0)
 		}
 	}
 }

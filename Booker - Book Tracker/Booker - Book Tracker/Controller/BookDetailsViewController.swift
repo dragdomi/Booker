@@ -123,19 +123,27 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 	func updateBookIfTextfieldIsNotEmpty(textField: UITextField) {
 		if textField.text != "" {
 			if let updatedPagesRead = Int(textField.text!) {
-				book.pagesRead = updatedPagesRead
-				book.lastReadDate = formatDateToString(Date())
+				try! BookBrain.getRealm().write {
+					BookBrain.getRealm().create(BookModel.self, value: ["id":book.id, "pagesRead": updatedPagesRead, "lastReadDate": formatDateToString(Date())], update: .modified)
+				}
 				
 				if (book.pagesRead == book.totalPages) {
-					book.finishDate = book.lastReadDate
-					showBookFinishedView()
+					try! BookBrain.getRealm().write {
+						BookBrain.getRealm().create(BookModel.self, value: ["id":book.id, "finishDate": book.lastReadDate], update: .modified)
+						showBookFinishedView()
+					}
 				} else {
-					book.finishDate = ""
+					try! BookBrain.getRealm().write {
+						BookBrain.getRealm().create(BookModel.self, value: ["id":book.id, "finishDate": ""], update: .modified)
+					}
 				}
 				
 				handleBookData(self.book)
+//				updateView(book: book)
 			}
+			
 		}
+		
 	}
 	
 	func showBookFinishedView() {
