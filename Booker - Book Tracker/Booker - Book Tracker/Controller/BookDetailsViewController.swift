@@ -9,7 +9,7 @@
 import UIKit
 
 protocol BookDetailsViewControllerDelegate {
-	func editBookData(oldBook: BookModel, newBook: BookModel)
+	func editBookData(_ editedBook: BookModel)
 }
 
 class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate {
@@ -68,34 +68,10 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 			addBookViewController.bookAuthor = book.author
 			addBookViewController.bookTotalPages = book.totalPages
 			addBookViewController.bookPagesRead = book.pagesRead
-			addBookViewController.lastReadDate = formatStringToDate(book.lastReadDate)
-			addBookViewController.beginDate = formatStringToDate(book.beginDate)
-			addBookViewController.finishDate = formatStringToDate(book.finishDate)
+			addBookViewController.lastReadDate = Utils.formatStringToDate(book.lastReadDate)
+			addBookViewController.beginDate = Utils.formatStringToDate(book.beginDate)
+			addBookViewController.finishDate = Utils.formatStringToDate(book.finishDate)
 			navigationController?.pushViewController(addBookViewController, animated: true)
-		}
-	}
-	
-	func formatDateToString(_ date: Date?) -> String {
-		let df = DateFormatter()
-		df.dateFormat = Constants.dateFormat
-		
-		if let date = date {
-			let dateString = df.string(from: date)
-			return dateString
-		} else {
-			return ""
-		}
-	}
-	
-	func formatStringToDate(_ string: String) -> Date?{
-		let df = DateFormatter()
-		df.dateFormat = Constants.dateFormat
-		
-		if string != "" {
-			let date = df.date(from: string)
-			return date
-		} else {
-			return nil
 		}
 	}
 	
@@ -106,14 +82,15 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 			textField.keyboardType = .decimalPad
 		}
 		
-		let confirmAction = UIAlertAction(title: "OK", style: .default) { [weak updateView] _ in
+		let confirmAction = UIAlertAction(title: "Done", style: .default) { [weak updateView] _ in
 			guard let updateView = updateView, let textField = updateView.textFields?.first else { return }
 			print("Pages: \(String(describing: textField.text))")
 			self.updateBookIfTextfieldIsNotEmpty(textField: textField)
 		}
 		
+		let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+		
 		updateView.addAction(confirmAction)
-		let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
 		updateView.addAction(cancelAction)
 		updateView.view.tintColor = UIColor(named: "Color4")
 		
@@ -123,8 +100,14 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 	func updateBookIfTextfieldIsNotEmpty(textField: UITextField) {
 		if textField.text != "" {
 			if let updatedPagesRead = Int(textField.text!) {
+				if (updatedPagesRead - book.pagesRead) > 0 {
+					ReadingHabits.addPagesToDate(pages: updatedPagesRead - book.pagesRead, date: Utils.formatDateToString(Date()))
+				} else {
+					showSubstractAlert(negativeNumber: updatedPagesRead - book.pagesRead)
+				}
+				
 				try! BookBrain.getRealm().write {
-					BookBrain.getRealm().create(BookModel.self, value: ["id":book.id, "pagesRead": updatedPagesRead, "lastReadDate": formatDateToString(Date())], update: .modified)
+					BookBrain.getRealm().create(BookModel.self, value: ["id":book.id, "pagesRead": updatedPagesRead, "lastReadDate": Utils.formatDateToString(Date())], update: .modified)
 				}
 				
 				if (book.pagesRead == book.totalPages) {
@@ -141,9 +124,21 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 				handleBookData(self.book)
 //				updateView(book: book)
 			}
-			
 		}
+	}
+	
+	func showSubstractAlert(negativeNumber: Int) {
+		let substractAlert = UIAlertController(title: "Negative number", message: "Do you want to substract \(abs(negativeNumber)) from your daily pages score?", preferredStyle: .alert)
+		let yesAction = UIAlertAction(title: "Yes", style: .default) { _ in
+			ReadingHabits.addPagesToDate(pages: negativeNumber, date: Utils.formatDateToString(Date()))
+		}
+		let noAction = UIAlertAction(title: "No", style: .destructive, handler: nil)
 		
+		substractAlert.addAction(yesAction)
+		substractAlert.addAction(noAction)
+		substractAlert.view.tintColor = UIColor(named: "Color4")
+		
+		present(substractAlert, animated: true, completion: nil)
 	}
 	
 	func showBookFinishedView() {
@@ -155,7 +150,7 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 	
 	
 	func handleBookData(_ book: BookModel) {
-		delegate?.editBookData(oldBook: self.book, newBook: book)
+		delegate?.editBookData(book)
 		self.book = book
 		updateView(book: book)
 	}

@@ -41,7 +41,17 @@ class BooksViewController: UITableViewController, AddBookViewControllerDelegate,
 			}
 		}
 		
+		let showUserProfile = UIAlertAction(title: "My Profile", style: .default) { _ in
+			if let userProfileViewController = self.storyboard?.instantiateViewController(identifier: Constants.ViewControllers.userProfile) as? UserProfileViewController {
+				self.navigationController?.pushViewController(userProfileViewController, animated: true)
+			}
+		}
+		
+		let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+		
 		menuView.addAction(showReadingHabits)
+		menuView.addAction(showUserProfile)
+		menuView.addAction(cancel)
 		menuView.view.tintColor = UIColor(named: "Color4")
 		
 		present(menuView, animated: true, completion: nil)
@@ -104,8 +114,8 @@ class BooksViewController: UITableViewController, AddBookViewControllerDelegate,
 		reloadTableViewDataAsync()
 	}
 	
-	func editBookData(oldBook: BookModel, newBook: BookModel) {
-		BookBrain.editBookData(oldBookData: oldBook, newBookData: newBook)
+	func editBookData(_ editedBook: BookModel) {
+		BookBrain.editBookData(editedBook)
 		reloadTableViewDataAsync()
 	}
 	

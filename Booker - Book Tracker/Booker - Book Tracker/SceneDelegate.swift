@@ -32,7 +32,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		// Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
 //		BookBrain.loadBooksFromFirestore()
 		BookBrain.loadBooksFromRealm()
-//		print(BookBrain.getRealm().configuration.fileURL)
+		print(BookBrain.getRealm().configuration.fileURL)
 	}
 	
 	func sceneWillResignActive(_ scene: UIScene) {

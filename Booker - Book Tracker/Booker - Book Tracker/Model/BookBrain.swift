@@ -47,17 +47,9 @@ class BookBrain {
 		self.userId = userId
 	}
 	
-	static func editBookData(oldBookData: BookModel, newBookData: BookModel) {
-//		var index = 0
-//		for book in BookBrain.books {
-//			if book == oldBookData {
-//				BookBrain.books[index] = newBookData
-//				break
-//			}
-//			index += 1
-//		}
+	static func editBookData(_ editedBook: BookModel) {
 		try! realm.write {
-			realm.add(newBookData, update: .modified)
+			realm.add(editedBook, update: .modified)
 		}
 	}
 	

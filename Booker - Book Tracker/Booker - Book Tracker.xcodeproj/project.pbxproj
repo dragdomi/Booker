@@ -29,6 +29,8 @@
 		A5918624241D430400002A11 /* AddBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5918623241D430400002A11 /* AddBookViewController.swift */; };
 		A59258A924BE20920066CACE /* BookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A59258A824BE20920066CACE /* BookCell.xib */; };
 		A59258AB24BE2C980066CACE /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59258AA24BE2C980066CACE /* BookCell.swift */; };
+		A599B80F24D0430D00163D1A /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A599B80E24D0430D00163D1A /* UserProfileViewController.swift */; };
+		A599B81124D0491F00163D1A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A599B81024D0491F00163D1A /* Utils.swift */; };
 		A5AD99CE2422995200E0A6D9 /* BookDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AD99CD2422995200E0A6D9 /* BookDetailsViewController.swift */; };
 		A5D917C82499568300452531 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D917C72499568300452531 /* RegisterViewController.swift */; };
 		A5D917CA249957B900452531 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D917C9249957B900452531 /* Constants.swift */; };
@@ -65,6 +67,8 @@
 		A5918623241D430400002A11 /* AddBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookViewController.swift; sourceTree = "<group>"; };
 		A59258A824BE20920066CACE /* BookCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookCell.xib; sourceTree = "<group>"; };
 		A59258AA24BE2C980066CACE /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
+		A599B80E24D0430D00163D1A /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		A599B81024D0491F00163D1A /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		A5AD99CD2422995200E0A6D9 /* BookDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailsViewController.swift; sourceTree = "<group>"; };
 		A5D917C72499568300452531 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		A5D917C9249957B900452531 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -160,6 +164,7 @@
 				A5D917C72499568300452531 /* RegisterViewController.swift */,
 				A52830AB24C5D3B700BED289 /* ReadingHabitsViewController.swift */,
 				A51854382497DC6E00983DB8 /* WelcomeViewController.swift */,
+				A599B80E24D0430D00163D1A /* UserProfileViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -181,6 +186,7 @@
 				A53E2BF4241D08FF0013152C /* BookBrain.swift */,
 				A5EE4CCF2438847200902BA0 /* FilesManager.swift */,
 				A52830A524C5BED200BED289 /* ReadingHabits.swift */,
+				A599B81024D0491F00163D1A /* Utils.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -330,11 +336,13 @@
 				A51854392497DC6E00983DB8 /* WelcomeViewController.swift in Sources */,
 				A5D917CA249957B900452531 /* Constants.swift in Sources */,
 				A5D917C82499568300452531 /* RegisterViewController.swift in Sources */,
+				A599B80F24D0430D00163D1A /* UserProfileViewController.swift in Sources */,
 				A59258AB24BE2C980066CACE /* BookCell.swift in Sources */,
 				A53E2BE0241D063B0013152C /* BooksViewController.swift in Sources */,
 				A52830A624C5BED200BED289 /* ReadingHabits.swift in Sources */,
 				A5AD99CE2422995200E0A6D9 /* BookDetailsViewController.swift in Sources */,
 				A5918624241D430400002A11 /* AddBookViewController.swift in Sources */,
+				A599B81124D0491F00163D1A /* Utils.swift in Sources */,
 				A53E2BF5241D08FF0013152C /* BookBrain.swift in Sources */,
 				A53E2BDC241D063B0013152C /* AppDelegate.swift in Sources */,
 				A53E2BF3241D07DA0013152C /* BookModel.swift in Sources */,

@@ -9,6 +9,16 @@
 import Foundation
 
 class ReadingHabits {
+	private static var pagesPerDate: [String: Int] = [:]
+	
+	static func addPagesToDate(pages: Int, date: String) {
+		pagesPerDate[date] = pagesPerDate[date] ?? 0 + pages
+	}
+	
+	static func getPagesPerDate(date: String) -> Int {
+		return pagesPerDate[date] ?? 0
+	}
+	
 	static var pagesReadNumber: Int {
 		var pagesReadNumber = 0
 		let books = BookBrain.getBooks()
@@ -42,7 +52,7 @@ class ReadingHabits {
 	
 	static var booksRead: [BookModel] {
 		var booksRead = [BookModel]()
-		for book in booksInProgress {
+		for book in BookBrain.getBooks() {
 			if book.pagesRead == book.totalPages {
 				booksRead.append(book)
 			}

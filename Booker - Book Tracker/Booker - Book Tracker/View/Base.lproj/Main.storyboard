@@ -163,32 +163,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Reading Habits" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZV-BT-Akq">
-                                <rect key="frame" x="10" y="44" width="394" height="42"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m3e-jO-LHl">
                                 <rect key="frame" x="0.0" y="86" width="414" height="776"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vAl-mu-kjT">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="333"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Books not started:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQD-d5-lyd">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Books not started:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQD-d5-lyd">
                                                 <rect key="frame" x="10" y="0.0" width="394" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Books in progress:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lao-hn-nEw">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Books in progress:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lao-hn-nEw">
                                                 <rect key="frame" x="10" y="34" width="394" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Books read:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9J-b7-Z3N">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Books read:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9J-b7-Z3N">
                                                 <rect key="frame" x="10" y="68" width="394" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Pages per day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXA-ZG-GWl">
+                                                <rect key="frame" x="10" y="100" width="394" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -197,12 +197,14 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="iQD-d5-lyd" secondAttribute="trailing" constant="10" id="7OQ-3m-7CQ"/>
+                                            <constraint firstItem="QXA-ZG-GWl" firstAttribute="leading" secondItem="vAl-mu-kjT" secondAttribute="leading" constant="10" id="Esx-eY-Jai"/>
                                             <constraint firstItem="f9J-b7-Z3N" firstAttribute="top" secondItem="Lao-hn-nEw" secondAttribute="bottom" constant="10" id="Ird-8Y-Wot"/>
                                             <constraint firstItem="Lao-hn-nEw" firstAttribute="leading" secondItem="vAl-mu-kjT" secondAttribute="leading" constant="10" id="K2M-se-e2n"/>
                                             <constraint firstAttribute="trailing" secondItem="Lao-hn-nEw" secondAttribute="trailing" constant="10" id="KYn-rI-yzC"/>
+                                            <constraint firstItem="QXA-ZG-GWl" firstAttribute="top" secondItem="f9J-b7-Z3N" secondAttribute="bottom" constant="10" id="L5J-fM-Xeu"/>
                                             <constraint firstItem="f9J-b7-Z3N" firstAttribute="leading" secondItem="vAl-mu-kjT" secondAttribute="leading" constant="10" id="RKp-Ng-a92"/>
                                             <constraint firstAttribute="trailing" secondItem="f9J-b7-Z3N" secondAttribute="trailing" constant="10" id="YOu-7B-cph"/>
-                                            <constraint firstItem="iQD-d5-lyd" firstAttribute="top" secondItem="vAl-mu-kjT" secondAttribute="top" id="aCy-JP-shH"/>
+                                            <constraint firstAttribute="trailing" secondItem="QXA-ZG-GWl" secondAttribute="trailing" constant="10" id="hIf-Gx-gGM"/>
                                             <constraint firstItem="Lao-hn-nEw" firstAttribute="top" secondItem="iQD-d5-lyd" secondAttribute="bottom" constant="10" id="pjw-x6-VfS"/>
                                             <constraint firstItem="iQD-d5-lyd" firstAttribute="leading" secondItem="vAl-mu-kjT" secondAttribute="leading" constant="10" id="zQW-I3-YQJ"/>
                                         </constraints>
@@ -219,13 +221,10 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="pZV-BT-Akq" firstAttribute="top" secondItem="yle-Xe-I8A" secondAttribute="top" id="0gc-Pq-QxE"/>
                             <constraint firstItem="m3e-jO-LHl" firstAttribute="trailing" secondItem="yle-Xe-I8A" secondAttribute="trailing" id="NKe-Ty-dm7"/>
-                            <constraint firstItem="yle-Xe-I8A" firstAttribute="trailing" secondItem="pZV-BT-Akq" secondAttribute="trailing" constant="10" id="PvY-Sa-i3h"/>
-                            <constraint firstItem="pZV-BT-Akq" firstAttribute="leading" secondItem="yle-Xe-I8A" secondAttribute="leading" constant="10" id="VhV-uN-eak"/>
                             <constraint firstItem="m3e-jO-LHl" firstAttribute="leading" secondItem="yle-Xe-I8A" secondAttribute="leading" id="eU1-fn-LhQ"/>
                             <constraint firstItem="m3e-jO-LHl" firstAttribute="bottom" secondItem="yle-Xe-I8A" secondAttribute="bottom" id="m32-Pp-eOJ"/>
-                            <constraint firstItem="m3e-jO-LHl" firstAttribute="top" secondItem="pZV-BT-Akq" secondAttribute="bottom" id="wR6-BS-rAA"/>
+                            <constraint firstItem="m3e-jO-LHl" firstAttribute="top" secondItem="yle-Xe-I8A" secondAttribute="top" constant="42" id="x7K-cE-DR0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yle-Xe-I8A"/>
                     </view>
@@ -234,7 +233,7 @@
                         <outlet property="booksNotStartedLabel" destination="iQD-d5-lyd" id="gg1-0E-lw8"/>
                         <outlet property="booksReadLabel" destination="f9J-b7-Z3N" id="urM-PV-5hR"/>
                         <outlet property="habitsScrollView" destination="m3e-jO-LHl" id="fLF-3T-I4Q"/>
-                        <outlet property="titleLabel" destination="pZV-BT-Akq" id="LWd-fB-p4D"/>
+                        <outlet property="pagesPerDayLabel" destination="QXA-ZG-GWl" id="Vtn-JL-TuO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e3r-kY-D5d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -493,6 +492,21 @@
             </objects>
             <point key="canvasLocation" x="3074" y="-310"/>
         </scene>
+        <!--User Profile View Controller-->
+        <scene sceneID="gI9-Hc-f4W">
+            <objects>
+                <viewController storyboardIdentifier="UserProfileViewController" id="nWo-qg-Eax" customClass="UserProfileViewController" customModule="Booker___Book_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="G61-QU-nlE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="r7L-pS-YMM"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ixO-r0-cDb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3929" y="-610"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="m8p-1Q-7SC">
             <objects>
@@ -596,16 +610,16 @@
     </scenes>
     <resources>
         <namedColor name="Color1">
-            <color red="0.96100002527236938" green="0.93300002813339233" blue="0.90200001001358032" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.95686274509803915" green="0.93333333333333335" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Color2">
-            <color red="0.95300000905990601" green="0.84299999475479126" blue="0.79199999570846558" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.86274509803921573" green="0.83921568627450982" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Color3">
-            <color red="0.90200001001358032" green="0.64300000667572021" blue="0.70599997043609619" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.65098039215686276" green="0.69411764705882351" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Color4">
-            <color red="0.7839999794960022" green="0.41999998688697815" blue="0.5220000147819519" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.25882352941176467" green="0.28235294117647058" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

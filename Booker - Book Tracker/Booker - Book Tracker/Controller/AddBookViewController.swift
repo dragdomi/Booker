@@ -180,9 +180,9 @@ class AddBookViewController: UIViewController {
 			let author = bookAuthor,
 			let totalPages = bookTotalPages,
 			let pagesRead = bookPagesRead {
-			let beginDateString = formatDateToString(beginDate)
-			let finishDateString = formatDateToString(finishDate)
-			let lastReadDate = formatDateToString(lastReadDate)
+			let beginDateString = Utils.formatDateToString(beginDate)
+			let finishDateString = Utils.formatDateToString(finishDate)
+			let lastReadDate = Utils.formatDateToString(lastReadDate)
 			let book = BookModel(id: bookId ?? 0,
 								 title: title,
 								 author: author,
@@ -193,18 +193,6 @@ class AddBookViewController: UIViewController {
 								 lastReadDate: lastReadDate)
 			
 			delegate?.handleBookData(book)
-		}
-	}
-	
-	func formatDateToString(_ date: Date?) -> String {
-		let df = DateFormatter()
-		df.dateFormat = Constants.dateFormat
-		
-		if let date = date {
-			let dateString = df.string(from: date)
-			return dateString
-		} else {
-			return ""
 		}
 	}
 }
