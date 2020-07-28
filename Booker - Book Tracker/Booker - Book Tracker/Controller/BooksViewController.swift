@@ -16,6 +16,13 @@ class BooksViewController: UITableViewController, AddBookViewControllerDelegate,
 		super.viewDidLoad()
 		
 		reloadTableViewDataAsync()
+		setupUI()
+		
+		tableView.register(UINib(nibName: Constants.cellNibName, bundle: nil), forCellReuseIdentifier: Constants.cellIdentifier)
+		BookBrain.setUserId(Firebase.Auth.auth().currentUser?.uid)
+	}
+	
+	func setupUI() {
 		navigationController?.navigationBar.prefersLargeTitles = true
 		navigationItem.hidesBackButton = true
 		
@@ -27,8 +34,6 @@ class BooksViewController: UITableViewController, AddBookViewControllerDelegate,
 		
 		tableView.rowHeight = UITableView.automaticDimension
 		tableView.estimatedRowHeight = 70
-		tableView.register(UINib(nibName: Constants.cellNibName, bundle: nil), forCellReuseIdentifier: Constants.cellIdentifier)
-		BookBrain.setUserId(Firebase.Auth.auth().currentUser?.uid)
 	}
 	
 	//MARK: - Interactions
@@ -105,9 +110,10 @@ class BooksViewController: UITableViewController, AddBookViewControllerDelegate,
 		
 		for number in 1...(takenIds.count + 1) {
 			if !takenIds.contains(number) {
-				try! BookBrain.getRealm().write {
-					BookBrain.getRealm().create(BookModel.self, value: ["id": number], update: .modified)
-				}
+//				try! BookBrain.getRealm().write {
+//					BookBrain.getRealm().create(BookModel.self, value: ["id": number], update: .modified)
+//				}
+				book.id = number
 			}
 		}
 		BookBrain.addBook(book)
