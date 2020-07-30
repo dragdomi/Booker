@@ -14,12 +14,12 @@ import Firebase
 class BooksViewController: UITableViewController, AddBookViewControllerDelegate, BookDetailsViewControllerDelegate {
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
+		BookBrain.loadBooksFromRealm()
 		reloadTableViewDataAsync()
 		setupUI()
 		
 		tableView.register(UINib(nibName: Constants.cellNibName, bundle: nil), forCellReuseIdentifier: Constants.cellIdentifier)
-		BookBrain.setUserId(Firebase.Auth.auth().currentUser?.uid)
+//		BookBrain.setUserId(Firebase.Auth.auth().currentUser?.uid)
 	}
 	
 	func setupUI() {
