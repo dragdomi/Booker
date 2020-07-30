@@ -32,8 +32,7 @@ class BooksViewController: UITableViewController, AddBookViewControllerDelegate,
 		
 		title = "My books"
 		
-		tableView.rowHeight = UITableView.automaticDimension
-		tableView.estimatedRowHeight = 70
+//		tableView.rowHeight = UITableView.automaticDimension
 	}
 	
 	//MARK: - Interactions
@@ -79,6 +78,14 @@ class BooksViewController: UITableViewController, AddBookViewControllerDelegate,
 		let book = BookBrain.getBooks()[indexPath.row]
 		let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier, for: indexPath) as! BookCell
 		
+		cell.cellView.layer.cornerRadius = 10
+		cell.cellView.layer.shadowPath =  UIBezierPath(roundedRect: cell.cellView.bounds, cornerRadius: cell.cellView.layer.cornerRadius).cgPath
+		cell.cellView.layer.shadowRadius = 1
+		cell.cellView.layer.shadowOffset = .zero
+		cell.cellView.layer.shadowOpacity = 0.5
+		
+		cell.selectedBackgroundView?.backgroundColor = UIColor(named: "Color1")
+		
 		cell.titleLabel.text = book.title
 		cell.authorLabel.text = book.author
 		cell.percentageLabel.text = "\(Int(book.readPercentage))%"
@@ -97,8 +104,18 @@ class BooksViewController: UITableViewController, AddBookViewControllerDelegate,
 	
 	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 		if editingStyle == .delete {
-			BookBrain.deleteBook(BookBrain.getBooks()[indexPath.row])
-			tableView.deleteRows(at: [indexPath], with: .fade)
+			let deleteAlert = UIAlertController(title: "Warning", message: "Are you sure you want to delete '\(BookBrain.getBooks()[indexPath.row].title)' from your books?", preferredStyle: .alert)
+			let deleteAction = UIAlertAction(title: "YES", style: .destructive) {_ in
+				BookBrain.deleteBook(BookBrain.getBooks()[indexPath.row])
+				tableView.deleteRows(at: [indexPath], with: .fade)
+			}
+			let cancelAction = UIAlertAction(title: "NO", style: .default)
+			deleteAlert.addAction(deleteAction)
+			deleteAlert.addAction(cancelAction)
+			
+			deleteAlert.view.tintColor = UIColor(named: "Color4")
+			self.present(deleteAlert, animated: true)
+			
 		}
 	}
 	

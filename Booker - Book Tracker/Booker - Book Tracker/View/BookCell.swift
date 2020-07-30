@@ -9,6 +9,7 @@
 import UIKit
 
 class BookCell: UITableViewCell {
+	@IBOutlet weak var cellView: UIView!
 	@IBOutlet weak var titleLabel: UILabel!
 	@IBOutlet weak var authorLabel: UILabel!
 	@IBOutlet weak var percentageLabel: UILabel!

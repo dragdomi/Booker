@@ -87,7 +87,7 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 			self.updateBookIfTextfieldIsNotEmpty(textField: textField)
 		}
 		
-		let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+		let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
 		
 		updateView.addAction(confirmAction)
 		updateView.addAction(cancelAction)
@@ -131,7 +131,7 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 		let yesAction = UIAlertAction(title: "Yes", style: .default) { _ in
 			ReadingHabits.addPagesToDate(pages: negativeNumber, date: Utils.formatDateToString(Date()))
 		}
-		let noAction = UIAlertAction(title: "No", style: .destructive, handler: nil)
+		let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
 		
 		substractAlert.addAction(yesAction)
 		substractAlert.addAction(noAction)
