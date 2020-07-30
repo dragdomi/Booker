@@ -176,12 +176,16 @@ class AddBookViewController: UIViewController {
 	}
 	
 	func createBookModel(title: String?, author: String?, totalPages: Int?, pagesRead: Int?, beginDate: Date?, finishDate: Date?, lastReadDate: Date?) {
+		
 		if let title = bookTitle,
 			let author = bookAuthor,
 			let totalPages = bookTotalPages,
 			let pagesRead = bookPagesRead {
-			let beginDateString = Utils.formatDateToString(beginDate)
-			let finishDateString = Utils.formatDateToString(finishDate)
+			let beginDateString = Utils.formatDateToString(beginDate ?? Date())
+			var finishDateString = Utils.formatDateToString(finishDate)
+			if isFinished {
+				finishDateString = Utils.formatDateToString(finishDate ?? Date())
+			}
 			let lastReadDate = Utils.formatDateToString(lastReadDate)
 			let book = BookModel(id: bookId ?? 0,
 								 title: title,

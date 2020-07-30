@@ -20,7 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = UINavigationController(rootViewController: BooksViewController(style: .plain))
         window?.makeKeyAndVisible()
 
-		
 		return true
 	}
 	

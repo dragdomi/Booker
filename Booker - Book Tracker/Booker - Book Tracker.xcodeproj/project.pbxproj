@@ -35,7 +35,6 @@
 		A5D917C82499568300452531 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D917C72499568300452531 /* RegisterViewController.swift */; };
 		A5D917CA249957B900452531 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D917C9249957B900452531 /* Constants.swift */; };
 		A5D917D02499594C00452531 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D917CF2499594C00452531 /* LoginViewController.swift */; };
-		A5EE4CD02438847200902BA0 /* FilesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EE4CCF2438847200902BA0 /* FilesManager.swift */; };
 		CFBBDEFFBDCE1FA575A59847 /* Pods_Booker___Book_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 226F733C91163B564FF2D06A /* Pods_Booker___Book_Tracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,7 +72,6 @@
 		A5D917C72499568300452531 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		A5D917C9249957B900452531 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A5D917CF2499594C00452531 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		A5EE4CCF2438847200902BA0 /* FilesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,7 +182,6 @@
 			children = (
 				A53E2BF2241D07DA0013152C /* BookModel.swift */,
 				A53E2BF4241D08FF0013152C /* BookBrain.swift */,
-				A5EE4CCF2438847200902BA0 /* FilesManager.swift */,
 				A52830A524C5BED200BED289 /* ReadingHabits.swift */,
 				A599B81024D0491F00163D1A /* Utils.swift */,
 			);
@@ -348,7 +345,6 @@
 				A53E2BF3241D07DA0013152C /* BookModel.swift in Sources */,
 				A53E2BDE241D063B0013152C /* SceneDelegate.swift in Sources */,
 				A52830AC24C5D3B700BED289 /* ReadingHabitsViewController.swift in Sources */,
-				A5EE4CD02438847200902BA0 /* FilesManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

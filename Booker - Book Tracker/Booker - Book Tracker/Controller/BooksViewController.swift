@@ -83,7 +83,7 @@ class BooksViewController: UITableViewController, AddBookViewControllerDelegate,
 		cell.authorLabel.text = book.author
 		cell.percentageLabel.text = "\(Int(book.readPercentage))%"
 		cell.dateLabel.text = book.lastReadDate
-		cell.progressBar.progress = Float(book.readPercentage/100)
+		cell.progressBar.setProgress(Float(book.readPercentage/100), animated: true)
 		return cell
 	}
 	
@@ -92,6 +92,13 @@ class BooksViewController: UITableViewController, AddBookViewControllerDelegate,
 			bookDetailsViewController.book = BookBrain.getBooks()[indexPath.row]
 			bookDetailsViewController.delegate = self
 			self.navigationController?.pushViewController(bookDetailsViewController, animated: true)
+		}
+	}
+	
+	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+		if editingStyle == .delete {
+			BookBrain.deleteBook(BookBrain.getBooks()[indexPath.row])
+			tableView.deleteRows(at: [indexPath], with: .fade)
 		}
 	}
 	
@@ -117,6 +124,7 @@ class BooksViewController: UITableViewController, AddBookViewControllerDelegate,
 			}
 		}
 		BookBrain.addBook(book)
+		print(BookBrain.getBooks())
 		reloadTableViewDataAsync()
 	}
 	

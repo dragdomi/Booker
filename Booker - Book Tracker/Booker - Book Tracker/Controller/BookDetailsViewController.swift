@@ -39,7 +39,7 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 		pagesReadLabel.text = "Pages read: " + String(book.pagesRead)
 		totalPagesLabel.text = "Total pages: " + String(book.totalPages)
 		percentLabel.text = "\(Int(book.readPercentage))%"
-		progressBar.progress = Float(book.readPercentage / 100)
+		progressBar.setProgress(Float(book.readPercentage / 100), animated: true)
 		
 		if book.lastReadDate != "" {
 			lastReadDateLabel.text = "Last read date: " + book.lastReadDate

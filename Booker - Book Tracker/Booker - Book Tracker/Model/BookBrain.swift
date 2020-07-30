@@ -31,8 +31,16 @@ class BookBrain {
 	
 	static func addBook(_ book: BookModel) {
 		try! realm.write {
-			realm.add(book, update: .modified)
+			realm.add(book)
 		}
+		loadBooksFromRealm()
+	}
+	
+	static func deleteBook(_ book: BookModel) {
+		try! realm.write {
+			realm.delete(book)
+		}
+		loadBooksFromRealm()
 	}
 	
 	static func getBooks() -> [BookModel] {
@@ -51,6 +59,7 @@ class BookBrain {
 		try! realm.write {
 			realm.add(editedBook, update: .modified)
 		}
+		loadBooksFromRealm()
 	}
 	
 	//MARK: - Realm
