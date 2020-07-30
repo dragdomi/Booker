@@ -30,45 +30,48 @@
                                 <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="0hW-HE-Wne">
-                                <rect key="frame" x="20" y="56" width="374" height="4"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="4" id="h2Z-k3-vOs"/>
-                                </constraints>
-                                <color key="progressTintColor" name="Color4"/>
-                                <color key="trackTintColor" name="Color2"/>
-                            </progressView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2P0-OQ-UpO">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="50%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2P0-OQ-UpO">
                                 <rect key="frame" x="338" y="34" width="56" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QVg-hx-hbD">
-                                <rect key="frame" x="212" y="34" width="121" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QVg-hx-hbD">
+                                <rect key="frame" x="207" y="34" width="131" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E7k-9k-bwW" customClass="HorizontalProgressBar" customModule="Booker___Book_Tracker" customModuleProvider="target">
+                                <rect key="frame" x="20" y="57" width="374" height="5"/>
+                                <color key="backgroundColor" name="Color2"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" name="Color4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" name="Color1"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="0hW-HE-Wne" secondAttribute="bottom" constant="10" id="2RK-Mb-F6n"/>
-                            <constraint firstAttribute="trailing" secondItem="0hW-HE-Wne" secondAttribute="trailing" constant="20" id="5Ul-G3-etX"/>
-                            <constraint firstItem="2P0-OQ-UpO" firstAttribute="width" secondItem="0hW-HE-Wne" secondAttribute="width" multiplier="0.15" id="EF0-ON-BCZ"/>
-                            <constraint firstItem="X0Q-rR-ZCJ" firstAttribute="width" secondItem="0hW-HE-Wne" secondAttribute="width" multiplier="0.5" id="HPO-7g-Gp8"/>
+                            <constraint firstItem="2P0-OQ-UpO" firstAttribute="leading" secondItem="QVg-hx-hbD" secondAttribute="trailing" id="5DS-6D-Hca"/>
+                            <constraint firstAttribute="trailing" secondItem="2P0-OQ-UpO" secondAttribute="trailing" constant="20" id="Bl8-mi-aGZ"/>
+                            <constraint firstItem="E7k-9k-bwW" firstAttribute="leading" secondItem="m0I-ry-7mc" secondAttribute="leading" constant="20" id="Hdt-Xy-dQm"/>
+                            <constraint firstItem="E7k-9k-bwW" firstAttribute="top" secondItem="X0Q-rR-ZCJ" secondAttribute="bottom" constant="5" id="Hte-ro-apH"/>
                             <constraint firstItem="d2C-Hg-PoM" firstAttribute="leading" secondItem="m0I-ry-7mc" secondAttribute="leading" constant="20" id="Qal-lB-OIs"/>
                             <constraint firstItem="d2C-Hg-PoM" firstAttribute="top" secondItem="m0I-ry-7mc" secondAttribute="top" constant="5" id="RvR-hY-GSn"/>
                             <constraint firstItem="X0Q-rR-ZCJ" firstAttribute="leading" secondItem="m0I-ry-7mc" secondAttribute="leading" constant="20" id="UaZ-e8-LZs"/>
-                            <constraint firstItem="2P0-OQ-UpO" firstAttribute="leading" secondItem="QVg-hx-hbD" secondAttribute="trailing" constant="5" id="YmW-IC-tNf"/>
-                            <constraint firstItem="QVg-hx-hbD" firstAttribute="leading" secondItem="X0Q-rR-ZCJ" secondAttribute="trailing" constant="5" id="bUv-tq-uhH"/>
+                            <constraint firstAttribute="trailing" secondItem="E7k-9k-bwW" secondAttribute="trailing" constant="20" id="WuA-ZX-pO9"/>
+                            <constraint firstItem="2P0-OQ-UpO" firstAttribute="leading" secondItem="QVg-hx-hbD" secondAttribute="trailing" id="YBj-xP-IMJ"/>
+                            <constraint firstAttribute="bottom" secondItem="E7k-9k-bwW" secondAttribute="bottom" constant="8" id="c2g-mU-mcM"/>
                             <constraint firstItem="X0Q-rR-ZCJ" firstAttribute="top" secondItem="d2C-Hg-PoM" secondAttribute="bottom" constant="5" id="fNo-fo-tO4"/>
                             <constraint firstItem="QVg-hx-hbD" firstAttribute="top" secondItem="d2C-Hg-PoM" secondAttribute="bottom" constant="5" id="igg-Gc-3Nr"/>
-                            <constraint firstItem="0hW-HE-Wne" firstAttribute="leading" secondItem="m0I-ry-7mc" secondAttribute="leading" constant="20" id="jLJ-6t-MeZ"/>
                             <constraint firstAttribute="trailing" secondItem="d2C-Hg-PoM" secondAttribute="trailing" constant="20" id="jfh-9p-eqp"/>
-                            <constraint firstAttribute="trailing" secondItem="2P0-OQ-UpO" secondAttribute="trailing" constant="20" id="nMv-MR-Yhb"/>
+                            <constraint firstItem="X0Q-rR-ZCJ" firstAttribute="width" secondItem="E7k-9k-bwW" secondAttribute="width" multiplier="0.5" id="lUN-c7-cSE"/>
                             <constraint firstAttribute="height" constant="70" id="nPu-Nv-wnF"/>
+                            <constraint firstItem="QVg-hx-hbD" firstAttribute="width" secondItem="X0Q-rR-ZCJ" secondAttribute="width" multiplier="0.7" id="qlT-gf-C4J"/>
                             <constraint firstItem="2P0-OQ-UpO" firstAttribute="top" secondItem="d2C-Hg-PoM" secondAttribute="bottom" constant="5" id="vuO-Vt-BgZ"/>
+                            <constraint firstItem="QVg-hx-hbD" firstAttribute="leading" secondItem="X0Q-rR-ZCJ" secondAttribute="trailing" id="wfx-dG-UDU"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -83,7 +86,7 @@
                 <outlet property="authorLabel" destination="X0Q-rR-ZCJ" id="oKt-SY-JTb"/>
                 <outlet property="dateLabel" destination="QVg-hx-hbD" id="ow5-Bs-vgS"/>
                 <outlet property="percentageLabel" destination="2P0-OQ-UpO" id="XND-JX-QN8"/>
-                <outlet property="progressBar" destination="0hW-HE-Wne" id="UjP-vU-J9x"/>
+                <outlet property="progressBar" destination="E7k-9k-bwW" id="xq6-XS-MKa"/>
                 <outlet property="titleLabel" destination="d2C-Hg-PoM" id="Lq8-pD-vNh"/>
             </connections>
             <point key="canvasLocation" x="-497.10144927536237" y="-20.089285714285712"/>

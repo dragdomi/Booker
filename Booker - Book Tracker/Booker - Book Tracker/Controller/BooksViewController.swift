@@ -83,7 +83,7 @@ class BooksViewController: UITableViewController, AddBookViewControllerDelegate,
 		cell.authorLabel.text = book.author
 		cell.percentageLabel.text = "\(Int(book.readPercentage))%"
 		cell.dateLabel.text = book.lastReadDate
-		cell.progressBar.setProgress(Float(book.readPercentage/100), animated: true)
+		cell.progressBar.setProgress(CGFloat(book.readPercentage/100))
 		return cell
 	}
 	

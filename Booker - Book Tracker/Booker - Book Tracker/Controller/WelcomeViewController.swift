@@ -10,7 +10,7 @@ import UIKit
 import CLTypingLabel
 
 class WelcomeViewController: UIViewController {
-	@IBOutlet weak var titleLabel: CLTypingLabel!
+	@IBOutlet weak var titleLabel: UILabel!
 	
 	@IBAction func registerPressed(_ sender: UIButton) {
 		if let registerViewController = storyboard?.instantiateViewController(identifier: Constants.ViewControllers.register) as? RegisterViewController {
@@ -37,5 +37,8 @@ class WelcomeViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		titleLabel.text = "Booker 📚"
+		if let booksViewController = storyboard?.instantiateViewController(identifier: Constants.ViewControllers.books) as? BooksViewController {
+			navigationController?.pushViewController(booksViewController, animated: true)
+		}
 	}
 }
