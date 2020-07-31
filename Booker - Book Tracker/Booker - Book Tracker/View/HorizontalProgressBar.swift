@@ -13,7 +13,7 @@ import UIKit
 class HorizontalProgressBar: UIView {
 	@IBInspectable private var color: UIColor? = UIColor(named: "Color4")
 	private let progressLayer = CALayer()
-	private var progress: CGFloat = 0 {
+	var progress: CGFloat = 0 {
 		didSet { setNeedsDisplay() }
 	}
 	

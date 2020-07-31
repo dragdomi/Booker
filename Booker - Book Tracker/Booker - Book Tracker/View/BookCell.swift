@@ -15,6 +15,5 @@ class BookCell: UITableViewCell {
 	@IBOutlet weak var percentageLabel: UILabel!
 	@IBOutlet weak var dateLabel: UILabel!
 	@IBOutlet weak var progressBar: HorizontalProgressBar!
-	//	@IBOutlet weak var progressBar: UIProgressView!
-	
+
 }

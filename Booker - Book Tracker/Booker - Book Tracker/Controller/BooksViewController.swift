@@ -90,7 +90,9 @@ class BooksViewController: UITableViewController, AddBookViewControllerDelegate,
 		cell.authorLabel.text = book.author
 		cell.percentageLabel.text = "\(Int(book.readPercentage))%"
 		cell.dateLabel.text = book.lastReadDate
-		cell.progressBar.setProgress(CGFloat(book.readPercentage/100))
+		let progress = CGFloat(book.readPercentage/100)
+		cell.progressBar.setProgress(progress)
+		
 		return cell
 	}
 	
@@ -120,7 +122,7 @@ class BooksViewController: UITableViewController, AddBookViewControllerDelegate,
 	}
 	
 	override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-		return 5
+		return 0
 	}
 	
 	//MARK: - Delegate methods
