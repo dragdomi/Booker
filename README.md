@@ -20,3 +20,9 @@ Updating book progress:
 
 Add book screen, used to add new book to user's collection:
 ![Overview](Booker%20-%20Book%20Tracker/docs/screenshots/screenshot4.png)
+
+Additional menu used to navigate to other screens:
+![Overview](Booker%20-%20Book%20Tracker/docs/screenshots/screenshot5.png)
+
+Reading habits screen, will be further developed to include more info:
+![Overview](Booker%20-%20Book%20Tracker/docs/screenshots/screenshot6.png)
