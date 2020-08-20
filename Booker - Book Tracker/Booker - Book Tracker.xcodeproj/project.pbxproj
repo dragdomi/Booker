@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		A51854372497ABC800983DB8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A51854362497ABC800983DB8 /* GoogleService-Info.plist */; };
 		A51854392497DC6E00983DB8 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51854382497DC6E00983DB8 /* WelcomeViewController.swift */; };
-		A52830A624C5BED200BED289 /* ReadingHabits.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52830A524C5BED200BED289 /* ReadingHabits.swift */; };
+		A52830A624C5BED200BED289 /* ReadingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52830A524C5BED200BED289 /* ReadingInfo.swift */; };
 		A52830AC24C5D3B700BED289 /* ReadingHabitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52830AB24C5D3B700BED289 /* ReadingHabitsViewController.swift */; };
 		A52830CA24C9BF1F00BED289 /* BookerDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A52830C824C9BF1F00BED289 /* BookerDataModel.xcdatamodeld */; };
 		A53E2BDC241D063B0013152C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53E2BDB241D063B0013152C /* AppDelegate.swift */; };
@@ -46,7 +46,7 @@
 		7FD9B88971AF4A51305F1C2A /* Pods-Booker - Book Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Booker - Book Tracker.release.xcconfig"; path = "Target Support Files/Pods-Booker - Book Tracker/Pods-Booker - Book Tracker.release.xcconfig"; sourceTree = "<group>"; };
 		A51854362497ABC800983DB8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A51854382497DC6E00983DB8 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
-		A52830A524C5BED200BED289 /* ReadingHabits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingHabits.swift; sourceTree = "<group>"; };
+		A52830A524C5BED200BED289 /* ReadingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingInfo.swift; sourceTree = "<group>"; };
 		A52830AB24C5D3B700BED289 /* ReadingHabitsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingHabitsViewController.swift; sourceTree = "<group>"; };
 		A52830C924C9BF1F00BED289 /* BookerDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BookerDataModel.xcdatamodel; sourceTree = "<group>"; };
 		A53E2BD8241D063B0013152C /* Booker - Book Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Booker - Book Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -188,7 +188,7 @@
 			children = (
 				A53E2BF2241D07DA0013152C /* BookModel.swift */,
 				A53E2BF4241D08FF0013152C /* BookBrain.swift */,
-				A52830A524C5BED200BED289 /* ReadingHabits.swift */,
+				A52830A524C5BED200BED289 /* ReadingInfo.swift */,
 				A599B81024D0491F00163D1A /* Utils.swift */,
 			);
 			path = Model;
@@ -344,7 +344,7 @@
 				A599B82C24D3006300163D1A /* HorizontalProgressBar.swift in Sources */,
 				A59258AB24BE2C980066CACE /* BookCell.swift in Sources */,
 				A53E2BE0241D063B0013152C /* BooksViewController.swift in Sources */,
-				A52830A624C5BED200BED289 /* ReadingHabits.swift in Sources */,
+				A52830A624C5BED200BED289 /* ReadingInfo.swift in Sources */,
 				A5AD99CE2422995200E0A6D9 /* BookDetailsViewController.swift in Sources */,
 				A5918624241D430400002A11 /* AddBookViewController.swift in Sources */,
 				A599B81124D0491F00163D1A /* Utils.swift in Sources */,

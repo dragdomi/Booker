@@ -29,6 +29,16 @@ class BookBrain {
 		return db
 	}
 	
+	static func getUserId() -> String? {
+		return userId
+	}
+	
+	static func setUserId(_ userId: String?) {
+		self.userId = userId
+	}
+	
+	//MARK: - Books functions
+	
 	static func addBook(_ book: BookModel) {
 		try! realm.write {
 			realm.add(book)
@@ -47,12 +57,30 @@ class BookBrain {
 		return books
 	}
 	
-	static func getUserId() -> String? {
-		return userId
+	static func searchBooks(_ keyword: String) -> [BookModel] {
+		var foundBooks = [BookModel]()
+		for book in books {
+			if book.author.contains(keyword) || book.title.contains(keyword) {
+				foundBooks.append(book)
+			}
+		}
+		return books
 	}
 	
-	static func setUserId(_ userId: String?) {
-		self.userId = userId
+	static func getBooksFiltered(by filter: String) -> [BookModel] {
+		switch filter {
+		case "finished":
+			return ReadingInfo.booksRead
+			
+		case "inProgress":
+			return ReadingInfo.booksInProgress
+			
+		case "notStarted":
+			return ReadingInfo.booksNotStarted
+			
+		default:
+			return books
+		}
 	}
 	
 	static func editBookData(_ editedBook: BookModel) {

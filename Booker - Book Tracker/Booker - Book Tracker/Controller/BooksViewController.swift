@@ -11,15 +11,20 @@
 import UIKit
 import Firebase
 
-class BooksViewController: UITableViewController, AddBookViewControllerDelegate, BookDetailsViewControllerDelegate {
+class BooksViewController: UIViewController, AddBookViewControllerDelegate, BookDetailsViewControllerDelegate {
+	@IBOutlet weak var tableView: UITableView!
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		BookBrain.loadBooksFromRealm()
 		reloadTableViewDataAsync()
 		setupUI()
 		
+		tableView.delegate = self
+		tableView.dataSource = self
+		
 		tableView.register(UINib(nibName: Constants.cellNibName, bundle: nil), forCellReuseIdentifier: Constants.cellIdentifier)
-//		BookBrain.setUserId(Firebase.Auth.auth().currentUser?.uid)
+		//		BookBrain.setUserId(Firebase.Auth.auth().currentUser?.uid)
 	}
 	
 	func setupUI() {
@@ -31,8 +36,6 @@ class BooksViewController: UITableViewController, AddBookViewControllerDelegate,
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBookButton))
 		
 		title = "My books"
-		
-//		tableView.rowHeight = UITableView.automaticDimension
 	}
 	
 	//MARK: - Interactions
@@ -51,10 +54,35 @@ class BooksViewController: UITableViewController, AddBookViewControllerDelegate,
 			}
 		}
 		
+		let searchBooks = UIAlertAction(title: "Search books", style: .default) { _ in
+			let searchBooksView = UIAlertController(title: "Enter keyword", message: nil, preferredStyle: .alert)
+			let okAction = UIAlertAction(title: "Done", style: .default, handler: nil)
+			let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+			searchBooksView.addTextField { (textField : UITextField!) -> Void in
+				textField.placeholder = "Keyword"
+			}
+			searchBooksView.addAction(okAction)
+			searchBooksView.addAction(cancelAction)
+			self.present(searchBooksView, animated: true) {
+				// TODO: add working search function
+			}
+		}
+		
+		let filterBooks = UIAlertAction(title: "Filter books", style: .default) { _ in
+			
+		}
+		
+		let sortBooks = UIAlertAction(title: "Sort books", style: .default) { _ in
+			
+		}
+		
 		let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
 		
 		menuView.addAction(showReadingHabits)
 		menuView.addAction(showUserProfile)
+		menuView.addAction(searchBooks)
+		menuView.addAction(filterBooks)
+		menuView.addAction(sortBooks)
 		menuView.addAction(cancel)
 		menuView.view.tintColor = UIColor(named: "Color4")
 		
@@ -68,13 +96,44 @@ class BooksViewController: UITableViewController, AddBookViewControllerDelegate,
 		}
 	}
 	
-	//MARK: - Table View methods
+	//MARK: - Delegate methods
 	
-	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+	func handleBookData(_ book: BookModel) {
+		var book = book
+		var takenIds = [Int]()
+		for book in BookBrain.getBooks() {
+			takenIds.append(book.id)
+		}
+		
+		for number in 1...(takenIds.count + 1) {
+			if !takenIds.contains(number) {
+				book.id = number
+			}
+		}
+		BookBrain.addBook(book)
+		reloadTableViewDataAsync()
+	}
+	
+	func editBookData(_ editedBook: BookModel) {
+		BookBrain.editBookData(editedBook)
+		reloadTableViewDataAsync()
+	}
+	
+	func reloadTableViewDataAsync() {
+		DispatchQueue.main.async {
+			self.tableView.reloadData()
+		}
+	}
+}
+
+//MARK: - Extensions
+
+extension BooksViewController: UITableViewDataSource, UITableViewDelegate {
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return BookBrain.getBooks().count
 	}
 	
-	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let book = BookBrain.getBooks()[indexPath.row]
 		let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier, for: indexPath) as! BookCell
 		
@@ -96,7 +155,7 @@ class BooksViewController: UITableViewController, AddBookViewControllerDelegate,
 		return cell
 	}
 	
-	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		if let bookDetailsViewController = storyboard?.instantiateViewController(identifier: Constants.ViewControllers.bookDetails) as? BookDetailsViewController {
 			bookDetailsViewController.book = BookBrain.getBooks()[indexPath.row]
 			bookDetailsViewController.delegate = self
@@ -104,7 +163,7 @@ class BooksViewController: UITableViewController, AddBookViewControllerDelegate,
 		}
 	}
 	
-	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+	func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 		if editingStyle == .delete {
 			let deleteAlert = UIAlertController(title: "Warning", message: "Are you sure you want to delete '\(BookBrain.getBooks()[indexPath.row].title)' from your books?", preferredStyle: .alert)
 			let deleteAction = UIAlertAction(title: "YES", style: .destructive) {_ in
@@ -121,42 +180,7 @@ class BooksViewController: UITableViewController, AddBookViewControllerDelegate,
 		}
 	}
 	
-	override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
 		return 0
 	}
-	
-	//MARK: - Delegate methods
-	
-	func handleBookData(_ book: BookModel) {
-		var book = book
-		var takenIds = [Int]()
-		for book in BookBrain.getBooks() {
-			takenIds.append(book.id)
-		}
-		
-		for number in 1...(takenIds.count + 1) {
-			if !takenIds.contains(number) {
-//				try! BookBrain.getRealm().write {
-//					BookBrain.getRealm().create(BookModel.self, value: ["id": number], update: .modified)
-//				}
-				book.id = number
-			}
-		}
-		BookBrain.addBook(book)
-		print(BookBrain.getBooks())
-		reloadTableViewDataAsync()
-	}
-	
-	func editBookData(_ editedBook: BookModel) {
-		BookBrain.editBookData(editedBook)
-		reloadTableViewDataAsync()
-	}
-	
-	func reloadTableViewDataAsync() {
-		DispatchQueue.main.async {
-			self.tableView.reloadData()
-		}
-	}
 }
-
-//MARK: - Extensions
