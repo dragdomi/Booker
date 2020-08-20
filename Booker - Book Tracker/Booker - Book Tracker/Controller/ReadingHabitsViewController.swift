@@ -30,13 +30,13 @@ class ReadingHabitsViewController: UIViewController {
 	func setupUI() {
 		title = "My Reading Habits"
 		
-		booksNotStartedLabel.text = "Books not started: \(ReadingHabits.getBooksNotStartedNumber())"
-		booksInProgressLabel.text = "Books in progress: \(ReadingHabits.getBooksInProgressNumber())"
-		booksReadLabel.text = "Books read: \(ReadingHabits.getBooksReadNumber())"
+		booksNotStartedLabel.text = "Books not started: \(ReadingInfo.getBooksNotStartedNumber())"
+		booksInProgressLabel.text = "Books in progress: \(ReadingInfo.getBooksInProgressNumber())"
+		booksReadLabel.text = "Books read: \(ReadingInfo.getBooksReadNumber())"
 		
-		totalPagesReadLabel.text = "Total pages read: \(ReadingHabits.getTotalPagesReadNumber())"
-		totalPagesOfBooksLabel.text = "Total pages of books: \(ReadingHabits.getTotalPagesNumber())"
-		totalPagesLeftLabel.text = "Total pages left: \(ReadingHabits.getTotalPagesLeftNumber())"
+		totalPagesReadLabel.text = "Total pages read: \(ReadingInfo.getTotalPagesReadNumber())"
+		totalPagesOfBooksLabel.text = "Total pages of books: \(ReadingInfo.getTotalPagesNumber())"
+		totalPagesLeftLabel.text = "Total pages left: \(ReadingInfo.getTotalPagesLeftNumber())"
 		
 		booksView.layer.cornerRadius = 10
 		booksView.layer.shadowPath =  UIBezierPath(roundedRect: booksView.bounds, cornerRadius: booksView.layer.cornerRadius).cgPath

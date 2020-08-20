@@ -100,7 +100,7 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 		if textField.text != "" {
 			if let updatedPagesRead = Int(textField.text!) {
 				if (updatedPagesRead - book.pagesRead) > 0 {
-					ReadingHabits.addPagesToDate(pages: updatedPagesRead - book.pagesRead, date: Utils.formatDateToString(Date()))
+					ReadingInfo.addPagesToDate(pages: updatedPagesRead - book.pagesRead, date: Utils.formatDateToString(Date()))
 				} else {
 					showSubstractAlert(negativeNumber: updatedPagesRead - book.pagesRead)
 				}
@@ -129,7 +129,7 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 	func showSubstractAlert(negativeNumber: Int) {
 		let substractAlert = UIAlertController(title: "Negative number", message: "Do you want to substract \(abs(negativeNumber)) from your daily pages score?", preferredStyle: .alert)
 		let yesAction = UIAlertAction(title: "Yes", style: .default) { _ in
-			ReadingHabits.addPagesToDate(pages: negativeNumber, date: Utils.formatDateToString(Date()))
+			ReadingInfo.addPagesToDate(pages: negativeNumber, date: Utils.formatDateToString(Date()))
 		}
 		let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
 		

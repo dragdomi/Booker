@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ReadingHabits {
+class ReadingInfo {
 	private static var pagesPerDate: [String: Int] = [:]
 	
 	static func addPagesToDate(pages: Int, date: String) {
@@ -19,7 +19,7 @@ class ReadingHabits {
 		return pagesPerDate[date] ?? 0
 	}
 	
-	private static var booksNotStarted: [BookModel] {
+	static var booksNotStarted: [BookModel] {
 		var booksNotStarted = [BookModel]()
 		let books = BookBrain.getBooks()
 		for book in books {
@@ -30,7 +30,7 @@ class ReadingHabits {
 		return booksNotStarted
 	}
 	
-	private static var booksInProgress: [BookModel] {
+	static var booksInProgress: [BookModel] {
 		var booksInProgress = [BookModel]()
 		let books = BookBrain.getBooks()
 		for book in books {
@@ -41,7 +41,7 @@ class ReadingHabits {
 		return booksInProgress
 	}
 	
-	private static var booksRead: [BookModel] {
+	static var booksRead: [BookModel] {
 		var booksRead = [BookModel]()
 		for book in BookBrain.getBooks() {
 			if book.pagesRead == book.totalPages {
