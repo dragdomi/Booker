@@ -58,13 +58,17 @@ class BookBrain {
 	}
 	
 	static func searchBooks(_ keyword: String) -> [BookModel] {
+		if keyword == "" {
+			return books
+		}
+		
 		var foundBooks = [BookModel]()
 		for book in books {
-			if book.author.contains(keyword) || book.title.contains(keyword) {
+			if book.author.lowercased().contains(keyword.lowercased()) || book.title.lowercased().contains(keyword.lowercased()) {
 				foundBooks.append(book)
 			}
 		}
-		return books
+		return foundBooks
 	}
 	
 	static func getBooksFiltered(by filter: String) -> [BookModel] {

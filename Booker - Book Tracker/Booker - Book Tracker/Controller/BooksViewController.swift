@@ -71,11 +71,18 @@ class BooksViewController: UIViewController, AddBookViewControllerDelegate, Book
 		
 		let searchBooks = UIAlertAction(title: "Search books", style: .default) { _ in
 			let searchBooksView = UIAlertController(title: "Enter keyword", message: nil, preferredStyle: .alert)
-			let okAction = UIAlertAction(title: "Done", style: .default, handler: nil)
-			let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-			searchBooksView.addTextField { (textField : UITextField!) -> Void in
-				textField.placeholder = "Keyword"
+			var searchTextField = UITextField()
+			searchBooksView.addTextField() { textField in
+				searchTextField = textField
 			}
+			
+			let okAction = UIAlertAction(title: "Done", style: .default) { action in
+				self.refreshBooks(keyword: searchTextField.text ?? "")
+				self.reloadTableViewDataAsync()
+			}
+			
+			let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+			
 			searchBooksView.addAction(okAction)
 			searchBooksView.addAction(cancelAction)
 			searchBooksView.view.tintColor = UIColor(named: "Color4")
