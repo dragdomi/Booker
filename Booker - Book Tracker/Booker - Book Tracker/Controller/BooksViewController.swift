@@ -14,9 +14,12 @@ import Firebase
 class BooksViewController: UIViewController, AddBookViewControllerDelegate, BookDetailsViewControllerDelegate {
 	@IBOutlet weak var tableView: UITableView!
 	
+	var books = [BookModel]()
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		BookBrain.loadBooksFromRealm()
+		refreshBooks()
 		reloadTableViewDataAsync()
 		setupUI()
 		
@@ -36,6 +39,18 @@ class BooksViewController: UIViewController, AddBookViewControllerDelegate, Book
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBookButton))
 		
 		title = "My books"
+	}
+	
+	func refreshBooks() {
+		books = BookBrain.getBooks()
+	}
+	
+	func refreshBooks(keyword: String) {
+		books = BookBrain.searchBooks(keyword)
+	}
+	
+	func refreshBooks(filter: String) {
+		books = BookBrain.getBooksFiltered(by: filter)
 	}
 	
 	//MARK: - Interactions
@@ -63,6 +78,7 @@ class BooksViewController: UIViewController, AddBookViewControllerDelegate, Book
 			}
 			searchBooksView.addAction(okAction)
 			searchBooksView.addAction(cancelAction)
+			searchBooksView.view.tintColor = UIColor(named: "Color4")
 			self.present(searchBooksView, animated: true) {
 				// TODO: add working search function
 			}
@@ -111,6 +127,7 @@ class BooksViewController: UIViewController, AddBookViewControllerDelegate, Book
 			}
 		}
 		BookBrain.addBook(book)
+		refreshBooks()
 		reloadTableViewDataAsync()
 	}
 	
@@ -130,11 +147,11 @@ class BooksViewController: UIViewController, AddBookViewControllerDelegate, Book
 
 extension BooksViewController: UITableViewDataSource, UITableViewDelegate {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return BookBrain.getBooks().count
+		return books.count
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let book = BookBrain.getBooks()[indexPath.row]
+		let book = books[indexPath.row]
 		let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier, for: indexPath) as! BookCell
 		
 		cell.cellView.layer.cornerRadius = 10
@@ -157,7 +174,7 @@ extension BooksViewController: UITableViewDataSource, UITableViewDelegate {
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		if let bookDetailsViewController = storyboard?.instantiateViewController(identifier: Constants.ViewControllers.bookDetails) as? BookDetailsViewController {
-			bookDetailsViewController.book = BookBrain.getBooks()[indexPath.row]
+			bookDetailsViewController.book = books[indexPath.row]
 			bookDetailsViewController.delegate = self
 			self.navigationController?.pushViewController(bookDetailsViewController, animated: true)
 		}
@@ -165,9 +182,10 @@ extension BooksViewController: UITableViewDataSource, UITableViewDelegate {
 	
 	func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 		if editingStyle == .delete {
-			let deleteAlert = UIAlertController(title: "Warning", message: "Are you sure you want to delete '\(BookBrain.getBooks()[indexPath.row].title)' from your books?", preferredStyle: .alert)
+			let deleteAlert = UIAlertController(title: "Warning", message: "Are you sure you want to delete '\(books[indexPath.row].title)' from your books?", preferredStyle: .alert)
 			let deleteAction = UIAlertAction(title: "YES", style: .destructive) {_ in
-				BookBrain.deleteBook(BookBrain.getBooks()[indexPath.row])
+				BookBrain.deleteBook(self.books[indexPath.row])
+				self.refreshBooks()
 				tableView.deleteRows(at: [indexPath], with: .fade)
 			}
 			let cancelAction = UIAlertAction(title: "NO", style: .default)
