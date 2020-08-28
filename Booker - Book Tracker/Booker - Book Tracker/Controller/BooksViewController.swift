@@ -71,13 +71,13 @@ class BooksViewController: UIViewController, AddBookViewControllerDelegate, Book
 		
 		let searchBooks = UIAlertAction(title: "Search books", style: .default) { _ in
 			let searchBooksView = UIAlertController(title: "Enter keyword", message: nil, preferredStyle: .alert)
-			var searchTextField = UITextField()
+			var searchBooksTextField = UITextField()
 			searchBooksView.addTextField() { textField in
-				searchTextField = textField
+				searchBooksTextField = textField
 			}
 			
 			let okAction = UIAlertAction(title: "Done", style: .default) { action in
-				self.refreshBooks(keyword: searchTextField.text ?? "")
+				self.refreshBooks(keyword: searchBooksTextField.text ?? "")
 				self.reloadTableViewDataAsync()
 			}
 			
@@ -86,17 +86,44 @@ class BooksViewController: UIViewController, AddBookViewControllerDelegate, Book
 			searchBooksView.addAction(okAction)
 			searchBooksView.addAction(cancelAction)
 			searchBooksView.view.tintColor = UIColor(named: "Color4")
-			self.present(searchBooksView, animated: true) {
-				// TODO: add working search function
-			}
+			self.present(searchBooksView, animated: true, completion: nil)
 		}
 		
 		let filterBooks = UIAlertAction(title: "Filter books", style: .default) { _ in
+			let filterBooksView = UIAlertController(title: "Filter books", message: "Which books do you want to see?", preferredStyle: .actionSheet)
 			
+			let showFinishedBooks = UIAlertAction(title: "Finished", style: .default) { action in
+				self.refreshBooks(filter: "finished")
+				self.reloadTableViewDataAsync()
+			}
+			
+			let showBooksInProgress = UIAlertAction(title: "In progress", style: .default) { action in
+				self.refreshBooks(filter: "inProgress")
+				self.reloadTableViewDataAsync()
+			}
+			
+			let showBooksNotStarted = UIAlertAction(title: "Not started", style: .default) { action in
+				self.refreshBooks(filter: "notStarted")
+				self.reloadTableViewDataAsync()
+			}
+			
+			let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+			
+			filterBooksView.addAction(showFinishedBooks)
+			filterBooksView.addAction(showBooksInProgress)
+			filterBooksView.addAction(showBooksNotStarted)
+			filterBooksView.addAction(cancelAction)
+			filterBooksView.view.tintColor = UIColor(named: "Color4")
+			self.present(filterBooksView, animated: true, completion: nil)
 		}
 		
 		let sortBooks = UIAlertAction(title: "Sort books", style: .default) { _ in
 			
+		}
+		
+		let showAllBooks = UIAlertAction(title: "Show all books", style: .default) { _ in
+			self.refreshBooks()
+			self.reloadTableViewDataAsync()
 		}
 		
 		let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -106,6 +133,7 @@ class BooksViewController: UIViewController, AddBookViewControllerDelegate, Book
 		menuView.addAction(searchBooks)
 		menuView.addAction(filterBooks)
 		menuView.addAction(sortBooks)
+		menuView.addAction(showAllBooks)
 		menuView.addAction(cancel)
 		menuView.view.tintColor = UIColor(named: "Color4")
 		
@@ -118,6 +146,8 @@ class BooksViewController: UIViewController, AddBookViewControllerDelegate, Book
 			navigationController?.pushViewController(addBookViewController, animated: true)
 		}
 	}
+	
+	
 	
 	//MARK: - Delegate methods
 	
