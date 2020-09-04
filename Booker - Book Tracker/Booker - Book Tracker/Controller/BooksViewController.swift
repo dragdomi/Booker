@@ -13,8 +13,14 @@ import Firebase
 
 class BooksViewController: UIViewController, AddBookViewControllerDelegate, BookDetailsViewControllerDelegate {
 	@IBOutlet weak var tableView: UITableView!
-	
+	var searchController = UISearchController()
 	var books = [BookModel]()
+	
+	override func viewWillAppear(_ animated: Bool) {
+		if let index = self.tableView.indexPathForSelectedRow {
+			self.tableView.deselectRow(at: index, animated: true)
+		}
+	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -33,12 +39,24 @@ class BooksViewController: UIViewController, AddBookViewControllerDelegate, Book
 	func setupUI() {
 		navigationController?.navigationBar.prefersLargeTitles = true
 		navigationItem.hidesBackButton = true
-		
 		navigationItem.leftBarButtonItem = UIBarButtonItem(title: "···", style: .done, target: self, action: #selector(showMenu))
-		
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBookButton))
 		
-		title = "My books"
+		setupSearchController()
+		
+		title = "My Books"
+	}
+	
+	func setupSearchController() {
+		let controller = UISearchController(searchResultsController: nil)
+		controller.searchResultsUpdater = self
+		controller.searchBar.sizeToFit()
+		controller.obscuresBackgroundDuringPresentation = false
+		controller.hidesNavigationBarDuringPresentation = false
+		controller.searchBar.placeholder = "Search books by keyword"
+		
+		searchController = controller
+		navigationItem.searchController = searchController
 	}
 	
 	func refreshBooks() {
@@ -54,6 +72,12 @@ class BooksViewController: UIViewController, AddBookViewControllerDelegate, Book
 	}
 	
 	//MARK: - Interactions
+	
+	func filterContentForSearchText(_ searchText: String) {
+		books = BookBrain.searchBooks(searchText)
+		reloadTableViewDataAsync()
+	}
+	
 	@objc func showMenu() {
 		let menuView = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
 		
@@ -69,40 +93,23 @@ class BooksViewController: UIViewController, AddBookViewControllerDelegate, Book
 			}
 		}
 		
-		let searchBooks = UIAlertAction(title: "Search books", style: .default) { _ in
-			let searchBooksView = UIAlertController(title: "Enter keyword", message: nil, preferredStyle: .alert)
-			var searchBooksTextField = UITextField()
-			searchBooksView.addTextField() { textField in
-				searchBooksTextField = textField
-			}
-			
-			let okAction = UIAlertAction(title: "Done", style: .default) { action in
-				self.refreshBooks(keyword: searchBooksTextField.text ?? "")
-				self.reloadTableViewDataAsync()
-			}
-			
-			let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-			
-			searchBooksView.addAction(okAction)
-			searchBooksView.addAction(cancelAction)
-			searchBooksView.view.tintColor = UIColor(named: "Color4")
-			self.present(searchBooksView, animated: true, completion: nil)
-		}
-		
 		let filterBooks = UIAlertAction(title: "Filter books", style: .default) { _ in
 			let filterBooksView = UIAlertController(title: "Filter books", message: "Which books do you want to see?", preferredStyle: .actionSheet)
 			
 			let showFinishedBooks = UIAlertAction(title: "Finished", style: .default) { action in
+				self.title = "Finished books"
 				self.refreshBooks(filter: "finished")
 				self.reloadTableViewDataAsync()
 			}
 			
 			let showBooksInProgress = UIAlertAction(title: "In progress", style: .default) { action in
+				self.title = "Books in progress"
 				self.refreshBooks(filter: "inProgress")
 				self.reloadTableViewDataAsync()
 			}
 			
 			let showBooksNotStarted = UIAlertAction(title: "Not started", style: .default) { action in
+				self.title = "Books not started"
 				self.refreshBooks(filter: "notStarted")
 				self.reloadTableViewDataAsync()
 			}
@@ -122,6 +129,7 @@ class BooksViewController: UIViewController, AddBookViewControllerDelegate, Book
 		}
 		
 		let showAllBooks = UIAlertAction(title: "Show all books", style: .default) { _ in
+			self.title = "My Books"
 			self.refreshBooks()
 			self.reloadTableViewDataAsync()
 		}
@@ -130,7 +138,6 @@ class BooksViewController: UIViewController, AddBookViewControllerDelegate, Book
 		
 		menuView.addAction(showReadingHabits)
 		menuView.addAction(showUserProfile)
-		menuView.addAction(searchBooks)
 		menuView.addAction(filterBooks)
 		menuView.addAction(sortBooks)
 		menuView.addAction(showAllBooks)
@@ -147,8 +154,6 @@ class BooksViewController: UIViewController, AddBookViewControllerDelegate, Book
 		}
 	}
 	
-	
-	
 	//MARK: - Delegate methods
 	
 	func handleBookData(_ book: BookModel) {
@@ -163,6 +168,7 @@ class BooksViewController: UIViewController, AddBookViewControllerDelegate, Book
 				book.id = number
 			}
 		}
+		
 		BookBrain.addBook(book)
 		refreshBooks()
 		reloadTableViewDataAsync()
@@ -188,15 +194,16 @@ extension BooksViewController: UITableViewDataSource, UITableViewDelegate {
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let book = books[indexPath.row]
+		let book: BookModel
 		let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier, for: indexPath) as! BookCell
+		
+		book = books[indexPath.row]
 		
 		cell.cellView.layer.cornerRadius = 10
 		cell.cellView.layer.shadowPath =  UIBezierPath(roundedRect: cell.cellView.bounds, cornerRadius: cell.cellView.layer.cornerRadius).cgPath
 		cell.cellView.layer.shadowRadius = 1
 		cell.cellView.layer.shadowOffset = .zero
 		cell.cellView.layer.shadowOpacity = 0.5
-		
 		cell.selectedBackgroundView?.backgroundColor = UIColor(named: "Color1")
 		
 		cell.titleLabel.text = book.title
@@ -225,17 +232,23 @@ extension BooksViewController: UITableViewDataSource, UITableViewDelegate {
 				self.refreshBooks()
 				tableView.deleteRows(at: [indexPath], with: .fade)
 			}
+			
 			let cancelAction = UIAlertAction(title: "NO", style: .default)
 			deleteAlert.addAction(deleteAction)
 			deleteAlert.addAction(cancelAction)
-			
 			deleteAlert.view.tintColor = UIColor(named: "Color4")
 			self.present(deleteAlert, animated: true)
-			
 		}
 	}
 	
 	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
 		return 0
+	}
+}
+
+extension BooksViewController: UISearchResultsUpdating {
+	func updateSearchResults(for searchController: UISearchController) {
+		let searchBar = searchController.searchBar
+		filterContentForSearchText(searchBar.text!)
 	}
 }
