@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="t5p-DA-oMX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="t5p-DA-oMX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -55,8 +55,8 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="dcB-Nv-rSe" firstAttribute="top" secondItem="XZW-bY-QQT" secondAttribute="top" id="AFL-8D-iSb"/>
                             <constraint firstItem="dcB-Nv-rSe" firstAttribute="leading" secondItem="XZW-bY-QQT" secondAttribute="leading" id="FsE-mf-8ZP"/>
-                            <constraint firstItem="dcB-Nv-rSe" firstAttribute="top" secondItem="XZW-bY-QQT" secondAttribute="top" id="S0J-MO-OXn"/>
                             <constraint firstItem="XZW-bY-QQT" firstAttribute="trailing" secondItem="dcB-Nv-rSe" secondAttribute="trailing" id="ggd-oh-1Tv"/>
                             <constraint firstItem="XZW-bY-QQT" firstAttribute="bottom" secondItem="dcB-Nv-rSe" secondAttribute="bottom" id="pUN-dL-DuA"/>
                         </constraints>
@@ -68,7 +68,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T8v-PC-o6M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3882.608695652174" y="87.723214285714278"/>
+            <point key="canvasLocation" x="3929" y="84"/>
         </scene>
         <!--Add Book View Controller-->
         <scene sceneID="Fjr-id-9Ux">
@@ -220,7 +220,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qb0-97-Lsm">
-                                <rect key="frame" x="20" y="44" width="374" height="144"/>
+                                <rect key="frame" x="20" y="64" width="374" height="144"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Books" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fs0-WT-VwB">
                                         <rect key="frame" x="10" y="10" width="354" height="36"/>
@@ -265,7 +265,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="csL-vX-c3y" userLabel="Pages View">
-                                <rect key="frame" x="20" y="208" width="374" height="144"/>
+                                <rect key="frame" x="20" y="228" width="374" height="144"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pages" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xzw-G1-VpR">
                                         <rect key="frame" x="10" y="10" width="354" height="36"/>
@@ -313,7 +313,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Qb0-97-Lsm" firstAttribute="leading" secondItem="yle-Xe-I8A" secondAttribute="leading" constant="20" id="eNK-9y-lWa"/>
-                            <constraint firstItem="Qb0-97-Lsm" firstAttribute="top" secondItem="yle-Xe-I8A" secondAttribute="top" id="lXG-db-ytl"/>
+                            <constraint firstItem="Qb0-97-Lsm" firstAttribute="top" secondItem="yle-Xe-I8A" secondAttribute="top" constant="20" id="lXG-db-ytl"/>
                             <constraint firstItem="Qb0-97-Lsm" firstAttribute="trailing" secondItem="yle-Xe-I8A" secondAttribute="trailing" constant="-20" id="mEq-aT-reb"/>
                             <constraint firstItem="csL-vX-c3y" firstAttribute="leading" secondItem="yle-Xe-I8A" secondAttribute="leading" constant="20" id="qh1-xh-k5w"/>
                             <constraint firstItem="csL-vX-c3y" firstAttribute="top" secondItem="Qb0-97-Lsm" secondAttribute="bottom" constant="20" id="sc2-yt-Zat"/>
@@ -364,7 +364,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yni-fp-Znh">
-                                        <rect key="frame" x="0.0" y="65" width="73" height="30"/>
+                                        <rect key="frame" x="0.0" y="65" width="374" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -432,6 +432,7 @@
                                     <constraint firstItem="haV-eh-y5U" firstAttribute="leading" secondItem="srf-ij-JXs" secondAttribute="leading" id="ic6-5s-69j"/>
                                     <constraint firstItem="3tJ-LR-Yx6" firstAttribute="height" secondItem="4Hy-3C-3kt" secondAttribute="height" multiplier="0.7" id="oP8-CY-gT9"/>
                                     <constraint firstItem="Yni-fp-Znh" firstAttribute="leading" secondItem="srf-ij-JXs" secondAttribute="leading" id="p3S-wN-DzS"/>
+                                    <constraint firstAttribute="trailing" secondItem="Yni-fp-Znh" secondAttribute="trailing" id="sBZ-nM-AEI"/>
                                     <constraint firstItem="Y0f-Es-ofE" firstAttribute="trailing" secondItem="3tJ-LR-Yx6" secondAttribute="trailing" id="st0-UL-xtf"/>
                                 </constraints>
                             </view>
