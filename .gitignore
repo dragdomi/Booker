@@ -2,4 +2,8 @@
 Booker - Book Tracker/Booker - Book Tracker/.DS_Store
 Booker - Book Tracker/.DS_Store
 Booker - Book Tracker/Booker - Book Tracker/Assets.xcassets/.DS_Store
-*.pbxproj
+xcuserdata
+*.xcuserstate
+*.xcodeproj/*
+*.xcworkspace/*
+.DS_Store
