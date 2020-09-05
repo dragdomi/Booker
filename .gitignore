@@ -7,3 +7,4 @@ xcuserdata
 *.xcodeproj/*
 *.xcworkspace/*
 .DS_Store
+*.pbxproj
