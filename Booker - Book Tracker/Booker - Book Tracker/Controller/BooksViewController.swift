@@ -12,9 +12,10 @@ import UIKit
 import Firebase
 
 class BooksViewController: UIViewController, AddBookViewControllerDelegate, BookDetailsViewControllerDelegate {
-	@IBOutlet weak var tableView: UITableView!
 	var searchController = UISearchController()
 	var books = [BookModel]()
+	
+	@IBOutlet weak var tableView: UITableView!
 	
 	override func viewWillAppear(_ animated: Bool) {
 		if let index = self.tableView.indexPathForSelectedRow {
@@ -31,8 +32,10 @@ class BooksViewController: UIViewController, AddBookViewControllerDelegate, Book
 		
 		tableView.delegate = self
 		tableView.dataSource = self
+		tableView.register(UINib(nibName: Constants.cellNibName, bundle: Bundle.main), forCellReuseIdentifier: Constants.cellIdentifier)
+		tableView.register(UINib(nibName: Constants.headerIdentifier, bundle: Bundle.main), forHeaderFooterViewReuseIdentifier: Constants.headerIdentifier)
 		
-		tableView.register(UINib(nibName: Constants.cellNibName, bundle: nil), forCellReuseIdentifier: Constants.cellIdentifier)
+		
 		//		BookBrain.setUserId(Firebase.Auth.auth().currentUser?.uid)
 	}
 	
@@ -43,6 +46,7 @@ class BooksViewController: UIViewController, AddBookViewControllerDelegate, Book
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBookButton))
 		
 		setupSearchController()
+		setupHeader()
 		
 		title = "My Books"
 	}
@@ -57,6 +61,12 @@ class BooksViewController: UIViewController, AddBookViewControllerDelegate, Book
 		
 		searchController = controller
 		navigationItem.searchController = searchController
+		
+	}
+	
+	func setupHeader() {
+		let header = BooksViewHeader()
+		tableView.tableHeaderView = header
 	}
 	
 	func refreshBooks() {
@@ -242,7 +252,20 @@ extension BooksViewController: UITableViewDataSource, UITableViewDelegate {
 	}
 	
 	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-		return 0
+		return BooksViewHeader.height
+	}
+	
+	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+		return ""
+	}
+	
+	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+		if let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: Constants.headerIdentifier) as? BooksViewHeader {
+//			view.label.text = "test label"
+			return view
+		} else {
+			return nil
+		}
 	}
 }
 
