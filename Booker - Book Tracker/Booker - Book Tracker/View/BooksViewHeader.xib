@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BooksView"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="NbV-Hq-UqW" customClass="BooksViewHeader" customModule="Booker___Book_Tracker" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="389" height="65"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OFa-UR-Mix">
+                    <rect key="frame" x="20" y="41" width="48" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bj7-rs-xGk">
+                    <rect key="frame" x="20" y="0.0" width="349" height="32"/>
+                    <segments>
+                        <segment title="Not finished"/>
+                        <segment title="Finished"/>
+                        <segment title="All"/>
+                    </segments>
+                </segmentedControl>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gox-aB-gTr">
+                    <rect key="frame" x="345" y="41" width="24" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="tintColor" name="Color4"/>
+                    <state key="normal" image="arrow.up.arrow.down" catalog="system">
+                        <color key="titleColor" name="Color4"/>
+                    </state>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="bj7-rs-xGk" secondAttribute="trailing" constant="20" id="12r-hP-LS6"/>
+                <constraint firstItem="OFa-UR-Mix" firstAttribute="leading" secondItem="X5T-h9-QZI" secondAttribute="leading" constant="20" id="5Z0-d1-4GT"/>
+                <constraint firstItem="Gox-aB-gTr" firstAttribute="trailing" secondItem="NbV-Hq-UqW" secondAttribute="trailing" constant="-20" id="7Ui-fZ-gua"/>
+                <constraint firstItem="Gox-aB-gTr" firstAttribute="top" secondItem="bj7-rs-xGk" secondAttribute="bottom" constant="10" id="FK8-5v-EcA"/>
+                <constraint firstItem="OFa-UR-Mix" firstAttribute="top" secondItem="bj7-rs-xGk" secondAttribute="bottom" constant="10" id="bJq-kk-iR4"/>
+                <constraint firstItem="bj7-rs-xGk" firstAttribute="leading" secondItem="NbV-Hq-UqW" secondAttribute="leading" constant="20" id="f9E-vc-4bT"/>
+                <constraint firstItem="bj7-rs-xGk" firstAttribute="top" secondItem="NbV-Hq-UqW" secondAttribute="top" id="nCF-OS-59C"/>
+                <constraint firstItem="bj7-rs-xGk" firstAttribute="centerX" secondItem="NbV-Hq-UqW" secondAttribute="centerX" id="v0p-ak-RuW"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="X5T-h9-QZI"/>
+            <connections>
+                <outlet property="headerButton" destination="Gox-aB-gTr" id="orZ-Kd-1R9"/>
+                <outlet property="headerLabel" destination="OFa-UR-Mix" id="81W-MV-Ft0"/>
+            </connections>
+            <point key="canvasLocation" x="467.39130434782612" y="-601.00446428571422"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="arrow.up.arrow.down" catalog="system" width="128" height="96"/>
+        <namedColor name="Color4">
+            <color red="0.25900000333786011" green="0.28200000524520874" blue="0.45500001311302185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
