@@ -11,6 +11,8 @@ struct Constants {
 	static let dateFormat = "dd-MM-yyyy"
 	static let cellIdentifier = "BookCell"
 	static let cellNibName = "BookCell"
+	static let headerIdentifier = "BooksViewHeader"
+	
 	struct ViewControllers {
 		static let books = "BooksViewController"
 		static let addBook = "AddBookViewController"
