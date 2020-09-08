@@ -106,54 +106,10 @@ class BooksViewController: UIViewController, AddBookViewControllerDelegate, Book
 			}
 		}
 		
-		let filterBooks = UIAlertAction(title: "Filter books", style: .default) { _ in
-			let filterBooksView = UIAlertController(title: "Filter books", message: "Which books do you want to see?", preferredStyle: .actionSheet)
-			
-			let showFinishedBooks = UIAlertAction(title: "Finished", style: .default) { action in
-				self.title = "Finished books"
-				self.refreshBooks(filter: "finished")
-				self.reloadTableViewDataAsync()
-			}
-			
-			let showBooksInProgress = UIAlertAction(title: "In progress", style: .default) { action in
-				self.title = "Books in progress"
-				self.refreshBooks(filter: "inProgress")
-				self.reloadTableViewDataAsync()
-			}
-			
-			let showBooksNotStarted = UIAlertAction(title: "Not started", style: .default) { action in
-				self.title = "Books not started"
-				self.refreshBooks(filter: "notStarted")
-				self.reloadTableViewDataAsync()
-			}
-			
-			let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-			
-			filterBooksView.addAction(showFinishedBooks)
-			filterBooksView.addAction(showBooksInProgress)
-			filterBooksView.addAction(showBooksNotStarted)
-			filterBooksView.addAction(cancelAction)
-			filterBooksView.view.tintColor = UIColor(named: "Color4")
-			self.present(filterBooksView, animated: true, completion: nil)
-		}
-		
-		let sortBooks = UIAlertAction(title: "Sort books", style: .default) { _ in
-			
-		}
-		
-		let showAllBooks = UIAlertAction(title: "Show all books", style: .default) { _ in
-			self.title = "My Books"
-			self.refreshBooks()
-			self.reloadTableViewDataAsync()
-		}
-		
 		let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
 		
 		menuView.addAction(showReadingHabits)
 		menuView.addAction(showUserProfile)
-		menuView.addAction(filterBooks)
-		menuView.addAction(sortBooks)
-		menuView.addAction(showAllBooks)
 		menuView.addAction(cancel)
 		menuView.view.tintColor = UIColor(named: "Color4")
 		
