@@ -56,11 +56,14 @@ class BooksViewController: UIViewController, AddBookViewControllerDelegate, Book
 		controller.searchResultsUpdater = self
 		controller.searchBar.sizeToFit()
 		controller.obscuresBackgroundDuringPresentation = false
-		controller.hidesNavigationBarDuringPresentation = false
+		controller.hidesNavigationBarDuringPresentation = true
 		controller.searchBar.placeholder = "Search books by keyword"
+		controller.searchBar.searchTextField.backgroundColor = UIColor(named: "Color1")
 		
 		searchController = controller
 		navigationItem.searchController = searchController
+//		searchController.searchBar.searchBarStyle = .minimal
+		
 		
 	}
 	
@@ -260,9 +263,9 @@ extension BooksViewController: UITableViewDataSource, UITableViewDelegate {
 	}
 	
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-		if let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: Constants.headerIdentifier) as? BooksViewHeader {
-//			view.label.text = "test label"
-			return view
+		if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: Constants.headerIdentifier) as? BooksViewHeader {
+			headerView.presenter = self
+			return headerView
 		} else {
 			return nil
 		}
