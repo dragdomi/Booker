@@ -14,19 +14,25 @@
             <rect key="frame" x="0.0" y="0.0" width="389" height="65"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OFa-UR-Mix">
-                    <rect key="frame" x="20" y="41" width="48" height="24"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OFa-UR-Mix">
+                    <rect key="frame" x="20" y="44" width="17" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bj7-rs-xGk">
                     <rect key="frame" x="20" y="0.0" width="349" height="32"/>
+                    <color key="backgroundColor" name="Color1"/>
                     <segments>
-                        <segment title="Not finished"/>
-                        <segment title="Finished"/>
                         <segment title="All"/>
+                        <segment title="In Progress"/>
+                        <segment title="Finished"/>
+                        <segment title="Not Started"/>
                     </segments>
+                    <color key="tintColor" name="Color1"/>
+                    <connections>
+                        <action selector="filterSegmentedControlChanged:" destination="NbV-Hq-UqW" eventType="valueChanged" id="HU3-av-DJE"/>
+                    </connections>
                 </segmentedControl>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gox-aB-gTr">
                     <rect key="frame" x="345" y="41" width="24" height="24"/>
@@ -35,6 +41,9 @@
                     <state key="normal" image="arrow.up.arrow.down" catalog="system">
                         <color key="titleColor" name="Color4"/>
                     </state>
+                    <connections>
+                        <action selector="sortButtonPressed:" destination="NbV-Hq-UqW" eventType="touchUpInside" id="XHB-qG-CFC"/>
+                    </connections>
                 </button>
             </subviews>
             <constraints>
@@ -42,15 +51,15 @@
                 <constraint firstItem="OFa-UR-Mix" firstAttribute="leading" secondItem="X5T-h9-QZI" secondAttribute="leading" constant="20" id="5Z0-d1-4GT"/>
                 <constraint firstItem="Gox-aB-gTr" firstAttribute="trailing" secondItem="NbV-Hq-UqW" secondAttribute="trailing" constant="-20" id="7Ui-fZ-gua"/>
                 <constraint firstItem="Gox-aB-gTr" firstAttribute="top" secondItem="bj7-rs-xGk" secondAttribute="bottom" constant="10" id="FK8-5v-EcA"/>
-                <constraint firstItem="OFa-UR-Mix" firstAttribute="top" secondItem="bj7-rs-xGk" secondAttribute="bottom" constant="10" id="bJq-kk-iR4"/>
                 <constraint firstItem="bj7-rs-xGk" firstAttribute="leading" secondItem="NbV-Hq-UqW" secondAttribute="leading" constant="20" id="f9E-vc-4bT"/>
                 <constraint firstItem="bj7-rs-xGk" firstAttribute="top" secondItem="NbV-Hq-UqW" secondAttribute="top" id="nCF-OS-59C"/>
+                <constraint firstItem="OFa-UR-Mix" firstAttribute="centerY" secondItem="Gox-aB-gTr" secondAttribute="centerY" id="sR0-Bj-yfk"/>
                 <constraint firstItem="bj7-rs-xGk" firstAttribute="centerX" secondItem="NbV-Hq-UqW" secondAttribute="centerX" id="v0p-ak-RuW"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="X5T-h9-QZI"/>
             <connections>
-                <outlet property="headerButton" destination="Gox-aB-gTr" id="orZ-Kd-1R9"/>
+                <outlet property="filterSegmentedControl" destination="bj7-rs-xGk" id="XNf-y6-i7D"/>
                 <outlet property="headerLabel" destination="OFa-UR-Mix" id="81W-MV-Ft0"/>
             </connections>
             <point key="canvasLocation" x="467.39130434782612" y="-601.00446428571422"/>
@@ -58,6 +67,9 @@
     </objects>
     <resources>
         <image name="arrow.up.arrow.down" catalog="system" width="128" height="96"/>
+        <namedColor name="Color1">
+            <color red="0.9570000171661377" green="0.93300002813339233" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="Color4">
             <color red="0.25900000333786011" green="0.28200000524520874" blue="0.45500001311302185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

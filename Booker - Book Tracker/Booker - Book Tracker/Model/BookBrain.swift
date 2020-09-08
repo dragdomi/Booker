@@ -87,6 +87,38 @@ class BookBrain {
 		}
 	}
 	
+	static func getBooksSorted(by order: String) -> [BookModel] {
+		switch order {
+		case "title":
+			return books.sorted {
+				$0.title < $1.title
+			}
+			
+		case "author":
+			return books.sorted {
+				$0.author < $1.author
+			}
+			
+		case "progress":
+			return books.sorted {
+				$0.readPercentage < $1.readPercentage
+			}
+			
+		case "beginDate":
+			return books.sorted {
+				$0.beginDate < $1.beginDate
+			}
+			
+		case "finishDate":
+			return books.sorted {
+				$0.finishDate < $1.finishDate
+			}
+			
+		default:
+			return books
+		}
+	}
+	
 	static func editBookData(_ editedBook: BookModel) {
 		try! realm.write {
 			realm.add(editedBook, update: .modified)
