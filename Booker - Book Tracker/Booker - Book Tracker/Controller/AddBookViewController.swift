@@ -17,7 +17,7 @@ class AddBookViewController: UIViewController {
 	@IBOutlet weak var bookAuthorTextField: UITextField!
 	@IBOutlet weak var totalPagesTextField: UITextField!
 	@IBOutlet weak var pagesReadTextField: UITextField!
-	@IBOutlet weak var dateSwitcher: UISegmentedControl!
+	@IBOutlet weak var dateSegmentedControl: UISegmentedControl!
 	@IBOutlet weak var datePicker: UIDatePicker!
 	@IBOutlet weak var addBookButton: UIButton!
 	var delegate: AddBookViewControllerDelegate?
@@ -91,17 +91,17 @@ class AddBookViewController: UIViewController {
 	}
 	
 	func updateDateSegments(isFinished: Bool) {
-		if isFinished == false && dateSwitcher.numberOfSegments > 1 {
-			dateSwitcher.removeSegment(at: 1, animated: true)
-		} else if isFinished == true && dateSwitcher.numberOfSegments < 2 {
-			dateSwitcher.insertSegment(withTitle: "Finish date:", at: 1, animated: true)
+		if isFinished == false && dateSegmentedControl.numberOfSegments > 1 {
+			dateSegmentedControl.removeSegment(at: 1, animated: true)
+		} else if isFinished == true && dateSegmentedControl.numberOfSegments < 2 {
+			dateSegmentedControl.insertSegment(withTitle: "Finish date:", at: 1, animated: true)
 		}
 	}
 	
-	@IBAction func segmentChanged(_ sender: UISegmentedControl) {
-		if dateSwitcher.selectedSegmentIndex == 0 {
+	@IBAction func dateSegmentedControlChanged(_ sender: UISegmentedControl) {
+		if dateSegmentedControl.selectedSegmentIndex == 0 {
 			pickBeginDateFromDatePicker()
-		} else if dateSwitcher.selectedSegmentIndex == 1 {
+		} else if dateSegmentedControl.selectedSegmentIndex == 1 {
 			pickFinishDateFromDatePicker()
 		}
 	}
@@ -123,9 +123,9 @@ class AddBookViewController: UIViewController {
 	}
 	
 	@IBAction func dateChanged(_ sender: UIDatePicker) {
-		if dateSwitcher.selectedSegmentIndex == 0 {
+		if dateSegmentedControl.selectedSegmentIndex == 0 {
 			beginDate = sender.date
-		} else if dateSwitcher.selectedSegmentIndex == 1 {
+		} else if dateSegmentedControl.selectedSegmentIndex == 1 {
 			finishDate = sender.date
 		} else {
 			finishDate = nil
