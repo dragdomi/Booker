@@ -22,34 +22,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="dcB-Nv-rSe">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Gqn-2v-tON">
-                                        <rect key="frame" x="0.0" y="55.5" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gqn-2v-tON" id="SB1-i8-HQw">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="zxe-p6-g6H">
-                                        <rect key="frame" x="0.0" y="99.5" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zxe-p6-g6H" id="ljT-40-9j7">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="TVN-Wz-rQF">
-                                        <rect key="frame" x="0.0" y="143.5" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TVN-Wz-rQF" id="oaM-qS-mg7">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
                                 <sections/>
                             </tableView>
                         </subviews>
@@ -58,7 +32,7 @@
                             <constraint firstItem="dcB-Nv-rSe" firstAttribute="top" secondItem="XZW-bY-QQT" secondAttribute="top" id="AFL-8D-iSb"/>
                             <constraint firstItem="dcB-Nv-rSe" firstAttribute="leading" secondItem="XZW-bY-QQT" secondAttribute="leading" id="FsE-mf-8ZP"/>
                             <constraint firstItem="XZW-bY-QQT" firstAttribute="trailing" secondItem="dcB-Nv-rSe" secondAttribute="trailing" id="ggd-oh-1Tv"/>
-                            <constraint firstItem="XZW-bY-QQT" firstAttribute="bottom" secondItem="dcB-Nv-rSe" secondAttribute="bottom" id="pUN-dL-DuA"/>
+                            <constraint firstAttribute="bottom" secondItem="dcB-Nv-rSe" secondAttribute="bottom" id="pUN-dL-DuA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XZW-bY-QQT"/>
                     </view>
@@ -68,7 +42,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T8v-PC-o6M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3929" y="84"/>
+            <point key="canvasLocation" x="3928.985507246377" y="83.705357142857139"/>
         </scene>
         <!--Add Book View Controller-->
         <scene sceneID="Fjr-id-9Ux">
