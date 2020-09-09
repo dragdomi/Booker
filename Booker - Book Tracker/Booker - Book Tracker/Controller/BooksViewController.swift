@@ -14,10 +14,13 @@ import Firebase
 class BooksViewController: UIViewController, AddBookViewControllerDelegate, BookDetailsViewControllerDelegate {
 	var searchController = UISearchController()
 	var books = [BookModel]()
+	var searchText: String?
 	
 	@IBOutlet weak var tableView: UITableView!
 	
 	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		
 		if let index = self.tableView.indexPathForSelectedRow {
 			self.tableView.deselectRow(at: index, animated: true)
 		}
@@ -62,8 +65,6 @@ class BooksViewController: UIViewController, AddBookViewControllerDelegate, Book
 		
 		searchController = controller
 		navigationItem.searchController = searchController
-//		searchController.searchBar.searchBarStyle = .minimal
-		
 		
 	}
 	
@@ -87,6 +88,7 @@ class BooksViewController: UIViewController, AddBookViewControllerDelegate, Book
 	//MARK: - Interactions
 	
 	func filterContentForSearchText(_ searchText: String) {
+		self.searchText = searchText
 		books = BookBrain.searchBooks(searchText)
 		reloadTableViewDataAsync()
 	}
@@ -231,6 +233,8 @@ extension BooksViewController: UITableViewDataSource, UITableViewDelegate {
 extension BooksViewController: UISearchResultsUpdating {
 	func updateSearchResults(for searchController: UISearchController) {
 		let searchBar = searchController.searchBar
-		filterContentForSearchText(searchBar.text!)
+		if let searchBarText = searchBar.text {
+			filterContentForSearchText(searchBarText)
+		}
 	}
 }

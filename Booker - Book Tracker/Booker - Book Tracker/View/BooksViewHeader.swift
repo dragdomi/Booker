@@ -89,7 +89,7 @@ class BooksViewHeader: UITableViewHeaderFooterView {
 	
 	func updateLabel(description: String?) {
 		if let booksCount = presenter?.books.count, let description = description {
-			headerLabel.text = "\(description): \(booksCount)"
+			headerLabel.text = "\(description) (\(booksCount))"
 		} else {
 			headerLabel.text = ""
 		}

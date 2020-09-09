@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Charts
 
 class ReadingHabitsViewController: UIViewController {
 	@IBOutlet weak var booksView: UIView!
@@ -19,9 +18,6 @@ class ReadingHabitsViewController: UIViewController {
 	@IBOutlet weak var totalPagesReadLabel: UILabel!
 	@IBOutlet weak var totalPagesOfBooksLabel: UILabel!
 	@IBOutlet weak var totalPagesLeftLabel: UILabel!
-	
-	lazy var pieChartView = PieChartView()
-	
 	
 	override func viewDidLoad() {
 		setupUI()
