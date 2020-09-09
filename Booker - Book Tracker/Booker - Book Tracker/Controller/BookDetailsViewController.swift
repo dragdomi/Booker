@@ -99,7 +99,7 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 	func updateBookIfTextfieldIsNotEmpty(textField: UITextField) {
 		if textField.text != "" {
 			if let updatedPagesRead = Int(textField.text!) {
-				if (updatedPagesRead - book.pagesRead) > 0 {
+				if (updatedPagesRead - book.pagesRead) >= 0 {
 					ReadingInfo.addPagesToDate(pages: updatedPagesRead - book.pagesRead, date: Utils.formatDateToString(Date()))
 				} else {
 					showSubstractAlert(negativeNumber: updatedPagesRead - book.pagesRead)
