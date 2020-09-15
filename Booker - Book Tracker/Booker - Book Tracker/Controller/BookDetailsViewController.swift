@@ -22,7 +22,6 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 	@IBOutlet weak var percentLabel: UILabel!
 	@IBOutlet weak var progressBar: CircularProgressBar!
 	@IBOutlet weak var pagesLabel: UILabel!
-
 	@IBOutlet weak var lastReadDateLabel: UILabel!
 	@IBOutlet weak var beginDateLabel: UILabel!
 	@IBOutlet weak var finishDateLabel: UILabel!
@@ -37,8 +36,8 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 		titleLabel.text = book.title
 		authorLabel.text = book.author
 		pagesLabel.text = "\(book.pagesRead) of \(book.totalPages)"
-		percentLabel.text = "\(Int(book.readPercentage))%"
-		progressBar.setProgress(CGFloat(book.readPercentage / 100))
+		percentLabel.text = "\(Int(book.getPercentage()))%"
+		progressBar.setProgress(CGFloat(book.getPercentage() / 100.0))
 		
 		if book.lastReadDate != "" {
 			lastReadDateLabel.text = "Last read date: " + book.lastReadDate
@@ -121,7 +120,6 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 				}
 				
 				handleBookData(self.book)
-//				updateView(book: book)
 			}
 		}
 	}
@@ -146,7 +144,6 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 		bookFinishedView.view.tintColor = UIColor(named: "Color4")
 		present(bookFinishedView, animated: true)
 	}
-	
 	
 	func handleBookData(_ book: BookModel) {
 		delegate?.editBookData(book)
