@@ -150,22 +150,21 @@ class AddBookViewController: UIViewController {
 		if let totalPages = bookTotalPages, let readPages = bookPagesRead  {
 			checkPagesValues(totalPages, readPages)
 		}
-		
-		createBookModel(title: bookTitle,
-						author: bookAuthor,
-						totalPages: bookTotalPages,
-						pagesRead: bookPagesRead,
-						beginDate: beginDate,
-						finishDate: finishDate,
-						lastReadDate: nil
-		)
-		
-		navigationController?.popViewController(animated: true)
 	}
 	
 	func checkPagesValues(_ totalPages: Int, _ readPages: Int) {
 		if readPages > totalPages {
 			showAlert(title: "Oops", message: "You can't read more pages than the book has.")
+		} else {
+			createBookModel(title: bookTitle,
+							author: bookAuthor,
+							totalPages: bookTotalPages,
+							pagesRead: bookPagesRead,
+							beginDate: beginDate,
+							finishDate: finishDate,
+							lastReadDate: nil
+			)
+			navigationController?.popViewController(animated: true)
 		}
 	}
 	
