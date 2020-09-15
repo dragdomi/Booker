@@ -57,21 +57,22 @@ class BookBrain {
 		return books
 	}
 	
-	static func searchBooks(_ keyword: String) -> [BookModel] {
+	static func searchBooks(books: [BookModel], by keyword: String) -> [BookModel] {
 		if keyword == "" {
 			return books
 		}
-		
+	
 		var foundBooks = [BookModel]()
 		for book in books {
 			if book.author.lowercased().contains(keyword.lowercased()) || book.title.lowercased().contains(keyword.lowercased()) {
 				foundBooks.append(book)
 			}
 		}
+		
 		return foundBooks
 	}
 	
-	static func getBooksFiltered(by filter: String) -> [BookModel] {
+	static func getBooksFiltered(books: [BookModel], by filter: String) -> [BookModel] {
 		switch filter {
 		case "finished":
 			return ReadingInfo.booksRead
@@ -87,7 +88,7 @@ class BookBrain {
 		}
 	}
 	
-	static func getBooksSorted(by order: String) -> [BookModel] {
+	static func getBooksSorted(books: [BookModel], by order: String) -> [BookModel] {
 		switch order {
 		case "title":
 			return books.sorted {
@@ -101,7 +102,7 @@ class BookBrain {
 			
 		case "progress":
 			return books.sorted {
-				$0.readPercentage < $1.readPercentage
+				$0.getPercentage() < $1.getPercentage()
 			}
 			
 		case "beginDate":
