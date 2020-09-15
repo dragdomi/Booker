@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import CoreData
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,7 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		window = UIWindow(frame: UIScreen.main.bounds)
 		window?.rootViewController = UINavigationController(rootViewController: BooksViewController())
         window?.makeKeyAndVisible()
-
+		
+		BookBrain.loadBooksFromRealm()
+		print(Realm.Configuration.defaultConfiguration.fileURL!)
+		
 		return true
 	}
 	
