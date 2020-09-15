@@ -20,28 +20,23 @@ class BooksViewHeader: UITableViewHeaderFooterView {
 	@IBAction func filterSegmentedControlChanged(_ sender: UISegmentedControl) {
 		switch sender.selectedSegmentIndex {
 		case 0:
-			presenter?.books = BookBrain.getBooks()
-			presenter?.reloadTableViewDataAsync()
+			presenter?.reloadBooks()
 			updateLabel(description: sender.titleForSegment(at: sender.selectedSegmentIndex))
 			
 		case 1:
-			presenter?.books = BookBrain.getBooksFiltered(by: "inProgress")
-			presenter?.reloadTableViewDataAsync()
+			presenter?.reloadBooks(filterBy: "inProgress")
 			updateLabel(description: sender.titleForSegment(at: sender.selectedSegmentIndex))
 			
 		case 2:
-			presenter?.books = BookBrain.getBooksFiltered(by: "finished")
-			presenter?.reloadTableViewDataAsync()
+			presenter?.reloadBooks(filterBy: "finished")
 			updateLabel(description: sender.titleForSegment(at: sender.selectedSegmentIndex))
 			
 		case 3:
-			presenter?.books = BookBrain.getBooksFiltered(by: "notStarted")
-			presenter?.reloadTableViewDataAsync()
+			presenter?.reloadBooks(filterBy: "notStarted")
 			updateLabel(description: sender.titleForSegment(at: sender.selectedSegmentIndex))
 			
 		default:
-			presenter?.books = BookBrain.getBooks()
-			presenter?.reloadTableViewDataAsync()
+			presenter?.reloadBooks()
 			updateLabel(description: sender.titleForSegment(at: sender.selectedSegmentIndex))
 		}
 	}
@@ -50,28 +45,23 @@ class BooksViewHeader: UITableViewHeaderFooterView {
 		let sortMenu = UIAlertController(title: "Order By ", message: nil, preferredStyle: .actionSheet)
 		
 		let sortByTitleAction = UIAlertAction(title: "Title", style: .default) { _ in
-			self.presenter?.books = BookBrain.getBooksSorted(by: "title")
-			self.presenter?.reloadTableViewDataAsync()
+			self.presenter?.reloadBooks(sortBy: "title")
 		}
 		
 		let sortByAuthorAction = UIAlertAction(title: "Author", style: .default) { _ in
-			self.presenter?.books = BookBrain.getBooksSorted(by: "author")
-			self.presenter?.reloadTableViewDataAsync()
+			self.presenter?.reloadBooks(sortBy: "author")
 		}
 		
 		let sortByProgressAction = UIAlertAction(title: "Progress", style: .default) { _ in
-			self.presenter?.books = BookBrain.getBooksSorted(by: "progress")
-			self.presenter?.reloadTableViewDataAsync()
+			self.presenter?.reloadBooks(sortBy: "progress")
 		}
 		
 		let sortByBeginDateAction = UIAlertAction(title: "Begin Date", style: .default) { _ in
-			self.presenter?.books = BookBrain.getBooksSorted(by: "beginDate")
-			self.presenter?.reloadTableViewDataAsync()
+			self.presenter?.reloadBooks(sortBy: "beginDate")
 		}
 		
 		let sortByFinishDateAction = UIAlertAction(title: "Finish Date", style: .default) { _ in
-			self.presenter?.books = BookBrain.getBooksSorted(by: "finishDate")
-			self.presenter?.reloadTableViewDataAsync()
+			self.presenter?.reloadBooks(sortBy: "finishDate")
 		}
 		
 		let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
