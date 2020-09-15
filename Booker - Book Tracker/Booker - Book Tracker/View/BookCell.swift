@@ -15,5 +15,17 @@ class BookCell: UITableViewCell {
 	@IBOutlet weak var percentageLabel: UILabel!
 	@IBOutlet weak var dateLabel: UILabel!
 	@IBOutlet weak var progressBar: HorizontalProgressBar!
-
+	
+	func configure() {
+		cellView.layer.cornerRadius = 10
+		cellView.layer.shadowPath =  UIBezierPath(roundedRect: cellView.bounds, cornerRadius: cellView.layer.cornerRadius).cgPath
+		cellView.layer.shadowRadius = 1
+		cellView.layer.shadowOffset = .zero
+		cellView.layer.shadowOpacity = 0.5
+		selectedBackgroundView?.backgroundColor = UIColor(named: "Color1")
+	}
+	
+	override func prepareForReuse() {
+		progressBar.progress = 0
+	}
 }
