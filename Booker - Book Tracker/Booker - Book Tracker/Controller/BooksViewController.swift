@@ -6,44 +6,46 @@
 //  Copyright © 2020 Dominik Drąg. All rights reserved.
 //
 
-// TODO: Make loading Date from database work.
-
 import UIKit
 import Firebase
 
 class BooksViewController: UIViewController, AddBookViewControllerDelegate, BookDetailsViewControllerDelegate {
 	var searchController = UISearchController()
-	var books = [BookModel]()
+	var books: [BookModel] = []
+	var booksCopy: [BookModel] = []
+	var sort: String = ""
 	var searchText: String?
 	
 	@IBOutlet weak var tableView: UITableView!
 	
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
-		
-		if let index = self.tableView.indexPathForSelectedRow {
-			self.tableView.deselectRow(at: index, animated: true)
-		}
-	}
-	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		BookBrain.loadBooksFromRealm()
-		refreshBooks()
-		reloadTableViewDataAsync()
-		setupUI()
-		
 		tableView.delegate = self
 		tableView.dataSource = self
 		tableView.register(UINib(nibName: Constants.cellNibName, bundle: Bundle.main), forCellReuseIdentifier: Constants.cellIdentifier)
 		tableView.register(UINib(nibName: Constants.headerIdentifier, bundle: Bundle.main), forHeaderFooterViewReuseIdentifier: Constants.headerIdentifier)
 		
+		reloadBooks()
+		setupUI()
 		
 		//		BookBrain.setUserId(Firebase.Auth.auth().currentUser?.uid)
 	}
 	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		if let index = self.tableView.indexPathForSelectedRow {
+			self.tableView.deselectRow(at: index, animated: animated)
+		}
+	}
+	
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		navigationItem.hidesSearchBarWhenScrolling = true
+		print("essa")
+	}
+	
 	func setupUI() {
-		navigationController?.navigationBar.prefersLargeTitles = true
 		navigationItem.hidesBackButton = true
 		navigationItem.leftBarButtonItem = UIBarButtonItem(title: "···", style: .done, target: self, action: #selector(showMenu))
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBookButton))
@@ -59,13 +61,13 @@ class BooksViewController: UIViewController, AddBookViewControllerDelegate, Book
 		controller.searchResultsUpdater = self
 		controller.searchBar.sizeToFit()
 		controller.obscuresBackgroundDuringPresentation = false
-		controller.hidesNavigationBarDuringPresentation = true
+		controller.hidesNavigationBarDuringPresentation = false
 		controller.searchBar.placeholder = "Search books by keyword"
 		controller.searchBar.searchTextField.backgroundColor = UIColor(named: "Color1")
 		
 		searchController = controller
 		navigationItem.searchController = searchController
-		
+		navigationItem.hidesSearchBarWhenScrolling = false
 	}
 	
 	func setupHeader() {
@@ -73,24 +75,47 @@ class BooksViewController: UIViewController, AddBookViewControllerDelegate, Book
 		tableView.tableHeaderView = header
 	}
 	
-	func refreshBooks() {
+	//MARK: - Books
+	
+	func reloadBooks() {
 		books = BookBrain.getBooks()
+		books = BookBrain.getBooksSorted(books: books, by: self.sort)
+		booksCopy = books
+		searchController.searchBar.text = ""
+		reloadTableViewDataAsync()
 	}
 	
-	func refreshBooks(keyword: String) {
-		books = BookBrain.searchBooks(keyword)
+	func reloadBooks(searchBy keyword: String) {
+		let foundBooks = BookBrain.searchBooks(books: books, by: keyword)
+		if !keyword.isEmpty {
+			books = foundBooks
+		} else {
+			books = booksCopy
+		}
+		books = BookBrain.getBooksSorted(books: books, by: self.sort)
+		reloadTableViewDataAsync()
 	}
 	
-	func refreshBooks(filter: String) {
-		books = BookBrain.getBooksFiltered(by: filter)
+	func reloadBooks(filterBy filter: String) {
+		books = BookBrain.getBooksFiltered(books: books, by: filter)
+		books = BookBrain.getBooksSorted(books: books, by: self.sort)
+		booksCopy = books
+		searchController.searchBar.text = ""
+		reloadTableViewDataAsync()
+	}
+	
+	func reloadBooks(sortBy sort: String) {
+		self.sort = sort
+		books = BookBrain.getBooksSorted(books: books, by: self.sort)
+		booksCopy = books
+		reloadTableViewDataAsync()
 	}
 	
 	//MARK: - Interactions
 	
 	func filterContentForSearchText(_ searchText: String) {
 		self.searchText = searchText
-		books = BookBrain.searchBooks(searchText)
-		reloadTableViewDataAsync()
+		reloadBooks(searchBy: searchText)
 	}
 	
 	@objc func showMenu() {
@@ -128,8 +153,7 @@ class BooksViewController: UIViewController, AddBookViewControllerDelegate, Book
 	//MARK: - Delegate methods
 	
 	func handleBookData(_ book: BookModel) {
-		var book = book
-		var takenIds = [Int]()
+		var takenIds: [Int] = []
 		for book in BookBrain.getBooks() {
 			takenIds.append(book.id)
 		}
@@ -141,7 +165,7 @@ class BooksViewController: UIViewController, AddBookViewControllerDelegate, Book
 		}
 		
 		BookBrain.addBook(book)
-		refreshBooks()
+		reloadBooks()
 		reloadTableViewDataAsync()
 	}
 	
@@ -165,24 +189,16 @@ extension BooksViewController: UITableViewDataSource, UITableViewDelegate {
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let book: BookModel
+		let book = books[indexPath.row]
+		
 		let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier, for: indexPath) as! BookCell
-		
-		book = books[indexPath.row]
-		
-		cell.cellView.layer.cornerRadius = 10
-		cell.cellView.layer.shadowPath =  UIBezierPath(roundedRect: cell.cellView.bounds, cornerRadius: cell.cellView.layer.cornerRadius).cgPath
-		cell.cellView.layer.shadowRadius = 1
-		cell.cellView.layer.shadowOffset = .zero
-		cell.cellView.layer.shadowOpacity = 0.5
-		cell.selectedBackgroundView?.backgroundColor = UIColor(named: "Color1")
-		
+		let progress = CGFloat(book.getPercentage()/100)
+		cell.progressBar.setProgress(progress)
+		cell.configure()
 		cell.titleLabel.text = book.title
 		cell.authorLabel.text = book.author
-		cell.percentageLabel.text = "\(Int(book.readPercentage))%"
+		cell.percentageLabel.text = "\(Int(book.getPercentage()))%"
 		cell.dateLabel.text = book.lastReadDate
-		let progress = CGFloat(book.readPercentage/100)
-		cell.progressBar.setProgress(progress)
 		
 		return cell
 	}
@@ -200,7 +216,7 @@ extension BooksViewController: UITableViewDataSource, UITableViewDelegate {
 			let deleteAlert = UIAlertController(title: "Warning", message: "Are you sure you want to delete '\(books[indexPath.row].title)' from your books?", preferredStyle: .alert)
 			let deleteAction = UIAlertAction(title: "YES", style: .destructive) {_ in
 				BookBrain.deleteBook(self.books[indexPath.row])
-				self.refreshBooks()
+				self.reloadBooks()
 				tableView.deleteRows(at: [indexPath], with: .fade)
 			}
 			
