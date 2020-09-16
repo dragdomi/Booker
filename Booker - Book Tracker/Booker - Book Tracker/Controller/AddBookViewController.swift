@@ -13,6 +13,8 @@ protocol AddBookViewControllerDelegate {
 }
 
 class AddBookViewController: UIViewController {
+	@IBOutlet weak var coverImageView: UIView!
+	@IBOutlet weak var coverImageButton: UIButton!
 	@IBOutlet weak var bookTitleTextField: UITextField!
 	@IBOutlet weak var bookAuthorTextField: UITextField!
 	@IBOutlet weak var totalPagesTextField: UITextField!
@@ -52,10 +54,53 @@ class AddBookViewController: UIViewController {
 			datePicker.date = safeBeginDate
 		}
 		
+		configureCoverImageView()
+		configureCoverImageButton()
+		configureTextField(bookTitleTextField)
+		configureTextField(bookAuthorTextField)
+		configureTextField(totalPagesTextField)
+		configureTextField(pagesReadTextField)
+		
 		addBookButton.isEnabled = false
 		activateButton()
 		//		dateSwitcher.removeSegment(at: 1, animated: false)
 		checkIfFinished()
+	}
+	
+	func configureCoverImageView() {
+		coverImageView.layer.cornerRadius = 10
+		coverImageView.layer.shadowPath =  UIBezierPath(roundedRect: coverImageView.bounds, cornerRadius: coverImageView.layer.cornerRadius).cgPath
+		coverImageView.layer.shadowRadius = 1
+		coverImageView.layer.shadowOffset = .zero
+		coverImageView.layer.shadowOpacity = 0.5
+	}
+	
+	func configureCoverImageButton() {
+		coverImageButton.layer.cornerRadius = 10
+	}
+	
+	func configureTextField(_ textfield: UITextField) {
+		textfield.layer.cornerRadius = 10
+		textfield.layer.shadowPath =  UIBezierPath(roundedRect: textfield.bounds, cornerRadius: textfield.layer.cornerRadius).cgPath
+		textfield.layer.shadowRadius = 1
+		textfield.layer.shadowOffset = .zero
+		textfield.layer.shadowOpacity = 0.5
+	}
+	
+	@IBAction func coverImageButtonTapped(_ sender: UIButton) {
+		let coverImageMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+		let takePhotoAction = UIAlertAction(title: "Take Photo", style: .default, handler: nil)
+		let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .default, handler: nil)
+		let clearPhotoAction = UIAlertAction(title: "Clear Photo", style: .destructive, handler: nil)
+		let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+		
+		coverImageMenu.addAction(takePhotoAction)
+		coverImageMenu.addAction(photoLibraryAction)
+		coverImageMenu.addAction(clearPhotoAction)
+		coverImageMenu.addAction(cancelAction)
+		coverImageMenu.view.tintColor = UIColor(named: "Color4")
+		
+		present(coverImageMenu, animated: true)
 	}
 	
 	@IBAction func textFieldChanged(_ sender: UITextField) {

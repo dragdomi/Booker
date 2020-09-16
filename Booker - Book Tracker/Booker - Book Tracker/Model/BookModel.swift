@@ -56,14 +56,14 @@ class BookModel: Object, Codable, Comparable {
 	}
 	
 	enum CodingKeys: String, CodingKey {
-		case id
-		case title
-		case author
-		case totalPages
-		case pagesRead
-		case beginDate
-		case finishDate
-		case lastReadDate
+		case id = "id"
+		case title = "title"
+		case author = "author"
+		case totalPages = "totalPages"
+		case pagesRead = "pagesRead"
+		case beginDate = "beginDate"
+		case finishDate = "finishDate"
+		case lastReadDate = "lastReadDate"
 	}
 	
 	static func < (lhs: BookModel, rhs: BookModel) -> Bool {

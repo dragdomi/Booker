@@ -52,74 +52,92 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WEH-sc-ma8">
-                                <rect key="frame" x="0.0" y="44" width="414" height="373.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aZc-Q0-EAN">
+                                <rect key="frame" x="20" y="297" width="374" height="565"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter book data" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LeM-G1-1Kg" userLabel="TitleLabel">
-                                        <rect key="frame" x="0.0" y="169" width="414" height="36"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="LeM-G1-1Kg" firstAttribute="leading" secondItem="WEH-sc-ma8" secondAttribute="leading" id="04O-MU-ogt"/>
-                                    <constraint firstItem="LeM-G1-1Kg" firstAttribute="centerY" secondItem="WEH-sc-ma8" secondAttribute="centerY" id="4ZZ-7E-D1R"/>
-                                    <constraint firstAttribute="trailing" secondItem="LeM-G1-1Kg" secondAttribute="trailing" id="bxi-dw-HyS"/>
-                                </constraints>
-                            </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aZc-Q0-EAN">
-                                <rect key="frame" x="20" y="417.5" width="374" height="444.5"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book title" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UNE-jy-VA9" userLabel="TitleTextField">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="32.5"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l6z-in-pSf">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IyR-dC-2hB">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
+                                                <color key="backgroundColor" name="Color2"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <state key="normal" title="Cover Image">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="coverImageButtonTapped:" destination="sKH-Mh-Ug8" eventType="touchUpInside" id="kbW-JA-s3h"/>
+                                                </connections>
+                                            </button>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book" catalog="system" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gRS-dE-Vkn">
+                                                <rect key="frame" x="10" y="1.5" width="75" height="97"/>
+                                                <color key="tintColor" name="Color4"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="gRS-dE-Vkn" secondAttribute="height" multiplier="3:4" id="x1b-sE-T1I"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="F33-5B-UU6"/>
+                                            <constraint firstAttribute="trailing" secondItem="IyR-dC-2hB" secondAttribute="trailing" id="LRZ-iw-QIg"/>
+                                            <constraint firstAttribute="bottom" secondItem="gRS-dE-Vkn" secondAttribute="bottom" id="Me5-Uy-hrj"/>
+                                            <constraint firstItem="gRS-dE-Vkn" firstAttribute="top" secondItem="l6z-in-pSf" secondAttribute="top" id="PyO-Lm-9Zg"/>
+                                            <constraint firstItem="IyR-dC-2hB" firstAttribute="leading" secondItem="l6z-in-pSf" secondAttribute="leading" id="Qop-iE-8Kf"/>
+                                            <constraint firstAttribute="bottom" secondItem="IyR-dC-2hB" secondAttribute="bottom" id="Ttz-Jo-P7w"/>
+                                            <constraint firstItem="gRS-dE-Vkn" firstAttribute="leading" secondItem="l6z-in-pSf" secondAttribute="leading" constant="10" id="uZC-je-VeS"/>
+                                            <constraint firstItem="IyR-dC-2hB" firstAttribute="top" secondItem="l6z-in-pSf" secondAttribute="top" id="yV0-AH-eEU"/>
+                                        </constraints>
+                                    </view>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="UNE-jy-VA9" userLabel="TitleTextField">
+                                        <rect key="frame" x="0.0" y="110" width="374" height="32"/>
                                         <color key="backgroundColor" name="Color2"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="j1G-NF-mUM"/>
+                                            <constraint firstAttribute="height" constant="32" id="Cgw-er-DT4"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                         <connections>
                                             <action selector="textFieldChanged:" destination="sKH-Mh-Ug8" eventType="editingDidEnd" id="wHy-Yr-cqs"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book author" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dLE-0C-vuA" userLabel="AuthorTextField">
-                                        <rect key="frame" x="0.0" y="42.5" width="374" height="31.5"/>
+                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Author" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="dLE-0C-vuA" userLabel="AuthorTextField">
+                                        <rect key="frame" x="0.0" y="152" width="374" height="32"/>
                                         <color key="backgroundColor" name="Color2"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="OML-TX-Ok6"/>
+                                            <constraint firstAttribute="height" constant="32" id="SIZ-VB-uQs"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                         <connections>
                                             <action selector="textFieldChanged:" destination="sKH-Mh-Ug8" eventType="editingDidEnd" id="BY2-Un-wNo"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number of read pages" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g6G-uS-cx4" userLabel="PagesReadTextField">
-                                        <rect key="frame" x="0.0" y="84" width="374" height="31.5"/>
+                                    <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Read Pages" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="g6G-uS-cx4" userLabel="PagesReadTextField">
+                                        <rect key="frame" x="0.0" y="194" width="374" height="32"/>
                                         <color key="backgroundColor" name="Color2"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="gnR-8g-LAd"/>
+                                            <constraint firstAttribute="height" constant="32" id="YR9-Xh-vXU"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
                                         <connections>
                                             <action selector="textFieldChanged:" destination="sKH-Mh-Ug8" eventType="editingDidEnd" id="cy8-uQ-7RA"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number of total pages" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YIZ-dD-sUR" userLabel="TotalPagesTextField">
-                                        <rect key="frame" x="0.0" y="125.5" width="374" height="31.5"/>
+                                    <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Total Pages" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="YIZ-dD-sUR" userLabel="TotalPagesTextField">
+                                        <rect key="frame" x="0.0" y="236" width="374" height="32"/>
                                         <color key="backgroundColor" name="Color2"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="b8c-YQ-LcM"/>
+                                            <constraint firstAttribute="height" constant="32" id="vYK-Ul-oTD"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
                                         <connections>
                                             <action selector="textFieldChanged:" destination="sKH-Mh-Ug8" eventType="editingDidEnd" id="5qx-9M-Aif"/>
                                         </connections>
                                     </textField>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Vcn-yY-MAj">
-                                        <rect key="frame" x="0.0" y="167" width="374" height="29.5"/>
+                                        <rect key="frame" x="0.0" y="278" width="374" height="32"/>
                                         <color key="backgroundColor" name="Color2"/>
                                         <segments>
                                             <segment title="Begin date:"/>
@@ -132,7 +150,7 @@
                                         </connections>
                                     </segmentedControl>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="XTr-fq-5mQ" userLabel="BeginDatePicker">
-                                        <rect key="frame" x="0.0" y="205.5" width="374" height="200"/>
+                                        <rect key="frame" x="0.0" y="319" width="374" height="200"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="200" id="c5n-L0-JDY"/>
                                         </constraints>
@@ -147,7 +165,7 @@
                                         </connections>
                                     </datePicker>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3cR-AM-ciX">
-                                        <rect key="frame" x="0.0" y="415.5" width="374" height="29"/>
+                                        <rect key="frame" x="0.0" y="529" width="374" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Confirm">
                                             <color key="titleColor" name="Color4"/>
@@ -157,17 +175,23 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="dLE-0C-vuA" secondAttribute="trailing" id="2te-e5-GOV"/>
+                                    <constraint firstItem="UNE-jy-VA9" firstAttribute="leading" secondItem="aZc-Q0-EAN" secondAttribute="leading" id="AFa-33-60l"/>
+                                    <constraint firstAttribute="trailing" secondItem="g6G-uS-cx4" secondAttribute="trailing" id="GBQ-ue-Wzt"/>
+                                    <constraint firstItem="g6G-uS-cx4" firstAttribute="leading" secondItem="aZc-Q0-EAN" secondAttribute="leading" id="JK5-J1-tUr"/>
+                                    <constraint firstAttribute="trailing" secondItem="UNE-jy-VA9" secondAttribute="trailing" id="cFM-ig-fNH"/>
+                                    <constraint firstItem="YIZ-dD-sUR" firstAttribute="leading" secondItem="aZc-Q0-EAN" secondAttribute="leading" id="dfb-OX-bes"/>
+                                    <constraint firstItem="dLE-0C-vuA" firstAttribute="leading" secondItem="aZc-Q0-EAN" secondAttribute="leading" id="nc9-by-WKo"/>
+                                    <constraint firstAttribute="trailing" secondItem="YIZ-dD-sUR" secondAttribute="trailing" id="trK-Fw-IZT"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" name="Color1"/>
                         <constraints>
-                            <constraint firstItem="oIN-ug-NQi" firstAttribute="trailing" secondItem="WEH-sc-ma8" secondAttribute="trailing" id="EDY-qw-2wt"/>
-                            <constraint firstItem="aZc-Q0-EAN" firstAttribute="top" secondItem="WEH-sc-ma8" secondAttribute="bottom" id="KwY-Oa-bHP"/>
-                            <constraint firstItem="WEH-sc-ma8" firstAttribute="top" secondItem="oIN-ug-NQi" secondAttribute="top" id="ZgO-2U-6FZ"/>
                             <constraint firstItem="oIN-ug-NQi" firstAttribute="trailing" secondItem="aZc-Q0-EAN" secondAttribute="trailing" constant="20" id="agb-MP-raI"/>
                             <constraint firstItem="oIN-ug-NQi" firstAttribute="bottom" secondItem="aZc-Q0-EAN" secondAttribute="bottom" id="dC5-ur-umg"/>
                             <constraint firstItem="aZc-Q0-EAN" firstAttribute="leading" secondItem="oIN-ug-NQi" secondAttribute="leading" constant="20" id="gqO-rc-m1d"/>
-                            <constraint firstItem="WEH-sc-ma8" firstAttribute="leading" secondItem="oIN-ug-NQi" secondAttribute="leading" id="rK4-zM-MUv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oIN-ug-NQi"/>
                     </view>
@@ -175,6 +199,8 @@
                         <outlet property="addBookButton" destination="3cR-AM-ciX" id="Lju-oI-17s"/>
                         <outlet property="bookAuthorTextField" destination="dLE-0C-vuA" id="G4K-aw-xIp"/>
                         <outlet property="bookTitleTextField" destination="UNE-jy-VA9" id="1xS-8P-bpZ"/>
+                        <outlet property="coverImageButton" destination="IyR-dC-2hB" id="zV7-Uc-Oph"/>
+                        <outlet property="coverImageView" destination="l6z-in-pSf" id="1PS-jy-7GR"/>
                         <outlet property="datePicker" destination="XTr-fq-5mQ" id="vVc-a6-A5s"/>
                         <outlet property="dateSegmentedControl" destination="Vcn-yY-MAj" id="HWe-1X-L9g"/>
                         <outlet property="pagesReadTextField" destination="g6G-uS-cx4" id="oah-PK-PWo"/>
@@ -464,6 +490,7 @@
                     <connections>
                         <outlet property="authorLabel" destination="Yni-fp-Znh" id="DRZ-Ep-O90"/>
                         <outlet property="beginDateLabel" destination="haV-eh-y5U" id="VMj-IK-lxg"/>
+                        <outlet property="bookCover" destination="hef-Dw-dCo" id="gJJ-PR-E6R"/>
                         <outlet property="finishDateLabel" destination="35B-hg-5pc" id="mdW-qv-01E"/>
                         <outlet property="lastReadDateLabel" destination="Gig-uI-f0q" id="Auu-se-lmo"/>
                         <outlet property="pagesLabel" destination="Y0f-Es-ofE" id="rGj-cF-mca"/>

@@ -42,7 +42,6 @@ class BooksViewController: UIViewController, AddBookViewControllerDelegate, Book
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		navigationItem.hidesSearchBarWhenScrolling = true
-		print("essa")
 	}
 	
 	func setupUI() {
@@ -146,6 +145,7 @@ class BooksViewController: UIViewController, AddBookViewControllerDelegate, Book
 	@objc func addBookButton() {
 		if let addBookViewController = storyboard?.instantiateViewController(identifier: Constants.ViewControllers.addBook) as? AddBookViewController {
 			addBookViewController.delegate = self
+			addBookViewController.title = "Add Book"
 			navigationController?.pushViewController(addBookViewController, animated: true)
 		}
 	}

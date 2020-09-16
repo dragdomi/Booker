@@ -19,6 +19,7 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 	var editedBook: BookModel?
 	@IBOutlet weak var titleLabel: UILabel!
 	@IBOutlet weak var authorLabel: UILabel!
+	@IBOutlet weak var bookCover: UIImageView!
 	@IBOutlet weak var percentLabel: UILabel!
 	@IBOutlet weak var progressBar: CircularProgressBar!
 	@IBOutlet weak var pagesLabel: UILabel!
@@ -61,6 +62,7 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 	@objc func editBook() {
 		if let addBookViewController = storyboard?.instantiateViewController(identifier: Constants.ViewControllers.addBook) as? AddBookViewController {
 			addBookViewController.delegate = self
+			addBookViewController.title = "Edit Book"
 			addBookViewController.bookId = book.id
 			addBookViewController.bookTitle = book.title
 			addBookViewController.bookAuthor = book.author
