@@ -10,6 +10,7 @@ import UIKit
 
 class BookCell: UITableViewCell {
 	@IBOutlet weak var cellView: UIView!
+	@IBOutlet weak var coverImage: UIImageView!
 	@IBOutlet weak var titleLabel: UILabel!
 	@IBOutlet weak var authorLabel: UILabel!
 	@IBOutlet weak var percentageLabel: UILabel!
@@ -23,6 +24,7 @@ class BookCell: UITableViewCell {
 		cellView.layer.shadowOffset = .zero
 		cellView.layer.shadowOpacity = 0.5
 		selectedBackgroundView?.backgroundColor = UIColor(named: "Color1")
+		coverImage.layer.cornerRadius = 10
 	}
 	
 	override func prepareForReuse() {

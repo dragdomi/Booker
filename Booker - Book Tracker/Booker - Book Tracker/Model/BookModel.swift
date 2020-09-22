@@ -11,6 +11,7 @@ import RealmSwift
 
 class BookModel: Object, Codable, Comparable {
 	@objc dynamic var id: Int
+	@objc dynamic var cover: String
 	@objc dynamic var title: String
 	@objc dynamic var author: String
 	@objc dynamic var totalPages: Int
@@ -35,6 +36,7 @@ class BookModel: Object, Codable, Comparable {
 	
 	required init() {
 		self.id = 0
+		self.cover = ""
 		self.title = "error"
 		self.author = "error"
 		self.totalPages = 0
@@ -44,8 +46,9 @@ class BookModel: Object, Codable, Comparable {
 		self.lastReadDate = ""
 	}
 	
-	init(id: Int, title: String, author: String, totalPages: Int, pagesRead: Int, beginDate: String, finishDate: String, lastReadDate: String) {
+	init(id: Int, cover: String, title: String, author: String, totalPages: Int, pagesRead: Int, beginDate: String, finishDate: String, lastReadDate: String) {
 		self.id = id
+		self.cover = cover
 		self.title = title
 		self.author = author
 		self.totalPages = totalPages
@@ -57,6 +60,7 @@ class BookModel: Object, Codable, Comparable {
 	
 	enum CodingKeys: String, CodingKey {
 		case id = "id"
+		case cover = "cover"
 		case title = "title"
 		case author = "author"
 		case totalPages = "totalPages"

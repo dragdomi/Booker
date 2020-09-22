@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,9 @@
 		A53E2BE8241D063C0013152C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A53E2BE6241D063C0013152C /* LaunchScreen.storyboard */; };
 		A53E2BF3241D07DA0013152C /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53E2BF2241D07DA0013152C /* BookModel.swift */; };
 		A53E2BF5241D08FF0013152C /* BookBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53E2BF4241D08FF0013152C /* BookBrain.swift */; };
+		A577770D250B7E7A0044451D /* BooksViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A577770B250B7E7A0044451D /* BooksViewHeader.swift */; };
+		A577770E250B7E7A0044451D /* BooksViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = A577770C250B7E7A0044451D /* BooksViewHeader.xib */; };
+		A58A1A6525137D7300A29444 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58A1A6425137D7300A29444 /* ImagePicker.swift */; };
 		A5918624241D430400002A11 /* AddBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5918623241D430400002A11 /* AddBookViewController.swift */; };
 		A59258A924BE20920066CACE /* BookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A59258A824BE20920066CACE /* BookCell.xib */; };
 		A59258AB24BE2C980066CACE /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59258AA24BE2C980066CACE /* BookCell.swift */; };
@@ -59,6 +62,9 @@
 		A53E2BE9241D063C0013152C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A53E2BF2241D07DA0013152C /* BookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookModel.swift; sourceTree = "<group>"; };
 		A53E2BF4241D08FF0013152C /* BookBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookBrain.swift; sourceTree = "<group>"; };
+		A577770B250B7E7A0044451D /* BooksViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BooksViewHeader.swift; sourceTree = "<group>"; };
+		A577770C250B7E7A0044451D /* BooksViewHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BooksViewHeader.xib; sourceTree = "<group>"; };
+		A58A1A6425137D7300A29444 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		A5918623241D430400002A11 /* AddBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookViewController.swift; sourceTree = "<group>"; };
 		A59258A824BE20920066CACE /* BookCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookCell.xib; sourceTree = "<group>"; };
 		A59258AA24BE2C980066CACE /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
@@ -162,6 +168,7 @@
 				A5918623241D430400002A11 /* AddBookViewController.swift */,
 				A53E2BDF241D063B0013152C /* BooksViewController.swift */,
 				A5AD99CD2422995200E0A6D9 /* BookDetailsViewController.swift */,
+				A58A1A6425137D7300A29444 /* ImagePicker.swift */,
 				A5D917CF2499594C00452531 /* LoginViewController.swift */,
 				A5D917C72499568300452531 /* RegisterViewController.swift */,
 				A52830AB24C5D3B700BED289 /* ReadingHabitsViewController.swift */,
@@ -177,6 +184,8 @@
 				A53E2BE1241D063B0013152C /* Main.storyboard */,
 				A59258A824BE20920066CACE /* BookCell.xib */,
 				A59258AA24BE2C980066CACE /* BookCell.swift */,
+				A577770B250B7E7A0044451D /* BooksViewHeader.swift */,
+				A577770C250B7E7A0044451D /* BooksViewHeader.xib */,
 				A599B82B24D3006300163D1A /* HorizontalProgressBar.swift */,
 				A599B82D24D3066F00163D1A /* CircularProgressBar.swift */,
 			);
@@ -240,7 +249,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Dominik Drąg";
 				TargetAttributes = {
 					A53E2BD7241D063B0013152C = {
@@ -249,7 +258,7 @@
 				};
 			};
 			buildConfigurationList = A53E2BD3241D063B0013152C /* Build configuration list for PBXProject "Booker - Book Tracker" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -281,6 +290,7 @@
 				A599B83324D3249400163D1A /* screenshot3.png in Resources */,
 				A599B85C24D4280300163D1A /* screenshot5.png in Resources */,
 				A53E2BE5241D063C0013152C /* Assets.xcassets in Resources */,
+				A577770E250B7E7A0044451D /* BooksViewHeader.xib in Resources */,
 				A53E2BE3241D063B0013152C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,6 +347,7 @@
 				A5D917D02499594C00452531 /* LoginViewController.swift in Sources */,
 				A52830CA24C9BF1F00BED289 /* BookerDataModel.xcdatamodeld in Sources */,
 				A51854392497DC6E00983DB8 /* WelcomeViewController.swift in Sources */,
+				A58A1A6525137D7300A29444 /* ImagePicker.swift in Sources */,
 				A599B82E24D3066F00163D1A /* CircularProgressBar.swift in Sources */,
 				A5D917CA249957B900452531 /* Constants.swift in Sources */,
 				A5D917C82499568300452531 /* RegisterViewController.swift in Sources */,
@@ -344,6 +355,7 @@
 				A599B82C24D3006300163D1A /* HorizontalProgressBar.swift in Sources */,
 				A59258AB24BE2C980066CACE /* BookCell.swift in Sources */,
 				A53E2BE0241D063B0013152C /* BooksViewController.swift in Sources */,
+				A577770D250B7E7A0044451D /* BooksViewHeader.swift in Sources */,
 				A52830A624C5BED200BED289 /* ReadingInfo.swift in Sources */,
 				A5AD99CE2422995200E0A6D9 /* BookDetailsViewController.swift in Sources */,
 				A5918624241D430400002A11 /* AddBookViewController.swift in Sources */,
@@ -404,6 +416,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -428,7 +441,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -464,6 +477,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -482,7 +496,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -500,6 +514,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9R4SVD5FNH;
 				INFOPLIST_FILE = "Booker - Book Tracker/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -507,7 +522,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "co.dragdomi.Booker---Book-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -519,6 +534,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9R4SVD5FNH;
 				INFOPLIST_FILE = "Booker - Book Tracker/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -526,7 +542,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "co.dragdomi.Booker---Book-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

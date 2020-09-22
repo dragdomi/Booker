@@ -14,6 +14,7 @@ protocol AddBookViewControllerDelegate {
 
 class AddBookViewController: UIViewController {
 	@IBOutlet weak var coverImageView: UIView!
+	@IBOutlet weak var coverImage: UIImageView!
 	@IBOutlet weak var coverImageButton: UIButton!
 	@IBOutlet weak var bookTitleTextField: UITextField!
 	@IBOutlet weak var bookAuthorTextField: UITextField!
@@ -23,7 +24,9 @@ class AddBookViewController: UIViewController {
 	@IBOutlet weak var datePicker: UIDatePicker!
 	@IBOutlet weak var addBookButton: UIButton!
 	var delegate: AddBookViewControllerDelegate?
-	var bookId: Int?
+	var imagePicker: ImagePicker!
+	var bookID: Int?
+	var bookCover: String?
 	var bookTitle: String?
 	var bookAuthor: String?
 	var bookTotalPages: Int?
@@ -34,6 +37,13 @@ class AddBookViewController: UIViewController {
 	var isFinished: Bool = false
 	
 	override func viewDidLoad() {
+		super.viewDidLoad()
+		self.imagePicker = ImagePicker(presentationController: self, delegate: self)
+		
+		if let safeBookCover = bookCover {
+			coverImage.image = UIImage(contentsOfFile: safeBookCover)
+		}
+		
 		if let safeBookTitle = bookTitle {
 			bookTitleTextField.text = safeBookTitle
 		}
@@ -54,12 +64,13 @@ class AddBookViewController: UIViewController {
 			datePicker.date = safeBeginDate
 		}
 		
-		configureCoverImageView()
-		configureCoverImageButton()
-		configureTextField(bookTitleTextField)
-		configureTextField(bookAuthorTextField)
-		configureTextField(totalPagesTextField)
-		configureTextField(pagesReadTextField)
+		configureViewWithShadow(coverImageView)
+		configureViewWithShadow(bookTitleTextField)
+		configureViewWithShadow(bookAuthorTextField)
+		configureViewWithShadow(pagesReadTextField)
+		configureViewWithShadow(totalPagesTextField)
+		configureViewWithNoShadow(coverImageButton)
+		configureViewWithNoShadow(coverImage)
 		
 		addBookButton.isEnabled = false
 		activateButton()
@@ -67,40 +78,20 @@ class AddBookViewController: UIViewController {
 		checkIfFinished()
 	}
 	
-	func configureCoverImageView() {
-		coverImageView.layer.cornerRadius = 10
-		coverImageView.layer.shadowPath =  UIBezierPath(roundedRect: coverImageView.bounds, cornerRadius: coverImageView.layer.cornerRadius).cgPath
-		coverImageView.layer.shadowRadius = 1
-		coverImageView.layer.shadowOffset = .zero
-		coverImageView.layer.shadowOpacity = 0.5
+	func configureViewWithShadow(_ view: UIView) {
+		view.layer.cornerRadius = 10
+		view.layer.shadowPath =  UIBezierPath(roundedRect: view.bounds, cornerRadius: view.layer.cornerRadius).cgPath
+		view.layer.shadowRadius = 1
+		view.layer.shadowOffset = .zero
+		view.layer.shadowOpacity = 0.5
 	}
 	
-	func configureCoverImageButton() {
-		coverImageButton.layer.cornerRadius = 10
-	}
-	
-	func configureTextField(_ textfield: UITextField) {
-		textfield.layer.cornerRadius = 10
-		textfield.layer.shadowPath =  UIBezierPath(roundedRect: textfield.bounds, cornerRadius: textfield.layer.cornerRadius).cgPath
-		textfield.layer.shadowRadius = 1
-		textfield.layer.shadowOffset = .zero
-		textfield.layer.shadowOpacity = 0.5
+	func configureViewWithNoShadow(_ view: UIView) {
+		view.layer.cornerRadius = 10
 	}
 	
 	@IBAction func coverImageButtonTapped(_ sender: UIButton) {
-		let coverImageMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-		let takePhotoAction = UIAlertAction(title: "Take Photo", style: .default, handler: nil)
-		let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .default, handler: nil)
-		let clearPhotoAction = UIAlertAction(title: "Clear Photo", style: .destructive, handler: nil)
-		let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-		
-		coverImageMenu.addAction(takePhotoAction)
-		coverImageMenu.addAction(photoLibraryAction)
-		coverImageMenu.addAction(clearPhotoAction)
-		coverImageMenu.addAction(cancelAction)
-		coverImageMenu.view.tintColor = UIColor(named: "Color4")
-		
-		present(coverImageMenu, animated: true)
+		self.imagePicker.present(from: sender)
 	}
 	
 	@IBAction func textFieldChanged(_ sender: UITextField) {
@@ -201,13 +192,17 @@ class AddBookViewController: UIViewController {
 		if readPages > totalPages {
 			showAlert(title: "Oops", message: "You can't read more pages than the book has.")
 		} else {
-			createBookModel(title: bookTitle,
-							author: bookAuthor,
-							totalPages: bookTotalPages,
-							pagesRead: bookPagesRead,
-							beginDate: beginDate,
-							finishDate: finishDate,
-							lastReadDate: nil
+			saveImage(self.coverImage.image!)
+			createBookModel(
+				id: bookID,
+				cover: bookCover,
+				title: bookTitle,
+				author: bookAuthor,
+				totalPages: bookTotalPages,
+				pagesRead: bookPagesRead,
+				beginDate: beginDate,
+				finishDate: finishDate,
+				lastReadDate: nil
 			)
 			navigationController?.popViewController(animated: true)
 		}
@@ -217,21 +212,25 @@ class AddBookViewController: UIViewController {
 		let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
 		ac.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
 		present(ac, animated: true)
+		ac.view.tintColor = .systemIndigo
 	}
 	
-	func createBookModel(title: String?, author: String?, totalPages: Int?, pagesRead: Int?, beginDate: Date?, finishDate: Date?, lastReadDate: Date?) {
+	func createBookModel(id: Int?, cover: String?, title: String?, author: String?, totalPages: Int?, pagesRead: Int?, beginDate: Date?, finishDate: Date?, lastReadDate: Date?) {
 		
-		if let title = bookTitle,
-			let author = bookAuthor,
-			let totalPages = bookTotalPages,
-			let pagesRead = bookPagesRead {
+		if let id = id,
+		   let cover = cover,
+		   let title = bookTitle,
+		   let author = bookAuthor,
+		   let totalPages = bookTotalPages,
+		   let pagesRead = bookPagesRead {
 			let beginDateString = Utils.formatDateToString(beginDate ?? Date())
 			var finishDateString = Utils.formatDateToString(finishDate)
 			if isFinished {
 				finishDateString = Utils.formatDateToString(finishDate ?? Date())
 			}
 			let lastReadDate = Utils.formatDateToString(lastReadDate)
-			let book = BookModel(id: bookId ?? 0,
+			let book = BookModel(id: id,
+								 cover: cover,
 								 title: title,
 								 author: author,
 								 totalPages: totalPages,
@@ -241,6 +240,40 @@ class AddBookViewController: UIViewController {
 								 lastReadDate: lastReadDate)
 			
 			delegate?.handleBookData(book)
+		}
+	}
+	
+	func saveImage(_ image: UIImage) {
+		let imageData = NSData(data: image.jpegData(compressionQuality: 1.0)!)
+		let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0].appending("/coverImages")
+		let writePath = documentsPath.appending("/book(\(bookID!))_coverImage.jpeg")
+		print(writePath)
+		imageData.write(toFile: writePath, atomically: true)
+		if !FileManager.default.fileExists(atPath: writePath) {
+			do {
+				try FileManager.default.createDirectory(atPath: writePath, withIntermediateDirectories: true, attributes: nil)
+			} catch {
+				print(error.localizedDescription);
+			}
+		}
+		self.bookCover = writePath
+	}
+	
+	func cropImage(image: UIImage, rect: CGRect, scale: CGFloat) -> UIImage? {
+		UIGraphicsBeginImageContextWithOptions(CGSize(width: rect.size.width / scale, height: rect.size.height / scale), true, 0.0)
+		image.draw(at: CGPoint(x: -rect.origin.x / scale, y: -rect.origin.y / scale))
+		let croppedImage = UIGraphicsGetImageFromCurrentImageContext()
+		UIGraphicsEndImageContext()
+		return croppedImage
+	}
+}
+
+extension AddBookViewController: ImagePickerDelegate {
+	func didSelect(image: UIImage?) {
+		if let image = image {
+			self.coverImage.image = image
+		} else {
+			self.coverImage.image = UIImage(named: "book")
 		}
 	}
 }

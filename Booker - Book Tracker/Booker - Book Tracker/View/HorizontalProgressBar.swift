@@ -41,6 +41,6 @@ class HorizontalProgressBar: UIView {
 		progressLayer.frame = progressRect
 		
 		layer.addSublayer(progressLayer)
-		progressLayer.backgroundColor = UIColor(named: "Color4")?.cgColor
+		progressLayer.backgroundColor = color?.cgColor
 	}
 }

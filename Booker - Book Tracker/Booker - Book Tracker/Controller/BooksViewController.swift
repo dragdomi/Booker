@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 
 class BooksViewController: UIViewController, AddBookViewControllerDelegate, BookDetailsViewControllerDelegate {
 	var searchController = UISearchController()
@@ -28,7 +27,6 @@ class BooksViewController: UIViewController, AddBookViewControllerDelegate, Book
 		reloadBooks()
 		setupUI()
 		
-		//		BookBrain.setUserId(Firebase.Auth.auth().currentUser?.uid)
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -137,7 +135,7 @@ class BooksViewController: UIViewController, AddBookViewControllerDelegate, Book
 		menuView.addAction(showReadingHabits)
 		menuView.addAction(showUserProfile)
 		menuView.addAction(cancel)
-		menuView.view.tintColor = UIColor(named: "Color4")
+		menuView.view.tintColor = .systemIndigo
 		
 		present(menuView, animated: true, completion: nil)
 	}
@@ -145,25 +143,31 @@ class BooksViewController: UIViewController, AddBookViewControllerDelegate, Book
 	@objc func addBookButton() {
 		if let addBookViewController = storyboard?.instantiateViewController(identifier: Constants.ViewControllers.addBook) as? AddBookViewController {
 			addBookViewController.delegate = self
+			addBookViewController.bookID = getFreeBookID()
 			addBookViewController.title = "Add Book"
 			navigationController?.pushViewController(addBookViewController, animated: true)
 		}
 	}
 	
-	//MARK: - Delegate methods
-	
-	func handleBookData(_ book: BookModel) {
-		var takenIds: [Int] = []
+	func getFreeBookID() -> Int {
+		var takenIDs: [Int] = []
+		var freeID = 0
 		for book in BookBrain.getBooks() {
-			takenIds.append(book.id)
+			takenIDs.append(book.id)
 		}
 		
-		for number in 1...(takenIds.count + 1) {
-			if !takenIds.contains(number) {
-				book.id = number
+		for number in 1...(takenIDs.count + 1) {
+			if !takenIDs.contains(number) {
+				freeID = number
 			}
 		}
 		
+		return freeID
+	}
+	
+	//MARK: - Delegate methods
+	
+	func handleBookData(_ book: BookModel) {
 		BookBrain.addBook(book)
 		reloadBooks()
 		reloadTableViewDataAsync()
@@ -192,9 +196,12 @@ extension BooksViewController: UITableViewDataSource, UITableViewDelegate {
 		let book = books[indexPath.row]
 		
 		let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier, for: indexPath) as! BookCell
-		let progress = CGFloat(book.getPercentage()/100)
+		let image = UIImage(contentsOfFile: book.cover)
+		let progress = CGFloat(book.getPercentage()) / 100
 		cell.progressBar.setProgress(progress)
 		cell.configure()
+		print(book.cover)
+		cell.coverImage.image = image
 		cell.titleLabel.text = book.title
 		cell.authorLabel.text = book.author
 		cell.percentageLabel.text = "\(Int(book.getPercentage()))%"
@@ -223,7 +230,7 @@ extension BooksViewController: UITableViewDataSource, UITableViewDelegate {
 			let cancelAction = UIAlertAction(title: "NO", style: .default)
 			deleteAlert.addAction(deleteAction)
 			deleteAlert.addAction(cancelAction)
-			deleteAlert.view.tintColor = UIColor(named: "Color4")
+			deleteAlert.view.tintColor = .systemIndigo
 			self.present(deleteAlert, animated: true)
 		}
 	}

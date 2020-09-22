@@ -34,6 +34,7 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 	}
 	
 	func updateView(book: BookModel) {
+		bookCover.image = UIImage(contentsOfFile: book.cover)
 		titleLabel.text = book.title
 		authorLabel.text = book.author
 		pagesLabel.text = "\(book.pagesRead) of \(book.totalPages)"
@@ -63,7 +64,8 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 		if let addBookViewController = storyboard?.instantiateViewController(identifier: Constants.ViewControllers.addBook) as? AddBookViewController {
 			addBookViewController.delegate = self
 			addBookViewController.title = "Edit Book"
-			addBookViewController.bookId = book.id
+			addBookViewController.bookID = book.id
+			addBookViewController.bookCover = book.cover
 			addBookViewController.bookTitle = book.title
 			addBookViewController.bookAuthor = book.author
 			addBookViewController.bookTotalPages = book.totalPages
@@ -92,7 +94,7 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 		
 		updateView.addAction(confirmAction)
 		updateView.addAction(cancelAction)
-		updateView.view.tintColor = UIColor(named: "Color4")
+		updateView.view.tintColor = .systemIndigo
 		
 		present(updateView, animated: true, completion: nil)
 	}
@@ -135,7 +137,7 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 		
 		substractAlert.addAction(yesAction)
 		substractAlert.addAction(noAction)
-		substractAlert.view.tintColor = UIColor(named: "Color4")
+		substractAlert.view.tintColor = .systemIndigo
 		
 		present(substractAlert, animated: true, completion: nil)
 	}
@@ -143,7 +145,7 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 	func showBookFinishedView() {
 		let bookFinishedView = UIAlertController(title: "Congratulations! 🥳", message: "You have just finished a book", preferredStyle: .alert)
 		bookFinishedView.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-		bookFinishedView.view.tintColor = UIColor(named: "Color4")
+		bookFinishedView.view.tintColor = .systemIndigo
 		present(bookFinishedView, animated: true)
 	}
 	
