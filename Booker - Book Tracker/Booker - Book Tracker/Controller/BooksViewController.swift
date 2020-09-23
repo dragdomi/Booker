@@ -196,11 +196,16 @@ extension BooksViewController: UITableViewDataSource, UITableViewDelegate {
 		let book = books[indexPath.row]
 		
 		let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier, for: indexPath) as! BookCell
-		let image = UIImage(contentsOfFile: book.cover)
+		
 		let progress = CGFloat(book.getPercentage()) / 100
+		
+		let imagePath = book.cover
+		let imageData = FileManager.default.contents(atPath: imagePath)
+		let image = UIImage(data: imageData!)
+		
+		
 		cell.progressBar.setProgress(progress)
 		cell.configure()
-		print(book.cover)
 		cell.coverImage.image = image
 		cell.titleLabel.text = book.title
 		cell.authorLabel.text = book.author

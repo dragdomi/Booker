@@ -29,8 +29,18 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 	var delegate: BookDetailsViewControllerDelegate?
 	
 	override func viewDidLoad() {
+		super.viewDidLoad()
+		configureView()
 		updateView(book: book)
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editBook))
+	}
+	
+	func configureView() {
+		configureImageView()
+	}
+	
+	func configureImageView() {
+		bookCover.layer.cornerRadius = 10
 	}
 	
 	func updateView(book: BookModel) {
