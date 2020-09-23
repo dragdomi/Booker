@@ -244,19 +244,10 @@ class AddBookViewController: UIViewController {
 	}
 	
 	func saveImage(_ image: UIImage) {
-		let imageData = NSData(data: image.jpegData(compressionQuality: 1.0)!)
-		let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0].appending("/coverImages")
-		let writePath = documentsPath.appending("/book(\(bookID!))_coverImage.jpeg")
-		print(writePath)
-		imageData.write(toFile: writePath, atomically: true)
-		if !FileManager.default.fileExists(atPath: writePath) {
-			do {
-				try FileManager.default.createDirectory(atPath: writePath, withIntermediateDirectories: true, attributes: nil)
-			} catch {
-				print(error.localizedDescription);
-			}
+		if !self.coverImage.image!.isEqual(ImageManager.defaultBookCover) {
+			self.bookCover = "book\(bookID!)_coverImage"
+			ImageManager.store(image: image, forKey: self.bookCover!)
 		}
-		self.bookCover = writePath
 	}
 	
 	func cropImage(image: UIImage, rect: CGRect, scale: CGFloat) -> UIImage? {
@@ -273,7 +264,7 @@ extension AddBookViewController: ImagePickerDelegate {
 		if let image = image {
 			self.coverImage.image = image
 		} else {
-			self.coverImage.image = UIImage(named: "book")
+			self.coverImage.image = ImageManager.defaultBookCover
 		}
 	}
 }

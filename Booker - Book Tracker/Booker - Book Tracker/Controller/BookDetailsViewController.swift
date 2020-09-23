@@ -44,7 +44,13 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 	}
 	
 	func updateView(book: BookModel) {
-		bookCover.image = UIImage(contentsOfFile: book.cover)
+		if let coverImage = ImageManager.retrieveImage(forKey: book.cover) {
+			bookCover.image = coverImage
+		} else {
+			bookCover.image = ImageManager.defaultBookCover
+		}
+		
+		bookCover.image = ImageManager.retrieveImage(forKey: book.cover)
 		titleLabel.text = book.title
 		authorLabel.text = book.author
 		pagesLabel.text = "\(book.pagesRead) of \(book.totalPages)"

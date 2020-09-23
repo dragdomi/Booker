@@ -33,6 +33,7 @@ class BookBrain {
 	}
 	
 	static func deleteBook(_ book: BookModel) {
+		ImageManager.deleteImage(forKey: book.cover)
 		try! realm.write {
 			realm.delete(book)
 		}
@@ -111,6 +112,14 @@ class BookBrain {
 			realm.add(editedBook, update: .modified)
 		}
 		loadBooksFromRealm()
+	}
+	
+	static func getBookProgress(_ book: BookModel) -> CGFloat {
+		if book.totalPages == 0 {
+			return 0
+		}
+		let progress = (CGFloat(book.pagesRead) / CGFloat(book.totalPages))
+		return progress
 	}
 	
 	//MARK: - Realm

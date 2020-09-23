@@ -61,6 +61,7 @@ class BooksViewController: UIViewController, AddBookViewControllerDelegate, Book
 		controller.hidesNavigationBarDuringPresentation = false
 		controller.searchBar.placeholder = "Search books by keyword"
 		controller.searchBar.searchTextField.backgroundColor = UIColor(named: "Color1")
+		controller.view.tintColor = .systemIndigo
 		
 		searchController = controller
 		navigationItem.searchController = searchController
@@ -197,20 +198,20 @@ extension BooksViewController: UITableViewDataSource, UITableViewDelegate {
 		
 		let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier, for: indexPath) as! BookCell
 		
-		let progress = CGFloat(book.getPercentage()) / 100
+//		let progress = CGFloat(book.getPercentage()) / 100
 		
-		let imagePath = book.cover
-		let imageData = FileManager.default.contents(atPath: imagePath)
-		let image = UIImage(data: imageData!)
-		
-		
-		cell.progressBar.setProgress(progress)
+		cell.progressBar.setProgress(BookBrain.getBookProgress(book))
+		print(cell.progressBar.progress)
 		cell.configure()
-		cell.coverImage.image = image
 		cell.titleLabel.text = book.title
 		cell.authorLabel.text = book.author
 		cell.percentageLabel.text = "\(Int(book.getPercentage()))%"
 		cell.dateLabel.text = book.lastReadDate
+		if let coverImage = ImageManager.retrieveImage(forKey: book.cover) {
+			cell.coverImage.image = coverImage
+		} else {
+			cell.coverImage.image = ImageManager.defaultBookCover
+		}
 		
 		return cell
 	}

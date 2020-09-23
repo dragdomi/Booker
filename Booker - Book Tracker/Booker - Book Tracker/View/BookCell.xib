@@ -50,8 +50,9 @@
                                     <constraint firstAttribute="height" constant="6" id="03r-dJ-gLO"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="D7v-I6-BJ5">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book.closed" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="D7v-I6-BJ5">
                                 <rect key="frame" x="5" y="5" width="52.5" height="70"/>
+                                <color key="tintColor" name="Color4"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="D7v-I6-BJ5" secondAttribute="height" multiplier="3:4" id="oHt-tt-H5T"/>
                                 </constraints>
@@ -103,11 +104,15 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="book.closed" catalog="system" width="115" height="128"/>
         <namedColor name="Color1">
             <color red="0.9570000171661377" green="0.93300002813339233" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Color2">
             <color red="0.86299997568130493" green="0.83899998664855957" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Color4">
+            <color red="0.25900000333786011" green="0.28200000524520874" blue="0.45500001311302185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

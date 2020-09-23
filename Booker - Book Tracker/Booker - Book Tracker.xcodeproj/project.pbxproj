@@ -19,8 +19,7 @@
 		A53E2BE8241D063C0013152C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A53E2BE6241D063C0013152C /* LaunchScreen.storyboard */; };
 		A53E2BF3241D07DA0013152C /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53E2BF2241D07DA0013152C /* BookModel.swift */; };
 		A53E2BF5241D08FF0013152C /* BookBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53E2BF4241D08FF0013152C /* BookBrain.swift */; };
-		A56BF972251B586C000F5E29 /* ImageDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56BF971251B586C000F5E29 /* ImageDataManager.swift */; };
-		A56BF97C251B5F2D000F5E29 /* BookModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A56BF97A251B5F2D000F5E29 /* BookModel.xcdatamodeld */; };
+		A56BF972251B586C000F5E29 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56BF971251B586C000F5E29 /* ImageManager.swift */; };
 		A577770D250B7E7A0044451D /* BooksViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A577770B250B7E7A0044451D /* BooksViewHeader.swift */; };
 		A577770E250B7E7A0044451D /* BooksViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = A577770C250B7E7A0044451D /* BooksViewHeader.xib */; };
 		A58A1A6525137D7300A29444 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58A1A6425137D7300A29444 /* ImagePicker.swift */; };
@@ -62,8 +61,7 @@
 		A53E2BE9241D063C0013152C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A53E2BF2241D07DA0013152C /* BookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookModel.swift; sourceTree = "<group>"; };
 		A53E2BF4241D08FF0013152C /* BookBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookBrain.swift; sourceTree = "<group>"; };
-		A56BF971251B586C000F5E29 /* ImageDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDataManager.swift; sourceTree = "<group>"; };
-		A56BF97B251B5F2D000F5E29 /* BookModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BookModel.xcdatamodel; sourceTree = "<group>"; };
+		A56BF971251B586C000F5E29 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		A577770B250B7E7A0044451D /* BooksViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BooksViewHeader.swift; sourceTree = "<group>"; };
 		A577770C250B7E7A0044451D /* BooksViewHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BooksViewHeader.xib; sourceTree = "<group>"; };
 		A58A1A6425137D7300A29444 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
@@ -122,8 +120,7 @@
 		A52830C724C9BF0B00BED289 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				A56BF971251B586C000F5E29 /* ImageDataManager.swift */,
-				A56BF97A251B5F2D000F5E29 /* BookModel.xcdatamodeld */,
+				A56BF971251B586C000F5E29 /* ImageManager.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -357,7 +354,7 @@
 				A599B82C24D3006300163D1A /* HorizontalProgressBar.swift in Sources */,
 				A59258AB24BE2C980066CACE /* BookCell.swift in Sources */,
 				A53E2BE0241D063B0013152C /* BooksViewController.swift in Sources */,
-				A56BF972251B586C000F5E29 /* ImageDataManager.swift in Sources */,
+				A56BF972251B586C000F5E29 /* ImageManager.swift in Sources */,
 				A577770D250B7E7A0044451D /* BooksViewHeader.swift in Sources */,
 				A52830A624C5BED200BED289 /* ReadingInfo.swift in Sources */,
 				A5AD99CE2422995200E0A6D9 /* BookDetailsViewController.swift in Sources */,
@@ -365,7 +362,6 @@
 				A599B81124D0491F00163D1A /* Utils.swift in Sources */,
 				A53E2BF5241D08FF0013152C /* BookBrain.swift in Sources */,
 				A53E2BDC241D063B0013152C /* AppDelegate.swift in Sources */,
-				A56BF97C251B5F2D000F5E29 /* BookModel.xcdatamodeld in Sources */,
 				A53E2BF3241D07DA0013152C /* BookModel.swift in Sources */,
 				A53E2BDE241D063B0013152C /* SceneDelegate.swift in Sources */,
 				A52830AC24C5D3B700BED289 /* ReadingHabitsViewController.swift in Sources */,
@@ -572,19 +568,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		A56BF97A251B5F2D000F5E29 /* BookModel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				A56BF97B251B5F2D000F5E29 /* BookModel.xcdatamodel */,
-			);
-			currentVersion = A56BF97B251B5F2D000F5E29 /* BookModel.xcdatamodel */;
-			path = BookModel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = A53E2BD0241D063B0013152C /* Project object */;
 }
