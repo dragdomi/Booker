@@ -9,13 +9,13 @@ Currently app is in early phase of development.
 Welcome screen:
 
 
-Books screen (also the main view of the app):
+Books screen (also the main view of the app). It enables user to browse his books, search them by keywords, filter them based on progress and sort them :
 ![Overview](Booker%20-%20Book%20Tracker/docs/screenshots/screenshot1.png)
 
-Book details screen, from here user can edit book data or update how many pages he read:
+Additional function of the main screen - ordering books:
 ![Overview](Booker%20-%20Book%20Tracker/docs/screenshots/screenshot2.png)
 
-Updating book progress:
+Book details screen, from here user can edit book data or update how many pages he read:
 ![Overview](Booker%20-%20Book%20Tracker/docs/screenshots/screenshot3.png)
 
 Add book screen, used to add new book to user's collection:
@@ -24,5 +24,5 @@ Add book screen, used to add new book to user's collection:
 Additional menu used to navigate to other screens:
 ![Overview](Booker%20-%20Book%20Tracker/docs/screenshots/screenshot5.png)
 
-Reading habits screen, will be further developed to include more info:
+Reading habits screen, will be further developed to include more info (and to look better):
 ![Overview](Booker%20-%20Book%20Tracker/docs/screenshots/screenshot6.png)
