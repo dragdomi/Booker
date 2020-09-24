@@ -13,20 +13,26 @@ protocol BookDetailsViewControllerDelegate {
 }
 
 class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate {
-	
 	var book: BookModel!
-	
 	var editedBook: BookModel?
+	var delegate: BookDetailsViewControllerDelegate?
+	
+	@IBOutlet weak var containerView: UIView!
+	
 	@IBOutlet weak var titleLabel: UILabel!
 	@IBOutlet weak var authorLabel: UILabel!
 	@IBOutlet weak var bookCover: UIImageView!
-	@IBOutlet weak var percentLabel: UILabel!
+	
+	@IBOutlet weak var readStateLabel: UILabel!
+	@IBOutlet weak var progressLabel: UILabel!
+	@IBOutlet weak var totalPagesLabel: UILabel!
+	@IBOutlet weak var readTimeLabel: UILabel!
 	@IBOutlet weak var progressBar: CircularProgressBar!
-	@IBOutlet weak var pagesLabel: UILabel!
-	@IBOutlet weak var lastReadDateLabel: UILabel!
+	
 	@IBOutlet weak var beginDateLabel: UILabel!
+	@IBOutlet weak var lastReadDateLabel: UILabel!
 	@IBOutlet weak var finishDateLabel: UILabel!
-	var delegate: BookDetailsViewControllerDelegate?
+	
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -36,7 +42,17 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 	}
 	
 	func configureView() {
+		configureContainerView()
 		configureImageView()
+	}
+	
+	func configureContainerView () {
+		containerView.layer.cornerRadius = 10
+		containerView.layer.shadowPath =  UIBezierPath(roundedRect: containerView.bounds, cornerRadius: containerView.layer.cornerRadius).cgPath
+		containerView.layer.shadowRadius = 1
+		containerView.layer.shadowOffset = .zero
+		containerView.layer.shadowOpacity = 0.5
+		
 	}
 	
 	func configureImageView() {
@@ -53,26 +69,38 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 		bookCover.image = ImageManager.retrieveImage(forKey: book.cover)
 		titleLabel.text = book.title
 		authorLabel.text = book.author
-		pagesLabel.text = "\(book.pagesRead) of \(book.totalPages)"
-		percentLabel.text = "\(Int(book.getPercentage()))%"
+		
+		readStateLabel.text = " \(book.getReadingState())"
+		progressLabel.text = " \(Int(book.getPercentage()))% (Page \(book.pagesRead))"
+		totalPagesLabel.text = " \(book.totalPages)"
+		readTimeLabel.text = " \(book.getReadTime()) \(getReadTimeUnit())"
 		progressBar.setProgress(CGFloat(book.getPercentage() / 100.0))
 		
-		if book.lastReadDate != "" {
-			lastReadDateLabel.text = "Last read date: " + book.lastReadDate
+		if book.beginDate != "" {
+			beginDateLabel.text = " \(book.beginDate)"
 		} else {
-			lastReadDateLabel.text = "Last read date: -"
+			beginDateLabel.text = " -"
 		}
 		
-		if book.beginDate != "" {
-			beginDateLabel.text = "Begin date: " + book.beginDate
+		if book.lastReadDate != "" {
+			lastReadDateLabel.text = " \(book.lastReadDate)"
 		} else {
-			beginDateLabel.text = "Begin date: -"
+			lastReadDateLabel.text = " -"
 		}
 		
 		if book.finishDate != "" {
-			finishDateLabel.text = "Finish date: " + book.finishDate
+			finishDateLabel.text = " \(book.finishDate)"
 		} else {
-			finishDateLabel.text = "Finish date: -"
+			finishDateLabel.text = " -"
+		}
+		
+	}
+	
+	func getReadTimeUnit() -> String {
+		if book.getReadTime() == 1 {
+			return "day"
+		} else {
+			return "days"
 		}
 	}
 	
