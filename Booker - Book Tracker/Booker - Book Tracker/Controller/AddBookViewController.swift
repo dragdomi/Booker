@@ -72,9 +72,10 @@ class AddBookViewController: UIViewController {
 		configureViewWithNoShadow(coverImageButton)
 		configureViewWithNoShadow(coverImage)
 		
+		addBookButton.setTitleColor(.gray, for: .disabled)
 		addBookButton.isEnabled = false
+		
 		activateButton()
-		//		dateSwitcher.removeSegment(at: 1, animated: false)
 		checkIfFinished()
 	}
 	
@@ -102,9 +103,17 @@ class AddBookViewController: UIViewController {
 			case 1:
 				bookAuthor = senderText
 			case 2:
-				if let senderInt = Int(senderText) { bookTotalPages = senderInt }
+				if let senderInt = Int(senderText) {
+					bookTotalPages = senderInt
+				} else {
+					bookTotalPages = nil
+				}
 			case 3:
-				if let senderInt = Int(senderText) { bookPagesRead = senderInt }
+				if let senderInt = Int(senderText) {
+					bookPagesRead = senderInt
+				} else {
+					bookPagesRead = nil
+				}
 			default:
 				print("Out of cases")
 			}
@@ -122,7 +131,6 @@ class AddBookViewController: UIViewController {
 			isFinished = false
 			self.finishDate = nil
 		}
-		activateButton()
 		updateDateSegments(isFinished: isFinished)
 	}
 	
@@ -175,10 +183,10 @@ class AddBookViewController: UIViewController {
 	}
 	
 	func activateButton() {
-		if (bookTitle != nil) && (bookAuthor != nil) && (bookTitle != nil) &&
-			(bookTotalPages != nil) &&
-			(bookPagesRead != nil) {
+		if (bookTitle != "") && (bookAuthor != "") && (bookTotalPages != nil) && (bookPagesRead != nil) {
 			addBookButton.isEnabled = true
+		} else {
+			addBookButton.isEnabled = false
 		}
 	}
 	
@@ -244,10 +252,8 @@ class AddBookViewController: UIViewController {
 	}
 	
 	func saveImage(_ image: UIImage) {
-		if !self.coverImage.image!.isEqual(ImageManager.defaultBookCover) {
-			self.bookCover = "book\(bookID!)_coverImage"
-			ImageManager.store(image: image, forKey: self.bookCover!)
-		}
+		self.bookCover = "book\(bookID!)_coverImage"
+		ImageManager.store(image: image, forKey: self.bookCover!)
 	}
 	
 	func cropImage(image: UIImage, rect: CGRect, scale: CGFloat) -> UIImage? {
@@ -263,9 +269,7 @@ extension AddBookViewController: ImagePickerDelegate {
 	func didSelect(image: UIImage?) {
 		if let image = image {
 			self.coverImage.image = image
-		} else {
-			self.coverImage.image = ImageManager.defaultBookCover
-		}
+		} 
 	}
 }
 
