@@ -28,6 +28,34 @@ class BookModel: Object, Codable, Comparable {
 		return percentage
 	}
 	
+	func getReadingState() -> String {
+		switch getPercentage() {
+		case 0:
+			return "Not Started"
+		case 100:
+			return "Finished"
+		default:
+			return "In Progress"
+		}
+	}
+	
+	func getReadTime() -> Int {
+		let calendar = Calendar.current
+		let beginDate = calendar.startOfDay(for: Utils.formatStringToDate(self.beginDate)!)
+		let components: DateComponents?
+		let readTime: Int?
+		
+		if getReadingState() == "Finished" {
+			let finishDate = calendar.startOfDay(for: Utils.formatStringToDate(self.finishDate)!)
+			components = calendar.dateComponents([.day], from: beginDate, to: finishDate)
+		} else {
+			components = calendar.dateComponents([.day], from: beginDate, to: Date())
+		}
+		
+		readTime = components?.day
+		return readTime!
+	}
+	
 	override var description: String { return "BookModel {\(id), \(title), \(author), \(totalPages), \(pagesRead), \(beginDate), \(finishDate), \(lastReadDate)}" }
 	
 	override static func primaryKey() -> String? {
