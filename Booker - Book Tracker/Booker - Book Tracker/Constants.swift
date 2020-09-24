@@ -8,7 +8,7 @@
 
 struct Constants {
 	static let appName = "Booker 📚"
-	static let dateFormat = "dd-MM-yyyy"
+	static let dateFormat = "dd.MM.yyyy"
 	static let cellIdentifier = "BookCell"
 	static let cellNibName = "BookCell"
 	static let headerIdentifier = "BooksViewHeader"
