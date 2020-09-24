@@ -6,9 +6,6 @@ Realm and Firebase are used for persistent data.
 
 Currently app is in early phase of development.
 
-Welcome screen:
-
-
 Books screen (also the main view of the app). It enables user to browse his books, search them by keywords, filter them based on progress and sort them :
 ![Overview](Booker%20-%20Book%20Tracker/docs/screenshots/screenshot1.png)
 
