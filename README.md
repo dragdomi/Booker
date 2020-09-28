@@ -1,9 +1,9 @@
 # Booker - Book Tracker
 
-An app that helps you keep track of your books and reading habits.
+This iOS app will help you keep track of your books and reading habits.
 Using Realm for persistent data.
 
-Currently app is in early phase of development.
+Currently, the app is in an early phase of development.
 
 Books screen (also the main view of the app). It enables user to browse his books, search them by keywords, filter them based on progress and sort them :
 ![Overview](Booker%20-%20Book%20Tracker/docs/screenshots/screenshot1.png)
