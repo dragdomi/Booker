@@ -1,8 +1,7 @@
 # Booker - Book Tracker
 
 An app that helps you keep track of your books and reading habits.
-Developed using UIKit.
-Realm and Firebase are used for persistent data.
+Using Realm for persistent data.
 
 Currently app is in early phase of development.
 
