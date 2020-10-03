@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Cosmos
 
 protocol BookDetailsViewControllerDelegate {
 	func editBookData(_ editedBook: BookModel)
@@ -17,11 +18,12 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 	var editedBook: BookModel?
 	var delegate: BookDetailsViewControllerDelegate?
 	
-	@IBOutlet weak var containerView: UIView!
+	@IBOutlet weak var infoView: UIView!
 	
+	@IBOutlet weak var bookCover: UIImageView!
 	@IBOutlet weak var titleLabel: UILabel!
 	@IBOutlet weak var authorLabel: UILabel!
-	@IBOutlet weak var bookCover: UIImageView!
+	@IBOutlet weak var ratingView: CosmosView!
 	
 	@IBOutlet weak var readStateLabel: UILabel!
 	@IBOutlet weak var progressLabel: UILabel!
@@ -33,6 +35,31 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 	@IBOutlet weak var lastReadDateLabel: UILabel!
 	@IBOutlet weak var finishDateLabel: UILabel!
 	
+	@IBOutlet weak var notesView: UIView!
+	
+	@IBOutlet weak var quotesView: UIView!
+	
+	@IBAction func updateProgress(_ sender: UIButton) {
+		let updateView = UIAlertController(title: "Update progress", message: "Enter new number of read pages", preferredStyle: .alert)
+		updateView.addTextField { textField in
+			textField.placeholder = "Pages"
+			textField.keyboardType = .decimalPad
+		}
+		
+		let confirmAction = UIAlertAction(title: "Done", style: .default) { [weak updateView] _ in
+			guard let updateView = updateView, let textField = updateView.textFields?.first else { return }
+			print("Pages: \(String(describing: textField.text))")
+			self.updateBookIfTextfieldIsNotEmpty(textField: textField)
+		}
+		
+		let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+		
+		updateView.addAction(confirmAction)
+		updateView.addAction(cancelAction)
+		updateView.view.tintColor = .systemIndigo
+		
+		present(updateView, animated: true, completion: nil)
+	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -44,19 +71,34 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 	func configureView() {
 		configureContainerView()
 		configureImageView()
+		configureRatingView()
+		configureNotesView()
+		configureQuotesView()
 	}
 	
 	func configureContainerView () {
-		containerView.layer.cornerRadius = 10
-		containerView.layer.shadowPath =  UIBezierPath(roundedRect: containerView.bounds, cornerRadius: containerView.layer.cornerRadius).cgPath
-		containerView.layer.shadowRadius = 1
-		containerView.layer.shadowOffset = .zero
-		containerView.layer.shadowOpacity = 0.5
-		
+		infoView.round()
 	}
 	
 	func configureImageView() {
-		bookCover.layer.cornerRadius = 10
+		bookCover.round()
+	}
+	
+	func configureRatingView() {
+		ratingView.didTouchCosmos = { rating in
+			try! BookBrain.getRealm().write {
+				BookBrain.getRealm().create(BookModel.self, value: ["id": self.book.id, "rating": rating], update: .modified)
+			}
+			self.ratingView.rating = rating
+		}
+	}
+	
+	func configureNotesView() {
+		notesView.round()
+	}
+	
+	func configureQuotesView() {
+		quotesView.round()
 	}
 	
 	func updateView(book: BookModel) {
@@ -94,6 +136,7 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 			finishDateLabel.text = " -"
 		}
 		
+		ratingView.rating = book.rating
 	}
 	
 	func getReadTimeUnit() -> String {
@@ -114,33 +157,10 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 			addBookViewController.bookAuthor = book.author
 			addBookViewController.bookTotalPages = book.totalPages
 			addBookViewController.bookPagesRead = book.pagesRead
-			addBookViewController.lastReadDate = Utils.formatStringToDate(book.lastReadDate)
 			addBookViewController.beginDate = Utils.formatStringToDate(book.beginDate)
 			addBookViewController.finishDate = Utils.formatStringToDate(book.finishDate)
 			navigationController?.pushViewController(addBookViewController, animated: true)
 		}
-	}
-	
-	@IBAction func updateProgress(_ sender: UIButton) {
-		let updateView = UIAlertController(title: "Update progress", message: "Enter new number of read pages", preferredStyle: .alert)
-		updateView.addTextField { textField in
-			textField.placeholder = "Pages"
-			textField.keyboardType = .decimalPad
-		}
-		
-		let confirmAction = UIAlertAction(title: "Done", style: .default) { [weak updateView] _ in
-			guard let updateView = updateView, let textField = updateView.textFields?.first else { return }
-			print("Pages: \(String(describing: textField.text))")
-			self.updateBookIfTextfieldIsNotEmpty(textField: textField)
-		}
-		
-		let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-		
-		updateView.addAction(confirmAction)
-		updateView.addAction(cancelAction)
-		updateView.view.tintColor = .systemIndigo
-		
-		present(updateView, animated: true, completion: nil)
 	}
 	
 	func updateBookIfTextfieldIsNotEmpty(textField: UITextField) {

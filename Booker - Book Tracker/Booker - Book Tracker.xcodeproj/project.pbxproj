@@ -19,6 +19,7 @@
 		A53E2BE8241D063C0013152C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A53E2BE6241D063C0013152C /* LaunchScreen.storyboard */; };
 		A53E2BF3241D07DA0013152C /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53E2BF2241D07DA0013152C /* BookModel.swift */; };
 		A53E2BF5241D08FF0013152C /* BookBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53E2BF4241D08FF0013152C /* BookBrain.swift */; };
+		A55817722528C2C900906155 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55817712528C2C900906155 /* UIView.swift */; };
 		A56BF972251B586C000F5E29 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56BF971251B586C000F5E29 /* ImageManager.swift */; };
 		A577770D250B7E7A0044451D /* BooksViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A577770B250B7E7A0044451D /* BooksViewHeader.swift */; };
 		A577770E250B7E7A0044451D /* BooksViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = A577770C250B7E7A0044451D /* BooksViewHeader.xib */; };
@@ -61,6 +62,7 @@
 		A53E2BE9241D063C0013152C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A53E2BF2241D07DA0013152C /* BookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookModel.swift; sourceTree = "<group>"; };
 		A53E2BF4241D08FF0013152C /* BookBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookBrain.swift; sourceTree = "<group>"; };
+		A55817712528C2C900906155 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		A56BF971251B586C000F5E29 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		A577770B250B7E7A0044451D /* BooksViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BooksViewHeader.swift; sourceTree = "<group>"; };
 		A577770C250B7E7A0044451D /* BooksViewHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BooksViewHeader.xib; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 		A53E2BDA241D063B0013152C /* Booker - Book Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				A55817702528C29000906155 /* Extensions */,
 				A52830C724C9BF0B00BED289 /* Data */,
 				A53E2BF1241D071F0013152C /* Model */,
 				A53E2BF0241D071C0013152C /* View */,
@@ -201,6 +204,14 @@
 				A599B81024D0491F00163D1A /* Utils.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		A55817702528C29000906155 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A55817712528C2C900906155 /* UIView.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		C89D90A1F9B75410B9E3F6C1 /* Pods */ = {
@@ -346,6 +357,7 @@
 			files = (
 				A5D917D02499594C00452531 /* LoginViewController.swift in Sources */,
 				A51854392497DC6E00983DB8 /* WelcomeViewController.swift in Sources */,
+				A55817722528C2C900906155 /* UIView.swift in Sources */,
 				A58A1A6525137D7300A29444 /* ImagePicker.swift in Sources */,
 				A599B82E24D3066F00163D1A /* CircularProgressBar.swift in Sources */,
 				A5D917CA249957B900452531 /* Constants.swift in Sources */,

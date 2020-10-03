@@ -1,5 +1,6 @@
 ${PODS_ROOT}/Target Support Files/Pods-Booker - Book Tracker/Pods-Booker - Book Tracker-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/CLTypingLabel/CLTypingLabel.framework
 ${BUILT_PRODUCTS_DIR}/Charts/Charts.framework
+${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework
 ${BUILT_PRODUCTS_DIR}/Realm/Realm.framework
 ${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework

@@ -34,17 +34,8 @@ class ReadingHabitsViewController: UIViewController {
 		totalPagesOfBooksLabel.text = "Total pages of books: \(ReadingInfo.getTotalPagesNumber())"
 		totalPagesLeftLabel.text = "Total pages left: \(ReadingInfo.getTotalPagesLeftNumber())"
 		
-		booksView.layer.cornerRadius = 10
-		booksView.layer.shadowPath =  UIBezierPath(roundedRect: booksView.bounds, cornerRadius: booksView.layer.cornerRadius).cgPath
-		booksView.layer.shadowRadius = 1
-		booksView.layer.shadowOffset = .zero
-		booksView.layer.shadowOpacity = 0.5
-		
-		pagesView.layer.cornerRadius = 10
-		booksView.layer.shadowPath =  UIBezierPath(roundedRect: booksView.bounds, cornerRadius: booksView.layer.cornerRadius).cgPath
-		pagesView.layer.shadowRadius = 1
-		pagesView.layer.shadowOffset = .zero
-		pagesView.layer.shadowOpacity = 0.5
+		booksView.round()
+		pagesView.round()
 		
 		//		pagesPerDayLabel.text = "Pages read on \(Utils.formatDateToString(Date())): \(ReadingHabits.getPagesPerDate(date: Utils.formatDateToString(Date())))"
 	}

@@ -19,6 +19,8 @@ class BookModel: Object, Codable, Comparable {
 	@objc dynamic var beginDate: String
 	@objc dynamic var finishDate: String
 	@objc dynamic var lastReadDate: String
+	@objc dynamic var rating: Double
+	@objc dynamic var notes: String
 	
 	func getPercentage() -> Float {
 		if totalPages == 0 {
@@ -72,9 +74,11 @@ class BookModel: Object, Codable, Comparable {
 		self.beginDate = ""
 		self.finishDate = ""
 		self.lastReadDate = ""
+		self.rating = 0
+		self.notes = ""
 	}
 	
-	init(id: Int, cover: String, title: String, author: String, totalPages: Int, pagesRead: Int, beginDate: String, finishDate: String, lastReadDate: String) {
+	init(id: Int, cover: String, title: String, author: String, totalPages: Int, pagesRead: Int, beginDate: String, finishDate: String) {
 		self.id = id
 		self.cover = cover
 		self.title = title
@@ -83,7 +87,9 @@ class BookModel: Object, Codable, Comparable {
 		self.pagesRead = pagesRead
 		self.beginDate = beginDate
 		self.finishDate = finishDate
-		self.lastReadDate = lastReadDate
+		self.lastReadDate = ""
+		self.rating = 0
+		self.notes = ""
 	}
 	
 	enum CodingKeys: String, CodingKey {
@@ -96,6 +102,8 @@ class BookModel: Object, Codable, Comparable {
 		case beginDate = "beginDate"
 		case finishDate = "finishDate"
 		case lastReadDate = "lastReadDate"
+		case rating = "rating"
+		case notes = "notes"
 	}
 	
 	static func < (lhs: BookModel, rhs: BookModel) -> Bool {

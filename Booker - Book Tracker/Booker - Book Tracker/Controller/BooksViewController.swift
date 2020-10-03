@@ -200,8 +200,7 @@ extension BooksViewController: UITableViewDataSource, UITableViewDelegate {
 		
 //		let progress = CGFloat(book.getPercentage()) / 100
 		
-		cell.progressBar.setProgress(BookBrain.getBookProgress(book))
-		print(cell.progressBar.progress)
+		cell.progressBar.setProgress(BookBrain.getBookProgress(book)) 
 		cell.configure()
 		cell.titleLabel.text = book.title
 		cell.authorLabel.text = book.author

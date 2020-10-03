@@ -33,7 +33,6 @@ class AddBookViewController: UIViewController {
 	var bookPagesRead: Int?
 	var beginDate: Date?
 	var finishDate: Date?
-	var lastReadDate: Date?
 	var isFinished: Bool = false
 	
 	override func viewDidLoad() {
@@ -80,11 +79,7 @@ class AddBookViewController: UIViewController {
 	}
 	
 	func configureViewWithShadow(_ view: UIView) {
-		view.layer.cornerRadius = 10
-		view.layer.shadowPath =  UIBezierPath(roundedRect: view.bounds, cornerRadius: view.layer.cornerRadius).cgPath
-		view.layer.shadowRadius = 1
-		view.layer.shadowOffset = .zero
-		view.layer.shadowOpacity = 0.5
+		view.round()
 	}
 	
 	func configureViewWithNoShadow(_ view: UIView) {
@@ -209,8 +204,7 @@ class AddBookViewController: UIViewController {
 				totalPages: bookTotalPages,
 				pagesRead: bookPagesRead,
 				beginDate: beginDate,
-				finishDate: finishDate,
-				lastReadDate: nil
+				finishDate: finishDate
 			)
 			navigationController?.popViewController(animated: true)
 		}
@@ -223,7 +217,7 @@ class AddBookViewController: UIViewController {
 		ac.view.tintColor = .systemIndigo
 	}
 	
-	func createBookModel(id: Int?, cover: String?, title: String?, author: String?, totalPages: Int?, pagesRead: Int?, beginDate: Date?, finishDate: Date?, lastReadDate: Date?) {
+	func createBookModel(id: Int?, cover: String?, title: String?, author: String?, totalPages: Int?, pagesRead: Int?, beginDate: Date?, finishDate: Date?) {
 		
 		if let id = id,
 		   let cover = cover,
@@ -236,7 +230,7 @@ class AddBookViewController: UIViewController {
 			if isFinished {
 				finishDateString = Utils.formatDateToString(finishDate ?? Date())
 			}
-			let lastReadDate = Utils.formatDateToString(lastReadDate)
+			
 			let book = BookModel(id: id,
 								 cover: cover,
 								 title: title,
@@ -244,8 +238,7 @@ class AddBookViewController: UIViewController {
 								 totalPages: totalPages,
 								 pagesRead: pagesRead,
 								 beginDate: beginDateString,
-								 finishDate: finishDateString,
-								 lastReadDate: lastReadDate)
+								 finishDate: finishDateString)
 			
 			delegate?.handleBookData(book)
 		}
