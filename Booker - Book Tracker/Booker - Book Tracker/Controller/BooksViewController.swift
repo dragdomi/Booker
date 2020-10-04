@@ -60,7 +60,7 @@ class BooksViewController: UIViewController, AddBookViewControllerDelegate, Book
 		controller.obscuresBackgroundDuringPresentation = false
 		controller.hidesNavigationBarDuringPresentation = false
 		controller.searchBar.placeholder = "Search books by keyword"
-		controller.searchBar.searchTextField.backgroundColor = UIColor(named: "Color1")
+		controller.searchBar.searchTextField.backgroundColor = .color1
 		controller.view.tintColor = .systemIndigo
 		
 		searchController = controller
