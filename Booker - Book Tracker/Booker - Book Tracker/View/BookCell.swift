@@ -19,6 +19,7 @@ class BookCell: UITableViewCell {
 	
 	func configure() {
 		cellView.round()
+		coverImage.round()
 	}
 	
 	override func prepareForReuse() {

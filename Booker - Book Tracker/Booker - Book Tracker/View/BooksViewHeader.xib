@@ -15,56 +15,69 @@
             <rect key="frame" x="0.0" y="0.0" width="389" height="65"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OFa-UR-Mix">
-                    <rect key="frame" x="20" y="44" width="17" height="18"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <color key="textColor" systemColor="systemGrayColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bj7-rs-xGk">
-                    <rect key="frame" x="20" y="0.0" width="349" height="32"/>
-                    <color key="backgroundColor" name="Color1"/>
-                    <segments>
-                        <segment title="All"/>
-                        <segment title="In Progress"/>
-                        <segment title="Finished"/>
-                        <segment title="Not Started"/>
-                    </segments>
-                    <color key="tintColor" name="Color1"/>
-                    <connections>
-                        <action selector="filterSegmentedControlChanged:" destination="NbV-Hq-UqW" eventType="valueChanged" id="HU3-av-DJE"/>
-                    </connections>
-                </segmentedControl>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gox-aB-gTr">
-                    <rect key="frame" x="345" y="41" width="24" height="24"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <color key="tintColor" systemColor="systemIndigoColor"/>
-                    <state key="normal" image="arrow.up.arrow.down" catalog="system">
-                        <color key="titleColor" systemColor="systemIndigoColor"/>
-                    </state>
-                    <connections>
-                        <action selector="sortButtonPressed:" destination="NbV-Hq-UqW" eventType="touchUpInside" id="XHB-qG-CFC"/>
-                    </connections>
-                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CYw-Lk-xgV">
+                    <rect key="frame" x="0.0" y="0.0" width="389" height="65"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OFa-UR-Mix">
+                            <rect key="frame" x="20" y="41" width="17" height="24"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" systemColor="systemGrayColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bj7-rs-xGk">
+                            <rect key="frame" x="20" y="0.0" width="349" height="32"/>
+                            <color key="backgroundColor" name="Color1"/>
+                            <segments>
+                                <segment title="All"/>
+                                <segment title="In Progress"/>
+                                <segment title="Finished"/>
+                                <segment title="Not Started"/>
+                            </segments>
+                            <color key="tintColor" name="Color1"/>
+                            <connections>
+                                <action selector="filterSegmentedControlChanged:" destination="NbV-Hq-UqW" eventType="valueChanged" id="HU3-av-DJE"/>
+                            </connections>
+                        </segmentedControl>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gox-aB-gTr">
+                            <rect key="frame" x="345" y="41" width="24" height="24"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <color key="tintColor" systemColor="systemIndigoColor"/>
+                            <state key="normal" image="arrow.up.arrow.down" catalog="system">
+                                <color key="titleColor" systemColor="systemIndigoColor"/>
+                            </state>
+                            <connections>
+                                <action selector="sortButtonPressed:" destination="NbV-Hq-UqW" eventType="touchUpInside" id="XHB-qG-CFC"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="OFa-UR-Mix" firstAttribute="centerY" secondItem="Gox-aB-gTr" secondAttribute="centerY" id="6UV-hN-eT1"/>
+                        <constraint firstItem="Gox-aB-gTr" firstAttribute="trailing" secondItem="bj7-rs-xGk" secondAttribute="trailing" id="7Im-md-N8m"/>
+                        <constraint firstItem="bj7-rs-xGk" firstAttribute="top" secondItem="CYw-Lk-xgV" secondAttribute="top" id="EVv-Y5-QZa"/>
+                        <constraint firstAttribute="bottom" secondItem="Gox-aB-gTr" secondAttribute="bottom" id="HIY-27-KHx"/>
+                        <constraint firstAttribute="trailing" secondItem="bj7-rs-xGk" secondAttribute="trailing" constant="20" id="NRp-ba-VIx"/>
+                        <constraint firstItem="OFa-UR-Mix" firstAttribute="leading" secondItem="bj7-rs-xGk" secondAttribute="leading" id="Wvb-cL-vFo"/>
+                        <constraint firstItem="bj7-rs-xGk" firstAttribute="leading" secondItem="CYw-Lk-xgV" secondAttribute="leading" constant="20" id="X6g-5T-coH"/>
+                        <constraint firstAttribute="bottom" secondItem="OFa-UR-Mix" secondAttribute="bottom" id="hlp-qR-S9M"/>
+                        <constraint firstItem="bj7-rs-xGk" firstAttribute="centerX" secondItem="CYw-Lk-xgV" secondAttribute="centerX" id="nl9-kw-Rcv"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="X5T-h9-QZI"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="bj7-rs-xGk" secondAttribute="trailing" constant="20" id="12r-hP-LS6"/>
-                <constraint firstItem="OFa-UR-Mix" firstAttribute="leading" secondItem="X5T-h9-QZI" secondAttribute="leading" constant="20" id="5Z0-d1-4GT"/>
-                <constraint firstItem="Gox-aB-gTr" firstAttribute="trailing" secondItem="NbV-Hq-UqW" secondAttribute="trailing" constant="-20" id="7Ui-fZ-gua"/>
-                <constraint firstItem="Gox-aB-gTr" firstAttribute="top" secondItem="bj7-rs-xGk" secondAttribute="bottom" constant="10" id="FK8-5v-EcA"/>
-                <constraint firstItem="bj7-rs-xGk" firstAttribute="leading" secondItem="NbV-Hq-UqW" secondAttribute="leading" constant="20" id="f9E-vc-4bT"/>
-                <constraint firstItem="bj7-rs-xGk" firstAttribute="top" secondItem="NbV-Hq-UqW" secondAttribute="top" id="nCF-OS-59C"/>
-                <constraint firstItem="OFa-UR-Mix" firstAttribute="centerY" secondItem="Gox-aB-gTr" secondAttribute="centerY" id="sR0-Bj-yfk"/>
-                <constraint firstItem="bj7-rs-xGk" firstAttribute="centerX" secondItem="NbV-Hq-UqW" secondAttribute="centerX" id="v0p-ak-RuW"/>
+                <constraint firstItem="CYw-Lk-xgV" firstAttribute="leading" secondItem="X5T-h9-QZI" secondAttribute="leading" id="CzT-vY-7cO"/>
+                <constraint firstItem="CYw-Lk-xgV" firstAttribute="top" secondItem="NbV-Hq-UqW" secondAttribute="top" id="P5G-Dn-gFA"/>
+                <constraint firstAttribute="bottom" secondItem="CYw-Lk-xgV" secondAttribute="bottom" id="aFV-Xe-gdd"/>
+                <constraint firstItem="CYw-Lk-xgV" firstAttribute="trailing" secondItem="X5T-h9-QZI" secondAttribute="trailing" id="yH0-BY-HbX"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="filterSegmentedControl" destination="bj7-rs-xGk" id="XNf-y6-i7D"/>
                 <outlet property="headerLabel" destination="OFa-UR-Mix" id="81W-MV-Ft0"/>
             </connections>
-            <point key="canvasLocation" x="467.39130434782612" y="-601.00446428571422"/>
+            <point key="canvasLocation" x="467" y="-599"/>
         </view>
     </objects>
     <resources>
