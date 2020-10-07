@@ -32,6 +32,7 @@
 		A599B81124D0491F00163D1A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A599B81024D0491F00163D1A /* Utils.swift */; };
 		A599B82C24D3006300163D1A /* HorizontalProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A599B82B24D3006300163D1A /* HorizontalProgressBar.swift */; };
 		A599B82E24D3066F00163D1A /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A599B82D24D3066F00163D1A /* CircularProgressBar.swift */; };
+		A5A49DC9252E2AB00073AB61 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A49DC8252E2AB00073AB61 /* NotesViewController.swift */; };
 		A5AD99CE2422995200E0A6D9 /* BookDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AD99CD2422995200E0A6D9 /* BookDetailsViewController.swift */; };
 		A5D917C82499568300452531 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D917C72499568300452531 /* RegisterViewController.swift */; };
 		A5D917CA249957B900452531 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D917C9249957B900452531 /* Constants.swift */; };
@@ -76,6 +77,7 @@
 		A599B81024D0491F00163D1A /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		A599B82B24D3006300163D1A /* HorizontalProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalProgressBar.swift; sourceTree = "<group>"; };
 		A599B82D24D3066F00163D1A /* CircularProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
+		A5A49DC8252E2AB00073AB61 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		A5AD99CD2422995200E0A6D9 /* BookDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailsViewController.swift; sourceTree = "<group>"; };
 		A5D917C72499568300452531 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		A5D917C9249957B900452531 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				A52830AB24C5D3B700BED289 /* ReadingHabitsViewController.swift */,
 				A51854382497DC6E00983DB8 /* WelcomeViewController.swift */,
 				A599B80E24D0430D00163D1A /* UserProfileViewController.swift */,
+				A5A49DC8252E2AB00073AB61 /* NotesViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				A599B81124D0491F00163D1A /* Utils.swift in Sources */,
 				A53E2BF5241D08FF0013152C /* BookBrain.swift in Sources */,
 				A53E2BDC241D063B0013152C /* AppDelegate.swift in Sources */,
+				A5A49DC9252E2AB00073AB61 /* NotesViewController.swift in Sources */,
 				A53E2BF3241D07DA0013152C /* BookModel.swift in Sources */,
 				A53E2BDE241D063B0013152C /* SceneDelegate.swift in Sources */,
 				A52830AC24C5D3B700BED289 /* ReadingHabitsViewController.swift in Sources */,

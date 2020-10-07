@@ -35,9 +35,11 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 	@IBOutlet weak var lastReadDateLabel: UILabel!
 	@IBOutlet weak var finishDateLabel: UILabel!
 	
-	@IBOutlet weak var notesView: UIView!
+	@IBOutlet weak var updateProgressButton: UIButton!
+	@IBOutlet weak var notesButton: UIButton!
+	@IBOutlet weak var quotesButton: UIButton!
+	@IBOutlet weak var editButton: UIButton!
 	
-	@IBOutlet weak var quotesView: UIView!
 	
 	@IBAction func updateProgress(_ sender: UIButton) {
 		let updateView = UIAlertController(title: "Update progress", message: "Enter new number of read pages", preferredStyle: .alert)
@@ -61,6 +63,23 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 		present(updateView, animated: true, completion: nil)
 	}
 	
+	@IBAction func editButtonTapped(_ sender: UIButton) {
+		if let addBookViewController = storyboard?.instantiateViewController(identifier: Constants.ViewControllers.addBook) as? AddBookViewController {
+			addBookViewController.delegate = self
+			addBookViewController.title = "Edit Book"
+			addBookViewController.bookID = book.id
+			addBookViewController.bookCover = book.cover
+			addBookViewController.bookTitle = book.title
+			addBookViewController.bookAuthor = book.author
+			addBookViewController.bookTotalPages = book.totalPages
+			addBookViewController.bookPagesRead = book.pagesRead
+			addBookViewController.beginDate = Utils.formatStringToDate(book.beginDate)
+			addBookViewController.finishDate = Utils.formatStringToDate(book.finishDate)
+			navigationController?.pushViewController(addBookViewController, animated: true)
+		}
+	}
+	
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		configureView()
@@ -72,8 +91,7 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 		configureContainerView()
 		configureImageView()
 		configureRatingView()
-		configureNotesView()
-		configureQuotesView()
+		configureButtons()
 	}
 	
 	func configureContainerView () {
@@ -84,6 +102,13 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 		bookCover.round()
 	}
 	
+	func configureButtons() {
+		updateProgressButton.round()
+		notesButton.round()
+		quotesButton.round()
+		editButton.round()
+	}
+	
 	func configureRatingView() {
 		ratingView.didTouchCosmos = { rating in
 			try! BookBrain.getRealm().write {
@@ -91,14 +116,6 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 			}
 			self.ratingView.rating = rating
 		}
-	}
-	
-	func configureNotesView() {
-		notesView.round()
-	}
-	
-	func configureQuotesView() {
-		quotesView.round()
 	}
 	
 	func updateView(book: BookModel) {
