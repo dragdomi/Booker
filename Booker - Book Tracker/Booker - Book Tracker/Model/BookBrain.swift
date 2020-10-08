@@ -114,6 +114,12 @@ class BookBrain {
 		loadBooksFromRealm()
 	}
 	
+	static func editBookNotes(book: BookModel, notes: String) {
+		try! realm.write {
+			realm.create(BookModel.self, value: ["id": book.id, "notes": notes], update: .modified)
+		}
+	}
+	
 	static func getBookProgress(_ book: BookModel) -> CGFloat {
 		if book.totalPages == 0 {
 			return 0

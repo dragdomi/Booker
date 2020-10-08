@@ -40,7 +40,7 @@ class AddBookViewController: UIViewController {
 		self.imagePicker = ImagePicker(presentationController: self, delegate: self)
 		
 		if let safeBookCover = bookCover {
-			coverImage.image = UIImage(contentsOfFile: safeBookCover)
+			coverImage.image = ImageManager.retrieveImage(forKey: safeBookCover)
 		}
 		
 		if let safeBookTitle = bookTitle {

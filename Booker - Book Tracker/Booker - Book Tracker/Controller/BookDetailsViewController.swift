@@ -13,7 +13,7 @@ protocol BookDetailsViewControllerDelegate {
 	func editBookData(_ editedBook: BookModel)
 }
 
-class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate {
+class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate, NotesViewControllerDelegate {
 	var book: BookModel!
 	var editedBook: BookModel?
 	var delegate: BookDetailsViewControllerDelegate?
@@ -63,6 +63,14 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 		present(updateView, animated: true, completion: nil)
 	}
 	
+	@IBAction func notesButtonTapped(_ sender: UIButton) {
+		if let notesViewController = storyboard?.instantiateViewController(identifier: Constants.ViewControllers.notes) as? NotesViewController {
+			notesViewController.delegate = self
+			notesViewController.notes = book.notes
+			navigationController?.present(notesViewController, animated: true, completion: nil)
+		}
+	}
+	
 	@IBAction func editButtonTapped(_ sender: UIButton) {
 		if let addBookViewController = storyboard?.instantiateViewController(identifier: Constants.ViewControllers.addBook) as? AddBookViewController {
 			addBookViewController.delegate = self
@@ -79,12 +87,11 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 		}
 	}
 	
-	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		configureView()
 		updateView(book: book)
-		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editBook))
+		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: nil)
 	}
 	
 	func configureView() {
@@ -104,9 +111,13 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 	
 	func configureButtons() {
 		updateProgressButton.round()
+		updateProgressButton.alignImageAndTitleVertically()
 		notesButton.round()
+		notesButton.alignImageAndTitleVertically()
 		quotesButton.round()
+		quotesButton.alignImageAndTitleVertically()
 		editButton.round()
+		editButton.alignImageAndTitleVertically()
 	}
 	
 	func configureRatingView() {
@@ -164,22 +175,6 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 		}
 	}
 	
-	@objc func editBook() {
-		if let addBookViewController = storyboard?.instantiateViewController(identifier: Constants.ViewControllers.addBook) as? AddBookViewController {
-			addBookViewController.delegate = self
-			addBookViewController.title = "Edit Book"
-			addBookViewController.bookID = book.id
-			addBookViewController.bookCover = book.cover
-			addBookViewController.bookTitle = book.title
-			addBookViewController.bookAuthor = book.author
-			addBookViewController.bookTotalPages = book.totalPages
-			addBookViewController.bookPagesRead = book.pagesRead
-			addBookViewController.beginDate = Utils.formatStringToDate(book.beginDate)
-			addBookViewController.finishDate = Utils.formatStringToDate(book.finishDate)
-			navigationController?.pushViewController(addBookViewController, animated: true)
-		}
-	}
-	
 	func updateBookIfTextfieldIsNotEmpty(textField: UITextField) {
 		if textField.text != "" {
 			if let updatedPagesRead = Int(textField.text!) {
@@ -234,5 +229,9 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 		delegate?.editBookData(book)
 		self.book = book
 		updateView(book: book)
+	}
+	
+	func updateNotes(with notes: String) {
+		BookBrain.editBookNotes(book: book, notes: notes)
 	}
 }

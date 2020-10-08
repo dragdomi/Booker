@@ -353,7 +353,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kQD-PH-HVB">
-                                <rect key="frame" x="10" y="54" width="394" height="757.5"/>
+                                <rect key="frame" x="10" y="54" width="394" height="809"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rrd-kN-JDG">
                                         <rect key="frame" x="0.0" y="0.0" width="394" height="672.5"/>
@@ -559,15 +559,11 @@
                                             <constraint firstItem="aNT-4X-MC9" firstAttribute="leading" secondItem="rrd-kN-JDG" secondAttribute="leading" constant="10" id="zOQ-pP-NSh"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="shr-1S-WCR">
-                                        <rect key="frame" x="0.0" y="680.5" width="394" height="36"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="shr-1S-WCR">
+                                        <rect key="frame" x="0.0" y="680.5" width="394" height="60"/>
                                         <color key="backgroundColor" name="Color1"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="36" id="MK6-F7-HTb"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <color key="tintColor" systemColor="systemIndigoColor"/>
-                                        <state key="normal" title="Update progress">
+                                        <state key="normal" title="Update progress" image="bookmark" catalog="system">
                                             <color key="titleColor" systemColor="systemIndigoColor"/>
                                         </state>
                                         <connections>
@@ -575,32 +571,33 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Rcb-jM-EoW">
-                                        <rect key="frame" x="0.0" y="724.5" width="394" height="33"/>
+                                        <rect key="frame" x="0.0" y="748.5" width="394" height="60.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8xI-lg-1Uc">
-                                                <rect key="frame" x="0.0" y="0.0" width="126" height="33"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8xI-lg-1Uc">
+                                                <rect key="frame" x="0.0" y="0.0" width="126" height="60.5"/>
                                                 <color key="backgroundColor" name="Color1"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <color key="tintColor" systemColor="systemIndigoColor"/>
-                                                <state key="normal" title="Notes">
+                                                <state key="normal" title="Notes" image="note.text" catalog="system">
+                                                    <color key="titleColor" systemColor="systemIndigoColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="notesButtonTapped:" destination="1MB-6y-3Rd" eventType="touchUpInside" id="N0f-Fm-8Jp"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhT-rq-UN1">
+                                                <rect key="frame" x="134" y="0.0" width="126" height="60.5"/>
+                                                <color key="backgroundColor" name="Color1"/>
+                                                <color key="tintColor" systemColor="systemIndigoColor"/>
+                                                <state key="normal" title="Quotes" image="quote.bubble" catalog="system">
                                                     <color key="titleColor" systemColor="systemIndigoColor"/>
                                                 </state>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhT-rq-UN1">
-                                                <rect key="frame" x="134" y="0.0" width="126" height="33"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ji2-15-7TU">
+                                                <rect key="frame" x="268" y="0.0" width="126" height="60.5"/>
                                                 <color key="backgroundColor" name="Color1"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <color key="tintColor" systemColor="systemIndigoColor"/>
-                                                <state key="normal" title="Quotes">
-                                                    <color key="titleColor" systemColor="systemIndigoColor"/>
-                                                </state>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ji2-15-7TU">
-                                                <rect key="frame" x="268" y="0.0" width="126" height="33"/>
-                                                <color key="backgroundColor" name="Color1"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                <color key="tintColor" systemColor="systemIndigoColor"/>
-                                                <state key="normal" title="Edit">
+                                                <state key="normal" title="Edit" image="square.and.pencil" catalog="system">
                                                     <color key="titleColor" systemColor="systemIndigoColor"/>
                                                 </state>
                                                 <connections>
@@ -610,6 +607,10 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="shr-1S-WCR" firstAttribute="height" secondItem="hef-Dw-dCo" secondAttribute="height" multiplier="0.5" id="RRb-dQ-bK4"/>
+                                    <constraint firstItem="Rcb-jM-EoW" firstAttribute="height" secondItem="shr-1S-WCR" secondAttribute="height" id="mPc-wH-xZq"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="26x-DT-fgx"/>
@@ -644,20 +645,39 @@
             </objects>
             <point key="canvasLocation" x="5592.753623188406" y="83.705357142857139"/>
         </scene>
-        <!--View Controller-->
+        <!--Notes View Controller-->
         <scene sceneID="LLF-jL-2A4">
             <objects>
-                <viewController id="Ddd-Jd-fKO" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NotesViewController" id="Ddd-Jd-fKO" customClass="NotesViewController" customModule="Booker___Book_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Sr0-6N-jsl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="Qzr-jE-5aa">
+                                <rect key="frame" x="10" y="54" width="394" height="808"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="tintColor" systemColor="systemIndigoColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="ppH-zg-vz3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Qzr-jE-5aa" firstAttribute="top" secondItem="ppH-zg-vz3" secondAttribute="top" constant="10" id="Owc-kS-CDh"/>
+                            <constraint firstItem="ppH-zg-vz3" firstAttribute="bottom" secondItem="Qzr-jE-5aa" secondAttribute="bottom" id="TZn-l5-ICC"/>
+                            <constraint firstItem="ppH-zg-vz3" firstAttribute="trailing" secondItem="Qzr-jE-5aa" secondAttribute="trailing" constant="10" id="Td7-3F-ZaS"/>
+                            <constraint firstItem="Qzr-jE-5aa" firstAttribute="leading" secondItem="ppH-zg-vz3" secondAttribute="leading" constant="10" id="cLE-S7-Qgu"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="textView" destination="Qzr-jE-5aa" id="J1T-qV-C5a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nlf-nM-btw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6574" y="-140"/>
+            <point key="canvasLocation" x="5183" y="753"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="8WC-Xi-LoT">
@@ -874,6 +894,10 @@
     </scenes>
     <resources>
         <image name="book.closed" catalog="system" width="115" height="128"/>
+        <image name="bookmark" catalog="system" width="112" height="128"/>
+        <image name="note.text" catalog="system" width="128" height="106"/>
+        <image name="quote.bubble" catalog="system" width="128" height="110"/>
+        <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <namedColor name="Color1">
             <color red="0.9570000171661377" green="0.93300002813339233" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -887,6 +911,9 @@
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="darkTextColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">

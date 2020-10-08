@@ -32,11 +32,15 @@
 		A599B81124D0491F00163D1A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A599B81024D0491F00163D1A /* Utils.swift */; };
 		A599B82C24D3006300163D1A /* HorizontalProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A599B82B24D3006300163D1A /* HorizontalProgressBar.swift */; };
 		A599B82E24D3066F00163D1A /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A599B82D24D3066F00163D1A /* CircularProgressBar.swift */; };
-		A5A49DC9252E2AB00073AB61 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A49DC8252E2AB00073AB61 /* NotesViewController.swift */; };
 		A5AD99CE2422995200E0A6D9 /* BookDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AD99CD2422995200E0A6D9 /* BookDetailsViewController.swift */; };
+		A5D2BB62252E416A0096F356 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2BB61252E416A0096F356 /* UIButton.swift */; };
 		A5D917C82499568300452531 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D917C72499568300452531 /* RegisterViewController.swift */; };
 		A5D917CA249957B900452531 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D917C9249957B900452531 /* Constants.swift */; };
 		A5D917D02499594C00452531 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D917CF2499594C00452531 /* LoginViewController.swift */; };
+		A5EB58AF252F647B00D90E0A /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EB58AE252F647B00D90E0A /* NotesViewController.swift */; };
+		A5EB58B3252F7E7500D90E0A /* UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EB58B2252F7E7500D90E0A /* UITextView.swift */; };
+		A5EB58C1252F8A4200D90E0A /* QuoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EB58BF252F8A4200D90E0A /* QuoteCell.swift */; };
+		A5EB58C2252F8A4200D90E0A /* QuoteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5EB58C0252F8A4200D90E0A /* QuoteCell.xib */; };
 		A5EF5CCF251D0A6000FDE693 /* screenshot1.png in Resources */ = {isa = PBXBuildFile; fileRef = A5EF5CCE251D0A6000FDE693 /* screenshot1.png */; };
 		A5EF5CD4251D0A8200FDE693 /* screenshot2.png in Resources */ = {isa = PBXBuildFile; fileRef = A5EF5CD3251D0A8200FDE693 /* screenshot2.png */; };
 		A5EF5CD7251D0AB600FDE693 /* screenshot3.png in Resources */ = {isa = PBXBuildFile; fileRef = A5EF5CD6251D0AB600FDE693 /* screenshot3.png */; };
@@ -77,11 +81,15 @@
 		A599B81024D0491F00163D1A /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		A599B82B24D3006300163D1A /* HorizontalProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalProgressBar.swift; sourceTree = "<group>"; };
 		A599B82D24D3066F00163D1A /* CircularProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
-		A5A49DC8252E2AB00073AB61 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		A5AD99CD2422995200E0A6D9 /* BookDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailsViewController.swift; sourceTree = "<group>"; };
+		A5D2BB61252E416A0096F356 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		A5D917C72499568300452531 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		A5D917C9249957B900452531 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A5D917CF2499594C00452531 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A5EB58AE252F647B00D90E0A /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
+		A5EB58B2252F7E7500D90E0A /* UITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextView.swift; sourceTree = "<group>"; };
+		A5EB58BF252F8A4200D90E0A /* QuoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteCell.swift; sourceTree = "<group>"; };
+		A5EB58C0252F8A4200D90E0A /* QuoteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuoteCell.xib; sourceTree = "<group>"; };
 		A5EF5CCE251D0A6000FDE693 /* screenshot1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot1.png; sourceTree = "<group>"; };
 		A5EF5CD3251D0A8200FDE693 /* screenshot2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot2.png; sourceTree = "<group>"; };
 		A5EF5CD6251D0AB600FDE693 /* screenshot3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot3.png; sourceTree = "<group>"; };
@@ -177,11 +185,11 @@
 				A5AD99CD2422995200E0A6D9 /* BookDetailsViewController.swift */,
 				A58A1A6425137D7300A29444 /* ImagePicker.swift */,
 				A5D917CF2499594C00452531 /* LoginViewController.swift */,
+				A5EB58AE252F647B00D90E0A /* NotesViewController.swift */,
 				A5D917C72499568300452531 /* RegisterViewController.swift */,
 				A52830AB24C5D3B700BED289 /* ReadingHabitsViewController.swift */,
 				A51854382497DC6E00983DB8 /* WelcomeViewController.swift */,
 				A599B80E24D0430D00163D1A /* UserProfileViewController.swift */,
-				A5A49DC8252E2AB00073AB61 /* NotesViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -196,6 +204,8 @@
 				A577770C250B7E7A0044451D /* BooksViewHeader.xib */,
 				A599B82B24D3006300163D1A /* HorizontalProgressBar.swift */,
 				A599B82D24D3066F00163D1A /* CircularProgressBar.swift */,
+				A5EB58BF252F8A4200D90E0A /* QuoteCell.swift */,
+				A5EB58C0252F8A4200D90E0A /* QuoteCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -216,6 +226,8 @@
 			children = (
 				A55817712528C2C900906155 /* UIView.swift */,
 				A53145842529CEE400AB66F7 /* UIColor.swift */,
+				A5D2BB61252E416A0096F356 /* UIButton.swift */,
+				A5EB58B2252F7E7500D90E0A /* UITextView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -302,6 +314,7 @@
 				A59258A924BE20920066CACE /* BookCell.xib in Resources */,
 				A5EF5CD7251D0AB600FDE693 /* screenshot3.png in Resources */,
 				A5EF5CCF251D0A6000FDE693 /* screenshot1.png in Resources */,
+				A5EB58C2252F8A4200D90E0A /* QuoteCell.xib in Resources */,
 				A53E2BE8241D063C0013152C /* LaunchScreen.storyboard in Resources */,
 				A53E2BE5241D063C0013152C /* Assets.xcassets in Resources */,
 				A5EF5CE0251D0B1300FDE693 /* screenshot5.png in Resources */,
@@ -361,6 +374,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5D2BB62252E416A0096F356 /* UIButton.swift in Sources */,
 				A5D917D02499594C00452531 /* LoginViewController.swift in Sources */,
 				A51854392497DC6E00983DB8 /* WelcomeViewController.swift in Sources */,
 				A55817722528C2C900906155 /* UIView.swift in Sources */,
@@ -379,9 +393,11 @@
 				A5AD99CE2422995200E0A6D9 /* BookDetailsViewController.swift in Sources */,
 				A5918624241D430400002A11 /* AddBookViewController.swift in Sources */,
 				A599B81124D0491F00163D1A /* Utils.swift in Sources */,
+				A5EB58B3252F7E7500D90E0A /* UITextView.swift in Sources */,
 				A53E2BF5241D08FF0013152C /* BookBrain.swift in Sources */,
+				A5EB58C1252F8A4200D90E0A /* QuoteCell.swift in Sources */,
 				A53E2BDC241D063B0013152C /* AppDelegate.swift in Sources */,
-				A5A49DC9252E2AB00073AB61 /* NotesViewController.swift in Sources */,
+				A5EB58AF252F647B00D90E0A /* NotesViewController.swift in Sources */,
 				A53E2BF3241D07DA0013152C /* BookModel.swift in Sources */,
 				A53E2BDE241D063B0013152C /* SceneDelegate.swift in Sources */,
 				A52830AC24C5D3B700BED289 /* ReadingHabitsViewController.swift in Sources */,

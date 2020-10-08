@@ -18,6 +18,7 @@ struct Constants {
 		static let addBook = "AddBookViewController"
 		static let bookDetails = "BookDetailsViewController"
 		static let login = "LoginViewController"
+		static let notes = "NotesViewController"
 		static let register = "RegisterViewController"
 		static let readingHabits = "ReadingHabitsViewController"
 		static let userProfile = "UserProfileViewController"

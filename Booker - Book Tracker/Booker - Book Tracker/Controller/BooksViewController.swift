@@ -205,7 +205,11 @@ extension BooksViewController: UITableViewDataSource, UITableViewDelegate {
 		cell.titleLabel.text = book.title
 		cell.authorLabel.text = book.author
 		cell.percentageLabel.text = "\(Int(book.getPercentage()))%"
-		cell.dateLabel.text = book.lastReadDate
+		if book.lastReadDate != "" {
+			cell.dateLabel.text = book.lastReadDate
+		} else {
+			cell.dateLabel.text = book.finishDate
+		}
 		if let coverImage = ImageManager.retrieveImage(forKey: book.cover) {
 			cell.coverImage.image = coverImage
 		} else {

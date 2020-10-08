@@ -20,7 +20,7 @@ class BookModel: Object, Codable, Comparable {
 	@objc dynamic var finishDate: String
 	@objc dynamic var lastReadDate: String
 	@objc dynamic var rating: Double
-	var notes = List<String>()
+	@objc dynamic var notes: String
 	var quotes = List<String>()
 	
 	func getPercentage() -> Float {
@@ -76,7 +76,7 @@ class BookModel: Object, Codable, Comparable {
 		self.finishDate = ""
 		self.lastReadDate = ""
 		self.rating = 0
-		self.notes = List<String>()
+		self.notes = ""
 		self.quotes = List<String>()
 	}
 	
@@ -91,7 +91,7 @@ class BookModel: Object, Codable, Comparable {
 		self.finishDate = finishDate
 		self.lastReadDate = ""
 		self.rating = 0
-		self.notes = List<String>()
+		self.notes = ""
 		self.quotes = List<String>()
 	}
 	
