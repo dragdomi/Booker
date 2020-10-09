@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -21,19 +20,19 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OFa-UR-Mix">
                             <rect key="frame" x="20" y="41" width="17" height="24"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <color key="textColor" systemColor="systemGrayColor"/>
+                            <color key="textColor" name="SecondaryText"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bj7-rs-xGk">
                             <rect key="frame" x="20" y="0.0" width="349" height="32"/>
-                            <color key="backgroundColor" name="Color1"/>
+                            <color key="backgroundColor" name="LightPrimary"/>
                             <segments>
                                 <segment title="All"/>
                                 <segment title="In Progress"/>
                                 <segment title="Finished"/>
                                 <segment title="Not Started"/>
                             </segments>
-                            <color key="tintColor" name="Color1"/>
+                            <color key="tintColor" name="Accent"/>
                             <connections>
                                 <action selector="filterSegmentedControlChanged:" destination="NbV-Hq-UqW" eventType="valueChanged" id="HU3-av-DJE"/>
                             </connections>
@@ -41,16 +40,15 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gox-aB-gTr">
                             <rect key="frame" x="345" y="41" width="24" height="24"/>
                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                            <color key="tintColor" systemColor="systemIndigoColor"/>
+                            <color key="tintColor" name="Accent"/>
                             <state key="normal" image="arrow.up.arrow.down" catalog="system">
-                                <color key="titleColor" systemColor="systemIndigoColor"/>
+                                <color key="titleColor" name="Accent"/>
                             </state>
                             <connections>
                                 <action selector="sortButtonPressed:" destination="NbV-Hq-UqW" eventType="touchUpInside" id="XHB-qG-CFC"/>
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="OFa-UR-Mix" firstAttribute="centerY" secondItem="Gox-aB-gTr" secondAttribute="centerY" id="6UV-hN-eT1"/>
                         <constraint firstItem="Gox-aB-gTr" firstAttribute="trailing" secondItem="bj7-rs-xGk" secondAttribute="trailing" id="7Im-md-N8m"/>
@@ -65,7 +63,6 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="X5T-h9-QZI"/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="CYw-Lk-xgV" firstAttribute="leading" secondItem="X5T-h9-QZI" secondAttribute="leading" id="CzT-vY-7cO"/>
                 <constraint firstItem="CYw-Lk-xgV" firstAttribute="top" secondItem="NbV-Hq-UqW" secondAttribute="top" id="P5G-Dn-gFA"/>
@@ -82,14 +79,14 @@
     </objects>
     <resources>
         <image name="arrow.up.arrow.down" catalog="system" width="128" height="98"/>
-        <namedColor name="Color1">
-            <color red="0.9570000171661377" green="0.93300002813339233" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="Accent">
+            <color red="0.0" green="0.47843137254901957" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <namedColor name="LightPrimary">
+            <color red="0.77254901960784317" green="0.792156862745098" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SecondaryText">
+            <color red="0.45899999141693115" green="0.45899999141693115" blue="0.45899999141693115" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

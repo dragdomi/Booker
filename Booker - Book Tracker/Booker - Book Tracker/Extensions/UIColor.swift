@@ -9,23 +9,37 @@
 import UIKit
 
 extension UIColor {
-	static var color1: UIColor {
-		UIColor(named: "Color1")!
+	static var lightPrimary: UIColor {
+		UIColor(named: "LightPrimary")!
 	}
 	
-	static var color2: UIColor {
-		UIColor(named: "Color2")!
+	static var primary: UIColor {
+		UIColor(named: "Primary")!
 	}
 	
-	static var color3: UIColor {
-		UIColor(named: "Color3")!
+	static var darkPrimary: UIColor {
+		UIColor(named: "DarkPrimary")!
 	}
 	
-	static var color4: UIColor {
-		UIColor(named: "Color4")!
+	static var accent: UIColor {
+		UIColor(named: "Accent")!
 	}
 	
-	static var interactiveColor: UIColor {
-		.systemIndigo
+	static var divider: UIColor {
+		UIColor(named: "Divider")!
 	}
+	
+	static var primaryText: UIColor {
+		UIColor(named: "PrimaryText")!
+	}
+	
+	static var secondaryText: UIColor {
+		UIColor(named: "SecondaryText")!
+	}
+	
+	static var textIcons: UIColor {
+		UIColor(named: "TextIcons")!
+	}
+	
+	
 }

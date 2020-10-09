@@ -72,7 +72,7 @@ class BooksViewHeader: UITableViewHeaderFooterView {
 		sortMenu.addAction(sortByBeginDateAction)
 		sortMenu.addAction(sortByFinishDateAction)
 		sortMenu.addAction(cancelAction)
-		sortMenu.view.tintColor = .color4
+		sortMenu.view.tintColor = .darkPrimary
 		
 		presenter?.present(sortMenu, animated: true, completion: nil)
 	}

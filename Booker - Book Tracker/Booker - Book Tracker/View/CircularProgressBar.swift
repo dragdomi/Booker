@@ -11,7 +11,7 @@ import UIKit
 
 @IBDesignable
 class CircularProgressBar: UIView {
-	@IBInspectable var color: UIColor? = .color4 {
+	@IBInspectable var color: UIColor? = .primary {
         didSet { setNeedsDisplay() }
     }
     @IBInspectable var ringWidth: CGFloat = 25

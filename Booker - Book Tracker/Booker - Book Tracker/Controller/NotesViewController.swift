@@ -23,18 +23,18 @@ class NotesViewController: UIViewController, UITextViewDelegate {
 		title = "Notes"
 		if notes != "" {
 			textView.text = notes
-			textView.textColor = .black
+			textView.textColor = .primaryText
 		} else {
 			textView.text = placeholderText
-			textView.textColor = .lightGray
+			textView.textColor = .secondaryText
 		}
 		textView.delegate = self
 		textView.addDoneButton(title: "Done", target: self, selector: #selector(tapDone(sender:)))
 	}
 	
 	@objc func tapDone(sender: Any) {
-		   self.view.endEditing(true)
-	   }
+		self.view.endEditing(true)
+	}
 	
 	func textViewDidChange(_ textView: UITextView) {
 		if let text = textView.text {
@@ -44,17 +44,17 @@ class NotesViewController: UIViewController, UITextViewDelegate {
 	}
 	
 	func textViewDidBeginEditing(_ textView: UITextView) {
-		if (textView.text == placeholderText && textView.textColor == .lightGray) {
+		if (textView.text == placeholderText && textView.textColor == .secondaryText) {
 			textView.text = ""
-			textView.textColor = .black
+			textView.textColor = .primaryText
 		}
 		textView.becomeFirstResponder()
 	}
-
+	
 	func textViewDidEndEditing(_ textView: UITextView) {
 		if (textView.text == "") {
 			textView.text = placeholderText
-			textView.textColor = .lightGray
+			textView.textColor = .secondaryText
 		}
 		textView.resignFirstResponder()
 	}

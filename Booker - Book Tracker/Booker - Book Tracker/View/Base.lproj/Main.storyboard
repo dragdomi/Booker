@@ -24,12 +24,13 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="dcB-Nv-rSe">
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" name="Divider"/>
+                                <color key="sectionIndexBackgroundColor" name="WhiteBlack"/>
                                 <sections/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XZW-bY-QQT"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="Divider"/>
                         <constraints>
                             <constraint firstItem="dcB-Nv-rSe" firstAttribute="top" secondItem="XZW-bY-QQT" secondAttribute="top" id="AFL-8D-iSb"/>
                             <constraint firstItem="dcB-Nv-rSe" firstAttribute="leading" secondItem="XZW-bY-QQT" secondAttribute="leading" id="FsE-mf-8ZP"/>
@@ -54,17 +55,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aZc-Q0-EAN">
-                                <rect key="frame" x="20" y="297" width="374" height="565"/>
+                                <rect key="frame" x="20" y="300" width="374" height="562"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l6z-in-pSf">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IyR-dC-2hB">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
-                                                <color key="backgroundColor" name="Color2"/>
+                                                <color key="backgroundColor" name="LightPrimary"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <color key="tintColor" name="Accent"/>
                                                 <state key="normal" title="Cover Image">
-                                                    <color key="titleColor" systemColor="darkTextColor"/>
+                                                    <color key="titleColor" name="Accent"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="coverImageButtonTapped:" destination="sKH-Mh-Ug8" eventType="touchUpInside" id="kbW-JA-s3h"/>
@@ -72,7 +74,7 @@
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book.closed" catalog="system" highlighted="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gRS-dE-Vkn">
                                                 <rect key="frame" x="5" y="5" width="67.5" height="90"/>
-                                                <color key="tintColor" name="Color4"/>
+                                                <color key="tintColor" name="Primary"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="gRS-dE-Vkn" secondAttribute="height" multiplier="3:4" id="x1b-sE-T1I"/>
                                                 </constraints>
@@ -91,11 +93,12 @@
                                     </view>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="UNE-jy-VA9" userLabel="TitleTextField">
                                         <rect key="frame" x="0.0" y="110" width="374" height="32"/>
-                                        <color key="backgroundColor" name="Color2"/>
-                                        <color key="tintColor" systemColor="systemIndigoColor"/>
+                                        <color key="backgroundColor" name="LightPrimary"/>
+                                        <color key="tintColor" name="Accent"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="Cgw-er-DT4"/>
                                         </constraints>
+                                        <color key="textColor" name="PrimaryText"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
                                         <connections>
@@ -104,11 +107,12 @@
                                     </textField>
                                     <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Author" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="dLE-0C-vuA" userLabel="AuthorTextField">
                                         <rect key="frame" x="0.0" y="152" width="374" height="32"/>
-                                        <color key="backgroundColor" name="Color2"/>
-                                        <color key="tintColor" systemColor="systemIndigoColor"/>
+                                        <color key="backgroundColor" name="LightPrimary"/>
+                                        <color key="tintColor" name="Accent"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="SIZ-VB-uQs"/>
                                         </constraints>
+                                        <color key="textColor" name="PrimaryText"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
                                         <connections>
@@ -117,11 +121,12 @@
                                     </textField>
                                     <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Read Pages" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="g6G-uS-cx4" userLabel="PagesReadTextField">
                                         <rect key="frame" x="0.0" y="194" width="374" height="32"/>
-                                        <color key="backgroundColor" name="Color2"/>
-                                        <color key="tintColor" systemColor="systemIndigoColor"/>
+                                        <color key="backgroundColor" name="LightPrimary"/>
+                                        <color key="tintColor" name="Accent"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="YR9-Xh-vXU"/>
                                         </constraints>
+                                        <color key="textColor" name="PrimaryText"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
                                         <connections>
@@ -130,11 +135,12 @@
                                     </textField>
                                     <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Total Pages" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="YIZ-dD-sUR" userLabel="TotalPagesTextField">
                                         <rect key="frame" x="0.0" y="236" width="374" height="32"/>
-                                        <color key="backgroundColor" name="Color2"/>
-                                        <color key="tintColor" systemColor="systemIndigoColor"/>
+                                        <color key="backgroundColor" name="LightPrimary"/>
+                                        <color key="tintColor" name="Accent"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="vYK-Ul-oTD"/>
                                         </constraints>
+                                        <color key="textColor" name="PrimaryText"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
                                         <connections>
@@ -143,20 +149,20 @@
                                     </textField>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Vcn-yY-MAj">
                                         <rect key="frame" x="0.0" y="278" width="374" height="32"/>
-                                        <color key="backgroundColor" name="Color2"/>
+                                        <color key="backgroundColor" name="LightPrimary"/>
                                         <segments>
                                             <segment title="Begin date:"/>
                                             <segment title="Finish date"/>
                                         </segments>
-                                        <color key="tintColor" name="Color2"/>
-                                        <color key="selectedSegmentTintColor" name="Color1"/>
+                                        <color key="tintColor" name="Accent"/>
                                         <connections>
                                             <action selector="dateSegmentedControlChanged:" destination="sKH-Mh-Ug8" eventType="valueChanged" id="WMq-aE-okc"/>
                                         </connections>
                                     </segmentedControl>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="XTr-fq-5mQ" userLabel="BeginDatePicker">
                                         <rect key="frame" x="0.0" y="319" width="374" height="200"/>
-                                        <color key="tintColor" name="Color4"/>
+                                        <color key="backgroundColor" name="LightPrimary"/>
+                                        <color key="tintColor" name="Accent"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="200" id="c5n-L0-JDY"/>
                                         </constraints>
@@ -171,11 +177,11 @@
                                         </connections>
                                     </datePicker>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3cR-AM-ciX">
-                                        <rect key="frame" x="0.0" y="529" width="374" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <color key="tintColor" systemColor="systemIndigoColor"/>
+                                        <rect key="frame" x="0.0" y="529" width="374" height="33"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <color key="tintColor" name="Accent"/>
                                         <state key="normal" title="Confirm">
-                                            <color key="titleColor" systemColor="systemIndigoColor"/>
+                                            <color key="titleColor" name="Accent"/>
                                         </state>
                                         <connections>
                                             <action selector="addBookButtonPressed:" destination="sKH-Mh-Ug8" eventType="touchUpInside" id="Toy-Fk-bbd"/>
@@ -195,7 +201,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oIN-ug-NQi"/>
-                        <color key="backgroundColor" name="Color1"/>
+                        <color key="backgroundColor" name="Divider"/>
                         <constraints>
                             <constraint firstItem="oIN-ug-NQi" firstAttribute="trailing" secondItem="aZc-Q0-EAN" secondAttribute="trailing" constant="20" id="agb-MP-raI"/>
                             <constraint firstItem="oIN-ug-NQi" firstAttribute="bottom" secondItem="aZc-Q0-EAN" secondAttribute="bottom" id="dC5-ur-umg"/>
@@ -319,7 +325,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yle-Xe-I8A"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="WhiteBlack"/>
                         <constraints>
                             <constraint firstItem="Qb0-97-Lsm" firstAttribute="leading" secondItem="yle-Xe-I8A" secondAttribute="leading" constant="20" id="eNK-9y-lWa"/>
                             <constraint firstItem="Qb0-97-Lsm" firstAttribute="top" secondItem="yle-Xe-I8A" secondAttribute="top" constant="20" id="lXG-db-ytl"/>
@@ -366,7 +372,7 @@
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book.closed" catalog="system" highlighted="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hef-Dw-dCo">
                                                                 <rect key="frame" x="0.0" y="0.0" width="90.5" height="120.5"/>
-                                                                <color key="tintColor" name="Color4"/>
+                                                                <color key="tintColor" name="Primary"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="hef-Dw-dCo" secondAttribute="height" multiplier="3:4" id="J2j-2e-DNB"/>
                                                                 </constraints>
@@ -377,26 +383,27 @@
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Title" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gBS-z1-mgH">
                                                                         <rect key="frame" x="0.0" y="0.0" width="273.5" height="33.5"/>
                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                                        <color key="textColor" name="PrimaryText"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yni-fp-Znh">
                                                                         <rect key="frame" x="0.0" y="33.5" width="273.5" height="26.5"/>
                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                                                        <color key="textColor" systemColor="systemGrayColor"/>
+                                                                        <color key="textColor" name="SecondaryText"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kwv-H3-NOt" customClass="CosmosView" customModule="Cosmos">
                                                                         <rect key="frame" x="0.0" y="60" width="273.5" height="50"/>
-                                                                        <color key="tintColor" systemColor="systemIndigoColor"/>
+                                                                        <color key="tintColor" name="Accent"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="rating">
                                                                                 <real key="value" value="3"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                             <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
-                                                                                <color key="value" systemColor="systemIndigoColor"/>
+                                                                                <color key="value" name="Accent"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                             <userDefinedRuntimeAttribute type="color" keyPath="emptyBorderColor">
-                                                                                <color key="value" name="Color2"/>
+                                                                                <color key="value" name="Primary"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
                                                                                 <integer key="value" value="5"/>
@@ -405,10 +412,10 @@
                                                                                 <integer key="value" value="0"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                             <userDefinedRuntimeAttribute type="color" keyPath="emptyColor">
-                                                                                <color key="value" name="Color2"/>
+                                                                                <color key="value" name="Divider"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                             <userDefinedRuntimeAttribute type="color" keyPath="filledBorderColor">
-                                                                                <color key="value" systemColor="systemIndigoColor"/>
+                                                                                <color key="value" name="Accent"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="starSize">
                                                                                 <real key="value" value="30"/>
@@ -434,25 +441,25 @@
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="State:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="21" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MbE-ie-A2h">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="91.5" height="20.5"/>
                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                                                <color key="textColor" systemColor="systemGrayColor"/>
+                                                                                <color key="textColor" name="SecondaryText"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Progress:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="21" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lY2-xy-iZp">
                                                                                 <rect key="frame" x="0.0" y="20.5" width="91.5" height="20.5"/>
                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                                                <color key="textColor" systemColor="systemGrayColor"/>
+                                                                                <color key="textColor" name="SecondaryText"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pages:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="21" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9LV-48-Vsa">
                                                                                 <rect key="frame" x="0.0" y="41" width="91.5" height="20.5"/>
                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                                                <color key="textColor" systemColor="systemGrayColor"/>
+                                                                                <color key="textColor" name="SecondaryText"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Read Time:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="21" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ezV-TM-0S8">
                                                                                 <rect key="frame" x="0.0" y="61.5" width="91.5" height="20.5"/>
                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                                                <color key="textColor" systemColor="systemGrayColor"/>
+                                                                                <color key="textColor" name="SecondaryText"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                         </subviews>
@@ -463,21 +470,25 @@
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" In Progress" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="21" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lRJ-fy-Bpb">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="182.5" height="20.5"/>
                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                                <color key="textColor" name="PrimaryText"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 50% (Page 10)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="21" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3tJ-LR-Yx6">
                                                                                 <rect key="frame" x="0.0" y="20.5" width="182.5" height="20.5"/>
                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                                <color key="textColor" name="PrimaryText"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 20" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M9g-ww-Nco">
                                                                                 <rect key="frame" x="0.0" y="41" width="182.5" height="20.5"/>
                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                                <color key="textColor" name="PrimaryText"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 2 days" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pRd-Ld-0LQ">
                                                                                 <rect key="frame" x="0.0" y="61.5" width="182.5" height="20.5"/>
                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                                <color key="textColor" name="PrimaryText"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                         </subviews>
@@ -489,7 +500,8 @@
                                                             </stackView>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Hy-3C-3kt" customClass="CircularProgressBar" customModule="Booker___Book_Tracker" customModuleProvider="target">
                                                                 <rect key="frame" x="274" y="0.0" width="100" height="100"/>
-                                                                <color key="backgroundColor" name="Color2"/>
+                                                                <color key="backgroundColor" name="Divider"/>
+                                                                <color key="tintColor" name="Accent"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="4Hy-3C-3kt" secondAttribute="height" multiplier="1:1" id="a4k-fA-Eee"/>
                                                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="100" id="pYH-4T-xUw"/>
@@ -506,19 +518,19 @@
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Started:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haV-eh-y5U">
                                                                         <rect key="frame" x="0.0" y="0.0" width="93" height="20.5"/>
                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                                        <color key="textColor" systemColor="systemGrayColor"/>
+                                                                        <color key="textColor" name="SecondaryText"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Read:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gig-uI-f0q">
                                                                         <rect key="frame" x="0.0" y="20.5" width="93" height="20.5"/>
                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                                        <color key="textColor" systemColor="systemGrayColor"/>
+                                                                        <color key="textColor" name="SecondaryText"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Finished:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="35B-hg-5pc">
                                                                         <rect key="frame" x="0.0" y="41" width="93" height="20.5"/>
                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                                        <color key="textColor" systemColor="systemGrayColor"/>
+                                                                        <color key="textColor" name="SecondaryText"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
@@ -529,16 +541,19 @@
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 20.09.2020" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VcS-5U-wWL">
                                                                         <rect key="frame" x="0.0" y="0.0" width="281" height="20.5"/>
                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                        <color key="textColor" name="PrimaryText"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 24.09.2020" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aax-8A-3Yi">
                                                                         <rect key="frame" x="0.0" y="20.5" width="281" height="20.5"/>
                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                        <color key="textColor" name="PrimaryText"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" -" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PA0-d3-2Nb">
                                                                         <rect key="frame" x="0.0" y="41" width="281" height="20.5"/>
                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                        <color key="textColor" name="PrimaryText"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
@@ -549,9 +564,11 @@
                                                         </constraints>
                                                     </stackView>
                                                 </subviews>
+                                                <color key="tintColor" name="Accent"/>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" name="Color1"/>
+                                        <color key="backgroundColor" name="LightPrimary"/>
+                                        <color key="tintColor" name="Accent"/>
                                         <constraints>
                                             <constraint firstAttribute="height" secondItem="aNT-4X-MC9" secondAttribute="height" constant="20" id="9nt-to-rdF"/>
                                             <constraint firstAttribute="trailing" secondItem="aNT-4X-MC9" secondAttribute="trailing" constant="10" id="pNr-Ie-vEx"/>
@@ -561,10 +578,10 @@
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="shr-1S-WCR">
                                         <rect key="frame" x="0.0" y="680.5" width="394" height="60"/>
-                                        <color key="backgroundColor" name="Color1"/>
-                                        <color key="tintColor" systemColor="systemIndigoColor"/>
+                                        <color key="backgroundColor" name="LightPrimary"/>
+                                        <color key="tintColor" name="Accent"/>
                                         <state key="normal" title="Update progress" image="bookmark" catalog="system">
-                                            <color key="titleColor" systemColor="systemIndigoColor"/>
+                                            <color key="titleColor" name="Accent"/>
                                         </state>
                                         <connections>
                                             <action selector="updateProgress:" destination="1MB-6y-3Rd" eventType="touchUpInside" id="WQe-iq-cMD"/>
@@ -575,11 +592,11 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8xI-lg-1Uc">
                                                 <rect key="frame" x="0.0" y="0.0" width="126" height="60.5"/>
-                                                <color key="backgroundColor" name="Color1"/>
+                                                <color key="backgroundColor" name="LightPrimary"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                <color key="tintColor" systemColor="systemIndigoColor"/>
+                                                <color key="tintColor" name="Accent"/>
                                                 <state key="normal" title="Notes" image="note.text" catalog="system">
-                                                    <color key="titleColor" systemColor="systemIndigoColor"/>
+                                                    <color key="titleColor" name="Accent"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="notesButtonTapped:" destination="1MB-6y-3Rd" eventType="touchUpInside" id="N0f-Fm-8Jp"/>
@@ -587,18 +604,22 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhT-rq-UN1">
                                                 <rect key="frame" x="134" y="0.0" width="126" height="60.5"/>
-                                                <color key="backgroundColor" name="Color1"/>
-                                                <color key="tintColor" systemColor="systemIndigoColor"/>
+                                                <color key="backgroundColor" name="LightPrimary"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <color key="tintColor" name="Accent"/>
                                                 <state key="normal" title="Quotes" image="quote.bubble" catalog="system">
-                                                    <color key="titleColor" systemColor="systemIndigoColor"/>
+                                                    <color key="titleColor" name="Accent"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="quotesButtonTapped:" destination="1MB-6y-3Rd" eventType="touchUpInside" id="o9o-sc-6Te"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ji2-15-7TU">
                                                 <rect key="frame" x="268" y="0.0" width="126" height="60.5"/>
-                                                <color key="backgroundColor" name="Color1"/>
-                                                <color key="tintColor" systemColor="systemIndigoColor"/>
+                                                <color key="backgroundColor" name="LightPrimary"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <state key="normal" title="Edit" image="square.and.pencil" catalog="system">
-                                                    <color key="titleColor" systemColor="systemIndigoColor"/>
+                                                    <color key="titleColor" name="Accent"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="editButtonTapped:" destination="1MB-6y-3Rd" eventType="touchUpInside" id="ax3-1L-NlN"/>
@@ -614,7 +635,8 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="26x-DT-fgx"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="Divider"/>
+                        <color key="tintColor" name="Accent"/>
                         <constraints>
                             <constraint firstItem="kQD-PH-HVB" firstAttribute="top" secondItem="26x-DT-fgx" secondAttribute="top" constant="10" id="8h2-te-7g5"/>
                             <constraint firstItem="26x-DT-fgx" firstAttribute="trailing" secondItem="kQD-PH-HVB" secondAttribute="trailing" constant="10" id="TFa-S7-PBA"/>
@@ -655,15 +677,15 @@
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="Qzr-jE-5aa">
                                 <rect key="frame" x="10" y="54" width="394" height="808"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <color key="tintColor" systemColor="systemIndigoColor"/>
-                                <color key="textColor" systemColor="labelColor"/>
+                                <color key="backgroundColor" name="Divider"/>
+                                <color key="tintColor" name="Accent"/>
+                                <color key="textColor" name="PrimaryText"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ppH-zg-vz3"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="Divider"/>
                         <constraints>
                             <constraint firstItem="Qzr-jE-5aa" firstAttribute="top" secondItem="ppH-zg-vz3" secondAttribute="top" constant="10" id="Owc-kS-CDh"/>
                             <constraint firstItem="ppH-zg-vz3" firstAttribute="bottom" secondItem="Qzr-jE-5aa" secondAttribute="bottom" id="TZn-l5-ICC"/>
@@ -678,6 +700,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nlf-nM-btw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5183" y="753"/>
+        </scene>
+        <!--Quotes View Controller-->
+        <scene sceneID="6bp-gX-pTX">
+            <objects>
+                <viewController storyboardIdentifier="QuotesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="AWu-uy-0Cg" customClass="QuotesViewController" customModule="Booker___Book_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JRd-l5-qjs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pab-26-cep">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qeT-n2-9Zy"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="qeT-n2-9Zy" firstAttribute="trailing" secondItem="pab-26-cep" secondAttribute="trailing" id="LCF-h8-PlT"/>
+                            <constraint firstItem="pab-26-cep" firstAttribute="leading" secondItem="qeT-n2-9Zy" secondAttribute="leading" id="NQX-Xb-Nin"/>
+                            <constraint firstItem="pab-26-cep" firstAttribute="top" secondItem="qeT-n2-9Zy" secondAttribute="top" id="gMy-vp-Y3o"/>
+                            <constraint firstAttribute="bottom" secondItem="pab-26-cep" secondAttribute="bottom" constant="34" id="nqr-YS-POD"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="pab-26-cep" id="KpI-G7-Xrt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dJT-2Z-bF9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6015.9420289855079" y="752.67857142857144"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="8WC-Xi-LoT">
@@ -718,12 +770,12 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Booker 📚" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Llv-fo-vRe">
                                 <rect key="frame" x="0.0" y="88" width="414" height="646"/>
                                 <fontDescription key="fontDescription" name="Lato-Black" family="Lato" pointSize="70"/>
-                                <color key="textColor" name="Color4"/>
+                                <color key="textColor" name="PrimaryText"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fLu-da-tFK"/>
-                        <color key="backgroundColor" name="Color1"/>
+                        <color key="backgroundColor" name="LightPrimary"/>
                         <constraints>
                             <constraint firstItem="Llv-fo-vRe" firstAttribute="top" secondItem="fLu-da-tFK" secondAttribute="top" id="0Fz-q0-oYY"/>
                             <constraint firstItem="k2o-av-ZQY" firstAttribute="bottom" secondItem="fLu-da-tFK" secondAttribute="bottom" id="0Ur-Za-09s"/>
@@ -823,9 +875,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jry-1g-ttg">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" systemColor="systemIndigoColor"/>
+                        <color key="backgroundColor" name="Divider"/>
+                        <color key="tintColor" name="Accent"/>
+                        <color key="barTintColor" name="Divider"/>
                         <textAttributes key="largeTitleTextAttributes">
-                            <color key="textColor" systemColor="darkTextColor"/>
+                            <color key="textColor" name="PrimaryText"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -898,6 +952,9 @@
         <image name="note.text" catalog="system" width="128" height="106"/>
         <image name="quote.bubble" catalog="system" width="128" height="110"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
+        <namedColor name="Accent">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="Color1">
             <color red="0.9570000171661377" green="0.93300002813339233" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -905,25 +962,28 @@
             <color red="0.86299997568130493" green="0.83899998664855957" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Color4">
-            <color red="0.25900000333786011" green="0.28200000524520874" blue="0.45500001311302185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.22699999809265137" green="0.25099998712539673" blue="0.40000000596046448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="darkTextColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="darkTextColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="Divider">
+            <color red="0.9440000057220459" green="0.9440000057220459" blue="0.9440000057220459" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="LightPrimary">
+            <color red="0.77300000190734863" green="0.79199999570846558" blue="0.91399997472763062" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Primary">
+            <color red="0.24699999392032623" green="0.31799998879432678" blue="0.70999997854232788" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PrimaryText">
+            <color red="0.1289999932050705" green="0.1289999932050705" blue="0.1289999932050705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SecondaryText">
+            <color red="0.45899999141693115" green="0.45899999141693115" blue="0.45899999141693115" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="WhiteBlack">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

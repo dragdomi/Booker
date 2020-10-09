@@ -18,7 +18,7 @@ extension UITextView {
 											  height: 44.0))
 		let flexible = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
 		let barButton = UIBarButtonItem(title: title, style: .plain, target: target, action: selector)
-		barButton.tintColor = UIColor.interactiveColor
+		barButton.tintColor = .accent
 		toolBar.setItems([flexible, barButton], animated: false)
 		self.inputAccessoryView = toolBar
 	}
