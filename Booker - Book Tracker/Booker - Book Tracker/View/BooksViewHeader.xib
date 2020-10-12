@@ -19,7 +19,7 @@
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OFa-UR-Mix">
                             <rect key="frame" x="20" y="41" width="17" height="24"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                             <color key="textColor" name="SecondaryText"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -50,14 +50,14 @@
                         </button>
                     </subviews>
                     <constraints>
+                        <constraint firstItem="Gox-aB-gTr" firstAttribute="top" secondItem="bj7-rs-xGk" secondAttribute="bottom" constant="10" id="5U4-lw-nmD"/>
                         <constraint firstItem="OFa-UR-Mix" firstAttribute="centerY" secondItem="Gox-aB-gTr" secondAttribute="centerY" id="6UV-hN-eT1"/>
                         <constraint firstItem="Gox-aB-gTr" firstAttribute="trailing" secondItem="bj7-rs-xGk" secondAttribute="trailing" id="7Im-md-N8m"/>
                         <constraint firstItem="bj7-rs-xGk" firstAttribute="top" secondItem="CYw-Lk-xgV" secondAttribute="top" id="EVv-Y5-QZa"/>
-                        <constraint firstAttribute="bottom" secondItem="Gox-aB-gTr" secondAttribute="bottom" id="HIY-27-KHx"/>
                         <constraint firstAttribute="trailing" secondItem="bj7-rs-xGk" secondAttribute="trailing" constant="20" id="NRp-ba-VIx"/>
                         <constraint firstItem="OFa-UR-Mix" firstAttribute="leading" secondItem="bj7-rs-xGk" secondAttribute="leading" id="Wvb-cL-vFo"/>
                         <constraint firstItem="bj7-rs-xGk" firstAttribute="leading" secondItem="CYw-Lk-xgV" secondAttribute="leading" constant="20" id="X6g-5T-coH"/>
-                        <constraint firstAttribute="bottom" secondItem="OFa-UR-Mix" secondAttribute="bottom" id="hlp-qR-S9M"/>
+                        <constraint firstItem="OFa-UR-Mix" firstAttribute="top" secondItem="bj7-rs-xGk" secondAttribute="bottom" constant="10" id="kj2-pS-aJI"/>
                         <constraint firstItem="bj7-rs-xGk" firstAttribute="centerX" secondItem="CYw-Lk-xgV" secondAttribute="centerX" id="nl9-kw-Rcv"/>
                     </constraints>
                 </view>
@@ -80,10 +80,10 @@
     <resources>
         <image name="arrow.up.arrow.down" catalog="system" width="128" height="98"/>
         <namedColor name="Accent">
-            <color red="0.0" green="0.47843137254901957" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="LightPrimary">
-            <color red="0.77254901960784317" green="0.792156862745098" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.84573306704707552" green="0.86652080701039313" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="SecondaryText">
             <color red="0.45899999141693115" green="0.45899999141693115" blue="0.45899999141693115" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

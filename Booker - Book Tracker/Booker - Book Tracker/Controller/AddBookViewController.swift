@@ -41,7 +41,7 @@ class AddBookViewController: UIViewController {
 		
 		if let safeBookCover = bookCover {
 			coverImage.image = ImageManager.retrieveImage(forKey: safeBookCover)
-		}
+		} 
 		
 		if let safeBookTitle = bookTitle {
 			bookTitleTextField.text = safeBookTitle
@@ -63,15 +63,16 @@ class AddBookViewController: UIViewController {
 			datePicker.date = safeBeginDate
 		}
 		
-		configureViewWithShadow(coverImageView)
-		configureViewWithShadow(bookTitleTextField)
-		configureViewWithShadow(bookAuthorTextField)
-		configureViewWithShadow(pagesReadTextField)
-		configureViewWithShadow(totalPagesTextField)
-		configureViewWithNoShadow(coverImageButton)
-		configureViewWithNoShadow(coverImage)
+		coverImageView.round()
+		bookTitleTextField.round()
+		bookAuthorTextField.round()
+		pagesReadTextField.round()
+		totalPagesTextField.round()
+		coverImageButton.round()
+		coverImage.round()
+		datePicker.round()
 		
-		addBookButton.setTitleColor(.gray, for: .disabled)
+		addBookButton.setTitleColor(.secondaryText, for: .disabled)
 		addBookButton.isEnabled = false
 		
 		activateButton()
@@ -214,7 +215,7 @@ class AddBookViewController: UIViewController {
 		let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
 		ac.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
 		present(ac, animated: true)
-		ac.view.tintColor = .systemIndigo
+		ac.view.tintColor = .accent
 	}
 	
 	func createBookModel(id: Int?, cover: String?, title: String?, author: String?, totalPages: Int?, pagesRead: Int?, beginDate: Date?, finishDate: Date?) {
@@ -250,11 +251,12 @@ class AddBookViewController: UIViewController {
 	}
 	
 	func cropImage(image: UIImage, rect: CGRect, scale: CGFloat) -> UIImage? {
-		UIGraphicsBeginImageContextWithOptions(CGSize(width: rect.size.width / scale, height: rect.size.height / scale), true, 0.0)
-		image.draw(at: CGPoint(x: -rect.origin.x / scale, y: -rect.origin.y / scale))
-		let croppedImage = UIGraphicsGetImageFromCurrentImageContext()
-		UIGraphicsEndImageContext()
-		return croppedImage
+//		UIGraphicsBeginImageContextWithOptions(CGSize(width: rect.size.width / scale, height: rect.size.height / scale), true, 0.0)
+//		image.draw(at: CGPoint(x: -rect.origin.x / scale, y: -rect.origin.y / scale))
+//		let croppedImage = UIGraphicsGetImageFromCurrentImageContext()
+//		UIGraphicsEndImageContext()
+//		return croppedImage
+		return image
 	}
 }
 

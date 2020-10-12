@@ -13,6 +13,7 @@ class BooksViewHeader: UITableViewHeaderFooterView {
 	var presenter: BooksViewController?
 	var isFiltering: Bool?
 	var isSorting: Bool?
+	var filteredBy = "All"
 	
 	@IBOutlet weak var headerLabel: UILabel!
 	@IBOutlet weak var filterSegmentedControl: UISegmentedControl!
@@ -21,23 +22,28 @@ class BooksViewHeader: UITableViewHeaderFooterView {
 		switch sender.selectedSegmentIndex {
 		case 0:
 			presenter?.reloadBooks()
-			updateLabel(description: sender.titleForSegment(at: sender.selectedSegmentIndex))
+			filteredBy = sender.titleForSegment(at: sender.selectedSegmentIndex)!
+			updateLabel()
 			
 		case 1:
 			presenter?.reloadBooks(filterBy: "inProgress")
-			updateLabel(description: sender.titleForSegment(at: sender.selectedSegmentIndex))
+			filteredBy = sender.titleForSegment(at: sender.selectedSegmentIndex)!
+			updateLabel()
 			
 		case 2:
 			presenter?.reloadBooks(filterBy: "finished")
-			updateLabel(description: sender.titleForSegment(at: sender.selectedSegmentIndex))
+			filteredBy = sender.titleForSegment(at: sender.selectedSegmentIndex)!
+			updateLabel()
 			
 		case 3:
 			presenter?.reloadBooks(filterBy: "notStarted")
-			updateLabel(description: sender.titleForSegment(at: sender.selectedSegmentIndex))
+			filteredBy = sender.titleForSegment(at: sender.selectedSegmentIndex)!
+			updateLabel()
 			
 		default:
 			presenter?.reloadBooks()
-			updateLabel(description: sender.titleForSegment(at: sender.selectedSegmentIndex))
+			filteredBy = sender.titleForSegment(at: sender.selectedSegmentIndex)!
+			updateLabel()
 		}
 	}
 	
@@ -77,9 +83,9 @@ class BooksViewHeader: UITableViewHeaderFooterView {
 		presenter?.present(sortMenu, animated: true, completion: nil)
 	}
 	
-	func updateLabel(description: String?) {
-		if let booksCount = presenter?.books.count, let description = description {
-			headerLabel.text = "\(description) (\(booksCount))"
+	func updateLabel() {
+		if let booksCount = presenter?.books.count {
+			headerLabel.text = "\(filteredBy) (\(booksCount))"
 		} else {
 			headerLabel.text = ""
 		}

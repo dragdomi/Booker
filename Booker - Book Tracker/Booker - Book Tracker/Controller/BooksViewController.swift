@@ -21,8 +21,8 @@ class BooksViewController: UIViewController, AddBookViewControllerDelegate, Book
 		super.viewDidLoad()
 		tableView.delegate = self
 		tableView.dataSource = self
-		tableView.register(UINib(nibName: Constants.cellNibName, bundle: Bundle.main), forCellReuseIdentifier: Constants.cellIdentifier)
-		tableView.register(UINib(nibName: Constants.headerIdentifier, bundle: Bundle.main), forHeaderFooterViewReuseIdentifier: Constants.headerIdentifier)
+		tableView.register(UINib(nibName: Constants.bookCellNibName, bundle: Bundle.main), forCellReuseIdentifier: Constants.bookCellIdentifier)
+		tableView.register(UINib(nibName: Constants.booksHeaderIdentifier, bundle: Bundle.main), forHeaderFooterViewReuseIdentifier: Constants.booksHeaderIdentifier)
 		
 		reloadBooks()
 		setupUI()
@@ -43,12 +43,13 @@ class BooksViewController: UIViewController, AddBookViewControllerDelegate, Book
 	}
 	
 	func setupUI() {
+		navigationController?.navigationBar.shadowImage = UIImage()
 		navigationItem.hidesBackButton = true
 		navigationItem.leftBarButtonItem = UIBarButtonItem(title: "···", style: .done, target: self, action: #selector(showMenu))
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBookButton))
 		
 		setupSearchController()
-		setupHeader()
+//		setupHeader()
 		
 		title = "My Books"
 	}
@@ -60,18 +61,18 @@ class BooksViewController: UIViewController, AddBookViewControllerDelegate, Book
 		controller.obscuresBackgroundDuringPresentation = false
 		controller.hidesNavigationBarDuringPresentation = false
 		controller.searchBar.placeholder = "Search books by keyword"
-		controller.searchBar.searchTextField.backgroundColor = .color1
-		controller.view.tintColor = .systemIndigo
+		controller.searchBar.searchTextField.backgroundColor = .lightPrimary
+		controller.view.tintColor = .accent
 		
 		searchController = controller
 		navigationItem.searchController = searchController
 		navigationItem.hidesSearchBarWhenScrolling = false
 	}
 	
-	func setupHeader() {
-		let header = BooksViewHeader()
-		tableView.tableHeaderView = header
-	}
+//	func setupHeader() {
+//		let header = BooksViewHeader()
+//		tableView.tableHeaderView = header
+//	}
 	
 	//MARK: - Books
 	
@@ -136,7 +137,7 @@ class BooksViewController: UIViewController, AddBookViewControllerDelegate, Book
 		menuView.addAction(showReadingHabits)
 		menuView.addAction(showUserProfile)
 		menuView.addAction(cancel)
-		menuView.view.tintColor = .systemIndigo
+		menuView.view.tintColor = .accent
 		
 		present(menuView, animated: true, completion: nil)
 	}
@@ -196,7 +197,7 @@ extension BooksViewController: UITableViewDataSource, UITableViewDelegate {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let book = books[indexPath.row]
 		
-		let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier, for: indexPath) as! BookCell
+		let cell = tableView.dequeueReusableCell(withIdentifier: Constants.bookCellIdentifier, for: indexPath) as! BookCell
 		
 //		let progress = CGFloat(book.getPercentage()) / 100
 		
@@ -230,16 +231,16 @@ extension BooksViewController: UITableViewDataSource, UITableViewDelegate {
 	func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 		if editingStyle == .delete {
 			let deleteAlert = UIAlertController(title: "Warning", message: "Are you sure you want to delete '\(books[indexPath.row].title)' from your books?", preferredStyle: .alert)
-			let deleteAction = UIAlertAction(title: "YES", style: .destructive) {_ in
+			let deleteAction = UIAlertAction(title: "Yes", style: .destructive) {_ in
 				BookBrain.deleteBook(self.books[indexPath.row])
 				self.reloadBooks()
 				tableView.deleteRows(at: [indexPath], with: .fade)
 			}
 			
-			let cancelAction = UIAlertAction(title: "NO", style: .default)
+			let cancelAction = UIAlertAction(title: "No", style: .default)
 			deleteAlert.addAction(deleteAction)
 			deleteAlert.addAction(cancelAction)
-			deleteAlert.view.tintColor = .systemIndigo
+			deleteAlert.view.tintColor = .accent
 			self.present(deleteAlert, animated: true)
 		}
 	}
@@ -249,12 +250,13 @@ extension BooksViewController: UITableViewDataSource, UITableViewDelegate {
 	}
 	
 	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-		return ""
+		return nil
 	}
 	
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-		if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: Constants.headerIdentifier) as? BooksViewHeader {
+		if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: Constants.booksHeaderIdentifier) as? BooksViewHeader {
 			headerView.presenter = self
+			headerView.updateLabel()
 			return headerView
 		} else {
 			return nil

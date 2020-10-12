@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 class Utils {
 	static func formatDateToString(_ date: Date?) -> String {
@@ -30,6 +31,28 @@ class Utils {
 			return date
 		} else {
 			return nil
+		}
+	}
+	
+	static func getListFromArray(_ array: [String]) -> List<String> {
+		let list = List<String>()
+		if array.isEmpty { return list }
+		else {
+			for object in array {
+				list.append(object)
+			}
+			return list
+		}
+	}
+	
+	static func getArrayFromList(_ list: List<String>) -> [String] {
+		var array = [String]()
+		if list.isEmpty { return array }
+		else {
+			for object in list {
+				array.append(object)
+			}
+			return array
 		}
 	}
 }

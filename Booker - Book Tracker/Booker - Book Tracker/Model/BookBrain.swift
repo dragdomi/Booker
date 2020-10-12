@@ -120,6 +120,12 @@ class BookBrain {
 		}
 	}
 	
+	static func editBookQuotes(book: BookModel, quotes: List<String>) {
+		try! realm.write {
+			realm.create(BookModel.self, value: ["id": book.id, "quotes": quotes], update: .modified)
+		}
+	}
+	
 	static func getBookProgress(_ book: BookModel) -> CGFloat {
 		if book.totalPages == 0 {
 			return 0

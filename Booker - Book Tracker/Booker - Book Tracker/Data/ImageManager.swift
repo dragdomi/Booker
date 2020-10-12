@@ -11,10 +11,10 @@ import UIKit
 class ImageManager {
 	static let defaultBookCover = UIImage(named: "book.closed")
 	static func store (image: UIImage, forKey key: String) {
-		if let pngRepresentation = image.pngData() {
+		if let jpegRepresentation = image.jpegData(compressionQuality: 1.0) {
 			if let filePath = self.filePath(forKey: key) {
 				do  {
-					try pngRepresentation.write(to: filePath,
+					try jpegRepresentation.write(to: filePath,
 												options: .atomic)
 				} catch let err {
 					print("Saving file resulted in error: ", err)
@@ -39,7 +39,7 @@ class ImageManager {
 			return nil
 		}
 		
-		return documentURL.appendingPathComponent(key + ".png")
+		return documentURL.appendingPathComponent(key + ".jpeg")
 	}
 	
 	static func deleteImage(forKey key: String) {

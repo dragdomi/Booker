@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		A51854372497ABC800983DB8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A51854362497ABC800983DB8 /* GoogleService-Info.plist */; };
 		A51854392497DC6E00983DB8 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51854382497DC6E00983DB8 /* WelcomeViewController.swift */; };
+		A518897B253471CD0017AA57 /* QuotesViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A518897A253471CD0017AA57 /* QuotesViewHeader.swift */; };
+		A518897E253471DF0017AA57 /* QuotesViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = A518897D253471DF0017AA57 /* QuotesViewHeader.xib */; };
 		A52830A624C5BED200BED289 /* ReadingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52830A524C5BED200BED289 /* ReadingInfo.swift */; };
 		A52830AC24C5D3B700BED289 /* ReadingHabitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52830AB24C5D3B700BED289 /* ReadingHabitsViewController.swift */; };
 		A53145852529CEE400AB66F7 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53145842529CEE400AB66F7 /* UIColor.swift */; };
@@ -57,6 +59,8 @@
 		7FD9B88971AF4A51305F1C2A /* Pods-Booker - Book Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Booker - Book Tracker.release.xcconfig"; path = "Target Support Files/Pods-Booker - Book Tracker/Pods-Booker - Book Tracker.release.xcconfig"; sourceTree = "<group>"; };
 		A51854362497ABC800983DB8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A51854382497DC6E00983DB8 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		A518897A253471CD0017AA57 /* QuotesViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesViewHeader.swift; sourceTree = "<group>"; };
+		A518897D253471DF0017AA57 /* QuotesViewHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuotesViewHeader.xib; sourceTree = "<group>"; };
 		A52830A524C5BED200BED289 /* ReadingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingInfo.swift; sourceTree = "<group>"; };
 		A52830AB24C5D3B700BED289 /* ReadingHabitsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingHabitsViewController.swift; sourceTree = "<group>"; };
 		A53145842529CEE400AB66F7 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
@@ -188,11 +192,11 @@
 				A58A1A6425137D7300A29444 /* ImagePicker.swift */,
 				A5D917CF2499594C00452531 /* LoginViewController.swift */,
 				A5EB58AE252F647B00D90E0A /* NotesViewController.swift */,
+				A5BF69D12530A056000A94A3 /* QuotesViewController.swift */,
 				A5D917C72499568300452531 /* RegisterViewController.swift */,
 				A52830AB24C5D3B700BED289 /* ReadingHabitsViewController.swift */,
 				A51854382497DC6E00983DB8 /* WelcomeViewController.swift */,
 				A599B80E24D0430D00163D1A /* UserProfileViewController.swift */,
-				A5BF69D12530A056000A94A3 /* QuotesViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -209,6 +213,8 @@
 				A599B82D24D3066F00163D1A /* CircularProgressBar.swift */,
 				A5EB58BF252F8A4200D90E0A /* QuoteCell.swift */,
 				A5EB58C0252F8A4200D90E0A /* QuoteCell.xib */,
+				A518897A253471CD0017AA57 /* QuotesViewHeader.swift */,
+				A518897D253471DF0017AA57 /* QuotesViewHeader.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -314,6 +320,7 @@
 			files = (
 				A5EF5CD4251D0A8200FDE693 /* screenshot2.png in Resources */,
 				A51854372497ABC800983DB8 /* GoogleService-Info.plist in Resources */,
+				A518897E253471DF0017AA57 /* QuotesViewHeader.xib in Resources */,
 				A59258A924BE20920066CACE /* BookCell.xib in Resources */,
 				A5EF5CD7251D0AB600FDE693 /* screenshot3.png in Resources */,
 				A5EF5CCF251D0A6000FDE693 /* screenshot1.png in Resources */,
@@ -377,6 +384,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A518897B253471CD0017AA57 /* QuotesViewHeader.swift in Sources */,
 				A5D2BB62252E416A0096F356 /* UIButton.swift in Sources */,
 				A5D917D02499594C00452531 /* LoginViewController.swift in Sources */,
 				A51854392497DC6E00983DB8 /* WelcomeViewController.swift in Sources */,

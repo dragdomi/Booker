@@ -8,16 +8,13 @@
 
 import UIKit
 import Cosmos
+import RealmSwift
 
 protocol BookDetailsViewControllerDelegate {
 	func editBookData(_ editedBook: BookModel)
 }
 
-class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate, NotesViewControllerDelegate {
-	var book: BookModel!
-	var editedBook: BookModel?
-	var delegate: BookDetailsViewControllerDelegate?
-	
+class BookDetailsViewController: UIViewController {
 	@IBOutlet weak var infoView: UIView!
 	
 	@IBOutlet weak var bookCover: UIImageView!
@@ -35,13 +32,25 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 	@IBOutlet weak var lastReadDateLabel: UILabel!
 	@IBOutlet weak var finishDateLabel: UILabel!
 	
+	@IBOutlet weak var finishBookButton: UIButton!
 	@IBOutlet weak var updateProgressButton: UIButton!
 	@IBOutlet weak var notesButton: UIButton!
 	@IBOutlet weak var quotesButton: UIButton!
 	@IBOutlet weak var editButton: UIButton!
 	
+	var book: BookModel!
+	var editedBook: BookModel?
+	var delegate: BookDetailsViewControllerDelegate?
 	
-	@IBAction func updateProgress(_ sender: UIButton) {
+	@IBAction func finishBookButtonTapped(_ sender: UIButton) {
+		try! BookBrain.getRealm().write {
+			BookBrain.getRealm().create(BookModel.self, value: ["id":book.id, "pagesRead": book.totalPages, "lastReadDate": Utils.formatDateToString(Date()), "finishDate": Utils.formatDateToString(Date())], update: .modified)
+		}
+		handleBookData(book)
+		showBookFinishedView()
+	}
+	
+	@IBAction func updateProgressButtonTapped(_ sender: UIButton) {
 		let updateView = UIAlertController(title: "Update progress", message: "Enter new number of read pages", preferredStyle: .alert)
 		updateView.addTextField { textField in
 			textField.placeholder = "Pages"
@@ -58,7 +67,7 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 		
 		updateView.addAction(confirmAction)
 		updateView.addAction(cancelAction)
-		updateView.view.tintColor = .systemIndigo
+		updateView.view.tintColor = .accent
 		
 		present(updateView, animated: true, completion: nil)
 	}
@@ -68,6 +77,16 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 			notesViewController.delegate = self
 			notesViewController.notes = book.notes
 			navigationController?.present(notesViewController, animated: true, completion: nil)
+		}
+	}
+	
+	@IBAction func quotesButtonTapped(_ sender: UIButton) {
+		if let quotesViewController = storyboard?.instantiateViewController(identifier: Constants.ViewControllers.quotes) as? QuotesViewController {
+			quotesViewController.delegate = self
+			let quotes = Utils.getArrayFromList(book.quotes)
+			quotesViewController.book = book
+			quotesViewController.quotes = quotes
+			navigationController?.pushViewController(quotesViewController, animated: true)
 		}
 	}
 	
@@ -91,7 +110,7 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 		super.viewDidLoad()
 		configureView()
 		updateView(book: book)
-		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: nil)
+		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareBook))
 	}
 	
 	func configureView() {
@@ -110,6 +129,8 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 	}
 	
 	func configureButtons() {
+		finishBookButton.round()
+		finishBookButton.alignImageAndTitleVertically()
 		updateProgressButton.round()
 		updateProgressButton.alignImageAndTitleVertically()
 		notesButton.round()
@@ -175,6 +196,12 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 		}
 	}
 	
+	@objc func shareBook() {
+		let items = ["\"\(book.title)\" - \(book.author)"]
+		let shareView = UIActivityViewController(activityItems: items, applicationActivities: nil)
+		present(shareView, animated: true)
+	}
+	
 	func updateBookIfTextfieldIsNotEmpty(textField: UITextField) {
 		if textField.text != "" {
 			if let updatedPagesRead = Int(textField.text!) {
@@ -213,7 +240,7 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 		
 		substractAlert.addAction(yesAction)
 		substractAlert.addAction(noAction)
-		substractAlert.view.tintColor = .systemIndigo
+		substractAlert.view.tintColor = .accent
 		
 		present(substractAlert, animated: true, completion: nil)
 	}
@@ -221,17 +248,30 @@ class BookDetailsViewController: UIViewController, AddBookViewControllerDelegate
 	func showBookFinishedView() {
 		let bookFinishedView = UIAlertController(title: "Congratulations! 🥳", message: "You have just finished a book", preferredStyle: .alert)
 		bookFinishedView.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-		bookFinishedView.view.tintColor = .systemIndigo
+		bookFinishedView.view.tintColor = .accent
 		present(bookFinishedView, animated: true)
 	}
 	
+}
+
+//MARK: - Extensions
+
+extension BookDetailsViewController: AddBookViewControllerDelegate {
 	func handleBookData(_ book: BookModel) {
 		delegate?.editBookData(book)
 		self.book = book
 		updateView(book: book)
 	}
-	
+}
+
+extension BookDetailsViewController: NotesViewControllerDelegate {
 	func updateNotes(with notes: String) {
 		BookBrain.editBookNotes(book: book, notes: notes)
+	}
+}
+
+extension BookDetailsViewController: QuotesViewControllerDelegate {
+	func updateQuotes(with quotes: List<String>) {
+		BookBrain.editBookQuotes(book: book, quotes: quotes)
 	}
 }

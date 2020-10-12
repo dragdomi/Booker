@@ -9,9 +9,12 @@
 struct Constants {
 	static let appName = "Booker 📚"
 	static let dateFormat = "dd.MM.yyyy"
-	static let cellIdentifier = "BookCell"
-	static let cellNibName = "BookCell"
-	static let headerIdentifier = "BooksViewHeader"
+	static let bookCellIdentifier = "BookCell"
+	static let bookCellNibName = "BookCell"
+	static let booksHeaderIdentifier = "BooksViewHeader"
+	static let quoteCellIdentifier = "QuoteCell"
+	static let quoteCellNibName = "QuoteCell"
+	static let quotesHeaderIdentifier = "QuotesViewHeader"
 	
 	struct ViewControllers {
 		static let books = "BooksViewController"
@@ -19,6 +22,7 @@ struct Constants {
 		static let bookDetails = "BookDetailsViewController"
 		static let login = "LoginViewController"
 		static let notes = "NotesViewController"
+		static let quotes = "QuotesViewController"
 		static let register = "RegisterViewController"
 		static let readingHabits = "ReadingHabitsViewController"
 		static let userProfile = "UserProfileViewController"

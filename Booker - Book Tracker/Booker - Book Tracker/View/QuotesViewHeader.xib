@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="QuotesViewHeader" customModule="Booker___Book_Tracker" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="389" height="65"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rfH-5N-Vil">
+                    <rect key="frame" x="0.0" y="0.0" width="389" height="65"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title quotes (1)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IuY-g2-2sF">
+                            <rect key="frame" x="10" y="10" width="103" height="18"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                            <color key="textColor" name="SecondaryText"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" name="Divider"/>
+                    <constraints>
+                        <constraint firstItem="IuY-g2-2sF" firstAttribute="leading" secondItem="rfH-5N-Vil" secondAttribute="leading" constant="10" id="7P6-Ik-maE"/>
+                        <constraint firstItem="IuY-g2-2sF" firstAttribute="top" secondItem="rfH-5N-Vil" secondAttribute="top" constant="10" id="OTq-lq-b97"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="rfH-5N-Vil" secondAttribute="bottom" id="6V7-db-PIN"/>
+                <constraint firstItem="rfH-5N-Vil" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="PPS-bv-Uhg"/>
+                <constraint firstItem="rfH-5N-Vil" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="j5a-Tg-chL"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="rfH-5N-Vil" secondAttribute="trailing" id="tiK-FK-F2L"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="titleLabel" destination="IuY-g2-2sF" id="Bl7-LN-sH2"/>
+            </connections>
+            <point key="canvasLocation" x="96.376811594202906" y="363.28125"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="Divider">
+            <color red="0.9440000057220459" green="0.9440000057220459" blue="0.9440000057220459" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SecondaryText">
+            <color red="0.45899999141693115" green="0.45899999141693115" blue="0.45899999141693115" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

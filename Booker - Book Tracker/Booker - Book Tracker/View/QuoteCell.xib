@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" reuseIdentifier="QuoteCell" rowHeight="76" id="KGk-i7-Jjw" customClass="QuoteCell" customModule="Booker___Book_Tracker" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hMb-k7-3U0" userLabel="Quote View">
+                        <rect key="frame" x="10" y="10" width="300" height="40"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fkE-HF-eZp">
+                                <rect key="frame" x="50" y="0.0" width="250" height="40"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <color key="textColor" name="PrimaryText"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="quote.bubble" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="40n-hi-DMn">
+                                <rect key="frame" x="0.0" y="3.5" width="33" height="32.5"/>
+                                <color key="tintColor" name="Primary"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="40n-hi-DMn" secondAttribute="height" multiplier="1:1" id="VZI-nf-r9b"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="40n-hi-DMn" firstAttribute="top" secondItem="hMb-k7-3U0" secondAttribute="top" id="JHb-IY-igt"/>
+                            <constraint firstItem="fkE-HF-eZp" firstAttribute="top" secondItem="hMb-k7-3U0" secondAttribute="top" id="PIt-RY-IX6"/>
+                            <constraint firstAttribute="trailing" secondItem="fkE-HF-eZp" secondAttribute="trailing" id="UAU-R5-5fP"/>
+                            <constraint firstAttribute="height" constant="40" id="ent-k4-BU0"/>
+                            <constraint firstItem="fkE-HF-eZp" firstAttribute="leading" secondItem="40n-hi-DMn" secondAttribute="trailing" constant="10" id="gFq-CS-oaM"/>
+                            <constraint firstAttribute="bottom" secondItem="fkE-HF-eZp" secondAttribute="bottom" id="jNx-hS-LEO"/>
+                            <constraint firstItem="40n-hi-DMn" firstAttribute="leading" secondItem="hMb-k7-3U0" secondAttribute="leading" id="oLQ-0g-rPj"/>
+                            <constraint firstItem="40n-hi-DMn" firstAttribute="height" secondItem="hMb-k7-3U0" secondAttribute="height" id="zAW-vs-KhA"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" name="LightPrimary"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="hMb-k7-3U0" secondAttribute="trailing" constant="10" id="3D8-NA-7PC"/>
+                    <constraint firstAttribute="bottom" secondItem="hMb-k7-3U0" secondAttribute="bottom" constant="10" id="Ed4-Fv-iRO"/>
+                    <constraint firstItem="hMb-k7-3U0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="uxM-i9-FnD"/>
+                    <constraint firstItem="hMb-k7-3U0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="v6f-Ig-UDm"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="quoteImage" destination="40n-hi-DMn" id="6k0-15-tyG"/>
+                <outlet property="quoteLabel" destination="fkE-HF-eZp" id="9tl-rq-X7o"/>
+            </connections>
+            <point key="canvasLocation" x="-271.01449275362319" y="139.95535714285714"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="quote.bubble" catalog="system" width="128" height="110"/>
+        <namedColor name="LightPrimary">
+            <color red="0.84573306704707552" green="0.86652080701039313" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Primary">
+            <color red="0.24699999392032623" green="0.31799998879432678" blue="0.70999997854232788" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PrimaryText">
+            <color red="0.1289999932050705" green="0.1289999932050705" blue="0.1289999932050705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
