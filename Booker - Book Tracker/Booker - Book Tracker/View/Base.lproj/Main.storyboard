@@ -46,22 +46,22 @@
             </objects>
             <point key="canvasLocation" x="3928.985507246377" y="83.705357142857139"/>
         </scene>
-        <!--Add Book View Controller-->
+        <!--Add Book Manually View Controller-->
         <scene sceneID="Fjr-id-9Ux">
             <objects>
-                <viewController storyboardIdentifier="AddBookViewController" id="sKH-Mh-Ug8" customClass="AddBookViewController" customModule="Booker___Book_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddBookViewController" id="sKH-Mh-Ug8" customClass="AddBookManuallyViewController" customModule="Booker___Book_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yhp-lB-jzK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aZc-Q0-EAN">
-                                <rect key="frame" x="20" y="300" width="374" height="562"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="aZc-Q0-EAN">
+                                <rect key="frame" x="20" y="341" width="374" height="521"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l6z-in-pSf">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="80"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IyR-dC-2hB">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="80"/>
                                                 <color key="backgroundColor" name="LightPrimary"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <color key="tintColor" name="Accent"/>
@@ -73,7 +73,7 @@
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book.closed" catalog="system" highlighted="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gRS-dE-Vkn">
-                                                <rect key="frame" x="5" y="5" width="67.5" height="90"/>
+                                                <rect key="frame" x="5" y="5" width="52.5" height="70"/>
                                                 <color key="tintColor" name="Primary"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="gRS-dE-Vkn" secondAttribute="height" multiplier="3:4" id="x1b-sE-T1I"/>
@@ -81,7 +81,7 @@
                                             </imageView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="100" id="F33-5B-UU6"/>
+                                            <constraint firstAttribute="height" constant="80" id="F33-5B-UU6"/>
                                             <constraint firstAttribute="trailing" secondItem="IyR-dC-2hB" secondAttribute="trailing" id="LRZ-iw-QIg"/>
                                             <constraint firstItem="IyR-dC-2hB" firstAttribute="leading" secondItem="l6z-in-pSf" secondAttribute="leading" id="Qop-iE-8Kf"/>
                                             <constraint firstAttribute="bottom" secondItem="IyR-dC-2hB" secondAttribute="bottom" id="Ttz-Jo-P7w"/>
@@ -92,7 +92,7 @@
                                         </constraints>
                                     </view>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="UNE-jy-VA9" userLabel="TitleTextField">
-                                        <rect key="frame" x="0.0" y="110" width="374" height="32"/>
+                                        <rect key="frame" x="0.0" y="87" width="374" height="32"/>
                                         <color key="backgroundColor" name="LightPrimary"/>
                                         <color key="tintColor" name="Accent"/>
                                         <constraints>
@@ -106,7 +106,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Author" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="dLE-0C-vuA" userLabel="AuthorTextField">
-                                        <rect key="frame" x="0.0" y="152" width="374" height="32"/>
+                                        <rect key="frame" x="0.0" y="126" width="374" height="32"/>
                                         <color key="backgroundColor" name="LightPrimary"/>
                                         <color key="tintColor" name="Accent"/>
                                         <constraints>
@@ -120,7 +120,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Read Pages" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="g6G-uS-cx4" userLabel="PagesReadTextField">
-                                        <rect key="frame" x="0.0" y="194" width="374" height="32"/>
+                                        <rect key="frame" x="0.0" y="165" width="374" height="32"/>
                                         <color key="backgroundColor" name="LightPrimary"/>
                                         <color key="tintColor" name="Accent"/>
                                         <constraints>
@@ -134,7 +134,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Total Pages" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="YIZ-dD-sUR" userLabel="TotalPagesTextField">
-                                        <rect key="frame" x="0.0" y="236" width="374" height="32"/>
+                                        <rect key="frame" x="0.0" y="204" width="374" height="32"/>
                                         <color key="backgroundColor" name="LightPrimary"/>
                                         <color key="tintColor" name="Accent"/>
                                         <constraints>
@@ -148,7 +148,7 @@
                                         </connections>
                                     </textField>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Vcn-yY-MAj">
-                                        <rect key="frame" x="0.0" y="278" width="374" height="32"/>
+                                        <rect key="frame" x="0.0" y="243" width="374" height="32"/>
                                         <color key="backgroundColor" name="LightPrimary"/>
                                         <segments>
                                             <segment title="Begin date:"/>
@@ -160,7 +160,7 @@
                                         </connections>
                                     </segmentedControl>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="XTr-fq-5mQ" userLabel="BeginDatePicker">
-                                        <rect key="frame" x="0.0" y="319" width="374" height="200"/>
+                                        <rect key="frame" x="0.0" y="281" width="374" height="200"/>
                                         <color key="backgroundColor" name="LightPrimary"/>
                                         <color key="tintColor" name="Accent"/>
                                         <constraints>
@@ -177,7 +177,7 @@
                                         </connections>
                                     </datePicker>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3cR-AM-ciX">
-                                        <rect key="frame" x="0.0" y="529" width="374" height="33"/>
+                                        <rect key="frame" x="0.0" y="488" width="374" height="33"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <color key="tintColor" name="Accent"/>
                                         <state key="normal" title="Confirm">
@@ -358,8 +358,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="kQD-PH-HVB">
-                                <rect key="frame" x="10" y="54" width="394" height="813"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="kQD-PH-HVB">
+                                <rect key="frame" x="10" y="54" width="394" height="805"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rrd-kN-JDG">
                                         <rect key="frame" x="0.0" y="0.0" width="394" height="672.5"/>
@@ -576,11 +576,11 @@
                                             <constraint firstItem="aNT-4X-MC9" firstAttribute="leading" secondItem="rrd-kN-JDG" secondAttribute="leading" constant="10" id="zOQ-pP-NSh"/>
                                         </constraints>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hAA-9p-y9y">
-                                        <rect key="frame" x="0.0" y="682.5" width="394" height="60"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="hAA-9p-y9y">
+                                        <rect key="frame" x="0.0" y="678.5" width="394" height="60"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QuG-Kd-HFF">
-                                                <rect key="frame" x="0.0" y="0.0" width="192" height="60"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="194" height="60"/>
                                                 <color key="backgroundColor" name="LightPrimary"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <color key="tintColor" name="Accent"/>
@@ -592,7 +592,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="shr-1S-WCR">
-                                                <rect key="frame" x="202" y="0.0" width="192" height="60"/>
+                                                <rect key="frame" x="200" y="0.0" width="194" height="60"/>
                                                 <color key="backgroundColor" name="LightPrimary"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <color key="tintColor" name="Accent"/>
@@ -605,11 +605,11 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Rcb-jM-EoW">
-                                        <rect key="frame" x="0.0" y="752.5" width="394" height="60.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Rcb-jM-EoW">
+                                        <rect key="frame" x="0.0" y="744.5" width="394" height="60.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8xI-lg-1Uc">
-                                                <rect key="frame" x="0.0" y="0.0" width="124.5" height="60.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="127.5" height="60.5"/>
                                                 <color key="backgroundColor" name="LightPrimary"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <color key="tintColor" name="Accent"/>
@@ -621,7 +621,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhT-rq-UN1">
-                                                <rect key="frame" x="134.5" y="0.0" width="125" height="60.5"/>
+                                                <rect key="frame" x="133.5" y="0.0" width="127" height="60.5"/>
                                                 <color key="backgroundColor" name="LightPrimary"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <color key="tintColor" name="Accent"/>
@@ -633,7 +633,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ji2-15-7TU">
-                                                <rect key="frame" x="269.5" y="0.0" width="124.5" height="60.5"/>
+                                                <rect key="frame" x="266.5" y="0.0" width="127.5" height="60.5"/>
                                                 <color key="backgroundColor" name="LightPrimary"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <state key="normal" title="Edit" image="square.and.pencil" catalog="system">
@@ -695,7 +695,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="Qzr-jE-5aa">
-                                <rect key="frame" x="10" y="54" width="394" height="808"/>
+                                <rect key="frame" x="10" y="54" width="394" height="842"/>
                                 <color key="backgroundColor" name="Divider"/>
                                 <color key="tintColor" name="Accent"/>
                                 <color key="textColor" name="PrimaryText"/>
@@ -707,7 +707,7 @@
                         <color key="backgroundColor" name="Divider"/>
                         <constraints>
                             <constraint firstItem="Qzr-jE-5aa" firstAttribute="top" secondItem="ppH-zg-vz3" secondAttribute="top" constant="10" id="Owc-kS-CDh"/>
-                            <constraint firstItem="ppH-zg-vz3" firstAttribute="bottom" secondItem="Qzr-jE-5aa" secondAttribute="bottom" id="TZn-l5-ICC"/>
+                            <constraint firstAttribute="bottom" secondItem="Qzr-jE-5aa" secondAttribute="bottom" id="TZn-l5-ICC"/>
                             <constraint firstItem="ppH-zg-vz3" firstAttribute="trailing" secondItem="Qzr-jE-5aa" secondAttribute="trailing" constant="10" id="Td7-3F-ZaS"/>
                             <constraint firstItem="Qzr-jE-5aa" firstAttribute="leading" secondItem="ppH-zg-vz3" secondAttribute="leading" constant="10" id="cLE-S7-Qgu"/>
                         </constraints>
@@ -732,7 +732,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <color key="backgroundColor" name="Divider"/>
                                 <color key="tintColor" name="Accent"/>
-                                <inset key="separatorInset" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="separatorInset" minX="60" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="8Y6-Yk-CML">
                                         <rect key="frame" x="0.0" y="55.5" width="414" height="43.5"/>
@@ -777,6 +777,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dJT-2Z-bF9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6015.9420289855079" y="752.67857142857144"/>
+        </scene>
+        <!--Quote View Controller-->
+        <scene sceneID="RR5-mG-pcb">
+            <objects>
+                <viewController storyboardIdentifier="QuoteViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qpX-jc-AJu" customClass="QuoteViewController" customModule="Booker___Book_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qpl-Z4-lT4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bB4-BO-HnU">
+                                <rect key="frame" x="10" y="54" width="394" height="842"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" name="PrimaryText"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ESb-8c-Ler"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ESb-8c-Ler" firstAttribute="trailing" secondItem="bB4-BO-HnU" secondAttribute="trailing" constant="10" id="C4v-FV-DtY"/>
+                            <constraint firstItem="bB4-BO-HnU" firstAttribute="top" secondItem="ESb-8c-Ler" secondAttribute="top" constant="10" id="M0J-DP-w2b"/>
+                            <constraint firstAttribute="bottom" secondItem="bB4-BO-HnU" secondAttribute="bottom" id="RHa-qn-4A4"/>
+                            <constraint firstItem="bB4-BO-HnU" firstAttribute="leading" secondItem="ESb-8c-Ler" secondAttribute="leading" constant="10" id="jbT-k8-xby"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="bB4-BO-HnU" id="li6-y2-PCh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nen-Za-fbk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6016" y="1418"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="8WC-Xi-LoT">

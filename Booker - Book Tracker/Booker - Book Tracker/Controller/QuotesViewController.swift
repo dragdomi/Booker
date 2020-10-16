@@ -36,14 +36,14 @@ class QuotesViewController: UIViewController {
 		}
 		
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showAddQuoteView))
-//		setupHeader()
+		//		setupHeader()
 	}
 	
-//	func setupHeader() {
-//		let header = QuotesViewHeader()
-//		tableView.tableHeaderView = header
-//		header.updateLabel()
-//	}
+	//	func setupHeader() {
+	//		let header = QuotesViewHeader()
+	//		tableView.tableHeaderView = header
+	//		header.updateLabel()
+	//	}
 	
 	func updateUI() {
 		
@@ -93,6 +93,21 @@ class QuotesViewController: UIViewController {
 	}
 }
 
+//MARK: - Extensions
+
+extension QuotesViewController: QuoteViewControllerDelegate {
+	func updateQuote(quoteID: Int, with text: String) {
+		if text.isEmpty {
+			quotes.remove(at: quoteID)
+		} else {
+			quotes[quoteID] = text
+		}
+		let quotesList = Utils.getListFromArray(quotes)
+		delegate?.updateQuotes(with: quotesList)
+		tableView.reloadData()
+	}
+}
+
 extension QuotesViewController: UITableViewDelegate, UITableViewDataSource {
 	func numberOfSections(in tableView: UITableView) -> Int {
 		return 1
@@ -103,26 +118,12 @@ extension QuotesViewController: UITableViewDelegate, UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		let editQuoteView = UIAlertController(title: "Edit Quote", message: nil, preferredStyle: .alert)
-		editQuoteView.addTextField(configurationHandler: { textField in
-			textField.text = self.quotes[indexPath.row]
-			textField.placeholder = "Quote"
-			textField.keyboardType = .default
-		})
-		
-		let confirmAction = UIAlertAction(title: "Done", style: .default) { [weak editQuoteView] _ in
-			guard let editQuoteView = editQuoteView, let textField = editQuoteView.textFields?.first else { return }
-			self.editQuote(quoteID: indexPath.row, textField: textField)
-			tableView.reloadData()
+		if let quoteViewController = storyboard?.instantiateViewController(identifier: Constants.ViewControllers.quote) as? QuoteViewController {
+			quoteViewController.delegate = self
+			quoteViewController.quoteID = indexPath.row
+			quoteViewController.quote = quotes[indexPath.row]
+			navigationController?.present(quoteViewController, animated: true, completion: nil)
 		}
-		
-		let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-		
-		editQuoteView.addAction(confirmAction)
-		editQuoteView.addAction(cancelAction)
-		editQuoteView.view.tintColor = .accent
-		
-		present(editQuoteView, animated: true, completion: nil)
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -11,6 +11,7 @@
 		A51854392497DC6E00983DB8 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51854382497DC6E00983DB8 /* WelcomeViewController.swift */; };
 		A518897B253471CD0017AA57 /* QuotesViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A518897A253471CD0017AA57 /* QuotesViewHeader.swift */; };
 		A518897E253471DF0017AA57 /* QuotesViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = A518897D253471DF0017AA57 /* QuotesViewHeader.xib */; };
+		A5188983253762BB0017AA57 /* QuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5188982253762BB0017AA57 /* QuoteViewController.swift */; };
 		A52830A624C5BED200BED289 /* ReadingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52830A524C5BED200BED289 /* ReadingInfo.swift */; };
 		A52830AC24C5D3B700BED289 /* ReadingHabitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52830AB24C5D3B700BED289 /* ReadingHabitsViewController.swift */; };
 		A53145852529CEE400AB66F7 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53145842529CEE400AB66F7 /* UIColor.swift */; };
@@ -27,7 +28,7 @@
 		A577770D250B7E7A0044451D /* BooksViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A577770B250B7E7A0044451D /* BooksViewHeader.swift */; };
 		A577770E250B7E7A0044451D /* BooksViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = A577770C250B7E7A0044451D /* BooksViewHeader.xib */; };
 		A58A1A6525137D7300A29444 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58A1A6425137D7300A29444 /* ImagePicker.swift */; };
-		A5918624241D430400002A11 /* AddBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5918623241D430400002A11 /* AddBookViewController.swift */; };
+		A5918624241D430400002A11 /* AddBookManuallyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5918623241D430400002A11 /* AddBookManuallyViewController.swift */; };
 		A59258A924BE20920066CACE /* BookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A59258A824BE20920066CACE /* BookCell.xib */; };
 		A59258AB24BE2C980066CACE /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59258AA24BE2C980066CACE /* BookCell.swift */; };
 		A599B80F24D0430D00163D1A /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A599B80E24D0430D00163D1A /* UserProfileViewController.swift */; };
@@ -61,6 +62,7 @@
 		A51854382497DC6E00983DB8 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		A518897A253471CD0017AA57 /* QuotesViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesViewHeader.swift; sourceTree = "<group>"; };
 		A518897D253471DF0017AA57 /* QuotesViewHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuotesViewHeader.xib; sourceTree = "<group>"; };
+		A5188982253762BB0017AA57 /* QuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewController.swift; sourceTree = "<group>"; };
 		A52830A524C5BED200BED289 /* ReadingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingInfo.swift; sourceTree = "<group>"; };
 		A52830AB24C5D3B700BED289 /* ReadingHabitsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingHabitsViewController.swift; sourceTree = "<group>"; };
 		A53145842529CEE400AB66F7 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
@@ -79,7 +81,7 @@
 		A577770B250B7E7A0044451D /* BooksViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BooksViewHeader.swift; sourceTree = "<group>"; };
 		A577770C250B7E7A0044451D /* BooksViewHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BooksViewHeader.xib; sourceTree = "<group>"; };
 		A58A1A6425137D7300A29444 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
-		A5918623241D430400002A11 /* AddBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookViewController.swift; sourceTree = "<group>"; };
+		A5918623241D430400002A11 /* AddBookManuallyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookManuallyViewController.swift; sourceTree = "<group>"; };
 		A59258A824BE20920066CACE /* BookCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookCell.xib; sourceTree = "<group>"; };
 		A59258AA24BE2C980066CACE /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 		A599B80E24D0430D00163D1A /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
@@ -186,12 +188,13 @@
 		A53E2BEF241D07190013152C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				A5918623241D430400002A11 /* AddBookViewController.swift */,
+				A5918623241D430400002A11 /* AddBookManuallyViewController.swift */,
 				A53E2BDF241D063B0013152C /* BooksViewController.swift */,
 				A5AD99CD2422995200E0A6D9 /* BookDetailsViewController.swift */,
 				A58A1A6425137D7300A29444 /* ImagePicker.swift */,
 				A5D917CF2499594C00452531 /* LoginViewController.swift */,
 				A5EB58AE252F647B00D90E0A /* NotesViewController.swift */,
+				A5188982253762BB0017AA57 /* QuoteViewController.swift */,
 				A5BF69D12530A056000A94A3 /* QuotesViewController.swift */,
 				A5D917C72499568300452531 /* RegisterViewController.swift */,
 				A52830AB24C5D3B700BED289 /* ReadingHabitsViewController.swift */,
@@ -393,6 +396,7 @@
 				A599B82E24D3066F00163D1A /* CircularProgressBar.swift in Sources */,
 				A5D917CA249957B900452531 /* Constants.swift in Sources */,
 				A5D917C82499568300452531 /* RegisterViewController.swift in Sources */,
+				A5188983253762BB0017AA57 /* QuoteViewController.swift in Sources */,
 				A599B80F24D0430D00163D1A /* UserProfileViewController.swift in Sources */,
 				A599B82C24D3006300163D1A /* HorizontalProgressBar.swift in Sources */,
 				A59258AB24BE2C980066CACE /* BookCell.swift in Sources */,
@@ -403,7 +407,7 @@
 				A577770D250B7E7A0044451D /* BooksViewHeader.swift in Sources */,
 				A52830A624C5BED200BED289 /* ReadingInfo.swift in Sources */,
 				A5AD99CE2422995200E0A6D9 /* BookDetailsViewController.swift in Sources */,
-				A5918624241D430400002A11 /* AddBookViewController.swift in Sources */,
+				A5918624241D430400002A11 /* AddBookManuallyViewController.swift in Sources */,
 				A599B81124D0491F00163D1A /* Utils.swift in Sources */,
 				A5EB58B3252F7E7500D90E0A /* UITextView.swift in Sources */,
 				A53E2BF5241D08FF0013152C /* BookBrain.swift in Sources */,

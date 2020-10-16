@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BooksViewController: UIViewController, AddBookViewControllerDelegate, BookDetailsViewControllerDelegate {
+class BooksViewController: UIViewController, AddBookManuallyViewControllerDelegate, BookDetailsViewControllerDelegate {
 	var searchController = UISearchController()
 	var books: [BookModel] = []
 	var booksCopy: [BookModel] = []
@@ -46,10 +46,10 @@ class BooksViewController: UIViewController, AddBookViewControllerDelegate, Book
 		navigationController?.navigationBar.shadowImage = UIImage()
 		navigationItem.hidesBackButton = true
 		navigationItem.leftBarButtonItem = UIBarButtonItem(title: "···", style: .done, target: self, action: #selector(showMenu))
-		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBookButton))
+		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBookButtonTapped))
 		
 		setupSearchController()
-//		setupHeader()
+		//		setupHeader()
 		
 		title = "My Books"
 	}
@@ -69,10 +69,10 @@ class BooksViewController: UIViewController, AddBookViewControllerDelegate, Book
 		navigationItem.hidesSearchBarWhenScrolling = false
 	}
 	
-//	func setupHeader() {
-//		let header = BooksViewHeader()
-//		tableView.tableHeaderView = header
-//	}
+	//	func setupHeader() {
+	//		let header = BooksViewHeader()
+	//		tableView.tableHeaderView = header
+	//	}
 	
 	//MARK: - Books
 	
@@ -142,11 +142,28 @@ class BooksViewController: UIViewController, AddBookViewControllerDelegate, Book
 		present(menuView, animated: true, completion: nil)
 	}
 	
-	@objc func addBookButton() {
-		if let addBookViewController = storyboard?.instantiateViewController(identifier: Constants.ViewControllers.addBook) as? AddBookViewController {
+	@objc func addBookButtonTapped() {
+		let addBookMenu = UIAlertController(title: "Add Book", message: nil, preferredStyle: .alert)
+		let scanBarcode = UIAlertAction(title: "Scan Barcode", style: .default, handler: nil)
+		let searchOnline = UIAlertAction(title: "Search Online", style: .default, handler: nil)
+		let addBookManually = UIAlertAction(title: "Add Manually", style: .default) { _ in
+			self.addBookManually()
+		}
+		
+		addBookMenu.addAction(scanBarcode)
+		addBookMenu.addAction(searchOnline)
+		addBookMenu.addAction(addBookManually)
+		
+		addBookMenu.view.tintColor = UIColor.accent
+		
+		present(addBookMenu, animated: true, completion: nil)
+		
+	}
+	
+	func addBookManually() {
+		if let addBookViewController = storyboard?.instantiateViewController(identifier: Constants.ViewControllers.addBook) as? AddBookManuallyViewController {
 			addBookViewController.delegate = self
 			addBookViewController.bookID = getFreeBookID()
-			addBookViewController.title = "Add Book"
 			navigationController?.pushViewController(addBookViewController, animated: true)
 		}
 	}
@@ -199,7 +216,7 @@ extension BooksViewController: UITableViewDataSource, UITableViewDelegate {
 		
 		let cell = tableView.dequeueReusableCell(withIdentifier: Constants.bookCellIdentifier, for: indexPath) as! BookCell
 		
-//		let progress = CGFloat(book.getPercentage()) / 100
+		//		let progress = CGFloat(book.getPercentage()) / 100
 		
 		cell.progressBar.setProgress(BookBrain.getBookProgress(book)) 
 		cell.configure()

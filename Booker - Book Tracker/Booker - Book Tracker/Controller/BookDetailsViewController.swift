@@ -91,7 +91,7 @@ class BookDetailsViewController: UIViewController {
 	}
 	
 	@IBAction func editButtonTapped(_ sender: UIButton) {
-		if let addBookViewController = storyboard?.instantiateViewController(identifier: Constants.ViewControllers.addBook) as? AddBookViewController {
+		if let addBookViewController = storyboard?.instantiateViewController(identifier: Constants.ViewControllers.addBook) as? AddBookManuallyViewController {
 			addBookViewController.delegate = self
 			addBookViewController.title = "Edit Book"
 			addBookViewController.bookID = book.id
@@ -256,7 +256,7 @@ class BookDetailsViewController: UIViewController {
 
 //MARK: - Extensions
 
-extension BookDetailsViewController: AddBookViewControllerDelegate {
+extension BookDetailsViewController: AddBookManuallyViewControllerDelegate {
 	func handleBookData(_ book: BookModel) {
 		delegate?.editBookData(book)
 		self.book = book

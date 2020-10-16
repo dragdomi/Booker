@@ -8,11 +8,11 @@
 
 import UIKit
 
-protocol AddBookViewControllerDelegate {
+protocol AddBookManuallyViewControllerDelegate {
 	func handleBookData(_ book: BookModel)
 }
 
-class AddBookViewController: UIViewController {
+class AddBookManuallyViewController: UIViewController {
 	@IBOutlet weak var coverImageView: UIView!
 	@IBOutlet weak var coverImage: UIImageView!
 	@IBOutlet weak var coverImageButton: UIButton!
@@ -23,7 +23,7 @@ class AddBookViewController: UIViewController {
 	@IBOutlet weak var dateSegmentedControl: UISegmentedControl!
 	@IBOutlet weak var datePicker: UIDatePicker!
 	@IBOutlet weak var addBookButton: UIButton!
-	var delegate: AddBookViewControllerDelegate?
+	var delegate: AddBookManuallyViewControllerDelegate?
 	var imagePicker: ImagePicker!
 	var bookID: Int?
 	var bookCover: String?
@@ -37,6 +37,7 @@ class AddBookViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		title = "Add Book Manually"
 		self.imagePicker = ImagePicker(presentationController: self, delegate: self)
 		
 		if let safeBookCover = bookCover {
@@ -260,7 +261,7 @@ class AddBookViewController: UIViewController {
 	}
 }
 
-extension AddBookViewController: ImagePickerDelegate {
+extension AddBookManuallyViewController: ImagePickerDelegate {
 	func didSelect(image: UIImage?) {
 		if let image = image {
 			self.coverImage.image = image
