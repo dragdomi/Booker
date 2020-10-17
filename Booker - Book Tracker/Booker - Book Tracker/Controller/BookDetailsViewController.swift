@@ -161,28 +161,28 @@ class BookDetailsViewController: UIViewController {
 		titleLabel.text = book.title
 		authorLabel.text = book.author
 		
-		readStateLabel.text = " \(book.getReadingState())"
-		progressLabel.text = " \(Int(book.getPercentage()))% (Page \(book.pagesRead))"
-		totalPagesLabel.text = " \(book.totalPages)"
-		readTimeLabel.text = " \(book.getReadTime()) \(getReadTimeUnit())"
+		readStateLabel.text = "\(book.getReadingState())"
+		progressLabel.text = "\(Int(book.getPercentage()))% (Page \(book.pagesRead))"
+		totalPagesLabel.text = "\(book.totalPages)"
+		readTimeLabel.text = "\(book.getReadTime()) \(getReadTimeUnit())"
 		progressBar.setProgress(CGFloat(book.getPercentage() / 100.0))
 		
 		if book.beginDate != "" {
-			beginDateLabel.text = " \(book.beginDate)"
+			beginDateLabel.text = "\(book.beginDate)"
 		} else {
-			beginDateLabel.text = " -"
+			beginDateLabel.text = "-"
 		}
 		
 		if book.lastReadDate != "" {
-			lastReadDateLabel.text = " \(book.lastReadDate)"
+			lastReadDateLabel.text = "\(book.lastReadDate)"
 		} else {
-			lastReadDateLabel.text = " -"
+			lastReadDateLabel.text = "-"
 		}
 		
 		if book.finishDate != "" {
-			finishDateLabel.text = " \(book.finishDate)"
+			finishDateLabel.text = "\(book.finishDate)"
 		} else {
-			finishDateLabel.text = " -"
+			finishDateLabel.text = "-"
 		}
 		
 		ratingView.rating = book.rating

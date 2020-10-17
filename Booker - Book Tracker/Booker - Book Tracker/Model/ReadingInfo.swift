@@ -9,15 +9,29 @@
 import Foundation
 
 class ReadingInfo {
-	private static var pagesPerDate: [String: Int] = [:]
+	private static var pagesPerDate: [String] = []
+	private static var booksPerDate: [String] = []
 	
 	static func addPagesToDate(pages: Int, date: String) {
-		pagesPerDate[date] = pagesPerDate[date] ?? 0 + pages
+		let pagesPerDateEntry = "\(date)-\(pages)"
+		pagesPerDate.append(pagesPerDateEntry)
 	}
 	
 	static func getPagesPerDate(date: String) -> Int {
-		return pagesPerDate[date] ?? 0
+		for entry in pagesPerDate {
+			let index = entry.firstIndex(of: "-")!
+			let datePart = entry[..<index]
+			if datePart == date {
+				let endIndex = entry.endIndex
+				let pages = entry[index...endIndex]
+				let pagesInt = Int(pages) ?? 0
+				return pagesInt
+			}
+		}
+		return 0
 	}
+	
+	//MARK: - Books
 	
 	static var booksNotStarted: [BookModel] {
 		var booksNotStarted = [BookModel]()
@@ -63,6 +77,8 @@ class ReadingInfo {
 		return booksRead.count
 	}
 	
+	//MARK: - Pages
+	
 	private static var totalPagesReadNumber: Int {
 		var totalPagesReadNumber = 0
 		let books = BookBrain.getBooks()
@@ -100,6 +116,16 @@ class ReadingInfo {
 	
 	static func getTotalPagesLeftNumber() -> Int {
 		return totalPagesLeftNumber
+	}
+	
+	static func getPagesPerDay(date: String) -> Int {
+		return getPagesPerDate(date: date)
+	}
+	
+	static func getPagesPerMonth() -> Int {
+		var pagesPerMonth = 0
+		return 0
+		
 	}
 	
 	
