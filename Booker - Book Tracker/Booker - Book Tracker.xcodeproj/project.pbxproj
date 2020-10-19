@@ -207,13 +207,13 @@
 		A53E2BF0241D071C0013152C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A53E2BE1241D063B0013152C /* Main.storyboard */,
 				A59258A824BE20920066CACE /* BookCell.xib */,
 				A59258AA24BE2C980066CACE /* BookCell.swift */,
 				A577770B250B7E7A0044451D /* BooksViewHeader.swift */,
 				A577770C250B7E7A0044451D /* BooksViewHeader.xib */,
 				A599B82D24D3066F00163D1A /* CircularProgressBar.swift */,
 				A599B82B24D3006300163D1A /* HorizontalProgressBar.swift */,
+				A53E2BE1241D063B0013152C /* Main.storyboard */,
 				A5EB58BF252F8A4200D90E0A /* QuoteCell.swift */,
 				A5EB58C0252F8A4200D90E0A /* QuoteCell.xib */,
 				A518897A253471CD0017AA57 /* QuotesViewHeader.swift */,

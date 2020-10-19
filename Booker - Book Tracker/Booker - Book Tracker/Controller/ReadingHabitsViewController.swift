@@ -7,17 +7,20 @@
 //
 
 import UIKit
+import Charts
 
 class ReadingHabitsViewController: UIViewController {
-
+	@IBOutlet weak var mainStackView: UIStackView!
+	
 	@IBOutlet weak var pagesView: UIView!
 	
 	@IBOutlet weak var booksView: UIView!
 	
-
+	@IBOutlet weak var yearStackView: UIStackView!
 	
 	override func viewDidLoad() {
 		setupUI()
+	
 	}
 	
 	func setupUI() {
@@ -27,6 +30,11 @@ class ReadingHabitsViewController: UIViewController {
 		
 		booksView.round()
 
+		yearStackView.round()
 
 	}
+}
+
+extension ReadingHabitsViewController: ChartViewDelegate {
+	
 }
