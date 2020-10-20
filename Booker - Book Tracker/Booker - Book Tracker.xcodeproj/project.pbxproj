@@ -27,6 +27,8 @@
 		A56BF972251B586C000F5E29 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56BF971251B586C000F5E29 /* ImageManager.swift */; };
 		A577770D250B7E7A0044451D /* BooksViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A577770B250B7E7A0044451D /* BooksViewHeader.swift */; };
 		A577770E250B7E7A0044451D /* BooksViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = A577770C250B7E7A0044451D /* BooksViewHeader.xib */; };
+		A57B865F253F250600DAC9F2 /* MonthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57B865D253F250600DAC9F2 /* MonthCell.swift */; };
+		A57B8660253F250600DAC9F2 /* MonthCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A57B865E253F250600DAC9F2 /* MonthCell.xib */; };
 		A58A1A6525137D7300A29444 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58A1A6425137D7300A29444 /* ImagePicker.swift */; };
 		A5918624241D430400002A11 /* AddBookManuallyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5918623241D430400002A11 /* AddBookManuallyViewController.swift */; };
 		A59258A924BE20920066CACE /* BookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A59258A824BE20920066CACE /* BookCell.xib */; };
@@ -80,6 +82,8 @@
 		A56BF971251B586C000F5E29 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		A577770B250B7E7A0044451D /* BooksViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BooksViewHeader.swift; sourceTree = "<group>"; };
 		A577770C250B7E7A0044451D /* BooksViewHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BooksViewHeader.xib; sourceTree = "<group>"; };
+		A57B865D253F250600DAC9F2 /* MonthCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCell.swift; sourceTree = "<group>"; };
+		A57B865E253F250600DAC9F2 /* MonthCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MonthCell.xib; sourceTree = "<group>"; };
 		A58A1A6425137D7300A29444 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		A5918623241D430400002A11 /* AddBookManuallyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookManuallyViewController.swift; sourceTree = "<group>"; };
 		A59258A824BE20920066CACE /* BookCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookCell.xib; sourceTree = "<group>"; };
@@ -214,6 +218,8 @@
 				A599B82D24D3066F00163D1A /* CircularProgressBar.swift */,
 				A599B82B24D3006300163D1A /* HorizontalProgressBar.swift */,
 				A53E2BE1241D063B0013152C /* Main.storyboard */,
+				A57B865E253F250600DAC9F2 /* MonthCell.xib */,
+				A57B865D253F250600DAC9F2 /* MonthCell.swift */,
 				A5EB58BF252F8A4200D90E0A /* QuoteCell.swift */,
 				A5EB58C0252F8A4200D90E0A /* QuoteCell.xib */,
 				A518897A253471CD0017AA57 /* QuotesViewHeader.swift */,
@@ -324,6 +330,7 @@
 				A5EF5CD4251D0A8200FDE693 /* screenshot2.png in Resources */,
 				A51854372497ABC800983DB8 /* GoogleService-Info.plist in Resources */,
 				A518897E253471DF0017AA57 /* QuotesViewHeader.xib in Resources */,
+				A57B8660253F250600DAC9F2 /* MonthCell.xib in Resources */,
 				A59258A924BE20920066CACE /* BookCell.xib in Resources */,
 				A5EF5CD7251D0AB600FDE693 /* screenshot3.png in Resources */,
 				A5EF5CCF251D0A6000FDE693 /* screenshot1.png in Resources */,
@@ -400,6 +407,7 @@
 				A599B80F24D0430D00163D1A /* UserProfileViewController.swift in Sources */,
 				A599B82C24D3006300163D1A /* HorizontalProgressBar.swift in Sources */,
 				A59258AB24BE2C980066CACE /* BookCell.swift in Sources */,
+				A57B865F253F250600DAC9F2 /* MonthCell.swift in Sources */,
 				A53145852529CEE400AB66F7 /* UIColor.swift in Sources */,
 				A53E2BE0241D063B0013152C /* BooksViewController.swift in Sources */,
 				A5BF69D22530A056000A94A3 /* QuotesViewController.swift in Sources */,

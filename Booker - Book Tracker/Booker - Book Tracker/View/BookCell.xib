@@ -110,10 +110,10 @@
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Divider">
-            <color red="0.9440000057220459" green="0.9440000057220459" blue="0.9440000057220459" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94499999284744263" green="0.94499999284744263" blue="0.94499999284744263" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="LightPrimary">
-            <color red="0.84600001573562622" green="0.86699998378753662" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.84700000286102295" green="0.86699998378753662" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Primary">
             <color red="0.24699999392032623" green="0.31799998879432678" blue="0.70999997854232788" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

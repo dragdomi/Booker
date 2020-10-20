@@ -12,6 +12,8 @@ struct Constants {
 	static let bookCellIdentifier = "BookCell"
 	static let bookCellNibName = "BookCell"
 	static let booksHeaderIdentifier = "BooksViewHeader"
+	static let monthCellIdentifier = "MonthCell"
+	static let monthCellNibName = "MonthCell"
 	static let quoteCellIdentifier = "QuoteCell"
 	static let quoteCellNibName = "QuoteCell"
 	static let quotesHeaderIdentifier = "QuotesViewHeader"

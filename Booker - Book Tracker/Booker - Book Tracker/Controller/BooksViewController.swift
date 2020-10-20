@@ -45,7 +45,9 @@ class BooksViewController: UIViewController, AddBookManuallyViewControllerDelega
 	func setupUI() {
 		navigationController?.navigationBar.shadowImage = UIImage()
 		navigationItem.hidesBackButton = true
-		navigationItem.leftBarButtonItem = UIBarButtonItem(title: "···", style: .done, target: self, action: #selector(showMenu))
+//		navigationItem.leftBarButtonItem = UIBarButtonItem(title: "···", style: .done, target: self, action: #selector(showMenu))
+		
+		navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "ellipsis"), style: .plain, target: self, action: #selector(showMenu))
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBookButtonTapped))
 		
 		setupSearchController()
