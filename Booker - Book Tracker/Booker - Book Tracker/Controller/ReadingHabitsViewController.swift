@@ -16,9 +16,6 @@ class ReadingHabitsViewController: UIViewController {
 	
 	@IBOutlet weak var monthsCollectionView: UICollectionView!
 	
-	var estimateWidth = 120.0
-	var cellMarginSize = 6.0
-	
 	let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 	
 	override func viewDidLoad() {
@@ -36,16 +33,9 @@ class ReadingHabitsViewController: UIViewController {
 		pagesView.round()
 		
 		booksView.round()
-		
-		setupGridView()
-		
+
 	}
-	
-	func setupGridView() {
-		let flowLayout = monthsCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
-		flowLayout.minimumInteritemSpacing = CGFloat(cellMarginSize)
-		flowLayout.minimumLineSpacing = CGFloat(cellMarginSize)
-	}
+
 }
 
 extension ReadingHabitsViewController: UICollectionViewDataSource, UICollectionViewDelegate {
@@ -58,22 +48,5 @@ extension ReadingHabitsViewController: UICollectionViewDataSource, UICollectionV
 		cell.monthLabel.text = months[indexPath.row]
 		
 		return cell
-	}
-}
-
-extension ReadingHabitsViewController: UICollectionViewDelegateFlowLayout {
-	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-		let width = self.calculateWith()
-		return CGSize(width: width, height: width)
-	}
-	
-	func calculateWith() -> CGFloat {
-		let estimatedWidth = CGFloat(estimateWidth)
-		let cellCount = floor(CGFloat(self.view.frame.size.width / estimatedWidth))
-		
-		let margin = CGFloat(cellMarginSize * 2)
-		let width = (self.view.frame.size.width - CGFloat(cellMarginSize) * (cellCount - 1) - margin) / cellCount
-		
-		return width
 	}
 }
