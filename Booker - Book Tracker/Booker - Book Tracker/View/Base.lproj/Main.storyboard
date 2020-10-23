@@ -416,6 +416,9 @@
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <color key="tintColor" name="Accent"/>
                                         <state key="normal" image="chevron.left.circle" catalog="system"/>
+                                        <connections>
+                                            <action selector="previousYearButtonTapped:" destination="4SV-Xc-Cfc" eventType="touchUpInside" id="yop-QN-zRP"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pTH-If-vhV">
                                         <rect key="frame" x="147" y="5" width="100" height="30"/>
@@ -435,6 +438,9 @@
                                         </constraints>
                                         <color key="tintColor" name="Accent"/>
                                         <state key="normal" image="chevron.right.circle" catalog="system"/>
+                                        <connections>
+                                            <action selector="nextYearButtonTapped:" destination="4SV-Xc-Cfc" eventType="touchUpInside" id="jcc-K1-xy2"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -481,9 +487,16 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="booksInProgressLabel" destination="w3w-69-ZOt" id="iDJ-kv-0gm"/>
+                        <outlet property="booksNotStartedLabel" destination="JtZ-RS-GyA" id="oV5-xs-cjS"/>
+                        <outlet property="booksReadLabel" destination="76D-Bf-AkC" id="R6E-nh-h1J"/>
                         <outlet property="booksView" destination="CMd-FE-PY2" id="TOH-sM-m3O"/>
                         <outlet property="monthsCollectionView" destination="bm7-Fw-6bt" id="aqj-gW-NSN"/>
+                        <outlet property="pagesLeftLabel" destination="wLF-hH-TVB" id="qBI-ks-lGp"/>
+                        <outlet property="pagesReadLabel" destination="6rb-QP-uQg" id="vcY-UU-D06"/>
+                        <outlet property="pagesTotalLabel" destination="7JH-dN-wL6" id="a8E-L0-RfA"/>
                         <outlet property="pagesView" destination="Wbo-jc-KXA" id="1BJ-nj-YFZ"/>
+                        <outlet property="yearLabel" destination="pTH-If-vhV" id="kTw-Qu-wgz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e3r-kY-D5d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

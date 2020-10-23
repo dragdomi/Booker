@@ -62,13 +62,13 @@ class BookBrain {
 	static func getBooksFiltered(books: [BookModel], by filter: String) -> [BookModel] {
 		switch filter {
 		case "finished":
-			return ReadingInfo.booksRead
+			return ReadingHabits.getBooksRead()
 			
 		case "inProgress":
-			return ReadingInfo.booksInProgress
+			return ReadingHabits.getBooksInProgress()
 			
 		case "notStarted":
-			return ReadingInfo.booksNotStarted
+			return ReadingHabits.getBooksNotStarted()
 			
 		default:
 			return books

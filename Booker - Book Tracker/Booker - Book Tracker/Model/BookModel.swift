@@ -42,6 +42,14 @@ class BookModel: Object, Codable, Comparable {
 		}
 	}
 	
+	func isFinished() -> Bool {
+		if getReadingState() == "Finished" {
+			return true
+		} else {
+			return false
+		}
+	}
+	
 	func getReadTime() -> Int {
 		let calendar = Calendar.current
 		let beginDate = calendar.startOfDay(for: Utils.formatStringToDate(self.beginDate)!)

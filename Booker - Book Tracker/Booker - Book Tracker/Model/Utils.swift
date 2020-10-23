@@ -39,17 +39,6 @@ class Utils {
 								"November": 11,
 								"December": 12]
 	
-	//MARK: - Date
-	
-	static func getYearFromDate(_ date: Date?) -> Int {
-		let df = DateFormatter
-		df.dateFormat = Constants.dateFormat
-		
-		if let date = date {
-			let year = df.
-		}
-	}
-	
 	//MARK: - Date/String
 	
 	static func formatDateToString(_ date: Date?) -> String {

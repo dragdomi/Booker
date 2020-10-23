@@ -19,18 +19,68 @@ class ReadingHabits {
 		pagesPerDate.append(pagesPerDateEntry)
 	}
 	
+	static func substractPagesFromDate(pages: Int, date: String) {
+		var entry = "\(date)-\(pages)"
+		let entryIndex = pagesPerDate.firstIndex(of: entry)
+		let pagesFromDate = getPagesPerDay(date: date)
+		let updatedPages = pagesFromDate - pages
+		if updatedPages > 0 {
+			entry = "\(date)-\(updatedPages)"
+		} else {
+			entry = "\(date)-\(0)"
+		}
+		
+		if let entryIndex = entryIndex {
+			pagesPerDate[entryIndex] = entry
+		}
+	}
+	
 	static func getPagesPerDate(date: String) -> Int {
 		for entry in pagesPerDate {
-			let index = entry.firstIndex(of: "-")!
+			let index = entry.index(after: entry.firstIndex(of: "-")!)
 			let datePart = entry[..<index]
+			if date.count > 10 {
+				let date = date[..<index]
+			}
+			
 			if datePart == date {
 				let endIndex = entry.endIndex
-				let pages = entry[index...endIndex]
+				let pages = entry[index..<endIndex]
 				let pagesInt = Int(pages) ?? 0
 				return pagesInt
 			}
 		}
 		return 0
+	}
+	
+	static func getPagesPerDay(date: String) -> Int {
+		return getPagesPerDate(date: date)
+	}
+	
+	static func getPagesPerMonth(month: String, year: String) -> Int {
+		var pagesPerMonth = 0
+		for date in pagesPerDate {
+			let startIndex = date.index(date.startIndex, offsetBy: 3)
+			let endIndex = date.index(date.startIndex, offsetBy: 9)
+			let dateMonthAndYear = date[startIndex...endIndex]
+			if dateMonthAndYear == (month + "." + year){
+				pagesPerMonth += getPagesPerDay(date: date)
+			}
+		}
+		return pagesPerMonth
+	}
+	
+	static func getPagesPerYear(year: String) -> Int {
+		var pagesPerYear = 0
+		for date in pagesPerDate {
+			let startIndex = date.index(date.startIndex, offsetBy: 6)
+			let endIndex = date.index(date.startIndex, offsetBy: 9)
+			let dateYear = date[startIndex...endIndex]
+			if dateYear == (year){
+				pagesPerYear += getPagesPerDay(date: date)
+			}
+		}
+		return pagesPerYear
 	}
 	
 	static func getTotalPagesReadNumber() -> Int {
@@ -60,39 +110,6 @@ class ReadingHabits {
 		return totalPagesLeftNumber
 	}
 	
-	static func getPagesPerDay(date: String) -> Int {
-		return getPagesPerDate(date: date)
-	}
-	
-	static func getPagesPerMonth(month: Int, year: Int) -> Int {
-		var pagesPerMonth = 0
-		let monthString = String(month)
-		let yearString = String(year)
-		for date in pagesPerDate {
-			let startIndex = date.index(date.startIndex, offsetBy: 3)
-			let endIndex = date.index(date.startIndex, offsetBy: 9)
-			let dateMonthAndYear = date[startIndex...endIndex]
-			if dateMonthAndYear == (monthString + yearString){
-				pagesPerMonth += getPagesPerDay(date: date)
-			}
-		}
-		return pagesPerMonth
-	}
-	
-	static func getPagesPerYear(year: Int) -> Int {
-		var pagesPerYear = 0
-		let yearString = String(year)
-		for date in pagesPerDate {
-			let startIndex = date.index(date.startIndex, offsetBy: 6)
-			let endIndex = date.index(date.startIndex, offsetBy: 9)
-			let dateYear = date[startIndex...endIndex]
-			if dateYear == (yearString){
-				pagesPerYear += getPagesPerDay(date: date)
-			}
-		}
-		return pagesPerYear
-	}
-	
 	//MARK: - Books
 	
 	static func addBooksToDate(books: Int, date: String) {
@@ -100,13 +117,30 @@ class ReadingHabits {
 		booksPerDate.append(booksPerDateEntry)
 	}
 	
+	static func substractBooksFromDate(books: Int, date: String) {
+		var entry = "\(date)-\(books)"
+		let entryIndex = pagesPerDate.firstIndex(of: entry)
+		let booksFromDate = getBooksPerDay(date: date)
+		let updatedBooks = booksFromDate - books
+		if updatedBooks > 0 {
+			entry = "\(date)-\(updatedBooks)"
+		} else {
+			entry = "\(date)-\(0)"
+		}
+		
+		if let entryIndex = entryIndex {
+			booksPerDate[entryIndex] = entry
+		}
+	}
+	
 	static func getBooksPerDate(date: String) -> Int {
 		for entry in booksPerDate {
-			let index = entry.firstIndex(of: "-")!
+			let index = entry.index(after: entry.firstIndex(of: "-")!)
 			let datePart = entry[..<index]
+			let date = date[..<index]
 			if datePart == date {
 				let endIndex = entry.endIndex
-				let books = entry[index...endIndex]
+				let books = entry[index..<endIndex]
 				let booksInt = Int(books) ?? 0
 				return booksInt
 			}
@@ -118,29 +152,26 @@ class ReadingHabits {
 		return getBooksPerDate(date: date)
 	}
 	
-	static func getBooksPerMonth(month: Int, year: Int) -> Int {
+	static func getBooksPerMonth(month: String, year: String) -> Int {
 		var booksPerMonth = 0
-		let monthString = String(month)
-		let yearString = String(year)
 		for date in pagesPerDate {
 			let startIndex = date.index(date.startIndex, offsetBy: 3)
 			let endIndex = date.index(date.startIndex, offsetBy: 9)
 			let dateMonthAndYear = date[startIndex...endIndex]
-			if dateMonthAndYear == (monthString + yearString){
+			if dateMonthAndYear == (month + "." + year){
 				booksPerMonth += getBooksPerDay(date: date)
 			}
 		}
 		return booksPerMonth
 	}
 	
-	static func getBooksPerYear(year: Int) -> Int {
+	static func getBooksPerYear(year: String) -> Int {
 		var booksPerYear = 0
-		let yearString = String(year)
 		for date in pagesPerDate {
 			let startIndex = date.index(date.startIndex, offsetBy: 6)
 			let endIndex = date.index(date.startIndex, offsetBy: 9)
 			let dateYear = date[startIndex...endIndex]
-			if dateYear == (yearString){
+			if dateYear == (year){
 				booksPerYear += getBooksPerDay(date: date)
 			}
 		}

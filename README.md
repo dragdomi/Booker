@@ -22,3 +22,15 @@ Additional menu used to navigate to other screens:
 
 Reading habits screen, will be further developed to include more info (and to look better):
 ![Overview](Booker%20-%20Book%20Tracker/docs/screenshots/screenshot6.png)
+
+Light Mode | Dark Mode
+------------ | -------------
+![Overview](Booker%20-%20Book%20Tracker/docs/screenshots/screenshot1light.png) | ![Overview](Booker%20-%20Book%20Tracker/docs/screenshots/screenshot1dark.png)
+![Overview](Booker%20-%20Book%20Tracker/docs/screenshots/screenshot2light.png) | ![Overview](Booker%20-%20Book%20Tracker/docs/screenshots/screenshot2dark.png)
+![Overview](Booker%20-%20Book%20Tracker/docs/screenshots/screenshot3light.png) | ![Overview](Booker%20-%20Book%20Tracker/docs/screenshots/screenshot3dark.png)
+![Overview](Booker%20-%20Book%20Tracker/docs/screenshots/screenshot4light.png) | ![Overview](Booker%20-%20Book%20Tracker/docs/screenshots/screenshot4dark.png)
+![Overview](Booker%20-%20Book%20Tracker/docs/screenshots/screenshot5light.png) | ![Overview](Booker%20-%20Book%20Tracker/docs/screenshots/screenshot5dark.png)
+![Overview](Booker%20-%20Book%20Tracker/docs/screenshots/screenshot6light.png) | ![Overview](Booker%20-%20Book%20Tracker/docs/screenshots/screenshot6dark.png)
+![Overview](Booker%20-%20Book%20Tracker/docs/screenshots/screenshot7light.png) | ![Overview](Booker%20-%20Book%20Tracker/docs/screenshots/screenshot7dark.png)
+![Overview](Booker%20-%20Book%20Tracker/docs/screenshots/screenshot8light.png) | ![Overview](Booker%20-%20Book%20Tracker/docs/screenshots/screenshot8dark.png)
+

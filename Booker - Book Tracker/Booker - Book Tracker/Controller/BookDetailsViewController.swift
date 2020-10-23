@@ -43,11 +43,19 @@ class BookDetailsViewController: UIViewController {
 	var delegate: BookDetailsViewControllerDelegate?
 	
 	@IBAction func finishBookButtonTapped(_ sender: UIButton) {
-		try! BookBrain.getRealm().write {
-			BookBrain.getRealm().create(BookModel.self, value: ["id":book.id, "pagesRead": book.totalPages, "lastReadDate": Utils.formatDateToString(Date()), "finishDate": Utils.formatDateToString(Date())], update: .modified)
+		let date = Utils.formatDateToString(Date())
+		if !book.isFinished() {
+			ReadingHabits.addPagesToDate(pages: book.totalPages - book.pagesRead, date: date)
+			ReadingHabits.addBooksToDate(books: 1, date: date)
+			try! BookBrain.getRealm().write {
+				BookBrain.getRealm().create(BookModel.self, value: ["id":book.id, "pagesRead": book.totalPages, "lastReadDate": date, "finishDate": date], update: .modified)
+			}
+			
+			handleBookData(book)
+			showBookFinishedView()
+		} else {
+			showBookAlreadyFinishedView()
 		}
-		handleBookData(book)
-		showBookFinishedView()
 	}
 	
 	@IBAction func updateProgressButtonTapped(_ sender: UIButton) {
@@ -205,19 +213,21 @@ class BookDetailsViewController: UIViewController {
 	func updateBookIfTextfieldIsNotEmpty(textField: UITextField) {
 		if textField.text != "" {
 			if let updatedPagesRead = Int(textField.text!) {
+				let date = Utils.formatDateToString(Date())
 				if (updatedPagesRead - book.pagesRead) >= 0 {
-					ReadingInfo.addPagesToDate(pages: updatedPagesRead - book.pagesRead, date: Utils.formatDateToString(Date()))
+					ReadingHabits.addPagesToDate(pages: updatedPagesRead - book.pagesRead, date: date)
 				} else {
 					showSubstractAlert(negativeNumber: updatedPagesRead - book.pagesRead)
 				}
 				
 				try! BookBrain.getRealm().write {
-					BookBrain.getRealm().create(BookModel.self, value: ["id":book.id, "pagesRead": updatedPagesRead, "lastReadDate": Utils.formatDateToString(Date())], update: .modified)
+					BookBrain.getRealm().create(BookModel.self, value: ["id":book.id, "pagesRead": updatedPagesRead, "lastReadDate": date], update: .modified)
 				}
 				
-				if (book.pagesRead == book.totalPages) {
+				if (book.isFinished()) {
 					try! BookBrain.getRealm().write {
-						BookBrain.getRealm().create(BookModel.self, value: ["id":book.id, "finishDate": book.lastReadDate], update: .modified)
+						BookBrain.getRealm().create(BookModel.self, value: ["id":book.id, "finishDate": date], update: .modified)
+						ReadingHabits.addBooksToDate(books: 1, date: date)
 						showBookFinishedView()
 					}
 				} else {
@@ -232,9 +242,11 @@ class BookDetailsViewController: UIViewController {
 	}
 	
 	func showSubstractAlert(negativeNumber: Int) {
+		let date = Utils.formatDateToString(Date())
 		let substractAlert = UIAlertController(title: "Negative number", message: "Do you want to substract \(abs(negativeNumber)) from your daily pages score?", preferredStyle: .alert)
 		let yesAction = UIAlertAction(title: "Yes", style: .default) { _ in
-			ReadingInfo.addPagesToDate(pages: negativeNumber, date: Utils.formatDateToString(Date()))
+			let pages = 0 - negativeNumber
+			ReadingHabits.substractPagesFromDate(pages: pages, date: date)
 		}
 		let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
 		
@@ -247,7 +259,14 @@ class BookDetailsViewController: UIViewController {
 	
 	func showBookFinishedView() {
 		let bookFinishedView = UIAlertController(title: "Congratulations! 🥳", message: "You have just finished a book", preferredStyle: .alert)
-		bookFinishedView.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+		bookFinishedView.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+		bookFinishedView.view.tintColor = .accent
+		present(bookFinishedView, animated: true)
+	}
+	
+	func showBookAlreadyFinishedView() {
+		let bookFinishedView = UIAlertController(title: "Book is already finished", message: nil, preferredStyle: .alert)
+		bookFinishedView.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
 		bookFinishedView.view.tintColor = .accent
 		present(bookFinishedView, animated: true)
 	}
