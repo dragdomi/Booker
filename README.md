@@ -4,7 +4,7 @@ This iOS app will help you keep track of your books and reading habits.
 Using Realm for persistent data.
 
 Screen | Light Mode | Dark Mode
--- | ------------ | -------------
+------------ | ------------ | -------------
 Books screen (also the main view of the app). It enables the user to browse his books, search them by keywords, filter them based on progress and sort them | ![Overview](Booker%20-%20Book%20Tracker/docs/screenshots/screenshot1light.png) | ![Overview](Booker%20-%20Book%20Tracker/docs/screenshots/screenshot1dark.png)
 Add book screen. It is used to add new book to the user's collection: | ![Overview](Booker%20-%20Book%20Tracker/docs/screenshots/screenshot2light.png) | ![Overview](Booker%20-%20Book%20Tracker/docs/screenshots/screenshot2dark.png)
 Book details screen. From here user can edit book data, update how many pages he read and also access notes and quotes assigned to a book: | ![Overview](Booker%20-%20Book%20Tracker/docs/screenshots/screenshot3light.png) | ![Overview](Booker%20-%20Book%20Tracker/docs/screenshots/screenshot3dark.png)
