@@ -14,57 +14,91 @@ class ReadingHabits {
 	
 	//MARK: - Pages
 	
+	static func getPagesPerDateDictionary() -> [String: Int] {
+		var pagesPerDateDictionary = [String: Int]()
+		for entry in pagesPerDate {
+			guard let date = getValueFromEntry(valueType: "dmy", entry: entry)
+			else {
+				print("Failed to extract date from entry")
+				return [String: Int]()
+			}
+			
+			guard let number = getValueFromEntry(valueType: "n", entry: entry)
+			else {
+				print("Failed to extract number from entry")
+				return [String: Int]()
+			}
+			
+			guard let pages = Int(number)
+			else {
+				print("Failed to convert number value to Int")
+				return [String: Int]()
+			}
+			
+			pagesPerDateDictionary[date] = pages
+		}
+		return pagesPerDateDictionary
+	}
+	
 	static func addPagesToDate(pages: Int, date: String) {
 		let pagesPerDateEntry = "\(date)-\(pages)"
 		pagesPerDate.append(pagesPerDateEntry)
 	}
 	
-	static func substractPagesFromDate(pages: Int, date: String) {
-		var entry = "\(date)-\(pages)"
+	static func modifyPagesPerDate(pages: Int, date: String) {
+		guard let entry = getPagesEntryWithDate(date)
+		else {
+			print("Failed to get pages entry with date")
+			return
+		}
+		
+		var modifiedEntry = String()
 		let entryIndex = pagesPerDate.firstIndex(of: entry)
-		let pagesFromDate = getPagesPerDay(date: date)
-		let updatedPages = pagesFromDate - pages
+		let pagesFromEntry = getPagesPerDay(entry: entry)
+		let updatedPages = pagesFromEntry + pages
+		
 		if updatedPages > 0 {
-			entry = "\(date)-\(updatedPages)"
+			modifiedEntry = "\(date)-\(updatedPages)"
 		} else {
-			entry = "\(date)-\(0)"
+			modifiedEntry = "\(date)-\(0)"
 		}
 		
 		if let entryIndex = entryIndex {
-			pagesPerDate[entryIndex] = entry
+			pagesPerDate[entryIndex] = modifiedEntry
 		}
 	}
 	
-	static func getPagesPerDate(date: String) -> Int {
-		for entry in pagesPerDate {
-			let index = entry.index(after: entry.firstIndex(of: "-")!)
-			let datePart = entry[..<index]
-			if date.count > 10 {
-				let date = date[..<index]
-			}
-			
-			if datePart == date {
-				let endIndex = entry.endIndex
-				let pages = entry[index..<endIndex]
-				let pagesInt = Int(pages) ?? 0
-				return pagesInt
+	static func getPagesPerDate(entry: String) -> Int {
+		if let value = getValueFromEntry(valueType: "n", entry: entry) {
+			if let pages = Int(value) {
+				return pages
 			}
 		}
 		return 0
 	}
 	
-	static func getPagesPerDay(date: String) -> Int {
-		return getPagesPerDate(date: date)
+	static func getPagesPerDay(entry: String) -> Int {
+		return getPagesPerDate(entry: entry)
 	}
 	
 	static func getPagesPerMonth(month: String, year: String) -> Int {
 		var pagesPerMonth = 0
 		for date in pagesPerDate {
-			let startIndex = date.index(date.startIndex, offsetBy: 3)
-			let endIndex = date.index(date.startIndex, offsetBy: 9)
-			let dateMonthAndYear = date[startIndex...endIndex]
+			guard let monthInDate = getValueFromEntry(valueType: "m", entry: date)
+			else {
+				print("Failed to extract month from date")
+				return 0
+			}
+			
+			guard let yearInDate = getValueFromEntry(valueType: "y", entry: date)
+			else {
+				print("Failed to extract year from date")
+				return 0
+			}
+			
+			let dateMonthAndYear = monthInDate + "." + yearInDate
 			if dateMonthAndYear == (month + "." + year){
-				pagesPerMonth += getPagesPerDay(date: date)
+				pagesPerMonth += getPagesPerDay(entry: date)
 			}
 		}
 		return pagesPerMonth
@@ -73,11 +107,14 @@ class ReadingHabits {
 	static func getPagesPerYear(year: String) -> Int {
 		var pagesPerYear = 0
 		for date in pagesPerDate {
-			let startIndex = date.index(date.startIndex, offsetBy: 6)
-			let endIndex = date.index(date.startIndex, offsetBy: 9)
-			let dateYear = date[startIndex...endIndex]
-			if dateYear == (year){
-				pagesPerYear += getPagesPerDay(date: date)
+			guard let yearInDate = getValueFromEntry(valueType: "y", entry: date)
+			else {
+				print("Failed to extract year from date")
+				return 0
+			}
+			
+			if yearInDate == year {
+				pagesPerYear += getPagesPerDay(entry: date)
 			}
 		}
 		return pagesPerYear
@@ -112,54 +149,91 @@ class ReadingHabits {
 	
 	//MARK: - Books
 	
+	static func getBooksPerDateDictionary() -> [String: Int] {
+		var booksPerDateDictionary = [String: Int]()
+		for entry in pagesPerDate {
+			guard let date = getValueFromEntry(valueType: "dmy", entry: entry)
+			else {
+				print("Failed to extract date from entry")
+				return [String: Int]()
+			}
+			
+			guard let number = getValueFromEntry(valueType: "n", entry: entry)
+			else {
+				print("Failed to extract number from entry")
+				return [String: Int]()
+			}
+			
+			guard let books = Int(number)
+			else {
+				print("Failed to convert number value to Int")
+				return [String: Int]()
+			}
+			
+			booksPerDateDictionary[date] = books
+		}
+		return booksPerDateDictionary
+	}
+	
 	static func addBooksToDate(books: Int, date: String) {
 		let booksPerDateEntry = "\(date)-\(books)"
 		booksPerDate.append(booksPerDateEntry)
 	}
 	
-	static func substractBooksFromDate(books: Int, date: String) {
-		var entry = "\(date)-\(books)"
-		let entryIndex = pagesPerDate.firstIndex(of: entry)
-		let booksFromDate = getBooksPerDay(date: date)
-		let updatedBooks = booksFromDate - books
+	static func modifyBooksPerDate(books: Int, date: String) {
+		guard let entry = getBooksEntryWithDate(date)
+		else {
+			print("Failed to get pages entry with date")
+			return
+		}
+		
+		var modifiedEntry = String()
+		let entryIndex = booksPerDate.firstIndex(of: entry)
+		let booksFromEntry = getBooksPerDay(entry: entry)
+		let updatedBooks = booksFromEntry + books
+		
 		if updatedBooks > 0 {
-			entry = "\(date)-\(updatedBooks)"
+			modifiedEntry = "\(date)-\(updatedBooks)"
 		} else {
-			entry = "\(date)-\(0)"
+			modifiedEntry = "\(date)-\(0)"
 		}
 		
 		if let entryIndex = entryIndex {
-			booksPerDate[entryIndex] = entry
+			booksPerDate[entryIndex] = modifiedEntry
 		}
 	}
 	
-	static func getBooksPerDate(date: String) -> Int {
-		for entry in booksPerDate {
-			let index = entry.index(after: entry.firstIndex(of: "-")!)
-			let datePart = entry[..<index]
-			let date = date[..<index]
-			if datePart == date {
-				let endIndex = entry.endIndex
-				let books = entry[index..<endIndex]
-				let booksInt = Int(books) ?? 0
-				return booksInt
+	static func getBooksPerDate(entry: String) -> Int {
+		if let value = getValueFromEntry(valueType: "n", entry: entry) {
+			if let books = Int(value) {
+				return books
 			}
 		}
 		return 0
 	}
 	
-	static func getBooksPerDay(date: String) -> Int {
-		return getBooksPerDate(date: date)
+	static func getBooksPerDay(entry: String) -> Int {
+		return getBooksPerDate(entry: entry)
 	}
 	
 	static func getBooksPerMonth(month: String, year: String) -> Int {
 		var booksPerMonth = 0
-		for date in pagesPerDate {
-			let startIndex = date.index(date.startIndex, offsetBy: 3)
-			let endIndex = date.index(date.startIndex, offsetBy: 9)
-			let dateMonthAndYear = date[startIndex...endIndex]
+		for date in booksPerDate {
+			guard let monthInDate = getValueFromEntry(valueType: "m", entry: date)
+			else {
+				print("Failed to extract month from date")
+				return 0
+			}
+			
+			guard let yearInDate = getValueFromEntry(valueType: "y", entry: date)
+			else {
+				print("Failed to extract year from date")
+				return 0
+			}
+			
+			let dateMonthAndYear = monthInDate + "." + yearInDate
 			if dateMonthAndYear == (month + "." + year){
-				booksPerMonth += getBooksPerDay(date: date)
+				booksPerMonth += getPagesPerDay(entry: date)
 			}
 		}
 		return booksPerMonth
@@ -167,12 +241,15 @@ class ReadingHabits {
 	
 	static func getBooksPerYear(year: String) -> Int {
 		var booksPerYear = 0
-		for date in pagesPerDate {
-			let startIndex = date.index(date.startIndex, offsetBy: 6)
-			let endIndex = date.index(date.startIndex, offsetBy: 9)
-			let dateYear = date[startIndex...endIndex]
-			if dateYear == (year){
-				booksPerYear += getBooksPerDay(date: date)
+		for date in booksPerDate {
+			guard let yearInDate = getValueFromEntry(valueType: "y", entry: date)
+			else {
+				print("Failed to extract year from date")
+				return 0
+			}
+			
+			if yearInDate == year {
+				booksPerYear += getPagesPerDay(entry: date)
 			}
 		}
 		return booksPerYear
@@ -220,5 +297,60 @@ class ReadingHabits {
 	
 	static func getBooksReadNumber() -> Int {
 		return getBooksRead().count
+	}
+	
+	//MARK: - Entries
+	
+	private static func getValueFromEntry(valueType: String, entry: String) -> String? {
+		var startIndex: String.Index?
+		var endIndex: String.Index?
+		switch valueType {
+		case "d":
+			startIndex = entry.startIndex
+			endIndex = entry.index(entry.startIndex, offsetBy: 2)
+		case "m":
+			startIndex = entry.index(entry.startIndex, offsetBy: 3)
+			endIndex = entry.index(entry.startIndex, offsetBy: 5)
+		case "y":
+			startIndex = entry.index(entry.startIndex, offsetBy: 6)
+			endIndex = entry.index(entry.startIndex, offsetBy: 10)
+		case "n":
+			startIndex = entry.index(entry.startIndex, offsetBy: 11)
+			endIndex = entry.endIndex
+		case "dmy":
+			startIndex = entry.startIndex
+			endIndex = entry.index(entry.startIndex, offsetBy: 10)
+		default:
+			startIndex = nil
+			endIndex = nil
+		}
+		
+		if let startIndex = startIndex, let endIndex = endIndex {
+			let valueSubString = entry[startIndex..<endIndex]
+			let value = String(valueSubString)
+			return value
+		} else {
+			return nil
+		}
+	}
+
+	private static func getPagesEntryWithDate(_ date: String) -> String? {
+		for entry in pagesPerDate {
+			if getValueFromEntry(valueType: "dmy", entry: entry) == date {
+				return entry
+			}
+		}
+		
+		return nil
+	}
+	
+	private static func getBooksEntryWithDate(_ date: String) -> String? {
+		for entry in booksPerDate {
+			if getValueFromEntry(valueType: "dmy", entry: entry) == date {
+				return entry
+			}
+		}
+		
+		return nil
 	}
 }

@@ -245,9 +245,9 @@ class BookDetailsViewController: UIViewController {
 		let date = Utils.formatDateToString(Date())
 		let substractAlert = UIAlertController(title: "Negative number", message: "Do you want to substract \(abs(negativeNumber)) from your daily pages score?", preferredStyle: .alert)
 		let yesAction = UIAlertAction(title: "Yes", style: .default) { _ in
-			let pages = 0 - negativeNumber
-			ReadingHabits.substractPagesFromDate(pages: pages, date: date)
+			ReadingHabits.modifyPagesPerDate(pages: negativeNumber, date: date)
 		}
+		
 		let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
 		
 		substractAlert.addAction(yesAction)
