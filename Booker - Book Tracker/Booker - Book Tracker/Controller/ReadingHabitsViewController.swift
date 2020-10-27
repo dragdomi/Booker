@@ -58,17 +58,17 @@ class ReadingHabitsViewController: UIViewController {
 	
 	func setupPagesView() {
 		pagesView.round()
-		pagesReadLabel.text = String(ReadingHabits.getTotalPagesReadNumber())
-		pagesTotalLabel.text = String(ReadingHabits.getTotalPagesNumber())
-		pagesLeftLabel.text = String(ReadingHabits.getTotalPagesLeftNumber())
+		pagesReadLabel.text = String(ReadingHabitsBrain.getTotalPagesReadNumber())
+		pagesTotalLabel.text = String(ReadingHabitsBrain.getTotalPagesNumber())
+		pagesLeftLabel.text = String(ReadingHabitsBrain.getTotalPagesLeftNumber())
 		
 	}
 	
 	func setupBooksView() {
 		booksView.round()
-		booksReadLabel.text = String(ReadingHabits.getBooksReadNumber())
-		booksInProgressLabel.text = String(ReadingHabits.getBooksInProgressNumber())
-		booksNotStartedLabel.text = String(ReadingHabits.getBooksNotStartedNumber())
+		booksReadLabel.text = String(ReadingHabitsBrain.getBooksReadNumber())
+		booksInProgressLabel.text = String(ReadingHabitsBrain.getBooksInProgressNumber())
+		booksNotStartedLabel.text = String(ReadingHabitsBrain.getBooksNotStartedNumber())
 	}
 	
 	func updateUI() {
@@ -90,8 +90,8 @@ extension ReadingHabitsViewController: UICollectionViewDataSource, UICollectionV
 		let month = months[indexPath.row]
 		let monthNumber = String(Utils.monthsNumbers[month] ?? 0)
 		cell.monthLabel.text = months[indexPath.row]
-		cell.pagesNumberLabel.text = String(ReadingHabits.getPagesPerMonth(month: monthNumber, year: year))
-		cell.booksNumberLabel.text = String(ReadingHabits.getBooksPerMonth(month: monthNumber, year: year))
+		cell.pagesNumberLabel.text = String(ReadingHabitsBrain.getPagesPerMonth(month: monthNumber, year: year))
+		cell.booksNumberLabel.text = String(ReadingHabitsBrain.getBooksPerMonth(month: monthNumber, year: year))
 		
 		return cell
 	}

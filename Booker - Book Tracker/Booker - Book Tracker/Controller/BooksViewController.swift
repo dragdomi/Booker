@@ -79,27 +79,27 @@ class BooksViewController: UIViewController, AddBookManuallyViewControllerDelega
 	//MARK: - Books
 	
 	func reloadBooks() {
-		books = BookBrain.getBooks()
-		books = BookBrain.getBooksSorted(books: books, by: self.sort)
+		books = BooksBrain.getBooks()
+		books = BooksBrain.getBooksSorted(books: books, by: self.sort)
 		booksCopy = books
 		searchController.searchBar.text = ""
 		reloadTableViewDataAsync()
 	}
 	
 	func reloadBooks(searchBy keyword: String) {
-		let foundBooks = BookBrain.searchBooks(books: books, by: keyword)
+		let foundBooks = BooksBrain.searchBooks(books: books, by: keyword)
 		if !keyword.isEmpty {
 			books = foundBooks
 		} else {
 			books = booksCopy
 		}
-		books = BookBrain.getBooksSorted(books: books, by: self.sort)
+		books = BooksBrain.getBooksSorted(books: books, by: self.sort)
 		reloadTableViewDataAsync()
 	}
 	
 	func reloadBooks(filterBy filter: String) {
-		books = BookBrain.getBooksFiltered(books: books, by: filter)
-		books = BookBrain.getBooksSorted(books: books, by: self.sort)
+		books = BooksBrain.getBooksFiltered(books: books, by: filter)
+		books = BooksBrain.getBooksSorted(books: books, by: self.sort)
 		booksCopy = books
 		searchController.searchBar.text = ""
 		reloadTableViewDataAsync()
@@ -107,7 +107,7 @@ class BooksViewController: UIViewController, AddBookManuallyViewControllerDelega
 	
 	func reloadBooks(sortBy sort: String) {
 		self.sort = sort
-		books = BookBrain.getBooksSorted(books: books, by: self.sort)
+		books = BooksBrain.getBooksSorted(books: books, by: self.sort)
 		booksCopy = books
 		reloadTableViewDataAsync()
 	}
@@ -173,7 +173,7 @@ class BooksViewController: UIViewController, AddBookManuallyViewControllerDelega
 	func getFreeBookID() -> Int {
 		var takenIDs: [Int] = []
 		var freeID = 0
-		for book in BookBrain.getBooks() {
+		for book in BooksBrain.getBooks() {
 			takenIDs.append(book.id)
 		}
 		
@@ -189,13 +189,13 @@ class BooksViewController: UIViewController, AddBookManuallyViewControllerDelega
 	//MARK: - Delegate methods
 	
 	func handleBookData(_ book: BookModel) {
-		BookBrain.addBook(book)
+		BooksBrain.addBook(book)
 		reloadBooks()
 		reloadTableViewDataAsync()
 	}
 	
 	func editBookData(_ editedBook: BookModel) {
-		BookBrain.editBookData(editedBook)
+		BooksBrain.editBookData(editedBook)
 		reloadTableViewDataAsync()
 	}
 	
@@ -220,7 +220,7 @@ extension BooksViewController: UITableViewDataSource, UITableViewDelegate {
 		
 		//		let progress = CGFloat(book.getPercentage()) / 100
 		
-		cell.progressBar.setProgress(BookBrain.getBookProgress(book)) 
+		cell.progressBar.setProgress(BooksBrain.getBookProgress(book)) 
 		cell.configure()
 		cell.titleLabel.text = book.title
 		cell.authorLabel.text = book.author
@@ -251,7 +251,7 @@ extension BooksViewController: UITableViewDataSource, UITableViewDelegate {
 		if editingStyle == .delete {
 			let deleteAlert = UIAlertController(title: "Warning", message: "Are you sure you want to delete '\(books[indexPath.row].title)' from your books?", preferredStyle: .alert)
 			let deleteAction = UIAlertAction(title: "Yes", style: .destructive) {_ in
-				BookBrain.deleteBook(self.books[indexPath.row])
+				BooksBrain.deleteBook(self.books[indexPath.row])
 				self.reloadBooks()
 				tableView.deleteRows(at: [indexPath], with: .fade)
 			}

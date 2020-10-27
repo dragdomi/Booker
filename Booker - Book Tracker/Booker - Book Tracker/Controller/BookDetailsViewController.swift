@@ -45,8 +45,8 @@ class BookDetailsViewController: UIViewController {
 	@IBAction func finishBookButtonTapped(_ sender: UIButton) {
 		let date = Utils.formatDateToString(Date())
 		if !book.isFinished() {
-			ReadingHabits.addPagesToDate(pages: book.totalPages - book.pagesRead, date: date)
-			ReadingHabits.addBooksToDate(books: 1, date: date)
+			ReadingHabitsBrain.addPagesToDate(pages: book.totalPages - book.pagesRead, date: date)
+			ReadingHabitsBrain.addBooksToDate(books: 1, date: date)
 			try! RealmController.getRealm().write {
 				RealmController.getRealm().create(BookModel.self, value: ["id":book.id, "pagesRead": book.totalPages, "lastReadDate": date, "finishDate": date], update: .modified)
 			}
@@ -215,7 +215,7 @@ class BookDetailsViewController: UIViewController {
 			if let updatedPagesRead = Int(textField.text!) {
 				let date = Utils.formatDateToString(Date())
 				if (updatedPagesRead - book.pagesRead) >= 0 {
-					ReadingHabits.addPagesToDate(pages: updatedPagesRead - book.pagesRead, date: date)
+					ReadingHabitsBrain.addPagesToDate(pages: updatedPagesRead - book.pagesRead, date: date)
 				} else {
 					showSubstractAlert(negativeNumber: updatedPagesRead - book.pagesRead)
 				}
@@ -227,7 +227,7 @@ class BookDetailsViewController: UIViewController {
 				if (book.isFinished()) {
 					try! RealmController.getRealm().write {
 						RealmController.getRealm().create(BookModel.self, value: ["id":book.id, "finishDate": date], update: .modified)
-						ReadingHabits.addBooksToDate(books: 1, date: date)
+						ReadingHabitsBrain.addBooksToDate(books: 1, date: date)
 						showBookFinishedView()
 					}
 				} else {
@@ -245,7 +245,7 @@ class BookDetailsViewController: UIViewController {
 		let date = Utils.formatDateToString(Date())
 		let substractAlert = UIAlertController(title: "Negative number", message: "Do you want to substract \(abs(negativeNumber)) from your daily pages score?", preferredStyle: .alert)
 		let yesAction = UIAlertAction(title: "Yes", style: .default) { _ in
-			ReadingHabits.modifyPagesPerDate(pages: negativeNumber, date: date)
+			ReadingHabitsBrain.modifyPagesPerDate(pages: negativeNumber, date: date)
 		}
 		
 		let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
@@ -285,12 +285,12 @@ extension BookDetailsViewController: AddBookManuallyViewControllerDelegate {
 
 extension BookDetailsViewController: NotesViewControllerDelegate {
 	func updateNotes(with notes: String) {
-		BookBrain.editBookNotes(book: book, notes: notes)
+		BooksBrain.editBookNotes(book: book, notes: notes)
 	}
 }
 
 extension BookDetailsViewController: QuotesViewControllerDelegate {
 	func updateQuotes(with quotes: List<String>) {
-		BookBrain.editBookQuotes(book: book, quotes: quotes)
+		BooksBrain.editBookQuotes(book: book, quotes: quotes)
 	}
 }

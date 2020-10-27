@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		window?.rootViewController = UINavigationController(rootViewController: BooksViewController())
         window?.makeKeyAndVisible()
 		
-		BookBrain.loadBooksFromRealm()
+		BooksBrain.loadBooksFromRealm()
 		print(Realm.Configuration.defaultConfiguration.fileURL!)
 		
 		return true

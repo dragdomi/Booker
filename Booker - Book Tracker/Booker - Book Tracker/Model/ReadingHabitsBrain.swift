@@ -8,7 +8,9 @@
 
 import Foundation
 
-class ReadingHabits {
+class ReadingHabitsBrain {
+	private static let realm = RealmController.getRealm()
+	
 	private static var pagesPerDate: [String] = []
 	private static var booksPerDate: [String] = []
 	
@@ -122,7 +124,7 @@ class ReadingHabits {
 	
 	static func getTotalPagesReadNumber() -> Int {
 		var totalPagesReadNumber = 0
-		let books = BookBrain.getBooks()
+		let books = BooksBrain.getBooks()
 		for book in books {
 			totalPagesReadNumber += book.pagesRead
 		}
@@ -131,7 +133,7 @@ class ReadingHabits {
 	
 	static func getTotalPagesNumber() -> Int {
 		var totalPagesNumber = 0
-		let books = BookBrain.getBooks()
+		let books = BooksBrain.getBooks()
 		for book in books {
 			totalPagesNumber += book.totalPages
 		}
@@ -140,7 +142,7 @@ class ReadingHabits {
 	
 	static func getTotalPagesLeftNumber() -> Int {
 		var totalPagesLeftNumber = 0
-		let books = BookBrain.getBooks()
+		let books = BooksBrain.getBooks()
 		for book in books {
 			totalPagesLeftNumber += book.totalPages - book.pagesRead
 		}
@@ -257,7 +259,7 @@ class ReadingHabits {
 	
 	static func getBooksNotStarted() -> [BookModel] {
 		var booksNotStarted = [BookModel]()
-		let books = BookBrain.getBooks()
+		let books = BooksBrain.getBooks()
 		for book in books {
 			if book.pagesRead == 0 {
 				booksNotStarted.append(book)
@@ -268,7 +270,7 @@ class ReadingHabits {
 
 	static func getBooksInProgress() -> [BookModel] {
 		var booksInProgress = [BookModel]()
-		let books = BookBrain.getBooks()
+		let books = BooksBrain.getBooks()
 		for book in books {
 			if book.pagesRead < book.totalPages && book.pagesRead > 0 {
 				booksInProgress.append(book)
@@ -279,7 +281,7 @@ class ReadingHabits {
 	
 	static func getBooksRead() -> [BookModel] {
 		var booksRead = [BookModel]()
-		for book in BookBrain.getBooks() {
+		for book in BooksBrain.getBooks() {
 			if book.pagesRead == book.totalPages {
 				booksRead.append(book)
 			}

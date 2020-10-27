@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class BookBrain {
+class BooksBrain {
 	private static let realm = RealmController.getRealm()
 	
 	private static var books: [BookModel] = []
@@ -53,13 +53,13 @@ class BookBrain {
 	static func getBooksFiltered(books: [BookModel], by filter: String) -> [BookModel] {
 		switch filter {
 		case "finished":
-			return ReadingHabits.getBooksRead()
+			return ReadingHabitsBrain.getBooksRead()
 			
 		case "inProgress":
-			return ReadingHabits.getBooksInProgress()
+			return ReadingHabitsBrain.getBooksInProgress()
 			
 		case "notStarted":
-			return ReadingHabits.getBooksNotStarted()
+			return ReadingHabitsBrain.getBooksNotStarted()
 			
 		default:
 			return books
