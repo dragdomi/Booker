@@ -47,8 +47,8 @@ class BookDetailsViewController: UIViewController {
 		if !book.isFinished() {
 			ReadingHabits.addPagesToDate(pages: book.totalPages - book.pagesRead, date: date)
 			ReadingHabits.addBooksToDate(books: 1, date: date)
-			try! BookBrain.getRealm().write {
-				BookBrain.getRealm().create(BookModel.self, value: ["id":book.id, "pagesRead": book.totalPages, "lastReadDate": date, "finishDate": date], update: .modified)
+			try! RealmController.getRealm().write {
+				RealmController.getRealm().create(BookModel.self, value: ["id":book.id, "pagesRead": book.totalPages, "lastReadDate": date, "finishDate": date], update: .modified)
 			}
 			
 			handleBookData(book)
@@ -151,8 +151,8 @@ class BookDetailsViewController: UIViewController {
 	
 	func configureRatingView() {
 		ratingView.didTouchCosmos = { rating in
-			try! BookBrain.getRealm().write {
-				BookBrain.getRealm().create(BookModel.self, value: ["id": self.book.id, "rating": rating], update: .modified)
+			try! RealmController.getRealm().write {
+				RealmController.getRealm().create(BookModel.self, value: ["id": self.book.id, "rating": rating], update: .modified)
 			}
 			self.ratingView.rating = rating
 		}
@@ -220,19 +220,19 @@ class BookDetailsViewController: UIViewController {
 					showSubstractAlert(negativeNumber: updatedPagesRead - book.pagesRead)
 				}
 				
-				try! BookBrain.getRealm().write {
-					BookBrain.getRealm().create(BookModel.self, value: ["id":book.id, "pagesRead": updatedPagesRead, "lastReadDate": date], update: .modified)
+				try! RealmController.getRealm().write {
+					RealmController.getRealm().create(BookModel.self, value: ["id":book.id, "pagesRead": updatedPagesRead, "lastReadDate": date], update: .modified)
 				}
 				
 				if (book.isFinished()) {
-					try! BookBrain.getRealm().write {
-						BookBrain.getRealm().create(BookModel.self, value: ["id":book.id, "finishDate": date], update: .modified)
+					try! RealmController.getRealm().write {
+						RealmController.getRealm().create(BookModel.self, value: ["id":book.id, "finishDate": date], update: .modified)
 						ReadingHabits.addBooksToDate(books: 1, date: date)
 						showBookFinishedView()
 					}
 				} else {
-					try! BookBrain.getRealm().write {
-						BookBrain.getRealm().create(BookModel.self, value: ["id":book.id, "finishDate": ""], update: .modified)
+					try! RealmController.getRealm().write {
+						RealmController.getRealm().create(BookModel.self, value: ["id":book.id, "finishDate": ""], update: .modified)
 					}
 				}
 				

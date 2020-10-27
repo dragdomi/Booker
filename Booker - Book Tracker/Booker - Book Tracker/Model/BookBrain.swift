@@ -10,18 +10,9 @@ import Foundation
 import RealmSwift
 
 class BookBrain {
-	private static let realm = try! Realm()
+	private static let realm = RealmController.getRealm()
 	
 	private static var books: [BookModel] = []
-	
-	enum Error: Swift.Error {
-		case saveFailed
-		case readFailed
-	}
-	
-	static func getRealm() -> Realm {
-		return realm
-	}
 	
 	//MARK: - Books functions
 	

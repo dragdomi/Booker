@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A50A46542548229E00E1F3DD /* RealmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50A46532548229E00E1F3DD /* RealmController.swift */; };
 		A51854372497ABC800983DB8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A51854362497ABC800983DB8 /* GoogleService-Info.plist */; };
 		A51854392497DC6E00983DB8 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51854382497DC6E00983DB8 /* WelcomeViewController.swift */; };
 		A518897B253471CD0017AA57 /* QuotesViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A518897A253471CD0017AA57 /* QuotesViewHeader.swift */; };
@@ -71,6 +72,7 @@
 		226F733C91163B564FF2D06A /* Pods_Booker___Book_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Booker___Book_Tracker.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EDD9C6E2469E0E6D40C3F19 /* Pods-Booker - Book Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Booker - Book Tracker.debug.xcconfig"; path = "Target Support Files/Pods-Booker - Book Tracker/Pods-Booker - Book Tracker.debug.xcconfig"; sourceTree = "<group>"; };
 		7FD9B88971AF4A51305F1C2A /* Pods-Booker - Book Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Booker - Book Tracker.release.xcconfig"; path = "Target Support Files/Pods-Booker - Book Tracker/Pods-Booker - Book Tracker.release.xcconfig"; sourceTree = "<group>"; };
+		A50A46532548229E00E1F3DD /* RealmController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmController.swift; sourceTree = "<group>"; };
 		A51854362497ABC800983DB8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A51854382497DC6E00983DB8 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		A518897A253471CD0017AA57 /* QuotesViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesViewHeader.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 				A53E2BF4241D08FF0013152C /* BookBrain.swift */,
 				A52830A524C5BED200BED289 /* ReadingHabits.swift */,
 				A599B81024D0491F00163D1A /* Utils.swift */,
+				A50A46532548229E00E1F3DD /* RealmController.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 				A5EB58B3252F7E7500D90E0A /* UITextView.swift in Sources */,
 				A53E2BF5241D08FF0013152C /* BookBrain.swift in Sources */,
 				A5EB58C1252F8A4200D90E0A /* QuoteCell.swift in Sources */,
+				A50A46542548229E00E1F3DD /* RealmController.swift in Sources */,
 				A53E2BDC241D063B0013152C /* AppDelegate.swift in Sources */,
 				A5EB58AF252F647B00D90E0A /* NotesViewController.swift in Sources */,
 				A53E2BF3241D07DA0013152C /* BookModel.swift in Sources */,
