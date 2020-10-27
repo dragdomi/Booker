@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class ReadingHabitModel: Object, Codable {
+class ReadingEntryModel: Object, Codable {
 	@objc dynamic var date: String
 	@objc dynamic var pages: Int
 	var books = List<BookModel>()

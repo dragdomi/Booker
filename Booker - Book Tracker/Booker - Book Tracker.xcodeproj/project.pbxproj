@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		A50A46542548229E00E1F3DD /* RealmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50A46532548229E00E1F3DD /* RealmController.swift */; };
-		A50A465725486DA100E1F3DD /* ReadingHabitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50A465625486DA100E1F3DD /* ReadingHabitModel.swift */; };
+		A50A465725486DA100E1F3DD /* ReadingEntryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50A465625486DA100E1F3DD /* ReadingEntryModel.swift */; };
+		A50A465E254870C200E1F3DD /* ReadingEntriesBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50A465D254870C200E1F3DD /* ReadingEntriesBrain.swift */; };
 		A51854372497ABC800983DB8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A51854362497ABC800983DB8 /* GoogleService-Info.plist */; };
 		A51854392497DC6E00983DB8 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51854382497DC6E00983DB8 /* WelcomeViewController.swift */; };
 		A518897B253471CD0017AA57 /* QuotesViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A518897A253471CD0017AA57 /* QuotesViewHeader.swift */; };
 		A518897E253471DF0017AA57 /* QuotesViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = A518897D253471DF0017AA57 /* QuotesViewHeader.xib */; };
 		A5188983253762BB0017AA57 /* QuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5188982253762BB0017AA57 /* QuoteViewController.swift */; };
-		A52830A624C5BED200BED289 /* ReadingHabitsBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52830A524C5BED200BED289 /* ReadingHabitsBrain.swift */; };
+		A52830A624C5BED200BED289 /* ReadingHabits.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52830A524C5BED200BED289 /* ReadingHabits.swift */; };
 		A52830AC24C5D3B700BED289 /* ReadingHabitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52830AB24C5D3B700BED289 /* ReadingHabitsViewController.swift */; };
 		A53145852529CEE400AB66F7 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53145842529CEE400AB66F7 /* UIColor.swift */; };
 		A53E2BDC241D063B0013152C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53E2BDB241D063B0013152C /* AppDelegate.swift */; };
@@ -74,13 +75,14 @@
 		7EDD9C6E2469E0E6D40C3F19 /* Pods-Booker - Book Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Booker - Book Tracker.debug.xcconfig"; path = "Target Support Files/Pods-Booker - Book Tracker/Pods-Booker - Book Tracker.debug.xcconfig"; sourceTree = "<group>"; };
 		7FD9B88971AF4A51305F1C2A /* Pods-Booker - Book Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Booker - Book Tracker.release.xcconfig"; path = "Target Support Files/Pods-Booker - Book Tracker/Pods-Booker - Book Tracker.release.xcconfig"; sourceTree = "<group>"; };
 		A50A46532548229E00E1F3DD /* RealmController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmController.swift; sourceTree = "<group>"; };
-		A50A465625486DA100E1F3DD /* ReadingHabitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingHabitModel.swift; sourceTree = "<group>"; };
+		A50A465625486DA100E1F3DD /* ReadingEntryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingEntryModel.swift; sourceTree = "<group>"; };
+		A50A465D254870C200E1F3DD /* ReadingEntriesBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingEntriesBrain.swift; sourceTree = "<group>"; };
 		A51854362497ABC800983DB8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A51854382497DC6E00983DB8 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		A518897A253471CD0017AA57 /* QuotesViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesViewHeader.swift; sourceTree = "<group>"; };
 		A518897D253471DF0017AA57 /* QuotesViewHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuotesViewHeader.xib; sourceTree = "<group>"; };
 		A5188982253762BB0017AA57 /* QuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewController.swift; sourceTree = "<group>"; };
-		A52830A524C5BED200BED289 /* ReadingHabitsBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingHabitsBrain.swift; sourceTree = "<group>"; };
+		A52830A524C5BED200BED289 /* ReadingHabits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingHabits.swift; sourceTree = "<group>"; };
 		A52830AB24C5D3B700BED289 /* ReadingHabitsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingHabitsViewController.swift; sourceTree = "<group>"; };
 		A53145842529CEE400AB66F7 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		A53E2BD8241D063B0013152C /* Booker - Book Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Booker - Book Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -269,8 +271,9 @@
 			children = (
 				A53E2BF4241D08FF0013152C /* BooksBrain.swift */,
 				A53E2BF2241D07DA0013152C /* BookModel.swift */,
-				A52830A524C5BED200BED289 /* ReadingHabitsBrain.swift */,
-				A50A465625486DA100E1F3DD /* ReadingHabitModel.swift */,
+				A52830A524C5BED200BED289 /* ReadingHabits.swift */,
+				A50A465D254870C200E1F3DD /* ReadingEntriesBrain.swift */,
+				A50A465625486DA100E1F3DD /* ReadingEntryModel.swift */,
 				A50A46532548229E00E1F3DD /* RealmController.swift */,
 				A599B81024D0491F00163D1A /* Utils.swift */,
 			);
@@ -460,13 +463,14 @@
 				A57B865F253F250600DAC9F2 /* MonthCell.swift in Sources */,
 				A53145852529CEE400AB66F7 /* UIColor.swift in Sources */,
 				A53E2BE0241D063B0013152C /* BooksViewController.swift in Sources */,
+				A50A465E254870C200E1F3DD /* ReadingEntriesBrain.swift in Sources */,
 				A5BF69D22530A056000A94A3 /* QuotesViewController.swift in Sources */,
 				A56BF972251B586C000F5E29 /* ImageManager.swift in Sources */,
 				A577770D250B7E7A0044451D /* BooksViewHeader.swift in Sources */,
-				A52830A624C5BED200BED289 /* ReadingHabitsBrain.swift in Sources */,
+				A52830A624C5BED200BED289 /* ReadingHabits.swift in Sources */,
 				A5AD99CE2422995200E0A6D9 /* BookDetailsViewController.swift in Sources */,
 				A5918624241D430400002A11 /* AddBookManuallyViewController.swift in Sources */,
-				A50A465725486DA100E1F3DD /* ReadingHabitModel.swift in Sources */,
+				A50A465725486DA100E1F3DD /* ReadingEntryModel.swift in Sources */,
 				A599B81124D0491F00163D1A /* Utils.swift in Sources */,
 				A5EB58B3252F7E7500D90E0A /* UITextView.swift in Sources */,
 				A53E2BF5241D08FF0013152C /* BooksBrain.swift in Sources */,

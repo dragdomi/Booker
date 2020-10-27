@@ -8,8 +8,8 @@
 
 import Foundation
 
-class ReadingHabitsBrain {
-	private static let realm = RealmController.getRealm()
+class ReadingHabits {
+	private static let realm = RealmController.getBooksRealm()
 	
 	private static var pagesPerDate: [String] = []
 	private static var booksPerDate: [String] = []

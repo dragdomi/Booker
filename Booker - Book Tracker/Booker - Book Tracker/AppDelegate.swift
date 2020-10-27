@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
 		
 		BooksBrain.loadBooksFromRealm()
+		ReadingEntriesBrain.loadReadingEntriesFromRealm()
 		print(Realm.Configuration.defaultConfiguration.fileURL!)
 		
 		return true

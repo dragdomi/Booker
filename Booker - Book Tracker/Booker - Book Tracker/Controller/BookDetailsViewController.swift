@@ -45,10 +45,10 @@ class BookDetailsViewController: UIViewController {
 	@IBAction func finishBookButtonTapped(_ sender: UIButton) {
 		let date = Utils.formatDateToString(Date())
 		if !book.isFinished() {
-			ReadingHabitsBrain.addPagesToDate(pages: book.totalPages - book.pagesRead, date: date)
-			ReadingHabitsBrain.addBooksToDate(books: 1, date: date)
-			try! RealmController.getRealm().write {
-				RealmController.getRealm().create(BookModel.self, value: ["id":book.id, "pagesRead": book.totalPages, "lastReadDate": date, "finishDate": date], update: .modified)
+			ReadingHabits.addPagesToDate(pages: book.totalPages - book.pagesRead, date: date)
+			ReadingHabits.addBooksToDate(books: 1, date: date)
+			try! RealmController.getBooksRealm().write {
+				RealmController.getBooksRealm().create(BookModel.self, value: ["id":book.id, "pagesRead": book.totalPages, "lastReadDate": date, "finishDate": date], update: .modified)
 			}
 			
 			handleBookData(book)
@@ -151,8 +151,8 @@ class BookDetailsViewController: UIViewController {
 	
 	func configureRatingView() {
 		ratingView.didTouchCosmos = { rating in
-			try! RealmController.getRealm().write {
-				RealmController.getRealm().create(BookModel.self, value: ["id": self.book.id, "rating": rating], update: .modified)
+			try! RealmController.getBooksRealm().write {
+				RealmController.getBooksRealm().create(BookModel.self, value: ["id": self.book.id, "rating": rating], update: .modified)
 			}
 			self.ratingView.rating = rating
 		}
@@ -215,24 +215,24 @@ class BookDetailsViewController: UIViewController {
 			if let updatedPagesRead = Int(textField.text!) {
 				let date = Utils.formatDateToString(Date())
 				if (updatedPagesRead - book.pagesRead) >= 0 {
-					ReadingHabitsBrain.addPagesToDate(pages: updatedPagesRead - book.pagesRead, date: date)
+					ReadingHabits.addPagesToDate(pages: updatedPagesRead - book.pagesRead, date: date)
 				} else {
 					showSubstractAlert(negativeNumber: updatedPagesRead - book.pagesRead)
 				}
 				
-				try! RealmController.getRealm().write {
-					RealmController.getRealm().create(BookModel.self, value: ["id":book.id, "pagesRead": updatedPagesRead, "lastReadDate": date], update: .modified)
+				try! RealmController.getBooksRealm().write {
+					RealmController.getBooksRealm().create(BookModel.self, value: ["id":book.id, "pagesRead": updatedPagesRead, "lastReadDate": date], update: .modified)
 				}
 				
 				if (book.isFinished()) {
-					try! RealmController.getRealm().write {
-						RealmController.getRealm().create(BookModel.self, value: ["id":book.id, "finishDate": date], update: .modified)
-						ReadingHabitsBrain.addBooksToDate(books: 1, date: date)
+					try! RealmController.getBooksRealm().write {
+						RealmController.getBooksRealm().create(BookModel.self, value: ["id":book.id, "finishDate": date], update: .modified)
+						ReadingHabits.addBooksToDate(books: 1, date: date)
 						showBookFinishedView()
 					}
 				} else {
-					try! RealmController.getRealm().write {
-						RealmController.getRealm().create(BookModel.self, value: ["id":book.id, "finishDate": ""], update: .modified)
+					try! RealmController.getBooksRealm().write {
+						RealmController.getBooksRealm().create(BookModel.self, value: ["id":book.id, "finishDate": ""], update: .modified)
 					}
 				}
 				
@@ -245,7 +245,7 @@ class BookDetailsViewController: UIViewController {
 		let date = Utils.formatDateToString(Date())
 		let substractAlert = UIAlertController(title: "Negative number", message: "Do you want to substract \(abs(negativeNumber)) from your daily pages score?", preferredStyle: .alert)
 		let yesAction = UIAlertAction(title: "Yes", style: .default) { _ in
-			ReadingHabitsBrain.modifyPagesPerDate(pages: negativeNumber, date: date)
+			ReadingHabits.modifyPagesPerDate(pages: negativeNumber, date: date)
 		}
 		
 		let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
