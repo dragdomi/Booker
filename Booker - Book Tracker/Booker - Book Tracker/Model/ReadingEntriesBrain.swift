@@ -42,6 +42,8 @@ class ReadingEntriesBrain {
 				entry.pages = 0
 			}
 		}
+		
+		loadReadingEntriesFromRealm()
 	}
 	
 	static func addBookToEntry(with date: String, book: BookModel) {
@@ -49,6 +51,8 @@ class ReadingEntriesBrain {
 		try! realm.write {
 			entry.books.append(book)
 		}
+		
+		loadReadingEntriesFromRealm()
 	}
 	
 	private static func readingEntriesContainEntry(with date: String) -> Bool {
@@ -71,6 +75,28 @@ class ReadingEntriesBrain {
 		let entry = ReadingEntryModel(date: date, pages: 0, books: List<BookModel>())
 		addReadingEntry(entry)
 		return entry
+	}
+	
+	static func getPagesPerMonth(month: String, year: String) -> Int {
+		var pages = 0
+		for entry in readingEntries {
+			if entry.getDatePart(part: "month") == month && entry.getDatePart(part: "year") == year {
+				pages += entry.pages
+			}
+		}
+		
+		return pages
+	}
+	
+	static func getBooksNumberPerMonth(month: String, year: String) -> Int {
+		var booksNumber = 0
+		for entry in readingEntries {
+			if entry.getDatePart(part: "month") == month && entry.getDatePart(part: "year") == year {
+				booksNumber += entry.books.count
+			}
+		}
+		
+		return booksNumber
 	}
 	
 	//MARK: - Realm

@@ -90,8 +90,8 @@ extension ReadingHabitsViewController: UICollectionViewDataSource, UICollectionV
 		let month = months[indexPath.row]
 		let monthNumber = String(Utils.monthsNumbers[month] ?? 0)
 		cell.monthLabel.text = months[indexPath.row]
-		cell.pagesNumberLabel.text = String(ReadingHabits.getPagesPerMonth(month: monthNumber, year: year))
-		cell.booksNumberLabel.text = String(ReadingHabits.getBooksPerMonth(month: monthNumber, year: year))
+		cell.pagesNumberLabel.text = String(ReadingEntriesBrain.getPagesPerMonth(month: monthNumber, year: year))
+		cell.booksNumberLabel.text = String(ReadingEntriesBrain.getBooksNumberPerMonth(month: monthNumber, year: year))
 		
 		return cell
 	}
