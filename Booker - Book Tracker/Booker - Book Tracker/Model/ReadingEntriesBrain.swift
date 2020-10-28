@@ -31,6 +31,48 @@ class ReadingEntriesBrain {
 		return readingEntries
 	}
 	
+	static func addPagesToEntry(with date: String, pages: Int) {
+		let entry = getReadingEntry(with: date)
+		if (entry.pages + pages) >= 0 {
+			try! realm.write {
+				entry.pages += pages
+			}
+		} else {
+			try! realm.write {
+				entry.pages = 0
+			}
+		}
+	}
+	
+	static func addBookToEntry(with date: String, book: BookModel) {
+		let entry = getReadingEntry(with: date)
+		try! realm.write {
+			entry.books.append(book)
+		}
+	}
+	
+	private static func readingEntriesContainEntry(with date: String) -> Bool {
+		var contains = false
+		for entry in readingEntries {
+			if entry.date == date {
+				contains = true
+			}
+		}
+		return contains
+	}
+	
+	private static func getReadingEntry(with date: String) -> ReadingEntryModel {
+		for entry in readingEntries {
+			if entry.date == date {
+				return entry
+			}
+		}
+		
+		let entry = ReadingEntryModel(date: date, pages: 0, books: List<BookModel>())
+		addReadingEntry(entry)
+		return entry
+	}
+	
 	//MARK: - Realm
 	
 	static func saveReadingEntriesToRealm() {
