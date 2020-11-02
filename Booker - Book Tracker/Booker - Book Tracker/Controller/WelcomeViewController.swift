@@ -37,8 +37,8 @@ class WelcomeViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		titleLabel.text = "Booker 📚"
-		if let booksViewController = storyboard?.instantiateViewController(identifier: Constants.ViewControllers.books) as? BooksViewController {
-			navigationController?.pushViewController(booksViewController, animated: true)
+		if let tabBarController = storyboard?.instantiateViewController(identifier: Constants.ViewControllers.tabBar) as? TabBarController {
+			navigationController?.pushViewController(tabBarController, animated: true)
 		}
 	}
 }

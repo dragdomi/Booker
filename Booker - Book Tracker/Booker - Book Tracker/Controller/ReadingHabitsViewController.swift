@@ -50,7 +50,7 @@ class ReadingHabitsViewController: UIViewController {
 	//MARK: - UI
 	
 	func setupUI() {
-		title = "My Reading Habits"
+		title = "Habits"
 		setupPagesView()
 		setupBooksView()
 		yearLabel.text = String(year)

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="t5p-DA-oMX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="med-F0-HBS">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="dcB-Nv-rSe">
-                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <color key="backgroundColor" name="Divider"/>
                                 <color key="sectionIndexBackgroundColor" name="WhiteBlack"/>
                                 <sections/>
@@ -38,13 +38,14 @@
                             <constraint firstAttribute="bottom" secondItem="dcB-Nv-rSe" secondAttribute="bottom" id="pUN-dL-DuA"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="mIw-4f-oXE"/>
                     <connections>
                         <outlet property="tableView" destination="dcB-Nv-rSe" id="MG3-wE-D4D"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T8v-PC-o6M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3928.985507246377" y="83.705357142857139"/>
+            <point key="canvasLocation" x="5749.275362318841" y="83.705357142857139"/>
         </scene>
         <!--Add Book Manually View Controller-->
         <scene sceneID="Fjr-id-9Ux">
@@ -223,9 +224,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uAJ-q4-QLh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4784" y="84"/>
+            <point key="canvasLocation" x="6602.898550724638" y="83.705357142857139"/>
         </scene>
-        <!--Reading Habits View Controller-->
+        <!--Habits-->
         <scene sceneID="Xjl-0S-ISg">
             <objects>
                 <viewController storyboardIdentifier="ReadingHabitsViewController" id="4SV-Xc-Cfc" customClass="ReadingHabitsViewController" customModule="Booker___Book_Tracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -487,6 +488,7 @@
                             <constraint firstItem="QYW-gx-ffz" firstAttribute="leading" secondItem="yle-Xe-I8A" secondAttribute="leading" constant="10" id="yU9-PA-2fi"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Habits" image="calendar" catalog="system" selectedImage="calendar" id="kZB-cR-DYc"/>
                     <connections>
                         <outlet property="booksInProgressLabel" destination="w3w-69-ZOt" id="iDJ-kv-0gm"/>
                         <outlet property="booksNotStartedLabel" destination="JtZ-RS-GyA" id="oV5-xs-cjS"/>
@@ -532,7 +534,7 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Idq-wH-dFV">
-                                                                <rect key="frame" x="100.5" y="0.0" width="273.5" height="90"/>
+                                                                <rect key="frame" x="100.5" y="0.0" width="273.5" height="110"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Title" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gBS-z1-mgH">
                                                                         <rect key="frame" x="0.0" y="0.0" width="273.5" height="33.5"/>
@@ -547,7 +549,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kwv-H3-NOt" customClass="CosmosView" customModule="Cosmos">
-                                                                        <rect key="frame" x="0.0" y="60" width="273.5" height="30"/>
+                                                                        <rect key="frame" x="0.0" y="60" width="273.5" height="50"/>
                                                                         <color key="tintColor" name="Accent"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="rating">
@@ -838,7 +840,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="99D-pK-6VY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5592.753623188406" y="83.705357142857139"/>
+            <point key="canvasLocation" x="7413.04347826087" y="83.705357142857139"/>
         </scene>
         <!--Notes View Controller-->
         <scene sceneID="LLF-jL-2A4">
@@ -1002,7 +1004,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Booker 📚" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Llv-fo-vRe">
-                                <rect key="frame" x="0.0" y="88" width="414" height="646"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="690"/>
                                 <fontDescription key="fontDescription" name="Lato-Black" family="Lato" pointSize="70"/>
                                 <color key="textColor" name="PrimaryText"/>
                                 <nil key="highlightedColor"/>
@@ -1101,30 +1103,6 @@
             </objects>
             <point key="canvasLocation" x="3929" y="-610"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="m8p-1Q-7SC">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="t5p-DA-oMX" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jry-1g-ttg">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" name="Divider"/>
-                        <color key="tintColor" name="Accent"/>
-                        <color key="barTintColor" name="Divider"/>
-                        <textAttributes key="largeTitleTextAttributes">
-                            <color key="textColor" name="PrimaryText"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="yKC-T8-sSD" kind="relationship" relationship="rootViewController" id="Zs3-Rf-ad7"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ksh-bW-gn3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1353.6231884057972" y="83.705357142857139"/>
-        </scene>
         <!--Login View Controller-->
         <scene sceneID="ItO-W6-edN">
             <objects>
@@ -1179,15 +1157,50 @@
             </objects>
             <point key="canvasLocation" x="3074" y="400"/>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="mX1-V2-Af6">
+            <objects>
+                <tabBarController storyboardIdentifier="TabBarController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="med-F0-HBS" customClass="TabBarController" customModule="Booker___Book_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Xbb-T1-MA3">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Zym-6P-s0z" kind="relationship" relationship="viewControllers" id="es5-pe-eou"/>
+                        <segue destination="4SV-Xc-Cfc" kind="relationship" relationship="viewControllers" id="k9l-J7-Tvs"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tvc-rx-J6t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3928.985507246377" y="83.705357142857139"/>
+        </scene>
+        <!--Books-->
+        <scene sceneID="nbI-ra-cY6">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kNF-UA-HqO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Zym-6P-s0z" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Books" image="books.vertical" catalog="system" selectedImage="books.vertical" id="RA2-iM-eaJ"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dvA-dH-cCN">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0Q0-7Q-Gaz" kind="relationship" relationship="rootViewController" id="kEj-d6-fgL"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="4839.130434782609" y="83.705357142857139"/>
+        </scene>
     </scenes>
-    <designables>
-        <designable name="Kwv-H3-NOt">
-            <size key="intrinsicContentSize" width="170" height="30"/>
-        </designable>
-    </designables>
+    <color key="tintColor" name="Accent"/>
     <resources>
         <image name="book.closed" catalog="system" width="115" height="128"/>
         <image name="bookmark" catalog="system" width="112" height="128"/>
+        <image name="books.vertical" catalog="system" width="128" height="103"/>
+        <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="chevron.left.circle" catalog="system" width="128" height="121"/>
         <image name="chevron.right.circle" catalog="system" width="128" height="121"/>

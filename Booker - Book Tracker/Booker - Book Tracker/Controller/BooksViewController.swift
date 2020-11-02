@@ -49,11 +49,12 @@ class BooksViewController: UIViewController, AddBookManuallyViewControllerDelega
 		
 		navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "ellipsis"), style: .plain, target: self, action: #selector(showMenu))
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBookButtonTapped))
+		tabBarItem.image = UIImage(systemName: "books.vertical")
 		
 		setupSearchController()
 		//		setupHeader()
 		
-		title = "My Books"
+		title = "Books"
 	}
 	
 	func setupSearchController() {

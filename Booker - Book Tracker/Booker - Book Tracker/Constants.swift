@@ -28,6 +28,7 @@ struct Constants {
 		static let quotes = "QuotesViewController"
 		static let register = "RegisterViewController"
 		static let readingHabits = "ReadingHabitsViewController"
+		static let tabBar = "TabBarController"
 		static let userProfile = "UserProfileViewController"
 	}
 	
