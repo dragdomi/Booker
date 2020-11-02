@@ -505,7 +505,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e3r-kY-D5d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3928.985507246377" y="794.86607142857144"/>
+            <point key="canvasLocation" x="4839" y="788"/>
         </scene>
         <!--Book Details View Controller-->
         <scene sceneID="8kJ-Zf-re8">
@@ -842,7 +842,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="99D-pK-6VY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6578" y="-610"/>
+            <point key="canvasLocation" x="6522" y="-610"/>
         </scene>
         <!--Notes View Controller-->
         <scene sceneID="LLF-jL-2A4">
@@ -876,7 +876,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nlf-nM-btw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5183" y="753"/>
+            <point key="canvasLocation" x="5667" y="788"/>
         </scene>
         <!--Quotes View Controller-->
         <scene sceneID="6bp-gX-pTX">
@@ -934,7 +934,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dJT-2Z-bF9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6015.9420289855079" y="752.67857142857144"/>
+            <point key="canvasLocation" x="6522" y="788"/>
         </scene>
         <!--Quote View Controller-->
         <scene sceneID="RR5-mG-pcb">
@@ -967,7 +967,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nen-Za-fbk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6016" y="1418"/>
+            <point key="canvasLocation" x="6522" y="1453"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="8WC-Xi-LoT">
@@ -1089,21 +1089,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ez-kg-2JC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3074" y="-310"/>
-        </scene>
-        <!--User Profile View Controller-->
-        <scene sceneID="gI9-Hc-f4W">
-            <objects>
-                <viewController storyboardIdentifier="UserProfileViewController" id="nWo-qg-Eax" customClass="UserProfileViewController" customModule="Booker___Book_Tracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="G61-QU-nlE">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="r7L-pS-YMM"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ixO-r0-cDb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3929" y="-610"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="ItO-W6-edN">

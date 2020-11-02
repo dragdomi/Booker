@@ -40,7 +40,6 @@
 		A5918624241D430400002A11 /* AddBookManuallyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5918623241D430400002A11 /* AddBookManuallyViewController.swift */; };
 		A59258A924BE20920066CACE /* BookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A59258A824BE20920066CACE /* BookCell.xib */; };
 		A59258AB24BE2C980066CACE /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59258AA24BE2C980066CACE /* BookCell.swift */; };
-		A599B80F24D0430D00163D1A /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A599B80E24D0430D00163D1A /* UserProfileViewController.swift */; };
 		A599B81124D0491F00163D1A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A599B81024D0491F00163D1A /* Utils.swift */; };
 		A599B82C24D3006300163D1A /* HorizontalProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A599B82B24D3006300163D1A /* HorizontalProgressBar.swift */; };
 		A599B82E24D3066F00163D1A /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A599B82D24D3066F00163D1A /* CircularProgressBar.swift */; };
@@ -112,7 +111,6 @@
 		A5918623241D430400002A11 /* AddBookManuallyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookManuallyViewController.swift; sourceTree = "<group>"; };
 		A59258A824BE20920066CACE /* BookCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookCell.xib; sourceTree = "<group>"; };
 		A59258AA24BE2C980066CACE /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
-		A599B80E24D0430D00163D1A /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		A599B81024D0491F00163D1A /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		A599B82B24D3006300163D1A /* HorizontalProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalProgressBar.swift; sourceTree = "<group>"; };
 		A599B82D24D3066F00163D1A /* CircularProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
@@ -248,7 +246,6 @@
 				A5D917C72499568300452531 /* RegisterViewController.swift */,
 				A52830AB24C5D3B700BED289 /* ReadingHabitsViewController.swift */,
 				A51854382497DC6E00983DB8 /* WelcomeViewController.swift */,
-				A599B80E24D0430D00163D1A /* UserProfileViewController.swift */,
 				A5528B0D2550091A00E1F8A6 /* TabBarController.swift */,
 				A5528B142550161900E1F8A6 /* BookDetailsViewNavigationController.swift */,
 			);
@@ -466,7 +463,6 @@
 				A5D917CA249957B900452531 /* Constants.swift in Sources */,
 				A5D917C82499568300452531 /* RegisterViewController.swift in Sources */,
 				A5188983253762BB0017AA57 /* QuoteViewController.swift in Sources */,
-				A599B80F24D0430D00163D1A /* UserProfileViewController.swift in Sources */,
 				A599B82C24D3006300163D1A /* HorizontalProgressBar.swift in Sources */,
 				A59258AB24BE2C980066CACE /* BookCell.swift in Sources */,
 				A57B865F253F250600DAC9F2 /* MonthCell.swift in Sources */,
