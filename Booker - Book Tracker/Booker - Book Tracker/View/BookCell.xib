@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m0I-ry-7mc">
-                        <rect key="frame" x="10" y="3" width="394" height="80"/>
+                        <rect key="frame" x="10" y="5" width="394" height="80"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d2C-Hg-PoM" userLabel="Title Label">
                                 <rect key="frame" x="62.5" y="5" width="321.5" height="24"/>
@@ -44,7 +44,7 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E7k-9k-bwW" customClass="HorizontalProgressBar" customModule="Booker___Book_Tracker">
                                 <rect key="frame" x="62.5" y="57" width="326.5" height="6"/>
-                                <color key="backgroundColor" name="Divider"/>
+                                <color key="backgroundColor" name="TextIcons"/>
                                 <color key="tintColor" name="Accent"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="6" id="03r-dJ-gLO"/>
@@ -87,8 +87,8 @@
                 <constraints>
                     <constraint firstItem="m0I-ry-7mc" firstAttribute="centerX" secondItem="emB-Gk-Til" secondAttribute="centerX" id="EYj-aH-lxm"/>
                     <constraint firstItem="m0I-ry-7mc" firstAttribute="leading" secondItem="emB-Gk-Til" secondAttribute="leading" constant="10" id="ewK-bo-HRh"/>
-                    <constraint firstItem="m0I-ry-7mc" firstAttribute="top" secondItem="emB-Gk-Til" secondAttribute="top" constant="3" id="fNq-mG-Vzf"/>
-                    <constraint firstAttribute="bottom" secondItem="m0I-ry-7mc" secondAttribute="bottom" constant="3" id="hnM-PN-DgW"/>
+                    <constraint firstItem="m0I-ry-7mc" firstAttribute="top" secondItem="emB-Gk-Til" secondAttribute="top" constant="5" id="fNq-mG-Vzf"/>
+                    <constraint firstAttribute="bottom" secondItem="m0I-ry-7mc" secondAttribute="bottom" constant="5" id="hnM-PN-DgW"/>
                     <constraint firstItem="m0I-ry-7mc" firstAttribute="centerY" secondItem="emB-Gk-Til" secondAttribute="centerY" id="jNe-Hs-Vvo"/>
                     <constraint firstAttribute="trailing" secondItem="m0I-ry-7mc" secondAttribute="trailing" constant="10" id="xRp-FK-W9Y"/>
                 </constraints>
@@ -124,6 +124,9 @@
         </namedColor>
         <namedColor name="SecondaryText">
             <color red="0.45899999141693115" green="0.45899999141693115" blue="0.45899999141693115" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextIcons">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

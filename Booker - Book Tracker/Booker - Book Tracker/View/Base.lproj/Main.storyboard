@@ -227,6 +227,22 @@
             </objects>
             <point key="canvasLocation" x="7513.04347826087" y="83.705357142857139"/>
         </scene>
+        <!--More-->
+        <scene sceneID="hhC-ev-NsH">
+            <objects>
+                <viewController id="CTs-g6-Blh" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RrB-fl-9c8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="oio-pm-pJ1"/>
+                        <color key="backgroundColor" name="Divider"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="More" image="ellipsis.rectangle" catalog="system" selectedImage="ellipsis.rectangle" id="2ij-Hh-tJr"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K9E-3N-SFd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3929" y="788"/>
+        </scene>
         <!--Habits-->
         <scene sceneID="Xjl-0S-ISg">
             <objects>
@@ -1157,6 +1173,7 @@
                     <connections>
                         <segue destination="Zym-6P-s0z" kind="relationship" relationship="viewControllers" id="es5-pe-eou"/>
                         <segue destination="4SV-Xc-Cfc" kind="relationship" relationship="viewControllers" id="k9l-J7-Tvs"/>
+                        <segue destination="CTs-g6-Blh" kind="relationship" relationship="viewControllers" id="iM5-aZ-wjO"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tvc-rx-J6t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1222,6 +1239,7 @@
         <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="chevron.left.circle" catalog="system" width="128" height="121"/>
         <image name="chevron.right.circle" catalog="system" width="128" height="121"/>
+        <image name="ellipsis.rectangle" catalog="system" width="128" height="81"/>
         <image name="note.text" catalog="system" width="128" height="106"/>
         <image name="quote.bubble" catalog="system" width="128" height="110"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>

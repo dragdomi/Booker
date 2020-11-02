@@ -29,11 +29,13 @@ class QuotesViewController: UIViewController {
 	}
 	
 	func setupUI() {
-		if let bookTitle = book?.title {
-			title = "\"\(bookTitle)\""
-		} else {
-			title = ""
-		}
+//		if let bookTitle = book?.title {
+//			title = "\"\(bookTitle)\""
+//		} else {
+//			title = ""
+//		}
+		
+		title = "Quotes"
 		
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showAddQuoteView))
 		//		setupHeader()
