@@ -27,6 +27,8 @@
 		A53E2BF3241D07DA0013152C /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53E2BF2241D07DA0013152C /* BookModel.swift */; };
 		A53E2BF5241D08FF0013152C /* BooksBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53E2BF4241D08FF0013152C /* BooksBrain.swift */; };
 		A5528B0E2550091A00E1F8A6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5528B0D2550091A00E1F8A6 /* TabBarController.swift */; };
+		A5528B112550136600E1F8A6 /* AddBookManuallyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5528B102550136600E1F8A6 /* AddBookManuallyNavigationController.swift */; };
+		A5528B152550161900E1F8A6 /* BookDetailsViewNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5528B142550161900E1F8A6 /* BookDetailsViewNavigationController.swift */; };
 		A55817722528C2C900906155 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55817712528C2C900906155 /* UIView.swift */; };
 		A56BF972251B586C000F5E29 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56BF971251B586C000F5E29 /* ImageManager.swift */; };
 		A577770D250B7E7A0044451D /* BooksViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A577770B250B7E7A0044451D /* BooksViewHeader.swift */; };
@@ -97,6 +99,8 @@
 		A53E2BF2241D07DA0013152C /* BookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookModel.swift; sourceTree = "<group>"; };
 		A53E2BF4241D08FF0013152C /* BooksBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksBrain.swift; sourceTree = "<group>"; };
 		A5528B0D2550091A00E1F8A6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		A5528B102550136600E1F8A6 /* AddBookManuallyNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookManuallyNavigationController.swift; sourceTree = "<group>"; };
+		A5528B142550161900E1F8A6 /* BookDetailsViewNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailsViewNavigationController.swift; sourceTree = "<group>"; };
 		A55817712528C2C900906155 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		A56BF971251B586C000F5E29 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		A577770B250B7E7A0044451D /* BooksViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BooksViewHeader.swift; sourceTree = "<group>"; };
@@ -233,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				A5918623241D430400002A11 /* AddBookManuallyViewController.swift */,
+				A5528B102550136600E1F8A6 /* AddBookManuallyNavigationController.swift */,
 				A53E2BDF241D063B0013152C /* BooksViewController.swift */,
 				A5AD99CD2422995200E0A6D9 /* BookDetailsViewController.swift */,
 				A58A1A6425137D7300A29444 /* ImagePicker.swift */,
@@ -245,6 +250,7 @@
 				A51854382497DC6E00983DB8 /* WelcomeViewController.swift */,
 				A599B80E24D0430D00163D1A /* UserProfileViewController.swift */,
 				A5528B0D2550091A00E1F8A6 /* TabBarController.swift */,
+				A5528B142550161900E1F8A6 /* BookDetailsViewNavigationController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -465,6 +471,7 @@
 				A59258AB24BE2C980066CACE /* BookCell.swift in Sources */,
 				A57B865F253F250600DAC9F2 /* MonthCell.swift in Sources */,
 				A53145852529CEE400AB66F7 /* UIColor.swift in Sources */,
+				A5528B152550161900E1F8A6 /* BookDetailsViewNavigationController.swift in Sources */,
 				A53E2BE0241D063B0013152C /* BooksViewController.swift in Sources */,
 				A50A465E254870C200E1F3DD /* ReadingEntriesBrain.swift in Sources */,
 				A5BF69D22530A056000A94A3 /* QuotesViewController.swift in Sources */,
@@ -474,6 +481,7 @@
 				A52830A624C5BED200BED289 /* ReadingHabits.swift in Sources */,
 				A5AD99CE2422995200E0A6D9 /* BookDetailsViewController.swift in Sources */,
 				A5918624241D430400002A11 /* AddBookManuallyViewController.swift in Sources */,
+				A5528B112550136600E1F8A6 /* AddBookManuallyNavigationController.swift in Sources */,
 				A50A465725486DA100E1F3DD /* ReadingEntryModel.swift in Sources */,
 				A599B81124D0491F00163D1A /* Utils.swift in Sources */,
 				A5EB58B3252F7E7500D90E0A /* UITextView.swift in Sources */,

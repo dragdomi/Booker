@@ -86,7 +86,7 @@ class BookDetailsViewController: UIViewController {
 		if let notesViewController = storyboard?.instantiateViewController(identifier: Constants.ViewControllers.notes) as? NotesViewController {
 			notesViewController.delegate = self
 			notesViewController.notes = book.notes
-			navigationController?.present(notesViewController, animated: true, completion: nil)
+			navigationController?.pushViewController(notesViewController, animated: true)
 		}
 	}
 	
@@ -101,9 +101,8 @@ class BookDetailsViewController: UIViewController {
 	}
 	
 	@IBAction func editButtonTapped(_ sender: UIButton) {
-		if let addBookViewController = storyboard?.instantiateViewController(identifier: Constants.ViewControllers.addBook) as? AddBookManuallyViewController {
+		if let addBookViewController = storyboard?.instantiateViewController(identifier: Constants.ViewControllers.addBook) as? AddBookManuallyViewController, let addBookViewNavigationController = storyboard?.instantiateViewController(identifier: Constants.ViewControllers.addBookNavigation) as? AddBookManuallyNavigationController {
 			addBookViewController.delegate = self
-			addBookViewController.title = "Edit Book"
 			addBookViewController.bookID = book.id
 			addBookViewController.bookCover = book.cover
 			addBookViewController.bookTitle = book.title
@@ -112,7 +111,9 @@ class BookDetailsViewController: UIViewController {
 			addBookViewController.bookPagesRead = book.pagesRead
 			addBookViewController.beginDate = Utils.formatStringToDate(book.beginDate)
 			addBookViewController.finishDate = Utils.formatStringToDate(book.finishDate)
-			navigationController?.pushViewController(addBookViewController, animated: true)
+			addBookViewController.title = "Edit Book"
+			addBookViewNavigationController.pushViewController(addBookViewController, animated: true)
+			navigationController?.present(addBookViewNavigationController, animated: true, completion: nil)
 		}
 	}
 	

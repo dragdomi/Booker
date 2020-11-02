@@ -45,7 +45,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T8v-PC-o6M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5749.275362318841" y="83.705357142857139"/>
+            <point key="canvasLocation" x="5668" y="84"/>
         </scene>
         <!--Add Book Manually View Controller-->
         <scene sceneID="Fjr-id-9Ux">
@@ -209,6 +209,7 @@
                             <constraint firstItem="aZc-Q0-EAN" firstAttribute="leading" secondItem="oIN-ug-NQi" secondAttribute="leading" constant="20" id="gqO-rc-m1d"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Fyj-yu-sJF"/>
                     <connections>
                         <outlet property="addBookButton" destination="3cR-AM-ciX" id="Lju-oI-17s"/>
                         <outlet property="bookAuthorTextField" destination="dLE-0C-vuA" id="G4K-aw-xIp"/>
@@ -224,7 +225,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uAJ-q4-QLh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6602.898550724638" y="83.705357142857139"/>
+            <point key="canvasLocation" x="7513.04347826087" y="83.705357142857139"/>
         </scene>
         <!--Habits-->
         <scene sceneID="Xjl-0S-ISg">
@@ -817,6 +818,7 @@
                             <constraint firstItem="kQD-PH-HVB" firstAttribute="leading" secondItem="26x-DT-fgx" secondAttribute="leading" constant="10" id="kGk-AB-gHL"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="ndX-4H-CJd"/>
                     <connections>
                         <outlet property="authorLabel" destination="Yni-fp-Znh" id="DRZ-Ep-O90"/>
                         <outlet property="beginDateLabel" destination="VcS-5U-wWL" id="se4-U9-Mho"/>
@@ -840,7 +842,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="99D-pK-6VY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7413.04347826087" y="83.705357142857139"/>
+            <point key="canvasLocation" x="6578" y="-610"/>
         </scene>
         <!--Notes View Controller-->
         <scene sceneID="LLF-jL-2A4">
@@ -1165,6 +1167,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Xbb-T1-MA3">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" name="Accent"/>
                     </tabBar>
                     <connections>
                         <segue destination="Zym-6P-s0z" kind="relationship" relationship="viewControllers" id="es5-pe-eou"/>
@@ -1193,6 +1196,36 @@
                 </navigationController>
             </objects>
             <point key="canvasLocation" x="4839.130434782609" y="83.705357142857139"/>
+        </scene>
+        <!--Add Book Manually Navigation Controller-->
+        <scene sceneID="AOM-tD-JG8">
+            <objects>
+                <navigationController storyboardIdentifier="AddBookViewNavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="j4r-2g-wCd" customClass="AddBookManuallyNavigationController" customModule="Booker___Book_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ef0-j6-mWH">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Rz-Nn-49R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6522" y="84"/>
+        </scene>
+        <!--Book Details View Navigation Controller-->
+        <scene sceneID="ljB-Hr-qNk">
+            <objects>
+                <navigationController storyboardIdentifier="BookDetailsViewNavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zJh-6x-qyb" customClass="BookDetailsViewNavigationController" customModule="Booker___Book_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pW0-HJ-qM0">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yYd-WT-MFl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5667" y="-610"/>
         </scene>
     </scenes>
     <color key="tintColor" name="Accent"/>

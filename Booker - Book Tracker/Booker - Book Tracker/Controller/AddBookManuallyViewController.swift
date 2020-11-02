@@ -37,7 +37,6 @@ class AddBookManuallyViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		title = "Add Book Manually"
 		self.imagePicker = ImagePicker(presentationController: self, delegate: self)
 		
 		if let safeBookCover = bookCover {
@@ -191,6 +190,7 @@ class AddBookManuallyViewController: UIViewController {
 		if let totalPages = bookTotalPages, let readPages = bookPagesRead  {
 			checkPagesValues(totalPages, readPages)
 		}
+		self.dismiss(animated: true, completion: nil)
 	}
 	
 	func checkPagesValues(_ totalPages: Int, _ readPages: Int) {

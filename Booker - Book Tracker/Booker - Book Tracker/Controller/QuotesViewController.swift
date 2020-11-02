@@ -122,7 +122,7 @@ extension QuotesViewController: UITableViewDelegate, UITableViewDataSource {
 			quoteViewController.delegate = self
 			quoteViewController.quoteID = indexPath.row
 			quoteViewController.quote = quotes[indexPath.row]
-			navigationController?.present(quoteViewController, animated: true, completion: nil)
+			navigationController?.pushViewController(quoteViewController, animated: true)
 		}
 	}
 	

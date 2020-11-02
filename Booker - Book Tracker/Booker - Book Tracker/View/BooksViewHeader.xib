@@ -18,13 +18,13 @@
                     <rect key="frame" x="0.0" y="0.0" width="389" height="65"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OFa-UR-Mix">
-                            <rect key="frame" x="20" y="41" width="17" height="24"/>
+                            <rect key="frame" x="10" y="41" width="17" height="24"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                             <color key="textColor" name="SecondaryText"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bj7-rs-xGk">
-                            <rect key="frame" x="20" y="0.0" width="349" height="32"/>
+                            <rect key="frame" x="10" y="0.0" width="369" height="32"/>
                             <color key="backgroundColor" name="LightPrimary"/>
                             <segments>
                                 <segment title="All"/>
@@ -38,7 +38,7 @@
                             </connections>
                         </segmentedControl>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gox-aB-gTr">
-                            <rect key="frame" x="345" y="41" width="24" height="24"/>
+                            <rect key="frame" x="355" y="41" width="24" height="24"/>
                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                             <color key="tintColor" name="Accent"/>
                             <state key="normal" image="arrow.up.arrow.down" catalog="system">
@@ -54,9 +54,9 @@
                         <constraint firstItem="OFa-UR-Mix" firstAttribute="centerY" secondItem="Gox-aB-gTr" secondAttribute="centerY" id="6UV-hN-eT1"/>
                         <constraint firstItem="Gox-aB-gTr" firstAttribute="trailing" secondItem="bj7-rs-xGk" secondAttribute="trailing" id="7Im-md-N8m"/>
                         <constraint firstItem="bj7-rs-xGk" firstAttribute="top" secondItem="CYw-Lk-xgV" secondAttribute="top" id="EVv-Y5-QZa"/>
-                        <constraint firstAttribute="trailing" secondItem="bj7-rs-xGk" secondAttribute="trailing" constant="20" id="NRp-ba-VIx"/>
+                        <constraint firstAttribute="trailing" secondItem="bj7-rs-xGk" secondAttribute="trailing" constant="10" id="NRp-ba-VIx"/>
                         <constraint firstItem="OFa-UR-Mix" firstAttribute="leading" secondItem="bj7-rs-xGk" secondAttribute="leading" id="Wvb-cL-vFo"/>
-                        <constraint firstItem="bj7-rs-xGk" firstAttribute="leading" secondItem="CYw-Lk-xgV" secondAttribute="leading" constant="20" id="X6g-5T-coH"/>
+                        <constraint firstItem="bj7-rs-xGk" firstAttribute="leading" secondItem="CYw-Lk-xgV" secondAttribute="leading" constant="10" id="X6g-5T-coH"/>
                         <constraint firstItem="OFa-UR-Mix" firstAttribute="top" secondItem="bj7-rs-xGk" secondAttribute="bottom" constant="10" id="kj2-pS-aJI"/>
                         <constraint firstItem="bj7-rs-xGk" firstAttribute="centerX" secondItem="CYw-Lk-xgV" secondAttribute="centerX" id="nl9-kw-Rcv"/>
                     </constraints>

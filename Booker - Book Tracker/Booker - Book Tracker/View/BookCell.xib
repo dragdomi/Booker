@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,33 +17,33 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m0I-ry-7mc">
-                        <rect key="frame" x="20.5" y="3" width="373" height="80"/>
+                        <rect key="frame" x="10" y="3" width="394" height="80"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d2C-Hg-PoM" userLabel="Title Label">
-                                <rect key="frame" x="62.5" y="5" width="300.5" height="24"/>
+                                <rect key="frame" x="62.5" y="5" width="321.5" height="24"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                 <color key="highlightedColor" name="PrimaryText"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X0Q-rR-ZCJ" userLabel="Author Label">
-                                <rect key="frame" x="62.5" y="34" width="153" height="18"/>
+                                <rect key="frame" x="62.5" y="34" width="163.5" height="18"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                 <color key="textColor" name="SecondaryText"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="50%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2P0-OQ-UpO">
-                                <rect key="frame" x="322" y="34" width="46" height="18"/>
+                                <rect key="frame" x="340" y="34" width="49" height="18"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                 <color key="textColor" name="SecondaryText"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QVg-hx-hbD">
-                                <rect key="frame" x="215.5" y="34" width="106.5" height="18"/>
+                                <rect key="frame" x="226" y="34" width="114" height="18"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                 <color key="textColor" name="SecondaryText"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E7k-9k-bwW" customClass="HorizontalProgressBar" customModule="Booker___Book_Tracker">
-                                <rect key="frame" x="62.5" y="57" width="305.5" height="6"/>
+                                <rect key="frame" x="62.5" y="57" width="326.5" height="6"/>
                                 <color key="backgroundColor" name="Divider"/>
                                 <color key="tintColor" name="Accent"/>
                                 <constraints>
@@ -85,11 +85,12 @@
                 </subviews>
                 <color key="backgroundColor" name="Divider"/>
                 <constraints>
-                    <constraint firstItem="m0I-ry-7mc" firstAttribute="width" secondItem="emB-Gk-Til" secondAttribute="width" multiplier="0.9" id="7SA-hg-odv"/>
                     <constraint firstItem="m0I-ry-7mc" firstAttribute="centerX" secondItem="emB-Gk-Til" secondAttribute="centerX" id="EYj-aH-lxm"/>
+                    <constraint firstItem="m0I-ry-7mc" firstAttribute="leading" secondItem="emB-Gk-Til" secondAttribute="leading" constant="10" id="ewK-bo-HRh"/>
                     <constraint firstItem="m0I-ry-7mc" firstAttribute="top" secondItem="emB-Gk-Til" secondAttribute="top" constant="3" id="fNq-mG-Vzf"/>
                     <constraint firstAttribute="bottom" secondItem="m0I-ry-7mc" secondAttribute="bottom" constant="3" id="hnM-PN-DgW"/>
                     <constraint firstItem="m0I-ry-7mc" firstAttribute="centerY" secondItem="emB-Gk-Til" secondAttribute="centerY" id="jNe-Hs-Vvo"/>
+                    <constraint firstAttribute="trailing" secondItem="m0I-ry-7mc" secondAttribute="trailing" constant="10" id="xRp-FK-W9Y"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

@@ -45,9 +45,7 @@ class BooksViewController: UIViewController, AddBookManuallyViewControllerDelega
 	func setupUI() {
 		navigationController?.navigationBar.shadowImage = UIImage()
 		navigationItem.hidesBackButton = true
-//		navigationItem.leftBarButtonItem = UIBarButtonItem(title: "···", style: .done, target: self, action: #selector(showMenu))
-		
-		navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "ellipsis"), style: .plain, target: self, action: #selector(showMenu))
+		navigationController?.navigationBar.prefersLargeTitles = true
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBookButtonTapped))
 		tabBarItem.image = UIImage(systemName: "books.vertical")
 		
@@ -120,31 +118,6 @@ class BooksViewController: UIViewController, AddBookManuallyViewControllerDelega
 		reloadBooks(searchBy: searchText)
 	}
 	
-	@objc func showMenu() {
-		let menuView = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-		
-		let showReadingHabits = UIAlertAction(title: "Reading Habits", style: .default) { _ in
-			if let readingHabitsViewController = self.storyboard?.instantiateViewController(identifier: Constants.ViewControllers.readingHabits) as? ReadingHabitsViewController {
-				self.navigationController?.pushViewController(readingHabitsViewController, animated: true)
-			}
-		}
-		
-		let showUserProfile = UIAlertAction(title: "My Profile", style: .default) { _ in
-			if let userProfileViewController = self.storyboard?.instantiateViewController(identifier: Constants.ViewControllers.userProfile) as? UserProfileViewController {
-				self.navigationController?.pushViewController(userProfileViewController, animated: true)
-			}
-		}
-		
-		let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-		
-		menuView.addAction(showReadingHabits)
-		menuView.addAction(showUserProfile)
-		menuView.addAction(cancel)
-		menuView.view.tintColor = .accent
-		
-		present(menuView, animated: true, completion: nil)
-	}
-	
 	@objc func addBookButtonTapped() {
 		let addBookMenu = UIAlertController(title: "Add Book", message: nil, preferredStyle: .alert)
 		let scanBarcode = UIAlertAction(title: "Scan Barcode", style: .default, handler: nil)
@@ -164,10 +137,12 @@ class BooksViewController: UIViewController, AddBookManuallyViewControllerDelega
 	}
 	
 	func addBookManually() {
-		if let addBookViewController = storyboard?.instantiateViewController(identifier: Constants.ViewControllers.addBook) as? AddBookManuallyViewController {
+		if let addBookViewController = storyboard?.instantiateViewController(identifier: Constants.ViewControllers.addBook) as? AddBookManuallyViewController, let addBookViewNavigationController = storyboard?.instantiateViewController(identifier: Constants.ViewControllers.addBookNavigation) as? AddBookManuallyNavigationController {
 			addBookViewController.delegate = self
 			addBookViewController.bookID = getFreeBookID()
-			navigationController?.pushViewController(addBookViewController, animated: true)
+			addBookViewController.title = "Add Book"
+			addBookViewNavigationController.pushViewController(addBookViewController, animated: true)
+			navigationController?.present(addBookViewNavigationController, animated: true, completion: nil)
 		}
 	}
 	
@@ -241,10 +216,13 @@ extension BooksViewController: UITableViewDataSource, UITableViewDelegate {
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		if let bookDetailsViewController = storyboard?.instantiateViewController(identifier: Constants.ViewControllers.bookDetails) as? BookDetailsViewController {
-			bookDetailsViewController.book = books[indexPath.row]
+		if let bookDetailsViewController = storyboard?.instantiateViewController(identifier: Constants.ViewControllers.bookDetails) as? BookDetailsViewController, let bookDetailsViewNavigationController = storyboard?.instantiateViewController(identifier: Constants.ViewControllers.bookDetailsNavigation) as? BookDetailsViewNavigationController {
+			let book = books[indexPath.row]
+			bookDetailsViewController.book = book
 			bookDetailsViewController.delegate = self
-			self.navigationController?.pushViewController(bookDetailsViewController, animated: true)
+			bookDetailsViewController.title = book.title
+			bookDetailsViewNavigationController.pushViewController(bookDetailsViewController, animated: true)
+			self.navigationController?.present(bookDetailsViewNavigationController, animated: true, completion: nil)
 		}
 	}
 	
