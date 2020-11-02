@@ -31,7 +31,6 @@ struct Constants {
 		static let register = "RegisterViewController"
 		static let readingHabits = "ReadingHabitsViewController"
 		static let tabBar = "TabBarController"
-		static let userProfile = "UserProfileViewController"
 	}
 	
 	struct FStore {
