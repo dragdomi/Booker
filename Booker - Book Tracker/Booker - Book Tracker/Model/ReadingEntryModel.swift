@@ -12,7 +12,7 @@ import RealmSwift
 class ReadingEntryModel: Object, Codable {
 	@objc dynamic var date: String
 	@objc dynamic var pages: Int
-	var books = List<BookModel>()
+	@objc dynamic var books: Int
 	
 	func getDatePart(part: String) -> String? {
 		var startIndex: String.Index?
@@ -47,10 +47,10 @@ class ReadingEntryModel: Object, Codable {
 	required init() {
 		self.date = ""
 		self.pages = 0
-		self.books = List<BookModel>()
+		self.books = 0
 	}
 	
-	init(date: String, pages: Int, books: List<BookModel>) {
+	init(date: String, pages: Int, books: Int) {
 		self.date = date
 		self.pages = pages
 		self.books = books

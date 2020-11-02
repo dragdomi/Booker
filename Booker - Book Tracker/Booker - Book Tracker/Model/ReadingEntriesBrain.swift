@@ -46,10 +46,10 @@ class ReadingEntriesBrain {
 		loadReadingEntriesFromRealm()
 	}
 	
-	static func addBookToEntry(with date: String, book: BookModel) {
+	static func addBooksToEntry(with date: String, books: Int) {
 		let entry = getReadingEntry(with: date)
 		try! realm.write {
-			entry.books.append(book)
+			entry.books += 1
 		}
 		
 		loadReadingEntriesFromRealm()
@@ -72,7 +72,7 @@ class ReadingEntriesBrain {
 			}
 		}
 		
-		let entry = ReadingEntryModel(date: date, pages: 0, books: List<BookModel>())
+		let entry = ReadingEntryModel(date: date, pages: 0, books: 0)
 		addReadingEntry(entry)
 		return entry
 	}
@@ -92,7 +92,7 @@ class ReadingEntriesBrain {
 		var booksNumber = 0
 		for entry in readingEntries {
 			if entry.getDatePart(part: "month") == month && entry.getDatePart(part: "year") == year {
-				booksNumber += entry.books.count
+				booksNumber += entry.books
 			}
 		}
 		

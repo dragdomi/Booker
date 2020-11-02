@@ -47,7 +47,7 @@ class BookDetailsViewController: UIViewController {
 		if !book.isFinished() {
 			let pagesToAdd = book.totalPages - book.pagesRead
 			ReadingEntriesBrain.addPagesToEntry(with: date, pages: pagesToAdd)
-			ReadingEntriesBrain.addBookToEntry(with: date, book: book)
+			ReadingEntriesBrain.addBooksToEntry(with: date, books: 1)
 			
 			try! RealmController.getBooksRealm().write {
 				RealmController.getBooksRealm().create(BookModel.self, value: ["id":book.id, "pagesRead": book.totalPages, "lastReadDate": date, "finishDate": date], update: .modified)
@@ -230,7 +230,7 @@ class BookDetailsViewController: UIViewController {
 				if (book.isFinished()) {
 					try! RealmController.getBooksRealm().write {
 						RealmController.getBooksRealm().create(BookModel.self, value: ["id":book.id, "finishDate": date], update: .modified)
-						ReadingEntriesBrain.addBookToEntry(with: date, book: book)
+						ReadingEntriesBrain.addBooksToEntry(with: date, books: 1)
 						showBookFinishedView()
 					}
 				} else {

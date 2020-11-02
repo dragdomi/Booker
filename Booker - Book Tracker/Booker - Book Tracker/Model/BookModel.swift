@@ -34,16 +34,16 @@ class BookModel: Object, Codable, Comparable {
 	func getReadingState() -> String {
 		switch getPercentage() {
 		case 0:
-			return "Not Started"
+			return "To Read"
 		case 100:
-			return "Finished"
+			return "Read"
 		default:
-			return "In Progress"
+			return "Reading"
 		}
 	}
 	
 	func isFinished() -> Bool {
-		if getReadingState() == "Finished" {
+		if getReadingState() == "Read" {
 			return true
 		} else {
 			return false
@@ -56,7 +56,7 @@ class BookModel: Object, Codable, Comparable {
 		let components: DateComponents?
 		let readTime: Int?
 		
-		if getReadingState() == "Finished" {
+		if getReadingState() == "Read" {
 			let finishDate = calendar.startOfDay(for: Utils.formatStringToDate(self.finishDate)!)
 			components = calendar.dateComponents([.day], from: beginDate, to: finishDate)
 		} else {

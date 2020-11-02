@@ -26,17 +26,17 @@ class BooksViewHeader: UITableViewHeaderFooterView {
 			updateLabel()
 			
 		case 1:
-			presenter?.reloadBooks(filterBy: "inProgress")
+			presenter?.reloadBooks(filterBy: "reading")
 			filteredBy = sender.titleForSegment(at: sender.selectedSegmentIndex)!
 			updateLabel()
 			
 		case 2:
-			presenter?.reloadBooks(filterBy: "finished")
+			presenter?.reloadBooks(filterBy: "read")
 			filteredBy = sender.titleForSegment(at: sender.selectedSegmentIndex)!
 			updateLabel()
 			
 		case 3:
-			presenter?.reloadBooks(filterBy: "notStarted")
+			presenter?.reloadBooks(filterBy: "toRead")
 			filteredBy = sender.titleForSegment(at: sender.selectedSegmentIndex)!
 			updateLabel()
 			

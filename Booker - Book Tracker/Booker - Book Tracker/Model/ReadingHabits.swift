@@ -41,7 +41,7 @@ class ReadingHabits {
 	
 	//MARK: - Books
 	
-	static func getBooksNotStarted() -> [BookModel] {
+	static func toRead() -> [BookModel] {
 		var booksNotStarted = [BookModel]()
 		let books = BooksBrain.getBooks()
 		for book in books {
@@ -74,7 +74,7 @@ class ReadingHabits {
 	}
 	
 	static func getBooksNotStartedNumber() -> Int {
-		return getBooksNotStarted().count
+		return toRead().count
 	}
 	
 	static func getBooksInProgressNumber() -> Int {

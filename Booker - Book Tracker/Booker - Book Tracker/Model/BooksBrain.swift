@@ -52,14 +52,14 @@ class BooksBrain {
 	
 	static func getBooksFiltered(books: [BookModel], by filter: String) -> [BookModel] {
 		switch filter {
-		case "finished":
+		case "read":
 			return ReadingHabits.getBooksRead()
 			
-		case "inProgress":
+		case "reading":
 			return ReadingHabits.getBooksInProgress()
 			
-		case "notStarted":
-			return ReadingHabits.getBooksNotStarted()
+		case "toRead":
+			return ReadingHabits.toRead()
 			
 		default:
 			return books
