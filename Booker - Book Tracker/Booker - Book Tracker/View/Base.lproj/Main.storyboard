@@ -671,13 +671,36 @@
                                                                     <constraint firstItem="iII-e7-M4N" firstAttribute="width" secondItem="ev6-k3-dgo" secondAttribute="width" multiplier="0.33" constant="1" id="JIA-ac-30T"/>
                                                                 </constraints>
                                                             </stackView>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Hy-3C-3kt" customClass="CircularProgressBar" customModule="Booker___Book_Tracker" customModuleProvider="target">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tZ5-5a-5Ue">
                                                                 <rect key="frame" x="274" y="0.0" width="100" height="100"/>
-                                                                <color key="backgroundColor" name="Divider"/>
-                                                                <color key="tintColor" name="Accent"/>
+                                                                <subviews>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="wg5-8U-rrn">
+                                                                        <rect key="frame" x="25" y="27" width="50" height="46.5"/>
+                                                                        <color key="tintColor" name="Primary"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" secondItem="wg5-8U-rrn" secondAttribute="height" multiplier="1:1" id="33E-Z3-41m"/>
+                                                                        </constraints>
+                                                                    </imageView>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Hy-3C-3kt" customClass="CircularProgressBar" customModule="Booker___Book_Tracker" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                                        <color key="backgroundColor" name="Divider"/>
+                                                                        <color key="tintColor" name="Accent"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" secondItem="4Hy-3C-3kt" secondAttribute="height" multiplier="1:1" id="a4k-fA-Eee"/>
+                                                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="100" id="pYH-4T-xUw"/>
+                                                                        </constraints>
+                                                                    </view>
+                                                                </subviews>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" secondItem="4Hy-3C-3kt" secondAttribute="height" multiplier="1:1" id="a4k-fA-Eee"/>
-                                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="100" id="pYH-4T-xUw"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="4Hy-3C-3kt" secondAttribute="bottom" id="ABM-vH-983"/>
+                                                                    <constraint firstItem="4Hy-3C-3kt" firstAttribute="top" secondItem="tZ5-5a-5Ue" secondAttribute="top" id="Hqo-bw-opF"/>
+                                                                    <constraint firstItem="wg5-8U-rrn" firstAttribute="height" secondItem="4Hy-3C-3kt" secondAttribute="height" multiplier="0.5" id="JPv-4H-gLY"/>
+                                                                    <constraint firstItem="wg5-8U-rrn" firstAttribute="centerY" secondItem="tZ5-5a-5Ue" secondAttribute="centerY" id="XCs-dX-Kkv"/>
+                                                                    <constraint firstItem="4Hy-3C-3kt" firstAttribute="leading" secondItem="tZ5-5a-5Ue" secondAttribute="leading" id="XXU-bd-cgB"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="4Hy-3C-3kt" secondAttribute="trailing" id="dNO-UT-Di0"/>
+                                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="igA-Gr-MUB"/>
+                                                                    <constraint firstAttribute="width" secondItem="tZ5-5a-5Ue" secondAttribute="height" multiplier="1:1" id="jE1-KH-ip1"/>
+                                                                    <constraint firstItem="wg5-8U-rrn" firstAttribute="centerX" secondItem="tZ5-5a-5Ue" secondAttribute="centerX" id="zS9-QQ-pad"/>
                                                                 </constraints>
                                                             </view>
                                                         </subviews>
@@ -846,6 +869,7 @@
                         <outlet property="lastReadDateLabel" destination="aax-8A-3Yi" id="6lz-hT-VQI"/>
                         <outlet property="notesButton" destination="8xI-lg-1Uc" id="kCl-b6-52c"/>
                         <outlet property="progressBar" destination="4Hy-3C-3kt" id="vYZ-Bh-4WK"/>
+                        <outlet property="progressImage" destination="wg5-8U-rrn" id="Dbs-im-Dfs"/>
                         <outlet property="progressLabel" destination="3tJ-LR-Yx6" id="YGu-jI-e4e"/>
                         <outlet property="quotesButton" destination="xhT-rq-UN1" id="oFW-Od-DvT"/>
                         <outlet property="ratingView" destination="Kwv-H3-NOt" id="yFy-Fb-cZD"/>
@@ -858,7 +882,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="99D-pK-6VY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6522" y="-610"/>
+            <point key="canvasLocation" x="6521.739130434783" y="-610.04464285714278"/>
         </scene>
         <!--Notes View Controller-->
         <scene sceneID="LLF-jL-2A4">
@@ -1166,6 +1190,7 @@
                 <tabBarController storyboardIdentifier="TabBarController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="med-F0-HBS" customClass="TabBarController" customModule="Booker___Book_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Xbb-T1-MA3">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="selectedImageTintColor" name="Accent"/>
@@ -1183,7 +1208,6 @@
         <!--Books-->
         <scene sceneID="nbI-ra-cY6">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kNF-UA-HqO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Zym-6P-s0z" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Books" image="books.vertical" catalog="system" selectedImage="books.vertical" id="RA2-iM-eaJ"/>
                     <toolbarItems/>
@@ -1196,6 +1220,7 @@
                         <segue destination="0Q0-7Q-Gaz" kind="relationship" relationship="rootViewController" id="kEj-d6-fgL"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kNF-UA-HqO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4839.130434782609" y="83.705357142857139"/>
         </scene>

@@ -27,6 +27,7 @@ class BookDetailsViewController: UIViewController {
 	@IBOutlet weak var totalPagesLabel: UILabel!
 	@IBOutlet weak var readTimeLabel: UILabel!
 	@IBOutlet weak var progressBar: CircularProgressBar!
+	@IBOutlet weak var progressImage: UIImageView!
 	
 	@IBOutlet weak var beginDateLabel: UILabel!
 	@IBOutlet weak var lastReadDateLabel: UILabel!
@@ -176,7 +177,7 @@ class BookDetailsViewController: UIViewController {
 		progressLabel.text = "\(Int(book.getPercentage()))% (Page \(book.pagesRead))"
 		totalPagesLabel.text = "\(book.totalPages)"
 		readTimeLabel.text = "\(book.getReadTime()) \(getReadTimeUnit())"
-		progressBar.setProgress(CGFloat(book.getPercentage() / 100.0))
+		updateProgress()
 		
 		if book.beginDate != "" {
 			beginDateLabel.text = "\(book.beginDate)"
@@ -197,6 +198,15 @@ class BookDetailsViewController: UIViewController {
 		}
 		
 		ratingView.rating = book.rating
+	}
+	
+	func updateProgress() {
+		progressBar.setProgress(CGFloat(book.getPercentage() / 100.0))
+		if book.isFinished() {
+			progressImage.image = UIImage(systemName: "checkmark")
+		} else {
+			progressImage.image = UIImage()
+		}
 	}
 	
 	func getReadTimeUnit() -> String {

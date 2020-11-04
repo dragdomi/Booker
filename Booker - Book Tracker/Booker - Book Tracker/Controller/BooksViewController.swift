@@ -125,10 +125,12 @@ class BooksViewController: UIViewController, AddBookManuallyViewControllerDelega
 		let addBookManually = UIAlertAction(title: "Add Manually", style: .default) { _ in
 			self.addBookManually()
 		}
+		let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
 		
 		addBookMenu.addAction(scanBarcode)
 		addBookMenu.addAction(searchOnline)
 		addBookMenu.addAction(addBookManually)
+		addBookMenu.addAction(cancel)
 		
 		addBookMenu.view.tintColor = UIColor.accent
 		

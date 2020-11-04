@@ -14,7 +14,10 @@ class CircularProgressBar: UIView {
 	@IBInspectable var color: UIColor? = .primary {
         didSet { setNeedsDisplay() }
     }
-    @IBInspectable var ringWidth: CGFloat = 25
+	
+	@IBInspectable var ringWidth: CGFloat = 10 {
+		didSet { setNeedsDisplay() }
+	}
 
     var progress: CGFloat = 0 {
         didSet { setNeedsDisplay() }
