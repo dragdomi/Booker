@@ -121,7 +121,9 @@ class BooksViewController: UIViewController, AddBookManuallyViewControllerDelega
 	@objc func addBookButtonTapped() {
 		let addBookMenu = UIAlertController(title: "Add Book", message: nil, preferredStyle: .alert)
 		let scanBarcode = UIAlertAction(title: "Scan Barcode", style: .default, handler: nil)
-		let searchOnline = UIAlertAction(title: "Search Online", style: .default, handler: nil)
+		let searchOnline = UIAlertAction(title: "Search Online", style: .default) { _ in
+			self.searchOnline()
+		}
 		let addBookManually = UIAlertAction(title: "Add Manually", style: .default) { _ in
 			self.addBookManually()
 		}
@@ -138,8 +140,15 @@ class BooksViewController: UIViewController, AddBookManuallyViewControllerDelega
 		
 	}
 	
+	func searchOnline() {
+		if let searchOnlineViewController = storyboard?.instantiateViewController(identifier: Constants.ViewControllers.searchOnline) as? SearchOnlineViewController, let searchOnlineViewNavigationController = storyboard?.instantiateViewController(identifier: Constants.ViewControllers.searchOnlineNavigation) as? SearchOnlineViewNavigationController {
+			searchOnlineViewNavigationController.pushViewController(searchOnlineViewController, animated: true)
+			navigationController?.present(searchOnlineViewNavigationController, animated: true, completion: nil)
+		}
+	}
+	
 	func addBookManually() {
-		if let addBookViewController = storyboard?.instantiateViewController(identifier: Constants.ViewControllers.addBook) as? AddBookManuallyViewController, let addBookViewNavigationController = storyboard?.instantiateViewController(identifier: Constants.ViewControllers.addBookNavigation) as? AddBookManuallyNavigationController {
+		if let addBookViewController = storyboard?.instantiateViewController(identifier: Constants.ViewControllers.addBook) as? AddBookManuallyViewController, let addBookViewNavigationController = storyboard?.instantiateViewController(identifier: Constants.ViewControllers.addBookNavigation) as? AddBookManuallyViewNavigationController {
 			addBookViewController.delegate = self
 			addBookViewController.bookID = getFreeBookID()
 			addBookViewController.title = "Add Book"

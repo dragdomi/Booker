@@ -45,7 +45,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T8v-PC-o6M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5668" y="84"/>
+            <point key="canvasLocation" x="5667" y="84"/>
         </scene>
         <!--Add Book Manually View Controller-->
         <scene sceneID="Fjr-id-9Ux">
@@ -225,7 +225,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uAJ-q4-QLh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7513.04347826087" y="83.705357142857139"/>
+            <point key="canvasLocation" x="7406" y="84"/>
         </scene>
         <!--More-->
         <scene sceneID="hhC-ev-NsH">
@@ -882,7 +882,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="99D-pK-6VY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6521.739130434783" y="-610.04464285714278"/>
+            <point key="canvasLocation" x="6522" y="-915"/>
         </scene>
         <!--Notes View Controller-->
         <scene sceneID="LLF-jL-2A4">
@@ -916,7 +916,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nlf-nM-btw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5667" y="788"/>
+            <point key="canvasLocation" x="7406" y="-1258"/>
         </scene>
         <!--Quotes View Controller-->
         <scene sceneID="6bp-gX-pTX">
@@ -974,7 +974,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dJT-2Z-bF9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6522" y="788"/>
+            <point key="canvasLocation" x="7406" y="-573"/>
         </scene>
         <!--Quote View Controller-->
         <scene sceneID="RR5-mG-pcb">
@@ -1007,7 +1007,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nen-Za-fbk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6522" y="1453"/>
+            <point key="canvasLocation" x="8288" y="-573"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="8WC-Xi-LoT">
@@ -1224,10 +1224,10 @@
             </objects>
             <point key="canvasLocation" x="4839.130434782609" y="83.705357142857139"/>
         </scene>
-        <!--Add Book Manually Navigation Controller-->
+        <!--Add Book Manually View Navigation Controller-->
         <scene sceneID="AOM-tD-JG8">
             <objects>
-                <navigationController storyboardIdentifier="AddBookViewNavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="j4r-2g-wCd" customClass="AddBookManuallyNavigationController" customModule="Booker___Book_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="AddBookViewNavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="j4r-2g-wCd" customClass="AddBookManuallyViewNavigationController" customModule="Booker___Book_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ef0-j6-mWH">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -1238,6 +1238,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Rz-Nn-49R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6522" y="84"/>
+        </scene>
+        <!--Search Online View Controller-->
+        <scene sceneID="Y2w-BX-nUX">
+            <objects>
+                <viewController storyboardIdentifier="SearchOnlineViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="q5Z-HX-1yt" customClass="SearchOnlineViewController" customModule="Booker___Book_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YBh-Ar-lxF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="M73-Mq-ek2">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SearchOnlineCell" id="Ul6-Un-zVy">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ul6-Un-zVy" id="RwM-TB-HGg">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="acx-nw-RVH"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="acx-nw-RVH" firstAttribute="trailing" secondItem="M73-Mq-ek2" secondAttribute="trailing" id="Atn-BV-4EM"/>
+                            <constraint firstAttribute="bottom" secondItem="M73-Mq-ek2" secondAttribute="bottom" id="FlA-Sk-Gn8"/>
+                            <constraint firstItem="M73-Mq-ek2" firstAttribute="top" secondItem="acx-nw-RVH" secondAttribute="top" id="ZmK-Xy-gvb"/>
+                            <constraint firstItem="M73-Mq-ek2" firstAttribute="leading" secondItem="acx-nw-RVH" secondAttribute="leading" id="ltq-JP-OEt"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="VYZ-Vv-HT6"/>
+                    <connections>
+                        <outlet property="tableView" destination="M73-Mq-ek2" id="MH1-uU-NXE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6wg-wF-COj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7406" y="788"/>
         </scene>
         <!--Book Details View Navigation Controller-->
         <scene sceneID="ljB-Hr-qNk">
@@ -1252,7 +1293,22 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yYd-WT-MFl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5667" y="-610"/>
+            <point key="canvasLocation" x="5667" y="-915"/>
+        </scene>
+        <!--Search Online View Navigation Controller-->
+        <scene sceneID="s5b-bY-DFx">
+            <objects>
+                <navigationController storyboardIdentifier="SearchOnlineViewNavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="U2j-Xo-jUJ" customClass="SearchOnlineViewNavigationController" customModule="Booker___Book_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ok7-Ax-rLh">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Ul-YA-AId" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6522" y="788"/>
         </scene>
     </scenes>
     <color key="tintColor" name="Accent"/>

@@ -8,10 +8,13 @@
 
 struct Constants {
 	static let appName = "Booker 📚"
+	static let apiKey = "AIzaSyAzWlMw3BQXPdqFEnEwBO9adCO-PIodw94"
 	static let dateFormat = "dd.MM.yyyy"
 	static let bookCellIdentifier = "BookCell"
 	static let bookCellNibName = "BookCell"
 	static let booksHeaderIdentifier = "BooksViewHeader"
+	static let searchOnlineCellIdentifier = "SearchOnlineCell"
+	static let searchOnlineCellNibName = "SearchOnlineCell"
 	static let monthCellIdentifier = "MonthCell"
 	static let monthCellNibName = "MonthCell"
 	static let quoteCellIdentifier = "QuoteCell"
@@ -30,6 +33,8 @@ struct Constants {
 		static let quotes = "QuotesViewController"
 		static let register = "RegisterViewController"
 		static let readingHabits = "ReadingHabitsViewController"
+		static let searchOnline = "SearchOnlineViewController"
+		static let searchOnlineNavigation = "SearchOnlineViewNavigationController"
 		static let tabBar = "TabBarController"
 	}
 	

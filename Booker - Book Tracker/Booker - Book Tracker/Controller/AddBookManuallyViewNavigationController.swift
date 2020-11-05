@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddBookManuallyNavigationController: UINavigationController {
+class AddBookManuallyViewNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }

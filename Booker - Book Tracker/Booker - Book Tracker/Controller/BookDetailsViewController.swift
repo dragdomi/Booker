@@ -102,7 +102,7 @@ class BookDetailsViewController: UIViewController {
 	}
 	
 	@IBAction func editButtonTapped(_ sender: UIButton) {
-		if let addBookViewController = storyboard?.instantiateViewController(identifier: Constants.ViewControllers.addBook) as? AddBookManuallyViewController, let addBookViewNavigationController = storyboard?.instantiateViewController(identifier: Constants.ViewControllers.addBookNavigation) as? AddBookManuallyNavigationController {
+		if let addBookViewController = storyboard?.instantiateViewController(identifier: Constants.ViewControllers.addBook) as? AddBookManuallyViewController, let addBookViewNavigationController = storyboard?.instantiateViewController(identifier: Constants.ViewControllers.addBookNavigation) as? AddBookManuallyViewNavigationController {
 			addBookViewController.delegate = self
 			addBookViewController.bookID = book.id
 			addBookViewController.bookCover = book.cover
@@ -202,9 +202,14 @@ class BookDetailsViewController: UIViewController {
 	
 	func updateProgress() {
 		progressBar.setProgress(CGFloat(book.getPercentage() / 100.0))
-		if book.isFinished() {
+		switch book.getReadingState() {
+		case "To Read":
+			progressImage.image = UIImage(systemName: "books.vertical.fill")
+		case "Reading":
+			progressImage.image = UIImage(systemName: "bookmark.fill")
+		case "Read":
 			progressImage.image = UIImage(systemName: "checkmark")
-		} else {
+		default:
 			progressImage.image = UIImage()
 		}
 	}
