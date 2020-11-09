@@ -13,17 +13,15 @@ import UIKit
 class SearchOnlineViewController: UIViewController {
 	let networkingManager = NetworkingManager()
 	var searchController = UISearchController()
-	var books: [Item] = [] {
-		didSet {
-			tableView.reloadData()
-		}
-	}
+	var books: [Item] = []
 	var selectedBook: Item?
 	var searchText: String?
 	@IBOutlet weak var tableView: UITableView!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		tableView.dataSource = self
+		tableView.delegate = self
 		setupUI()
 	}
 	
@@ -58,11 +56,16 @@ class SearchOnlineViewController: UIViewController {
 		networkingManager.load(query: query)
 //		print(networkingManager.items)
 		self.books = networkingManager.items
+		tableView.reloadData()
 	}
 	
 }
 
 extension SearchOnlineViewController: UITableViewDataSource, UITableViewDelegate {
+	func numberOfSections(in tableView: UITableView) -> Int {
+		return 1
+	}
+
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return books.count
 	}
@@ -72,9 +75,9 @@ extension SearchOnlineViewController: UITableViewDataSource, UITableViewDelegate
 		cell.textLabel?.text = books[indexPath.row].volumeInfo.title
 		return cell
 	}
-	
-	
 }
+
+//TODO: - Fix removing whitespaces from search text
 
 extension SearchOnlineViewController: UISearchResultsUpdating {
 	func updateSearchResults(for searchController: UISearchController) {

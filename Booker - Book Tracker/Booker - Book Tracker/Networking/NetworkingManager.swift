@@ -130,7 +130,7 @@ class NetworkingManager {
 	
 	func decodeJSON(data: Data)  {
 		do {
-			let json = try JSONDecoder().decode(Welcome.self, from: data )
+			let json = try JSONDecoder().decode(Welcome.self, from: data)
 			items = json.items
 		} catch {
 			print("Error during JSON serialization: \(error.localizedDescription)")
